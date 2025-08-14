@@ -48,7 +48,7 @@ def main():
         for entry in leaderboard_data["Entries"]:
             x +=1
             print(x)
-            if(x == 300):
+            if(x == 500):
                 break
             player_name = entry.get("Name") or entry.get("name")
             upgrades = entry.get("Score", 0) or entry.get("score", 0)
@@ -75,7 +75,7 @@ def main():
             for item in range(1,9):
                 if(item == 5):
                     enchant_boost = equipments.get(str(item), {}).get("Boosts", {}).get("100", 0)
-                infusions = equipments.get(str(item), {}).get("Infusions", {})
+                infusions = equipments.get(str(item), {}).get("Infusions", 0)
                 base_boost = equipments.get(str(item), {}).get("Boosts", {}).get("40", 0)
                 equip_percent = (base_boost * (1 + 0.05 * infusions)) / 50
                 totalEquipmentBoosts += equip_percent
