@@ -1,0 +1,125 @@
+{
+  "lastUpdated": "2025-08-14T16:42:39.871672Z",
+  "guilds": [
+    {
+      "GuildName": "Spaghetti and Meatballs",
+      "StudyLevel": 295,
+      "NexusLevel": 444
+    },
+    {
+      "GuildName": "RNG",
+      "StudyLevel": 275,
+      "NexusLevel": 403
+    },
+    {
+      "GuildName": "Divinity",
+      "StudyLevel": 271,
+      "NexusLevel": 388
+    },
+    {
+      "GuildName": "Sanctuary",
+      "StudyLevel": 300,
+      "NexusLevel": 376
+    },
+    {
+      "GuildName": "Phoenix",
+      "StudyLevel": 238,
+      "NexusLevel": 364
+    },
+    {
+      "GuildName": "Codex",
+      "StudyLevel": 226,
+      "NexusLevel": 263
+    },
+    {
+      "GuildName": "EZ ",
+      "StudyLevel": 200,
+      "NexusLevel": 254
+    },
+    {
+      "GuildName": "The First Ones",
+      "StudyLevel": 160,
+      "NexusLevel": 237
+    },
+    {
+      "GuildName": "Doomed",
+      "StudyLevel": 160,
+      "NexusLevel": 234
+    },
+    {
+      "GuildName": "Test Guild Please Ignore",
+      "StudyLevel": 266,
+      "NexusLevel": 210
+    },
+    {
+      "GuildName": "Imperium",
+      "StudyLevel": 186,
+      "NexusLevel": 200
+    },
+    {
+      "GuildName": "Racc City",
+      "StudyLevel": 180,
+      "NexusLevel": 200
+    },
+    {
+      "GuildName": "Hack n Slash",
+      "StudyLevel": 160,
+      "NexusLevel": 185
+    },
+    {
+      "GuildName": "Caliburnus",
+      "StudyLevel": 138,
+      "NexusLevel": 184
+    },
+    {
+      "GuildName": "Dino Nuggies",
+      "StudyLevel": 128,
+      "NexusLevel": 175
+    },
+    {
+      "GuildName": "Bureau of Feline Investigators",
+      "StudyLevel": 165,
+      "NexusLevel": 171
+    },
+    {
+      "GuildName": "Osmanthus",
+      "StudyLevel": 141,
+      "NexusLevel": 163
+    },
+    {
+      "GuildName": "Manarion Adventures",
+      "StudyLevel": 128,
+      "NexusLevel": 128
+    },
+    {
+      "GuildName": "MooseKnuckles",
+      "StudyLevel": 115,
+      "NexusLevel": 115
+    },
+    {
+      "GuildName": "Cats",
+      "StudyLevel": 100,
+      "NexusLevel": 114
+    },
+    {
+      "GuildName": "asylum",
+      "StudyLevel": 64,
+      "NexusLevel": 98
+    },
+    {
+      "GuildName": "Lighthouse Reborn",
+      "StudyLevel": 114,
+      "NexusLevel": 93
+    },
+    {
+      "GuildName": "Hydra",
+      "StudyLevel": 89,
+      "NexusLevel": 90
+    },
+    {
+      "GuildName": "A Growing Threat",
+      "StudyLevel": 75,
+      "NexusLevel": 65
+    }
+  ]
+}
