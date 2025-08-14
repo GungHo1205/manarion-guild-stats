@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-14T21:21:40.011904Z",
+  "lastUpdated": "2025-08-14T22:24:10.647636Z",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
@@ -19,7 +19,7 @@
     {
       "GuildName": "Sanctuary",
       "StudyLevel": 300,
-      "NexusLevel": 379
+      "NexusLevel": 380
     },
     {
       "GuildName": "Phoenix",
@@ -44,7 +44,7 @@
     {
       "GuildName": "Doomed",
       "StudyLevel": 160,
-      "NexusLevel": 234
+      "NexusLevel": 235
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -103,8 +103,8 @@
     },
     {
       "GuildName": "Osmanthus",
-      "StudyLevel": 141,
-      "NexusLevel": 163
+      "StudyLevel": 143,
+      "NexusLevel": 164
     },
     {
       "GuildName": "Ewbies",
@@ -133,8 +133,8 @@
     },
     {
       "GuildName": "Lighthouse Reborn",
-      "StudyLevel": 114,
-      "NexusLevel": 93
+      "StudyLevel": 116,
+      "NexusLevel": 95
     },
     {
       "GuildName": "Hydra",
@@ -177,14 +177,14 @@
       "NexusLevel": 52
     },
     {
+      "GuildName": "RSH",
+      "StudyLevel": 68,
+      "NexusLevel": 41
+    },
+    {
       "GuildName": "Knighted Order of Angels",
       "StudyLevel": 40,
       "NexusLevel": 40
-    },
-    {
-      "GuildName": "RSH",
-      "StudyLevel": 68,
-      "NexusLevel": 39
     },
     {
       "GuildName": "Kappa",
