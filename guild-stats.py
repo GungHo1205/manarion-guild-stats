@@ -56,7 +56,7 @@ def main():
                 continue
 
             player_data = get_player_profile(player_name)
-            time.sleep(1)
+            time.sleep(3)
 
             if not player_data:
                 continue
