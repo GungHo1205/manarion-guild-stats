@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-14T20:26:30.920008Z",
+  "lastUpdated": "2025-08-14T21:21:40.011904Z",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
@@ -19,11 +19,11 @@
     {
       "GuildName": "Sanctuary",
       "StudyLevel": 300,
-      "NexusLevel": 378
+      "NexusLevel": 379
     },
     {
       "GuildName": "Phoenix",
-      "StudyLevel": 238,
+      "StudyLevel": 240,
       "NexusLevel": 365
     },
     {
@@ -138,8 +138,8 @@
     },
     {
       "GuildName": "Hydra",
-      "StudyLevel": 89,
-      "NexusLevel": 90
+      "StudyLevel": 91,
+      "NexusLevel": 91
     },
     {
       "GuildName": "Rainbow",
