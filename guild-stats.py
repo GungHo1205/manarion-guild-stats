@@ -48,7 +48,7 @@ def main():
         for entry in leaderboard_data["Entries"]:
             x +=1
             print(x)
-            if(x == 200):
+            if(x == 400):
                 break
             player_name = entry.get("Name") or entry.get("name")
             upgrades = entry.get("Score", 0) or entry.get("score", 0)
@@ -56,7 +56,7 @@ def main():
                 continue
 
             player_data = get_player_profile(player_name)
-            time.sleep(3)
+            time.sleep(2)
 
             if not player_data:
                 continue
