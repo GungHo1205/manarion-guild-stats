@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-14T17:10:40.086359Z",
+  "lastUpdated": "2025-08-14T18:05:54.547412Z",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
@@ -8,8 +8,8 @@
     },
     {
       "GuildName": "RNG",
-      "StudyLevel": 275,
-      "NexusLevel": 403
+      "StudyLevel": 276,
+      "NexusLevel": 405
     },
     {
       "GuildName": "Divinity",
@@ -19,7 +19,7 @@
     {
       "GuildName": "Sanctuary",
       "StudyLevel": 300,
-      "NexusLevel": 376
+      "NexusLevel": 377
     },
     {
       "GuildName": "Phoenix",
@@ -34,12 +34,12 @@
     {
       "GuildName": "EZ ",
       "StudyLevel": 200,
-      "NexusLevel": 254
+      "NexusLevel": 255
     },
     {
       "GuildName": "The First Ones",
       "StudyLevel": 160,
-      "NexusLevel": 237
+      "NexusLevel": 240
     },
     {
       "GuildName": "Doomed",
@@ -62,13 +62,33 @@
       "NexusLevel": 200
     },
     {
+      "GuildName": "Fight Club",
+      "StudyLevel": 150,
+      "NexusLevel": 200
+    },
+    {
+      "GuildName": "Minimal Effort",
+      "StudyLevel": 141,
+      "NexusLevel": 200
+    },
+    {
+      "GuildName": "Gatherers Guild",
+      "StudyLevel": 140,
+      "NexusLevel": 192
+    },
+    {
       "GuildName": "Hack n Slash",
       "StudyLevel": 160,
       "NexusLevel": 185
     },
     {
       "GuildName": "Caliburnus",
-      "StudyLevel": 138,
+      "StudyLevel": 139,
+      "NexusLevel": 184
+    },
+    {
+      "GuildName": "BASED",
+      "StudyLevel": 100,
       "NexusLevel": 184
     },
     {
@@ -85,6 +105,11 @@
       "GuildName": "Osmanthus",
       "StudyLevel": 141,
       "NexusLevel": 163
+    },
+    {
+      "GuildName": "Ewbies",
+      "StudyLevel": 152,
+      "NexusLevel": 152
     },
     {
       "GuildName": "Manarion Adventures",
@@ -117,9 +142,69 @@
       "NexusLevel": 90
     },
     {
+      "GuildName": "Rainbow",
+      "StudyLevel": 70,
+      "NexusLevel": 80
+    },
+    {
+      "GuildName": "RevivaL",
+      "StudyLevel": 44,
+      "NexusLevel": 77
+    },
+    {
+      "GuildName": "RPG MO",
+      "StudyLevel": 50,
+      "NexusLevel": 75
+    },
+    {
       "GuildName": "A Growing Threat",
       "StudyLevel": 75,
       "NexusLevel": 65
+    },
+    {
+      "GuildName": "Guild",
+      "StudyLevel": 72,
+      "NexusLevel": 62
+    },
+    {
+      "GuildName": "Stormlight",
+      "StudyLevel": 27,
+      "NexusLevel": 58
+    },
+    {
+      "GuildName": "Dark Alliance",
+      "StudyLevel": 53,
+      "NexusLevel": 52
+    },
+    {
+      "GuildName": "Knighted Order of Angels",
+      "StudyLevel": 40,
+      "NexusLevel": 40
+    },
+    {
+      "GuildName": "RSH",
+      "StudyLevel": 68,
+      "NexusLevel": 39
+    },
+    {
+      "GuildName": "Kappa",
+      "StudyLevel": 31,
+      "NexusLevel": 32
+    },
+    {
+      "GuildName": "Foolishness",
+      "StudyLevel": 14,
+      "NexusLevel": 28
+    },
+    {
+      "GuildName": "Insert Guild Name Here",
+      "StudyLevel": 22,
+      "NexusLevel": 23
+    },
+    {
+      "GuildName": "Catalans Guild",
+      "StudyLevel": 2,
+      "NexusLevel": 0
     }
   ]
 }
