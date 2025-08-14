@@ -39,7 +39,7 @@ def calculate_study_room_level(total_exp_boost, codex_boost, enchant_boost):
 def main():
     results = []
 
-    for page in range(1, 2):  # STOP at page 3
+    for page in range(1, 5):  # STOP at page 3
         leaderboard_data = get_leaderboard_page(page)
         if "Entries" not in leaderboard_data:
             print(f"No 'Entries' in page {page}")
