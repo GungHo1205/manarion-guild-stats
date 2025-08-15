@@ -80,7 +80,7 @@ jobs:
   deploy-production:
     needs: update-data
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
 
     environment:
       name: production
