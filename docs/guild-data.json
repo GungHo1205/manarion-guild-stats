@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-15T22:11:20.310412+00:00",
+  "lastUpdated": "2025-08-15T23:11:08.887635+00:00",
   "baselineDate": "2025-08-15",
   "baselineTimestamp": "2025-08-15T07:35:51.552796+00:00",
   "guilds": [
@@ -154,6 +154,16 @@
       "TotalCodexCost": 389
     },
     {
+      "GuildName": "Caliburnus",
+      "StudyLevel": 140,
+      "NexusLevel": 189,
+      "StudyProgress": 1,
+      "NexusProgress": 5,
+      "StudyCodexCost": 140,
+      "NexusCodexCost": 935,
+      "TotalCodexCost": 1075
+    },
+    {
       "GuildName": "Hack n Slash",
       "StudyLevel": 160,
       "NexusLevel": 188,
@@ -172,16 +182,6 @@
       "StudyCodexCost": 0,
       "NexusCodexCost": 558,
       "TotalCodexCost": 558
-    },
-    {
-      "GuildName": "Caliburnus",
-      "StudyLevel": 140,
-      "NexusLevel": 184,
-      "StudyProgress": 1,
-      "NexusProgress": 0,
-      "StudyCodexCost": 140,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 140
     },
     {
       "GuildName": "Dino Nuggies",
