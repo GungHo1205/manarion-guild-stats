@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-15T13:16:53.520658+00:00",
+  "lastUpdated": "2025-08-15T14:13:25.750524+00:00",
   "baselineDate": "2025-08-15",
   "baselineTimestamp": "2025-08-15T07:35:51.552796+00:00",
   "guilds": [
@@ -12,7 +12,6 @@
       "StudyCodexCost": 0,
       "NexusCodexCost": 897,
       "TotalCodexCost": 897
-      "NexusLevel": 449
     },
     {
       "GuildName": "RNG",
@@ -47,22 +46,22 @@
     {
       "GuildName": "Phoenix",
       "StudyLevel": 240,
-      "NexusLevel": 369,
+      "NexusLevel": 370,
       "StudyProgress": 0,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 737,
-      "TotalCodexCost": 737
+      "NexusCodexCost": 1107,
+      "TotalCodexCost": 1107
     },
     {
       "GuildName": "Codex",
-      "StudyLevel": 227,
+      "StudyLevel": 230,
       "NexusLevel": 264,
-      "StudyProgress": 0,
+      "StudyProgress": 3,
       "NexusProgress": 0,
-      "StudyCodexCost": 0,
+      "StudyCodexCost": 687,
       "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 687
     },
     {
       "GuildName": "EZ ",
@@ -97,12 +96,12 @@
     {
       "GuildName": "Test Guild Please Ignore",
       "StudyLevel": 267,
-      "NexusLevel": 215,
+      "NexusLevel": 217,
       "StudyProgress": 0,
-      "NexusProgress": 4,
+      "NexusProgress": 6,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 854,
-      "TotalCodexCost": 854
+      "NexusCodexCost": 1287,
+      "TotalCodexCost": 1287
     },
     {
       "GuildName": "Imperium",
