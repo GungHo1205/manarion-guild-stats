@@ -39,6 +39,9 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
 
+          # Pull latest changes first to avoid conflicts
+          git pull origin ${{ github.ref_name }}
+
           # Add files that exist
           git add docs/guild-data.json
 
@@ -55,7 +58,13 @@ jobs:
           # Only commit if there are changes
           if ! git diff --staged --quiet; then
             git commit -m "Update guild stats data - $(date)"
-            git push
+            
+            # Try to push, retry once if it fails
+            if ! git push origin ${{ github.ref_name }}; then
+              echo "Push failed, pulling and retrying..."
+              git pull --rebase origin ${{ github.ref_name }}
+              git push origin ${{ github.ref_name }}
+            fi
           else
             echo "No changes to commit"
           fi
