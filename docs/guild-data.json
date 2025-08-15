@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-15T12:52:07.705300+00:00",
+  "lastUpdated": "2025-08-15T13:16:53.520658+00:00",
   "baselineDate": "2025-08-15",
   "baselineTimestamp": "2025-08-15T07:35:51.552796+00:00",
   "guilds": [
@@ -146,12 +146,12 @@
     {
       "GuildName": "Gatherers Guild",
       "StudyLevel": 140,
-      "NexusLevel": 194,
+      "NexusLevel": 195,
       "StudyProgress": 0,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 194,
-      "TotalCodexCost": 194
+      "NexusCodexCost": 389,
+      "TotalCodexCost": 389
     },
     {
       "GuildName": "Hack n Slash",
@@ -256,12 +256,12 @@
     {
       "GuildName": "asylum",
       "StudyLevel": 65,
-      "NexusLevel": 98,
+      "NexusLevel": 99,
       "StudyProgress": 1,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyCodexCost": 65,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 65
+      "NexusCodexCost": 99,
+      "TotalCodexCost": 164
     },
     {
       "GuildName": "Lighthouse Reborn",
