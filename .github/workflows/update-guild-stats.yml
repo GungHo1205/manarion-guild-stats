@@ -143,9 +143,9 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
 
-          # Create or switch to gh-pages-dev branch
+          # Create or switch to dev branch
           git fetch origin
-          git checkout -b gh-pages-dev || git checkout gh-pages-dev
+          git checkout -b dev || git checkout dev
 
           # Clear existing content except .git
           find . -maxdepth 1 ! -name '.git' ! -name '.' -exec rm -rf {} +
@@ -155,7 +155,7 @@ jobs:
           mv docs/* .
           rmdir docs
 
-          # Commit and push to gh-pages-dev
+          # Commit and push to dev
           git add .
           git commit -m "Deploy dev branch - $(date)" || exit 0
-          git push origin gh-pages-dev
+          git push origin dev
