@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2025-08-15T03:58:40.669930Z",
+  "lastUpdated": "2025-08-15T04:35:15.730599Z",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
       "StudyLevel": 300,
-      "NexusLevel": 445
+      "NexusLevel": 446
     },
     {
       "GuildName": "RNG",
@@ -24,7 +24,7 @@
     {
       "GuildName": "Phoenix",
       "StudyLevel": 240,
-      "NexusLevel": 366
+      "NexusLevel": 367
     },
     {
       "GuildName": "Codex",
@@ -68,7 +68,7 @@
     },
     {
       "GuildName": "Minimal Effort",
-      "StudyLevel": 142,
+      "StudyLevel": 143,
       "NexusLevel": 200
     },
     {
