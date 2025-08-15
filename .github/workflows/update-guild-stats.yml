@@ -103,7 +103,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref }}
+          ref: master
+
+      - name: Pull latest changes
+        run: git pull origin master
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -122,40 +125,84 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/dev'
 
-    environment:
-      name: staging
-      url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}-dev/
-
     steps:
-      - name: Checkout repository
+      - name: Checkout dev branch
         uses: actions/checkout@v4
         with:
           ref: dev
 
-      - name: Create staging docs
-        run: |
-          # Add staging indicator to the HTML
-          sed -i 's/<title>Guild Stats Dashboard<\/title>/<title>[DEV] Guild Stats Dashboard<\/title>/' docs/index.html
-          sed -i 's/<h1>Guild Stats Dashboard<\/h1>/<h1>🚧 Guild Stats Dashboard (DEV)<\/h1>/' docs/index.html
+      - name: Pull latest changes
+        run: git pull origin dev
 
-      - name: Deploy to staging branch
+      - name: Create staging-specific index.html
+        run: |
+          # Create staging version of the HTML with visual indicators
+          cp docs/index.html docs/index.html.bak
+
+          # Add staging indicators and styling
+          sed -i 's/<title>Guild Stats Dashboard<\/title>/<title>[STAGING] Guild Stats Dashboard<\/title>/' docs/index.html
+
+          # Add staging banner styling to CSS
+          sed -i '/--gradient-3: linear-gradient/a \
+            --staging-bg: linear-gradient(45deg, #ff6b35, #f7931e); \
+            --staging-text: #ffffff;' docs/index.html
+
+          # Modify the header to show staging
+          sed -i 's/<h1>Guild Stats Dashboard<\/h1>/<div style="background: var(--staging-bg); padding: 8px 0; margin: -40px -25px 20px -25px; border-radius: 15px 15px 0 0;"><small style="color: var(--staging-text); font-size: 0.9rem; font-weight: 600;">🚧 STAGING ENVIRONMENT 🚧<\/small><\/div><h1>Guild Stats Dashboard<\/h1>/' docs/index.html
+
+      - name: Deploy to gh-pages-staging branch
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
 
-          # Create or switch to dev branch
+          # Create a temporary directory for staging deployment
+          mkdir -p /tmp/staging-deploy
+          cp -r docs/* /tmp/staging-deploy/
+
+          # Switch to gh-pages-staging branch (create if doesn't exist)
           git fetch origin
-          git checkout -b dev || git checkout dev
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages-staging; then
+            git checkout gh-pages-staging
+          else
+            git checkout --orphan gh-pages-staging
+            git rm -rf . 2>/dev/null || true
+          fi
 
-          # Clear existing content except .git
-          find . -maxdepth 1 ! -name '.git' ! -name '.' -exec rm -rf {} +
+          # Clear current content and copy staging files
+          rm -rf * 2>/dev/null || true
+          cp -r /tmp/staging-deploy/* .
 
-          # Copy docs content to root
-          git checkout dev -- docs/
-          mv docs/* .
-          rmdir docs
+          # Add CNAME file for custom subdomain (optional)
+          echo "dev-guildstats.yourdomain.com" > CNAME 2>/dev/null || true
 
-          # Commit and push to dev
+          # Create .nojekyll to ensure GitHub serves our files directly
+          touch .nojekyll
+
+          # Commit and push
           git add .
-          git commit -m "Deploy dev branch - $(date)" || exit 0
-          git push origin dev
+          if ! git diff --staged --quiet; then
+            git commit -m "Deploy staging - $(date)"
+            git push origin gh-pages-staging
+            echo "✅ Staging deployed to gh-pages-staging branch"
+            echo "📍 Staging URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/staging/"
+          else
+            echo "No changes to deploy"
+          fi
+
+  # Optional: Create a job to set up staging Pages deployment
+  setup-staging-pages:
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/dev'
+
+    steps:
+      - name: Setup staging environment info
+        run: |
+          echo "🚀 Staging deployment completed!"
+          echo "📍 Your staging site should be available at:"
+          echo "   https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/staging/"
+          echo ""
+          echo "💡 To set up a custom subdomain for staging:"
+          echo "   1. Go to your repository Settings > Pages"
+          echo "   2. Create a second Pages site from the 'gh-pages-staging' branch"
+          echo "   3. Configure your DNS to point dev-guildstats.yourdomain.com to GitHub Pages"
