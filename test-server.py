@@ -1,94 +1,137 @@
 #!/usr/bin/env python3
 """
-Simple local testing server for guild stats dashboard
-Run this in your project directory and visit http://localhost:8000
+Windows-compatible script to test staging setup
+Run: python test-staging-setup.py
 """
 
-import http.server
-import socketserver
 import os
-import json
-from datetime import datetime
+import shutil
+import sys
 
-class LocalTestHandler(http.server.SimpleHTTPRequestHandler):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory="docs", **kwargs)
-    
-    def end_headers(self):
-        # Add CORS headers for local testing
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', '*')
-        super().end_headers()
+def safe_print(message):
+    """Print with Unicode fallback for Windows"""
+    try:
+        print(message)
+    except UnicodeEncodeError:
+        # Fallback for Windows cmd prompt
+        message = message.replace('🧪', '[TEST]')
+        message = message.replace('📁', '[FOLDER]')
+        message = message.replace('📄', '[FILE]')
+        message = message.replace('✅', '[OK]')
+        message = message.replace('⚠️', '[WARNING]')
+        message = message.replace('❌', '[ERROR]')
+        message = message.replace('🎨', '[STYLE]')
+        message = message.replace('🚀', '[ROCKET]')
+        message = message.replace('🌐', '[WEB]')
+        message = message.replace('🔍', '[SEARCH]')
+        message = message.replace('🚧', '[CONSTRUCTION]')
+        print(message)
 
-def create_test_data():
-    """Create sample data for testing"""
-    test_data = {
-        "lastUpdated": datetime.utcnow().isoformat() + 'Z',
-        "baselineDate": "2025-01-15",
-        "baselineTimestamp": "2025-01-15T00:00:00Z",
-        "guilds": [
-            {
-                "GuildName": "Test Guild Alpha",
-                "StudyLevel": 450,
-                "NexusLevel": 320,
-                "StudyProgress": 5,
-                "NexusProgress": 3,
-                "StudyCodexCost": 2275,
-                "NexusCodexCost": 966,
-                "TotalCodexCost": 3241
-            },
-            {
-                "GuildName": "Test Guild Beta",
-                "StudyLevel": 380,
-                "NexusLevel": 290,
-                "StudyProgress": 2,
-                "NexusProgress": 1,
-                "StudyCodexCost": 763,
-                "NexusCodexCost": 291,
-                "TotalCodexCost": 1054
-            },
-            {
-                "GuildName": "Test Guild Gamma",
-                "StudyLevel": 520,
-                "NexusLevel": 410,
-                "StudyProgress": 0,
-                "NexusProgress": 0,
-                "StudyCodexCost": 0,
-                "NexusCodexCost": 0,
-                "TotalCodexCost": 0
-            },
-            {
-                "GuildName": "Test Guild Delta",
-                "StudyLevel": 275,
-                "NexusLevel": 180,
-                "StudyProgress": 8,
-                "NexusProgress": 5,
-                "StudyCodexCost": 2208,
-                "NexusCodexCost": 915,
-                "TotalCodexCost": 3123
-            }
-        ]
-    }
+def main():
+    safe_print("[TEST] Testing Staging Setup")
+    safe_print("========================")
     
-    os.makedirs("docs", exist_ok=True)
-    with open("docs/guild-data.json", "w") as f:
-        json.dump(test_data, f, indent=2)
+    # Create staging directory
+    safe_print("[FOLDER] Creating staging directory...")
+    if not os.path.exists("staging"):
+        os.makedirs("staging")
     
-    print("Created test data in docs/guild-data.json")
+    # Copy docs files to staging
+    if os.path.exists("docs"):
+        try:
+            # Copy each file individually
+            for filename in os.listdir("docs"):
+                src = os.path.join("docs", filename)
+                dst = os.path.join("staging", filename)
+                if os.path.isfile(src):
+                    shutil.copy2(src, dst)
+            safe_print("[OK] Copied docs files to staging")
+        except Exception as e:
+            safe_print(f"[WARNING] Error copying files: {e}")
+    else:
+        safe_print("[WARNING] No docs directory found")
+        return False
+    
+    # Modify staging index.html
+    index_path = os.path.join("staging", "index.html")
+    if os.path.exists(index_path):
+        safe_print("[STYLE] Adding staging visual indicators...")
+        
+        # Backup original
+        shutil.copy2(index_path, index_path + ".bak")
+        
+        try:
+            # Read the file
+            with open(index_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Make modifications
+            content = content.replace(
+                '<title>Guild Stats Dashboard</title>',
+                '<title>[DEV] Guild Stats Dashboard</title>'
+            )
+            
+            # Add staging CSS variables
+            css_addition = '''        --staging-bg: linear-gradient(45deg, #ff6b35, #f7931e);
+        --staging-text: #ffffff;
+        --staging-border: #ff6b35;'''
+            
+            content = content.replace(
+                '--gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);',
+                '--gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);\n' + css_addition
+            )
+            
+            # Add staging banner
+            banner_html = '''        <div style="background: var(--staging-bg); margin: -40px -25px 20px -25px; padding: 12px 0; border-radius: 15px 15px 0 0; text-align: center; border: 2px solid var(--staging-border);">
+          <span style="color: var(--staging-text); font-size: 1rem; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">[CONSTRUCTION] STAGING ENVIRONMENT - DEV BRANCH [CONSTRUCTION]</span>
+        </div>'''
+            
+            content = content.replace(
+                '<header class="header">',
+                '<header class="header">\n' + banner_html
+            )
+            
+            # Write the modified file
+            with open(index_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            
+            safe_print("[OK] Staging modifications applied")
+            
+        except Exception as e:
+            safe_print(f"[ERROR] Error modifying index.html: {e}")
+            return False
+    else:
+        safe_print("[ERROR] No index.html found in staging directory")
+        return False
+    
+    safe_print("")
+    safe_print("[ROCKET] Test Results:")
+    safe_print("==================")
+    safe_print(f"[FOLDER] Staging directory: {os.path.abspath('staging')}")
+    safe_print("[FILE] Files created:")
+    
+    try:
+        for filename in os.listdir("staging"):
+            file_path = os.path.join("staging", filename)
+            if os.path.isfile(file_path):
+                size = os.path.getsize(file_path)
+                safe_print(f"  - {filename} ({size} bytes)")
+    except Exception as e:
+        safe_print(f"[WARNING] Error listing files: {e}")
+    
+    safe_print("")
+    safe_print("[WEB] To test locally:")
+    safe_print("1. Run: python test-server.py")
+    safe_print("2. Visit: http://localhost:8000 (production version)")
+    safe_print("3. Visit: http://localhost:8000/staging/ (staging version)")
+    safe_print("")
+    safe_print("[SEARCH] You should see:")
+    safe_print("   - Production: Normal blue header")
+    safe_print("   - Staging: Orange banner with '[CONSTRUCTION] STAGING ENVIRONMENT' text")
+    
+    return True
 
 if __name__ == "__main__":
-    PORT = 8000
-    
-    if not os.path.exists("docs/guild-data.json"):
-        print("No test data found. Creating sample data...")
-        create_test_data()
-    
-    with socketserver.TCPServer(("", PORT), LocalTestHandler) as httpd:
-        print(f"🚀 Local test server running at http://localhost:{PORT}")
-        print("📁 Serving files from ./docs directory")
-        print("🔄 Press Ctrl+C to stop")
-        try:
-            httpd.serve_forever()
-        except KeyboardInterrupt:
-            print("\n✅ Server stopped")
+    success = main()
+    if not success:
+        sys.exit(1)
