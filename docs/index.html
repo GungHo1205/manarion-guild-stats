@@ -68,7 +68,7 @@
 
       .stats-overview {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
         margin-bottom: 40px;
       }
@@ -108,6 +108,13 @@
         background-clip: text;
       }
 
+      .stat-card.avg-study h3 {
+        background: var(--gradient-3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
       .stat-card.daily-progress h3 {
         background: linear-gradient(
           135deg,
@@ -115,6 +122,13 @@
           #fecfef 50%,
           #fecfef 100%
         );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .stat-card.codex-spending h3 {
+        background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -268,13 +282,21 @@
         background-clip: text;
       }
 
+      .study-level {
+        background: var(--gradient-3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
       .daily-change {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         font-weight: 600;
         margin-top: 3px;
         padding: 2px 6px;
         border-radius: 4px;
         text-align: center;
+        line-height: 1.2;
       }
 
       .daily-change.positive {
@@ -378,6 +400,13 @@
           <h3 id="dailyProgress">-</h3>
           <p>Daily Progress</p>
           <small id="baselineDate" class="progress-indicator"></small>
+        </div>
+        <div class="stat-card codex-spending">
+          <h3 id="codexSpending">-</h3>
+          <p>Est. Codex Spent</p>
+          <small class="progress-indicator progress-neutral"
+            >~Approximate</small
+          >
         </div>
       </div>
 
@@ -525,7 +554,7 @@
             "progress-indicator progress-neutral";
         }
 
-        // Calculate total daily progress
+        // Calculate total daily progress and codex spending
         const totalNexusProgress = guildsWithNexusProgress.reduce(
           (sum, guild) => sum + guild.NexusProgress,
           0
@@ -536,6 +565,11 @@
         );
         const totalProgress = totalNexusProgress + totalStudyProgress;
 
+        const totalCodexSpent = guildsData.reduce((sum, guild) => {
+          const codexCost = guild.TotalCodexCost || 0;
+          return sum + codexCost;
+        }, 0);
+
         if (
           guildsWithNexusProgress.length > 0 ||
           guildsWithStudyProgress.length > 0
@@ -543,8 +577,11 @@
           document.getElementById(
             "dailyProgress"
           ).textContent = `+${totalProgress}`;
+          document.getElementById("codexSpending").textContent =
+            totalCodexSpent.toLocaleString();
         } else {
           document.getElementById("dailyProgress").textContent = "-";
+          document.getElementById("codexSpending").textContent = "-";
         }
       }
 
@@ -612,9 +649,17 @@
                                       : guild.NexusProgress < 0
                                       ? "negative"
                                       : "neutral"
-                                  }">${guild.NexusProgress > 0 ? "+" : ""}${
+                                  }">
+                                    ${guild.NexusProgress > 0 ? "+" : ""}${
                                     guild.NexusProgress
-                                  }</div>`
+                                  }
+                                    ${
+                                      guild.NexusCodexCost &&
+                                      guild.NexusCodexCost > 0
+                                        ? ` (~${guild.NexusCodexCost.toLocaleString()})`
+                                        : ""
+                                    }
+                                </div>`
                                 : '<div class="daily-change neutral">-</div>'
                             }
                         </div>
@@ -632,9 +677,17 @@
                                       : guild.StudyProgress < 0
                                       ? "negative"
                                       : "neutral"
-                                  }">${guild.StudyProgress > 0 ? "+" : ""}${
+                                  }">
+                                    ${guild.StudyProgress > 0 ? "+" : ""}${
                                     guild.StudyProgress
-                                  }</div>`
+                                  }
+                                    ${
+                                      guild.StudyCodexCost &&
+                                      guild.StudyCodexCost > 0
+                                        ? ` (~${guild.StudyCodexCost.toLocaleString()})`
+                                        : ""
+                                    }
+                                </div>`
                                 : '<div class="daily-change neutral">-</div>'
                             }
                         </div>
