@@ -49,6 +49,11 @@ jobs:
             git add docs/daily-baseline.json
           fi
 
+          # Add market prices if it exists
+          if [ -f "docs/market-prices.json" ]; then
+            git add docs/market-prices.json
+          fi
+
           # Only commit if there are changes
           if ! git diff --staged --quiet; then
             git commit -m "Update guild stats data - $(date)"
@@ -57,23 +62,22 @@ jobs:
             echo "No changes to commit"
           fi
 
-  deploy-production:
+  deploy:
     needs: update-data
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    # Deploy from both master and dev branches
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
 
     environment:
-      name: production
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: master
 
       - name: Pull latest changes
-        run: git pull origin master
+        run: git pull origin ${{ github.ref_name }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -87,117 +91,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-  deploy-staging:
-    needs: update-data
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/dev'
-
-    steps:
-      - name: Checkout dev branch
-        uses: actions/checkout@v4
-        with:
-          ref: dev
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Pull latest changes
-        run: git pull origin dev
-
-      - name: Configure Git and deploy to gh-pages
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
-          # Fetch all branches
-          git fetch origin
-
-          # Check if gh-pages branch exists remotely
-          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
-            echo "✅ gh-pages branch exists, checking out..."
-            git checkout gh-pages
-            git pull origin gh-pages
-          else
-            echo "📝 Creating new gh-pages branch..."
-            git checkout --orphan gh-pages
-            # Remove all files from the new orphan branch
-            git rm -rf . 2>/dev/null || true
-            # Create a simple initial commit
-            echo "# GitHub Pages" > README.md
-            git add README.md
-            git commit -m "Initial gh-pages setup"
-            git push origin gh-pages
-          fi
-
-          # Now we're on gh-pages branch
-          # Get the latest production content from dev branch's docs folder
-          git checkout dev -- docs/ 2>/dev/null || echo "No docs folder found"
-
-          # Copy production files to root (maintains production at root URL)
-          if [ -d "docs" ]; then
-            cp docs/* . 2>/dev/null || true
-          fi
-
-          # Create staging subdirectory and prepare staging files
-          mkdir -p staging
-
-          # Copy docs files to staging directory first
-          if [ -d "docs" ]; then
-            cp docs/* staging/ 2>/dev/null || true
-          fi
-
-          # Now modify the staging index.html if it exists
-          if [ -f "staging/index.html" ]; then
-            echo "🔧 Modifying staging index.html..."
-            
-            # Add staging indicators and styling
-            sed -i 's/<title>Guild Stats Dashboard<\/title>/<title>[DEV] Guild Stats Dashboard<\/title>/' staging/index.html
-            
-            # Add staging banner CSS after the existing CSS variables
-            sed -i '/--gradient-3:/a \
-              --staging-bg: linear-gradient(45deg, #ff6b35, #f7931e); \
-              --staging-text: #ffffff; \
-              --staging-border: #ff6b35;' staging/index.html
-            
-            # Add staging banner HTML after the header opening
-            sed -i '/<header class="header">/a \
-              <div style="background: var(--staging-bg); margin: -40px -25px 20px -25px; padding: 12px 0; border-radius: 15px 15px 0 0; text-align: center; border: 2px solid var(--staging-border);"> \
-                <span style="color: var(--staging-text); font-size: 1rem; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">🚧 STAGING ENVIRONMENT - DEV BRANCH 🚧</span> \
-              </div>' staging/index.html
-              
-            echo "✅ Created staging version with visual indicators"
-            
-            # Verify staging files exist
-            echo "📁 Staging directory contents:"
-            ls -la staging/
-          else
-            echo "⚠️ No index.html found to modify for staging"
-          fi
-
-          # Clean up the docs directory since we've copied everything we need
-          rm -rf docs 2>/dev/null || true
-
-          # Ensure .nojekyll exists for proper GitHub Pages serving
-          touch .nojekyll
-
-          # Add all changes
-          git add .
-
-          # Show what we're about to commit
-          echo "📋 Files to be committed:"
-          git diff --staged --name-only
-
-          # Commit if there are changes
-          if ! git diff --staged --quiet; then
-            git commit -m "Deploy staging to subdirectory - $(date)"
-            git push origin gh-pages
-            echo "✅ Staging deployed successfully!"
-            echo "🌐 Production: https://gungho1205.github.io/manarion-guild-stats/"
-            echo "🚧 Staging: https://gungho1205.github.io/manarion-guild-stats/staging/"
-          else
-            echo "ℹ️ No changes to deploy"
-          fi
-
   deployment-info:
-    needs: [deploy-production, deploy-staging]
+    needs: deploy
     runs-on: ubuntu-latest
     if: always()
 
@@ -206,16 +101,12 @@ jobs:
         run: |
           echo "🚀 Deployment Summary:"
           echo "================================"
-          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
-            echo "✅ Production deployed from master branch"
-            echo "🔗 Production URL: https://gungho1205.github.io/manarion-guild-stats/"
-          fi
-          if [ "${{ github.ref }}" = "refs/heads/dev" ]; then
-            echo "✅ Staging deployed from dev branch"
-            echo "🔗 Staging URL: https://gungho1205.github.io/manarion-guild-stats/staging/"
-            echo ""
-            echo "💡 The staging site includes:"
-            echo "   - Clear visual indicators that it's the dev environment"
-            echo "   - Orange staging banner at the top"
-            echo "   - [DEV] prefix in the browser title"
+          echo "✅ Deployed from ${{ github.ref_name }} branch"
+          echo "🔗 URL: https://gungho1205.github.io/manarion-guild-stats/"
+          echo ""
+          if [ "${{ github.ref_name }}" = "dev" ]; then
+            echo "⚠️  DEV DEPLOYMENT - Testing in progress"
+            echo "💡 This is a development deployment for testing purposes"
+          else
+            echo "🎉 PRODUCTION DEPLOYMENT - Live site updated"
           fi
