@@ -1,27 +1,27 @@
 {
-  "lastUpdated": "2025-08-15T20:12:36.914389+00:00",
+  "lastUpdated": "2025-08-15T21:09:32.657197+00:00",
   "baselineDate": "2025-08-15",
   "baselineTimestamp": "2025-08-15T07:35:51.552796+00:00",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
       "StudyLevel": 300,
-      "NexusLevel": 451,
+      "NexusLevel": 452,
       "StudyProgress": 0,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 1798,
-      "TotalCodexCost": 1798
+      "NexusCodexCost": 2250,
+      "TotalCodexCost": 2250
     },
     {
       "GuildName": "RNG",
       "StudyLevel": 280,
-      "NexusLevel": 408,
+      "NexusLevel": 410,
       "StudyProgress": 0,
-      "NexusProgress": 3,
+      "NexusProgress": 5,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 1221,
-      "TotalCodexCost": 1221
+      "NexusCodexCost": 2040,
+      "TotalCodexCost": 2040
     },
     {
       "GuildName": "Divinity",
@@ -46,12 +46,12 @@
     {
       "GuildName": "Phoenix",
       "StudyLevel": 240,
-      "NexusLevel": 370,
+      "NexusLevel": 372,
       "StudyProgress": 0,
-      "NexusProgress": 3,
+      "NexusProgress": 5,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 1107,
-      "TotalCodexCost": 1107
+      "NexusCodexCost": 1850,
+      "TotalCodexCost": 1850
     },
     {
       "GuildName": "Codex",
@@ -135,13 +135,13 @@
     },
     {
       "GuildName": "Minimal Effort",
-      "StudyLevel": 143,
+      "StudyLevel": 144,
       "NexusLevel": 200,
-      "StudyProgress": 0,
+      "StudyProgress": 1,
       "NexusProgress": 0,
-      "StudyCodexCost": 0,
+      "StudyCodexCost": 144,
       "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 144
     },
     {
       "GuildName": "Gatherers Guild",
