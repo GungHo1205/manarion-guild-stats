@@ -5,15 +5,21 @@
       "buy_price": 19491420716,
       "sell_price": 20500000000,
       "average_price": 19995710358.0
+    },
+    {
+      "timestamp": "2025-08-15T19:21:02.662092+00:00",
+      "buy_price": 17713056919,
+      "sell_price": 19780199999,
+      "average_price": 18746628459.0
     }
   ],
   "daily_averages": {
     "2025-08-15": {
-      "average_price": 19995710358.0,
-      "buy_average": 19491420716.0,
-      "sell_average": 20500000000.0,
-      "sample_count": 1,
-      "formatted_price": "20.00B"
+      "average_price": 19371169408.5,
+      "buy_average": 18602238817.5,
+      "sell_average": 20140099999.5,
+      "sample_count": 2,
+      "formatted_price": "19.37B"
     }
   }
 }

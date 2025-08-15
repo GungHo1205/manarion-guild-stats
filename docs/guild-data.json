@@ -1,54 +1,54 @@
 {
-  "lastUpdated": "2025-08-15T16:33:03.822888+00:00",
+  "lastUpdated": "2025-08-15T19:21:00.211617+00:00",
   "baselineDate": "2025-08-15",
   "baselineTimestamp": "2025-08-15T07:35:51.552796+00:00",
   "dustSpending": {
-    "total_dust_spent": 267402634617534.0,
-    "formatted_dust": "267.40T",
-    "codex_used": 13373,
-    "average_price": 19995710358.0,
-    "formatted_price": "20.00B"
+    "total_dust_spent": 377059812536452.5,
+    "formatted_dust": "377.06T",
+    "codex_used": 19465,
+    "average_price": 19371169408.5,
+    "formatted_price": "19.37B"
   },
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
       "StudyLevel": 300,
-      "NexusLevel": 450,
+      "NexusLevel": 451,
       "StudyProgress": 0,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 1347,
-      "TotalCodexCost": 1347
+      "NexusCodexCost": 1798,
+      "TotalCodexCost": 1798
     },
     {
       "GuildName": "RNG",
       "StudyLevel": 280,
-      "NexusLevel": 405,
+      "NexusLevel": 408,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 3,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 1221,
+      "TotalCodexCost": 1221
     },
     {
       "GuildName": "Divinity",
-      "StudyLevel": 281,
-      "NexusLevel": 399,
-      "StudyProgress": 3,
-      "NexusProgress": 4,
-      "StudyCodexCost": 840,
-      "NexusCodexCost": 1590,
-      "TotalCodexCost": 2430
+      "StudyLevel": 284,
+      "NexusLevel": 400,
+      "StudyProgress": 6,
+      "NexusProgress": 5,
+      "StudyCodexCost": 1689,
+      "NexusCodexCost": 1990,
+      "TotalCodexCost": 3679
     },
     {
       "GuildName": "Sanctuary",
       "StudyLevel": 300,
-      "NexusLevel": 386,
+      "NexusLevel": 388,
       "StudyProgress": 0,
-      "NexusProgress": 6,
+      "NexusProgress": 8,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 2301,
-      "TotalCodexCost": 2301
+      "NexusCodexCost": 3076,
+      "TotalCodexCost": 3076
     },
     {
       "GuildName": "Phoenix",
@@ -72,13 +72,13 @@
     },
     {
       "GuildName": "EZ ",
-      "StudyLevel": 202,
-      "NexusLevel": 259,
-      "StudyProgress": 2,
-      "NexusProgress": 1,
-      "StudyCodexCost": 403,
-      "NexusCodexCost": 259,
-      "TotalCodexCost": 662
+      "StudyLevel": 203,
+      "NexusLevel": 260,
+      "StudyProgress": 3,
+      "NexusProgress": 2,
+      "StudyCodexCost": 606,
+      "NexusCodexCost": 519,
+      "TotalCodexCost": 1125
     },
     {
       "GuildName": "The First Ones",
@@ -93,12 +93,12 @@
     {
       "GuildName": "Doomed",
       "StudyLevel": 160,
-      "NexusLevel": 239,
+      "NexusLevel": 240,
       "StudyProgress": 0,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 477,
-      "TotalCodexCost": 477
+      "NexusCodexCost": 717,
+      "TotalCodexCost": 717
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -109,6 +109,16 @@
       "StudyCodexCost": 0,
       "NexusCodexCost": 1505,
       "TotalCodexCost": 1505
+    },
+    {
+      "GuildName": "Fight Club",
+      "StudyLevel": 150,
+      "NexusLevel": 203,
+      "StudyProgress": 0,
+      "NexusProgress": 3,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 606,
+      "TotalCodexCost": 606
     },
     {
       "GuildName": "Imperium",
@@ -131,6 +141,26 @@
       "TotalCodexCost": 182
     },
     {
+      "GuildName": "Minimal Effort",
+      "StudyLevel": 143,
+      "NexusLevel": 200,
+      "StudyProgress": 0,
+      "NexusProgress": 0,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Gatherers Guild",
+      "StudyLevel": 140,
+      "NexusLevel": 195,
+      "StudyProgress": 0,
+      "NexusProgress": 2,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 389,
+      "TotalCodexCost": 389
+    },
+    {
       "GuildName": "Hack n Slash",
       "StudyLevel": 160,
       "NexusLevel": 188,
@@ -141,14 +171,24 @@
       "TotalCodexCost": 0
     },
     {
-      "GuildName": "Caliburnus",
-      "StudyLevel": 139,
-      "NexusLevel": 184,
+      "GuildName": "BASED",
+      "StudyLevel": 100,
+      "NexusLevel": 187,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 3,
       "StudyCodexCost": 0,
+      "NexusCodexCost": 558,
+      "TotalCodexCost": 558
+    },
+    {
+      "GuildName": "Caliburnus",
+      "StudyLevel": 140,
+      "NexusLevel": 184,
+      "StudyProgress": 1,
+      "NexusProgress": 0,
+      "StudyCodexCost": 140,
       "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 140
     },
     {
       "GuildName": "Dino Nuggies",
@@ -174,6 +214,16 @@
       "GuildName": "Osmanthus",
       "StudyLevel": 143,
       "NexusLevel": 164,
+      "StudyProgress": 0,
+      "NexusProgress": 0,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Ewbies",
+      "StudyLevel": 152,
+      "NexusLevel": 152,
       "StudyProgress": 0,
       "NexusProgress": 0,
       "StudyCodexCost": 0,
@@ -221,9 +271,49 @@
       "TotalCodexCost": 164
     },
     {
+      "GuildName": "Lighthouse Reborn",
+      "StudyLevel": 116,
+      "NexusLevel": 95,
+      "StudyProgress": 0,
+      "NexusProgress": 0,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 0,
+      "TotalCodexCost": 0
+    },
+    {
       "GuildName": "Hydra",
       "StudyLevel": 91,
       "NexusLevel": 91,
+      "StudyProgress": 0,
+      "NexusProgress": 0,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Rainbow",
+      "StudyLevel": 70,
+      "NexusLevel": 80,
+      "StudyProgress": null,
+      "NexusProgress": null,
+      "StudyCodexCost": null,
+      "NexusCodexCost": null,
+      "TotalCodexCost": null
+    },
+    {
+      "GuildName": "RevivaL",
+      "StudyLevel": 44,
+      "NexusLevel": 77,
+      "StudyProgress": 0,
+      "NexusProgress": 0,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "RPG MO",
+      "StudyLevel": 50,
+      "NexusLevel": 75,
       "StudyProgress": 0,
       "NexusProgress": 0,
       "StudyCodexCost": 0,
@@ -241,6 +331,96 @@
       "TotalCodexCost": 0
     },
     {
+      "GuildName": "Guild",
+      "StudyLevel": 72,
+      "NexusLevel": 62,
+      "StudyProgress": null,
+      "NexusProgress": null,
+      "StudyCodexCost": null,
+      "NexusCodexCost": null,
+      "TotalCodexCost": null
+    },
+    {
+      "GuildName": "Stormlight",
+      "StudyLevel": 27,
+      "NexusLevel": 58,
+      "StudyProgress": 0,
+      "NexusProgress": 0,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Dark Alliance",
+      "StudyLevel": 54,
+      "NexusLevel": 52,
+      "StudyProgress": null,
+      "NexusProgress": null,
+      "StudyCodexCost": null,
+      "NexusCodexCost": null,
+      "TotalCodexCost": null
+    },
+    {
+      "GuildName": "RSH",
+      "StudyLevel": 70,
+      "NexusLevel": 43,
+      "StudyProgress": 0,
+      "NexusProgress": 0,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Knighted Order of Angels",
+      "StudyLevel": 40,
+      "NexusLevel": 40,
+      "StudyProgress": null,
+      "NexusProgress": null,
+      "StudyCodexCost": null,
+      "NexusCodexCost": null,
+      "TotalCodexCost": null
+    },
+    {
+      "GuildName": "Kappa",
+      "StudyLevel": 31,
+      "NexusLevel": 32,
+      "StudyProgress": null,
+      "NexusProgress": null,
+      "StudyCodexCost": null,
+      "NexusCodexCost": null,
+      "TotalCodexCost": null
+    },
+    {
+      "GuildName": "Foolishness",
+      "StudyLevel": 18,
+      "NexusLevel": 31,
+      "StudyProgress": null,
+      "NexusProgress": null,
+      "StudyCodexCost": null,
+      "NexusCodexCost": null,
+      "TotalCodexCost": null
+    },
+    {
+      "GuildName": "Insert Guild Name Here",
+      "StudyLevel": 22,
+      "NexusLevel": 23,
+      "StudyProgress": null,
+      "NexusProgress": null,
+      "StudyCodexCost": null,
+      "NexusCodexCost": null,
+      "TotalCodexCost": null
+    },
+    {
+      "GuildName": "Killer Whale",
+      "StudyLevel": 8,
+      "NexusLevel": 19,
+      "StudyProgress": null,
+      "NexusProgress": null,
+      "StudyCodexCost": null,
+      "NexusCodexCost": null,
+      "TotalCodexCost": null
+    },
+    {
       "GuildName": "Unknown",
       "StudyLevel": 0,
       "NexusLevel": 0,
@@ -249,6 +429,16 @@
       "StudyCodexCost": 0,
       "NexusCodexCost": 0,
       "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Catalans Guild",
+      "StudyLevel": 2,
+      "NexusLevel": 0,
+      "StudyProgress": null,
+      "NexusProgress": null,
+      "StudyCodexCost": null,
+      "NexusCodexCost": null,
+      "TotalCodexCost": null
     }
   ]
 }
