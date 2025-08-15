@@ -2,9 +2,13 @@ name: Update Guild Stats
 
 on:
   schedule:
-    # Runs every hour at minute 0
-    - cron: '0 * * * *'
+    # Runs every hour at minute 0 (only on master branch)
+    - cron: "0 * * * *"
+    # Special run at midnight UTC for baseline (only on master branch)
+    - cron: "0 0 * * *"
   workflow_dispatch: # Allows manual triggering
+  push:
+    branches: [master, dev] # Trigger on both master and dev
 
 permissions:
   contents: write
@@ -14,87 +18,191 @@ permissions:
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-        
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install requests
-        
-    - name: Run guild stats script
-      run: python guild-stats.py
-      
-    - name: Convert CSV to JSON for web display
-      run: |
-        python -c "
-        import csv
-        import json
-        from datetime import datetime
-        
-        # Read CSV and convert to JSON
-        data = []
-        try:
-            with open('guild_stats.csv', 'r', encoding='utf-8') as f:
-                reader = csv.DictReader(f)
-                for row in reader:
-                    # Convert numeric fields
-                    row['StudyLevel'] = int(row['StudyLevel']) if row['StudyLevel'] and row['StudyLevel'].isdigit() else 0
-                    row['NexusLevel'] = int(row['NexusLevel']) if row['NexusLevel'] and row['NexusLevel'].lstrip('-').isdigit() else 0
-                    data.append(row)
-        except FileNotFoundError:
-            print('No CSV file found')
-            
-        # Add metadata
-        result = {
-            'lastUpdated': datetime.utcnow().isoformat() + 'Z',
-            'guilds': data
-        }
-        
-        # Write JSON file for the webpage
-        with open('docs/guild-data.json', 'w', encoding='utf-8') as f:
-            json.dump(result, f, indent=2)
-        
-        print(f'Converted {len(data)} guild records to JSON')
-        "
-        
-    - name: Commit and push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add docs/guild-data.json
-        git diff --staged --quiet || git commit -m "Update guild stats data - $(date)"
-        git push
-        
-  deploy:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run guild stats script
+        run: python guild-stats.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          # Add files that exist
+          git add docs/guild-data.json
+
+          # Only add baseline file if it exists
+          if [ -f "docs/daily-baseline.json" ]; then
+            git add docs/daily-baseline.json
+          fi
+
+          # Only commit if there are changes
+          if ! git diff --staged --quiet; then
+            git commit -m "Update guild stats data - $(date)"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+
+  deploy-production:
     needs: update-data
     runs-on: ubuntu-latest
-    
+    if: github.ref == 'refs/heads/master'
+
     environment:
-      name: github-pages
+      name: production
       url: ${{ steps.deployment.outputs.page_url }}
-      
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        ref: ${{ github.ref }}
-        
-    - name: Setup Pages
-      uses: actions/configure-pages@v5
-      
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: './docs'
-        
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Pull latest changes
+        run: git pull origin master
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./docs"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  deploy-staging:
+    needs: update-data
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/dev'
+
+    steps:
+      - name: Checkout dev branch
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull latest changes
+        run: git pull origin dev
+
+      - name: Create staging directory and files
+        run: |
+          # Create staging directory structure
+          mkdir -p staging
+
+          # Copy all docs files to staging directory
+          cp docs/* staging/ 2>/dev/null || true
+
+          # Create staging-specific index.html
+          if [ -f "staging/index.html" ]; then
+            # Add staging indicators and styling
+            sed -i 's/<title>Guild Stats Dashboard<\/title>/<title>[DEV] Guild Stats Dashboard<\/title>/' staging/index.html
+            
+            # Add staging banner CSS after the existing CSS variables
+            sed -i '/--gradient-3:/a \
+              --staging-bg: linear-gradient(45deg, #ff6b35, #f7931e); \
+              --staging-text: #ffffff; \
+              --staging-border: #ff6b35;' staging/index.html
+            
+            # Add staging banner HTML after the header opening
+            sed -i '/<header class="header">/a \
+              <div style="background: var(--staging-bg); margin: -40px -25px 20px -25px; padding: 12px 0; border-radius: 15px 15px 0 0; text-align: center; border: 2px solid var(--staging-border);"> \
+                <span style="color: var(--staging-text); font-size: 1rem; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">🚧 STAGING ENVIRONMENT - DEV BRANCH 🚧</span> \
+              </div>' staging/index.html
+              
+            echo "✅ Created staging version with visual indicators"
+          else
+            echo "⚠️ No index.html found in docs directory"
+          fi
+
+      - name: Switch to gh-pages branch and deploy staging
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          # Fetch all branches
+          git fetch origin
+
+          # Switch to gh-pages branch (create if doesn't exist)
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            git checkout gh-pages
+            git pull origin gh-pages
+          else
+            git checkout --orphan gh-pages
+            git rm -rf . 2>/dev/null || true
+            # Create initial production deployment
+            git checkout dev -- docs/
+            mv docs/* .
+            rmdir docs 2>/dev/null || true
+            touch .nojekyll
+            git add .
+            git commit -m "Initial gh-pages setup"
+            git push origin gh-pages
+          fi
+
+          # Now we're on gh-pages branch, ensure we have the latest production content
+          git checkout dev -- docs/
+
+          # Copy production files to root (this maintains production at root)
+          cp docs/* . 2>/dev/null || true
+
+          # Copy staging files to staging subdirectory
+          git checkout dev -- staging/
+
+          # Ensure .nojekyll exists for proper serving
+          touch .nojekyll
+
+          # Add all changes
+          git add .
+
+          # Commit if there are changes
+          if ! git diff --staged --quiet; then
+            git commit -m "Deploy staging to subdirectory - $(date)"
+            git push origin gh-pages
+            echo "✅ Staging deployed successfully!"
+            echo "🌐 Production: https://gungho1205.github.io/manarion-guild-stats/"
+            echo "🚧 Staging: https://gungho1205.github.io/manarion-guild-stats/staging/"
+          else
+            echo "ℹ️ No changes to deploy"
+          fi
+
+  deployment-info:
+    needs: [deploy-production, deploy-staging]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Deployment Summary
+        run: |
+          echo "🚀 Deployment Summary:"
+          echo "================================"
+          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            echo "✅ Production deployed from master branch"
+            echo "📍 Production URL: https://gungho1205.github.io/manarion-guild-stats/"
+          fi
+          if [ "${{ github.ref }}" = "refs/heads/dev" ]; then
+            echo "✅ Staging deployed from dev branch"
+            echo "📍 Staging URL: https://gungho1205.github.io/manarion-guild-stats/staging/"
+            echo ""
+            echo "💡 The staging site includes:"
+            echo "   - Clear visual indicators that it's the dev environment"
+            echo "   - Orange staging banner at the top"
+            echo "   - [DEV] prefix in the browser title"
+          fi
