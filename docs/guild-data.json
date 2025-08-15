@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-15T17:10:09.556814+00:00",
+  "lastUpdated": "2025-08-15T18:16:39.221240+00:00",
   "baselineDate": "2025-08-15",
   "baselineTimestamp": "2025-08-15T07:35:51.552796+00:00",
   "guilds": [
@@ -16,12 +16,12 @@
     {
       "GuildName": "RNG",
       "StudyLevel": 280,
-      "NexusLevel": 405,
+      "NexusLevel": 408,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 3,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 1221,
+      "TotalCodexCost": 1221
     },
     {
       "GuildName": "Divinity",
@@ -66,12 +66,12 @@
     {
       "GuildName": "EZ ",
       "StudyLevel": 202,
-      "NexusLevel": 259,
+      "NexusLevel": 260,
       "StudyProgress": 2,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyCodexCost": 403,
-      "NexusCodexCost": 259,
-      "TotalCodexCost": 662
+      "NexusCodexCost": 519,
+      "TotalCodexCost": 922
     },
     {
       "GuildName": "The First Ones",
