@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-15T01:09:00.677345Z",
+  "lastUpdated": "2025-08-15T03:03:15.637897Z",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
@@ -34,12 +34,12 @@
     {
       "GuildName": "EZ ",
       "StudyLevel": 200,
-      "NexusLevel": 256
+      "NexusLevel": 257
     },
     {
       "GuildName": "The First Ones",
       "StudyLevel": 160,
-      "NexusLevel": 240
+      "NexusLevel": 244
     },
     {
       "GuildName": "Doomed",
@@ -58,7 +58,7 @@
     },
     {
       "GuildName": "Racc City",
-      "StudyLevel": 180,
+      "StudyLevel": 181,
       "NexusLevel": 200
     },
     {
@@ -68,7 +68,7 @@
     },
     {
       "GuildName": "Minimal Effort",
-      "StudyLevel": 141,
+      "StudyLevel": 142,
       "NexusLevel": 200
     },
     {
@@ -98,7 +98,7 @@
     },
     {
       "GuildName": "Bureau of Feline Investigators",
-      "StudyLevel": 168,
+      "StudyLevel": 169,
       "NexusLevel": 171
     },
     {
@@ -117,14 +117,14 @@
       "NexusLevel": 128
     },
     {
+      "GuildName": "Cats",
+      "StudyLevel": 100,
+      "NexusLevel": 117
+    },
+    {
       "GuildName": "MooseKnuckles",
       "StudyLevel": 115,
       "NexusLevel": 115
-    },
-    {
-      "GuildName": "Cats",
-      "StudyLevel": 100,
-      "NexusLevel": 114
     },
     {
       "GuildName": "asylum",
@@ -193,8 +193,8 @@
     },
     {
       "GuildName": "Foolishness",
-      "StudyLevel": 14,
-      "NexusLevel": 28
+      "StudyLevel": 18,
+      "NexusLevel": 31
     },
     {
       "GuildName": "Insert Guild Name Here",
