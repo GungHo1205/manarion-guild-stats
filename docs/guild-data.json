@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-15T19:09:01.678494+00:00",
+  "lastUpdated": "2025-08-15T20:12:36.914389+00:00",
   "baselineDate": "2025-08-15",
   "baselineTimestamp": "2025-08-15T07:35:51.552796+00:00",
   "guilds": [
@@ -25,23 +25,23 @@
     },
     {
       "GuildName": "Divinity",
-      "StudyLevel": 284,
+      "StudyLevel": 287,
       "NexusLevel": 400,
-      "StudyProgress": 6,
+      "StudyProgress": 9,
       "NexusProgress": 5,
-      "StudyCodexCost": 1689,
+      "StudyCodexCost": 2547,
       "NexusCodexCost": 1990,
-      "TotalCodexCost": 3679
+      "TotalCodexCost": 4537
     },
     {
       "GuildName": "Sanctuary",
       "StudyLevel": 300,
-      "NexusLevel": 387,
+      "NexusLevel": 388,
       "StudyProgress": 0,
-      "NexusProgress": 7,
+      "NexusProgress": 8,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 2688,
-      "TotalCodexCost": 2688
+      "NexusCodexCost": 3076,
+      "TotalCodexCost": 3076
     },
     {
       "GuildName": "Phoenix",
@@ -65,13 +65,13 @@
     },
     {
       "GuildName": "EZ ",
-      "StudyLevel": 202,
+      "StudyLevel": 203,
       "NexusLevel": 260,
-      "StudyProgress": 2,
+      "StudyProgress": 3,
       "NexusProgress": 2,
-      "StudyCodexCost": 403,
+      "StudyCodexCost": 606,
       "NexusCodexCost": 519,
-      "TotalCodexCost": 922
+      "TotalCodexCost": 1125
     },
     {
       "GuildName": "The First Ones",
@@ -236,12 +236,12 @@
     {
       "GuildName": "Cats",
       "StudyLevel": 100,
-      "NexusLevel": 123,
+      "NexusLevel": 124,
       "StudyProgress": 0,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 366,
-      "TotalCodexCost": 366
+      "NexusCodexCost": 490,
+      "TotalCodexCost": 490
     },
     {
       "GuildName": "MooseKnuckles",
@@ -336,12 +336,12 @@
     {
       "GuildName": "Stormlight",
       "StudyLevel": 27,
-      "NexusLevel": 58,
+      "NexusLevel": 59,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 59,
+      "TotalCodexCost": 59
     },
     {
       "GuildName": "Dark Alliance",
