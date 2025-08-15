@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-15T21:09:32.657197+00:00",
+  "lastUpdated": "2025-08-15T22:11:20.310412+00:00",
   "baselineDate": "2025-08-15",
   "baselineTimestamp": "2025-08-15T07:35:51.552796+00:00",
   "guilds": [
@@ -36,22 +36,22 @@
     {
       "GuildName": "Sanctuary",
       "StudyLevel": 300,
-      "NexusLevel": 388,
+      "NexusLevel": 389,
       "StudyProgress": 0,
-      "NexusProgress": 8,
+      "NexusProgress": 9,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 3076,
-      "TotalCodexCost": 3076
+      "NexusCodexCost": 3465,
+      "TotalCodexCost": 3465
     },
     {
       "GuildName": "Phoenix",
-      "StudyLevel": 240,
+      "StudyLevel": 241,
       "NexusLevel": 372,
-      "StudyProgress": 0,
+      "StudyProgress": 1,
       "NexusProgress": 5,
-      "StudyCodexCost": 0,
+      "StudyCodexCost": 241,
       "NexusCodexCost": 1850,
-      "TotalCodexCost": 1850
+      "TotalCodexCost": 2091
     },
     {
       "GuildName": "Codex",
