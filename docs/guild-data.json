@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-15T07:23:45.415792Z",
+  "lastUpdated": "2025-08-15T08:27:51.340565Z",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
@@ -13,7 +13,7 @@
     },
     {
       "GuildName": "Divinity",
-      "StudyLevel": 277,
+      "StudyLevel": 278,
       "NexusLevel": 395
     },
     {
@@ -24,7 +24,7 @@
     {
       "GuildName": "Phoenix",
       "StudyLevel": 240,
-      "NexusLevel": 367
+      "NexusLevel": 368
     },
     {
       "GuildName": "Codex",
@@ -49,7 +49,7 @@
     {
       "GuildName": "Test Guild Please Ignore",
       "StudyLevel": 267,
-      "NexusLevel": 211
+      "NexusLevel": 215
     },
     {
       "GuildName": "Imperium",
@@ -74,7 +74,7 @@
     {
       "GuildName": "Gatherers Guild",
       "StudyLevel": 140,
-      "NexusLevel": 193
+      "NexusLevel": 194
     },
     {
       "GuildName": "Hack n Slash",
