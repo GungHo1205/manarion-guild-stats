@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2025-08-15T12:32:36.246894Z",
+  "lastUpdated": "2025-08-15T13:35:57.915810Z",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
       "StudyLevel": 300,
-      "NexusLevel": 448
+      "NexusLevel": 449
     },
     {
       "GuildName": "RNG",
@@ -13,8 +13,8 @@
     },
     {
       "GuildName": "Divinity",
-      "StudyLevel": 279,
-      "NexusLevel": 396
+      "StudyLevel": 280,
+      "NexusLevel": 398
     },
     {
       "GuildName": "Sanctuary",
@@ -28,12 +28,12 @@
     },
     {
       "GuildName": "Codex",
-      "StudyLevel": 227,
+      "StudyLevel": 230,
       "NexusLevel": 264
     },
     {
       "GuildName": "EZ ",
-      "StudyLevel": 201,
+      "StudyLevel": 202,
       "NexusLevel": 259
     },
     {
@@ -74,7 +74,7 @@
     {
       "GuildName": "Gatherers Guild",
       "StudyLevel": 140,
-      "NexusLevel": 194
+      "NexusLevel": 195
     },
     {
       "GuildName": "Hack n Slash",
@@ -129,7 +129,7 @@
     {
       "GuildName": "asylum",
       "StudyLevel": 65,
-      "NexusLevel": 98
+      "NexusLevel": 99
     },
     {
       "GuildName": "Lighthouse Reborn",
