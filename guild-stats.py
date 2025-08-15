@@ -62,6 +62,28 @@ def load_baseline_data():
             return None
     return None
 
+def create_initial_baseline(guilds_data, timestamp):
+    """Create initial baseline when none exists"""
+    baseline_data = {
+        "date": timestamp.split('T')[0],  # Just the date part
+        "timestamp": timestamp,
+        "guilds": {}
+    }
+    
+    for guild in guilds_data:
+        guild_name = guild["GuildName"]
+        baseline_data["guilds"][guild_name] = {
+            "StudyLevel": guild["StudyLevel"],
+            "NexusLevel": guild["NexusLevel"]
+        }
+    
+    os.makedirs("docs", exist_ok=True)
+    with open("docs/daily-baseline.json", 'w', encoding='utf-8') as f:
+        json.dump(baseline_data, f, indent=2)
+    
+    print(f"Created initial baseline for {len(guilds_data)} guilds")
+    return baseline_data
+
 def save_baseline_data(guilds_data, timestamp):
     """Save current data as the daily baseline"""
     baseline_data = {
@@ -81,12 +103,43 @@ def save_baseline_data(guilds_data, timestamp):
     with open("docs/daily-baseline.json", 'w', encoding='utf-8') as f:
         json.dump(baseline_data, f, indent=2)
     
-    print(f"Saved baseline data for {len(guilds_data)} guilds")
+    print(f"Updated daily baseline for {len(guilds_data)} guilds")
+    return baseline_data
 
 def is_midnight_run():
     """Check if this is the midnight baseline run"""
     current_hour = datetime.now(timezone.utc).hour
     return current_hour == 0
+
+def should_update_baseline(baseline_data, current_timestamp):
+    """Determine if baseline should be updated"""
+    if not baseline_data:
+        return True, "No baseline exists"
+    
+    today = current_timestamp.split('T')[0]
+    baseline_date = baseline_data.get("date", "")
+    
+    # Update if it's a new day
+    if baseline_date != today:
+        return True, f"New day: {baseline_date} -> {today}"
+    
+    # Update if it's midnight run
+    if is_midnight_run():
+        return True, "Midnight baseline update"
+    
+    return False, "Baseline is current"
+
+def calculate_codex_cost(current_level, levels_gained):
+    """Calculate total codex cost for gaining levels"""
+    if levels_gained <= 0:
+        return 0
+    
+    total_cost = 0
+    for i in range(levels_gained):
+        next_level_cost = current_level + 1 + i
+        total_cost += next_level_cost
+    
+    return total_cost
 
 def calculate_daily_progress(current_guilds, baseline_data):
     """Calculate progress since daily baseline"""
@@ -102,6 +155,9 @@ def calculate_daily_progress(current_guilds, baseline_data):
         for guild in current_guilds:
             guild["StudyProgress"] = None
             guild["NexusProgress"] = None
+            guild["StudyCodexCost"] = None
+            guild["NexusCodexCost"] = None
+            guild["TotalCodexCost"] = None
         return current_guilds
     
     # Calculate progress for each guild
@@ -109,12 +165,26 @@ def calculate_daily_progress(current_guilds, baseline_data):
         guild_name = guild["GuildName"]
         if guild_name in baseline_guilds:
             baseline = baseline_guilds[guild_name]
-            guild["StudyProgress"] = guild["StudyLevel"] - baseline["StudyLevel"]
-            guild["NexusProgress"] = guild["NexusLevel"] - baseline["NexusLevel"]
+            study_progress = guild["StudyLevel"] - baseline["StudyLevel"]
+            nexus_progress = guild["NexusLevel"] - baseline["NexusLevel"]
+            
+            guild["StudyProgress"] = study_progress
+            guild["NexusProgress"] = nexus_progress
+            
+            # Calculate codex costs (starting from baseline levels)
+            study_codex_cost = calculate_codex_cost(baseline["StudyLevel"], study_progress)
+            nexus_codex_cost = calculate_codex_cost(baseline["NexusLevel"], nexus_progress)
+            
+            guild["StudyCodexCost"] = study_codex_cost
+            guild["NexusCodexCost"] = nexus_codex_cost
+            guild["TotalCodexCost"] = study_codex_cost + nexus_codex_cost
         else:
             # New guild not in baseline
             guild["StudyProgress"] = None
             guild["NexusProgress"] = None
+            guild["StudyCodexCost"] = None
+            guild["NexusCodexCost"] = None
+            guild["TotalCodexCost"] = None
     
     return current_guilds
 
@@ -216,11 +286,19 @@ def main():
         # Load baseline data for progress calculation
         baseline_data = load_baseline_data()
         
-        # If this is midnight (00:00 UTC), save current data as baseline
-        if is_midnight_run():
-            print("Midnight run detected - saving baseline data")
-            save_baseline_data(results, timestamp)
-            baseline_data = load_baseline_data()  # Reload the fresh baseline
+        # Check if we should update the baseline
+        should_update, reason = should_update_baseline(baseline_data, timestamp)
+        
+        if should_update:
+            print(f"Updating baseline: {reason}")
+            if baseline_data is None:
+                # First run - create initial baseline
+                baseline_data = create_initial_baseline(results, timestamp)
+            else:
+                # Regular baseline update
+                baseline_data = save_baseline_data(results, timestamp)
+        else:
+            print(f"Keeping existing baseline: {reason}")
         
         # Calculate daily progress
         results_with_progress = calculate_daily_progress(results, baseline_data)
@@ -252,7 +330,9 @@ def main():
         if baseline_data and baseline_data.get("date") == timestamp.split('T')[0]:
             total_study_gains = sum(g.get("StudyProgress", 0) or 0 for g in results_with_progress)
             total_nexus_gains = sum(g.get("NexusProgress", 0) or 0 for g in results_with_progress)
+            total_codex_spent = sum(g.get("TotalCodexCost", 0) or 0 for g in results_with_progress)
             print(f"Daily progress: Study +{total_study_gains}, Nexus +{total_nexus_gains}")
+            print(f"Estimated codex spent today: {total_codex_spent:,}")
         
     else:
         print("No results to save.")

@@ -2,13 +2,13 @@ name: Update Guild Stats
 
 on:
   schedule:
-    # Runs every hour at minute 0 (only on main branch)
+    # Runs every hour at minute 0 (only on master branch)
     - cron: "0 * * * *"
-    # Special run at midnight UTC for baseline (only on main branch)
+    # Special run at midnight UTC for baseline (only on master branch)
     - cron: "0 0 * * *"
   workflow_dispatch: # Allows manual triggering
   push:
-    branches: [main, dev] # Trigger on both main and dev
+    branches: [master, dev] # Trigger on both master and dev
 
 permissions:
   contents: write
@@ -73,9 +73,22 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add docs/guild-data.json docs/daily-baseline.json
-          git diff --staged --quiet || git commit -m "Update guild stats data - $(date)"
-          git push
+
+          # Add files that exist
+          git add docs/guild-data.json
+
+          # Only add baseline file if it exists
+          if [ -f "docs/daily-baseline.json" ]; then
+            git add docs/daily-baseline.json
+          fi
+
+          # Only commit if there are changes
+          if ! git diff --staged --quiet; then
+            git commit -m "Update guild stats data - $(date)"
+            git push
+          else
+            echo "No changes to commit"
+          fi
 
   deploy-production:
     needs: update-data
