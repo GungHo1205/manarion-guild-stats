@@ -36,39 +36,6 @@ jobs:
       - name: Run guild stats script
         run: python guild-stats.py
 
-      - name: Convert CSV to JSON for web display
-        run: |
-          python -c "
-          import csv
-          import json
-          from datetime import datetime
-
-          # Read CSV and convert to JSON
-          data = []
-          try:
-              with open('guild_stats.csv', 'r', encoding='utf-8') as f:
-                  reader = csv.DictReader(f)
-                  for row in reader:
-                      # Convert numeric fields
-                      row['StudyLevel'] = int(row['StudyLevel']) if row['StudyLevel'] and row['StudyLevel'].isdigit() else 0
-                      row['NexusLevel'] = int(row['NexusLevel']) if row['NexusLevel'] and row['NexusLevel'].lstrip('-').isdigit() else 0
-                      data.append(row)
-          except FileNotFoundError:
-              print('No CSV file found')
-              
-          # Add metadata
-          result = {
-              'lastUpdated': datetime.utcnow().isoformat() + 'Z',
-              'guilds': data
-          }
-
-          # Write JSON file for the webpage
-          with open('docs/guild-data.json', 'w', encoding='utf-8') as f:
-              json.dump(result, f, indent=2)
-
-          print(f'Converted {len(data)} guild records to JSON')
-          "
-
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
@@ -130,79 +97,112 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: dev
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Pull latest changes
         run: git pull origin dev
 
-      - name: Create staging-specific index.html
+      - name: Create staging directory and files
         run: |
-          # Create staging version of the HTML with visual indicators
-          cp docs/index.html docs/index.html.bak
+          # Create staging directory structure
+          mkdir -p staging
 
-          # Add staging indicators and styling
-          sed -i 's/<title>Guild Stats Dashboard<\/title>/<title>[STAGING] Guild Stats Dashboard<\/title>/' docs/index.html
+          # Copy all docs files to staging directory
+          cp docs/* staging/ 2>/dev/null || true
 
-          # Add staging banner styling to CSS
-          sed -i '/--gradient-3: linear-gradient/a \
-            --staging-bg: linear-gradient(45deg, #ff6b35, #f7931e); \
-            --staging-text: #ffffff;' docs/index.html
+          # Create staging-specific index.html
+          if [ -f "staging/index.html" ]; then
+            # Add staging indicators and styling
+            sed -i 's/<title>Guild Stats Dashboard<\/title>/<title>[DEV] Guild Stats Dashboard<\/title>/' staging/index.html
+            
+            # Add staging banner CSS after the existing CSS variables
+            sed -i '/--gradient-3:/a \
+              --staging-bg: linear-gradient(45deg, #ff6b35, #f7931e); \
+              --staging-text: #ffffff; \
+              --staging-border: #ff6b35;' staging/index.html
+            
+            # Add staging banner HTML after the header opening
+            sed -i '/<header class="header">/a \
+              <div style="background: var(--staging-bg); margin: -40px -25px 20px -25px; padding: 12px 0; border-radius: 15px 15px 0 0; text-align: center; border: 2px solid var(--staging-border);"> \
+                <span style="color: var(--staging-text); font-size: 1rem; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">🚧 STAGING ENVIRONMENT - DEV BRANCH 🚧</span> \
+              </div>' staging/index.html
+              
+            echo "✅ Created staging version with visual indicators"
+          else
+            echo "⚠️ No index.html found in docs directory"
+          fi
 
-          # Modify the header to show staging
-          sed -i 's/<h1>Guild Stats Dashboard<\/h1>/<div style="background: var(--staging-bg); padding: 8px 0; margin: -40px -25px 20px -25px; border-radius: 15px 15px 0 0;"><small style="color: var(--staging-text); font-size: 0.9rem; font-weight: 600;">🚧 STAGING ENVIRONMENT 🚧<\/small><\/div><h1>Guild Stats Dashboard<\/h1>/' docs/index.html
-
-      - name: Deploy to gh-pages-staging branch
+      - name: Switch to gh-pages branch and deploy staging
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
 
-          # Create a temporary directory for staging deployment
-          mkdir -p /tmp/staging-deploy
-          cp -r docs/* /tmp/staging-deploy/
-
-          # Switch to gh-pages-staging branch (create if doesn't exist)
+          # Fetch all branches
           git fetch origin
-          if git show-ref --verify --quiet refs/remotes/origin/gh-pages-staging; then
-            git checkout gh-pages-staging
+
+          # Switch to gh-pages branch (create if doesn't exist)
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            git checkout gh-pages
+            git pull origin gh-pages
           else
-            git checkout --orphan gh-pages-staging
+            git checkout --orphan gh-pages
             git rm -rf . 2>/dev/null || true
+            # Create initial production deployment
+            git checkout dev -- docs/
+            mv docs/* .
+            rmdir docs 2>/dev/null || true
+            touch .nojekyll
+            git add .
+            git commit -m "Initial gh-pages setup"
+            git push origin gh-pages
           fi
 
-          # Clear current content and copy staging files
-          rm -rf * 2>/dev/null || true
-          cp -r /tmp/staging-deploy/* .
+          # Now we're on gh-pages branch, ensure we have the latest production content
+          git checkout dev -- docs/
 
-          # Add CNAME file for custom subdomain (optional)
-          echo "dev-guildstats.yourdomain.com" > CNAME 2>/dev/null || true
+          # Copy production files to root (this maintains production at root)
+          cp docs/* . 2>/dev/null || true
 
-          # Create .nojekyll to ensure GitHub serves our files directly
+          # Copy staging files to staging subdirectory
+          git checkout dev -- staging/
+
+          # Ensure .nojekyll exists for proper serving
           touch .nojekyll
 
-          # Commit and push
+          # Add all changes
           git add .
+
+          # Commit if there are changes
           if ! git diff --staged --quiet; then
-            git commit -m "Deploy staging - $(date)"
-            git push origin gh-pages-staging
-            echo "✅ Staging deployed to gh-pages-staging branch"
-            echo "📍 Staging URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/staging/"
+            git commit -m "Deploy staging to subdirectory - $(date)"
+            git push origin gh-pages
+            echo "✅ Staging deployed successfully!"
+            echo "🌐 Production: https://gungho1205.github.io/manarion-guild-stats/"
+            echo "🚧 Staging: https://gungho1205.github.io/manarion-guild-stats/staging/"
           else
-            echo "No changes to deploy"
+            echo "ℹ️ No changes to deploy"
           fi
 
-  # Optional: Create a job to set up staging Pages deployment
-  setup-staging-pages:
-    needs: deploy-staging
+  deployment-info:
+    needs: [deploy-production, deploy-staging]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/dev'
+    if: always()
 
     steps:
-      - name: Setup staging environment info
+      - name: Deployment Summary
         run: |
-          echo "🚀 Staging deployment completed!"
-          echo "📍 Your staging site should be available at:"
-          echo "   https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/staging/"
-          echo ""
-          echo "💡 To set up a custom subdomain for staging:"
-          echo "   1. Go to your repository Settings > Pages"
-          echo "   2. Create a second Pages site from the 'gh-pages-staging' branch"
-          echo "   3. Configure your DNS to point dev-guildstats.yourdomain.com to GitHub Pages"
+          echo "🚀 Deployment Summary:"
+          echo "================================"
+          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            echo "✅ Production deployed from master branch"
+            echo "📍 Production URL: https://gungho1205.github.io/manarion-guild-stats/"
+          fi
+          if [ "${{ github.ref }}" = "refs/heads/dev" ]; then
+            echo "✅ Staging deployed from dev branch"
+            echo "📍 Staging URL: https://gungho1205.github.io/manarion-guild-stats/staging/"
+            echo ""
+            echo "💡 The staging site includes:"
+            echo "   - Clear visual indicators that it's the dev environment"
+            echo "   - Orange staging banner at the top"
+            echo "   - [DEV] prefix in the browser title"
+          fi
