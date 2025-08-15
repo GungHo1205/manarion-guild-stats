@@ -102,39 +102,7 @@ jobs:
       - name: Pull latest changes
         run: git pull origin dev
 
-      - name: Create staging files in temporary directory
-        run: |
-          # Create a temporary staging directory
-          mkdir -p temp_staging
-
-          # Copy all docs files to temp staging directory
-          if [ -d "docs" ]; then
-            cp -r docs/* temp_staging/ 2>/dev/null || true
-          fi
-
-          # Create staging-specific index.html if it exists
-          if [ -f "temp_staging/index.html" ]; then
-            # Add staging indicators and styling
-            sed -i 's/<title>Guild Stats Dashboard<\/title>/<title>[DEV] Guild Stats Dashboard<\/title>/' temp_staging/index.html
-            
-            # Add staging banner CSS after the existing CSS variables
-            sed -i '/--gradient-3:/a \
-              --staging-bg: linear-gradient(45deg, #ff6b35, #f7931e); \
-              --staging-text: #ffffff; \
-              --staging-border: #ff6b35;' temp_staging/index.html
-            
-            # Add staging banner HTML after the header opening
-            sed -i '/<header class="header">/a \
-              <div style="background: var(--staging-bg); margin: -40px -25px 20px -25px; padding: 12px 0; border-radius: 15px 15px 0 0; text-align: center; border: 2px solid var(--staging-border);"> \
-                <span style="color: var(--staging-text); font-size: 1rem; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">🚧 STAGING ENVIRONMENT - DEV BRANCH 🚧</span> \
-              </div>' temp_staging/index.html
-              
-            echo "✅ Created staging version with visual indicators"
-          else
-            echo "⚠️ No index.html found in docs directory"
-          fi
-
-      - name: Configure Git and setup gh-pages branch
+      - name: Configure Git and deploy to gh-pages
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -159,31 +127,63 @@ jobs:
             git push origin gh-pages
           fi
 
-      - name: Deploy staging content
-        run: |
           # Now we're on gh-pages branch
-          # First, get the latest production content from dev branch's docs folder
+          # Get the latest production content from dev branch's docs folder
           git checkout dev -- docs/ 2>/dev/null || echo "No docs folder found"
 
           # Copy production files to root (maintains production at root URL)
           if [ -d "docs" ]; then
             cp docs/* . 2>/dev/null || true
-            rm -rf docs
           fi
 
-          # Create staging subdirectory and copy our modified staging files
+          # Create staging subdirectory and prepare staging files
           mkdir -p staging
-          if [ -d "../temp_staging" ]; then
-            cp ../temp_staging/* staging/ 2>/dev/null || true
-          elif [ -f "temp_staging/index.html" ]; then
-            cp temp_staging/* staging/ 2>/dev/null || true
+
+          # Copy docs files to staging directory first
+          if [ -d "docs" ]; then
+            cp docs/* staging/ 2>/dev/null || true
           fi
+
+          # Now modify the staging index.html if it exists
+          if [ -f "staging/index.html" ]; then
+            echo "🔧 Modifying staging index.html..."
+            
+            # Add staging indicators and styling
+            sed -i 's/<title>Guild Stats Dashboard<\/title>/<title>[DEV] Guild Stats Dashboard<\/title>/' staging/index.html
+            
+            # Add staging banner CSS after the existing CSS variables
+            sed -i '/--gradient-3:/a \
+              --staging-bg: linear-gradient(45deg, #ff6b35, #f7931e); \
+              --staging-text: #ffffff; \
+              --staging-border: #ff6b35;' staging/index.html
+            
+            # Add staging banner HTML after the header opening
+            sed -i '/<header class="header">/a \
+              <div style="background: var(--staging-bg); margin: -40px -25px 20px -25px; padding: 12px 0; border-radius: 15px 15px 0 0; text-align: center; border: 2px solid var(--staging-border);"> \
+                <span style="color: var(--staging-text); font-size: 1rem; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">🚧 STAGING ENVIRONMENT - DEV BRANCH 🚧</span> \
+              </div>' staging/index.html
+              
+            echo "✅ Created staging version with visual indicators"
+            
+            # Verify staging files exist
+            echo "📁 Staging directory contents:"
+            ls -la staging/
+          else
+            echo "⚠️ No index.html found to modify for staging"
+          fi
+
+          # Clean up the docs directory since we've copied everything we need
+          rm -rf docs 2>/dev/null || true
 
           # Ensure .nojekyll exists for proper GitHub Pages serving
           touch .nojekyll
 
           # Add all changes
           git add .
+
+          # Show what we're about to commit
+          echo "📋 Files to be committed:"
+          git diff --staged --name-only
 
           # Commit if there are changes
           if ! git diff --staged --quiet; then
