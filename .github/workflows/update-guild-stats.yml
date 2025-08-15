@@ -2,11 +2,13 @@ name: Update Guild Stats
 
 on:
   schedule:
-    # Runs every hour at minute 0
+    # Runs every hour at minute 0 (only on main branch)
     - cron: "0 * * * *"
-    # Special run at midnight UTC for baseline
+    # Special run at midnight UTC for baseline (only on main branch)
     - cron: "0 0 * * *"
   workflow_dispatch: # Allows manual triggering
+  push:
+    branches: [main, dev] # Trigger on both main and dev
 
 permissions:
   contents: write
@@ -71,16 +73,17 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add docs/guild-data.json
+          git add docs/guild-data.json docs/daily-baseline.json
           git diff --staged --quiet || git commit -m "Update guild stats data - $(date)"
           git push
 
-  deploy:
+  deploy-production:
     needs: update-data
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
     environment:
-      name: github-pages
+      name: production
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
@@ -100,3 +103,46 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy-staging:
+    needs: update-data
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/dev'
+
+    environment:
+      name: staging
+      url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}-dev/
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+
+      - name: Create staging docs
+        run: |
+          # Add staging indicator to the HTML
+          sed -i 's/<title>Guild Stats Dashboard<\/title>/<title>[DEV] Guild Stats Dashboard<\/title>/' docs/index.html
+          sed -i 's/<h1>Guild Stats Dashboard<\/h1>/<h1>🚧 Guild Stats Dashboard (DEV)<\/h1>/' docs/index.html
+
+      - name: Deploy to staging branch
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          # Create or switch to gh-pages-dev branch
+          git fetch origin
+          git checkout -b gh-pages-dev || git checkout gh-pages-dev
+
+          # Clear existing content except .git
+          find . -maxdepth 1 ! -name '.git' ! -name '.' -exec rm -rf {} +
+
+          # Copy docs content to root
+          git checkout dev -- docs/
+          mv docs/* .
+          rmdir docs
+
+          # Commit and push to gh-pages-dev
+          git add .
+          git commit -m "Deploy dev branch - $(date)" || exit 0
+          git push origin gh-pages-dev
