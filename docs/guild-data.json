@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-15T14:31:07.241696+00:00",
+  "lastUpdated": "2025-08-15T15:11:43.723026+00:00",
   "baselineDate": "2025-08-15",
   "baselineTimestamp": "2025-08-15T07:35:51.552796+00:00",
   "guilds": [
@@ -36,12 +36,12 @@
     {
       "GuildName": "Sanctuary",
       "StudyLevel": 300,
-      "NexusLevel": 384,
+      "NexusLevel": 385,
       "StudyProgress": 0,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 1530,
-      "TotalCodexCost": 1530
+      "NexusCodexCost": 1915,
+      "TotalCodexCost": 1915
     },
     {
       "GuildName": "Phoenix",
