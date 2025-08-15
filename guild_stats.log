@@ -248,3 +248,41 @@
 2025-08-15 15:39:40,582 - INFO - Daily progress: Study +0, Nexus +0
 2025-08-15 15:39:40,583 - INFO - Estimated codex spent today: 0
 2025-08-15 15:39:40,583 - INFO - Successfully processed 34 guilds
+2025-08-16 00:33:03,822 - INFO - Starting guild stats collection...
+2025-08-16 00:33:03,822 - INFO - Updating market prices...
+2025-08-16 00:33:06,522 - INFO - Updated market prices - Current: 20.50B
+2025-08-16 00:33:06,523 - INFO - Loading guild lookup data...
+2025-08-16 00:33:08,750 - INFO - Loaded 122 guilds
+2025-08-16 00:33:08,750 - INFO - Starting leaderboard data collection...
+2025-08-16 00:33:08,750 - INFO - Processing leaderboard page 1...
+2025-08-16 00:33:13,198 - INFO - Added guild: Spaghetti and Meatballs, Study: 300, Nexus: 450
+2025-08-16 00:33:13,566 - INFO - Added guild: Divinity, Study: 281, Nexus: 399
+2025-08-16 00:33:15,776 - INFO - Added guild: Sanctuary, Study: 300, Nexus: 386
+2025-08-16 00:33:17,613 - INFO - Added guild: Dino Nuggies, Study: 128, Nexus: 175
+2025-08-16 00:33:17,985 - INFO - Added guild: RNG, Study: 280, Nexus: 405
+2025-08-16 00:33:20,196 - INFO - Added guild: Test Guild Please Ignore, Study: 267, Nexus: 218
+2025-08-16 00:33:26,443 - INFO - Added guild: Imperium, Study: 191, Nexus: 200
+2025-08-16 00:33:26,808 - INFO - Added guild: Hack n Slash, Study: 160, Nexus: 188
+2025-08-16 00:33:28,642 - INFO - Added guild: EZ , Study: 202, Nexus: 259
+2025-08-16 00:33:30,849 - INFO - Added guild: Phoenix, Study: 240, Nexus: 370
+2025-08-16 00:33:44,068 - INFO - Added guild: Doomed, Study: 160, Nexus: 239
+2025-08-16 00:33:51,065 - INFO - Added guild: asylum, Study: 65, Nexus: 99
+2025-08-16 00:33:55,481 - INFO - Added guild: The First Ones, Study: 160, Nexus: 247
+2025-08-16 00:33:59,517 - INFO - Added guild: Codex, Study: 230, Nexus: 264
+2025-08-16 00:33:59,899 - INFO - Added guild: MooseKnuckles, Study: 115, Nexus: 115
+2025-08-16 00:34:13,140 - INFO - Added guild: Cats, Study: 100, Nexus: 123
+2025-08-16 00:34:21,582 - INFO - Added guild: Osmanthus, Study: 143, Nexus: 164
+2025-08-16 00:34:21,976 - INFO - Added guild: Hydra, Study: 91, Nexus: 91
+2025-08-16 00:34:30,785 - INFO - Added guild: Manarion Adventures, Study: 130, Nexus: 131
+2025-08-16 00:34:32,609 - INFO - Added guild: Bureau of Feline Investigators, Study: 169, Nexus: 171
+2025-08-16 00:34:37,018 - INFO - Added guild: Racc City, Study: 182, Nexus: 200
+2025-08-16 00:34:48,414 - INFO - Added guild: Unknown, Study: 0, Nexus: 0
+2025-08-16 00:34:59,092 - INFO - Added guild: A Growing Threat, Study: 75, Nexus: 65
+2025-08-16 00:35:01,653 - INFO - Added guild: Caliburnus, Study: 139, Nexus: 184
+2025-08-16 00:35:01,653 - INFO - Collected data for 24 unique guilds
+2025-08-16 00:35:01,658 - INFO - Keeping existing baseline: Baseline is current
+2025-08-16 00:35:01,671 - INFO - Files saved successfully
+2025-08-16 00:35:01,672 - INFO - Daily levels gained: 52 (Study: +16, Nexus: +36)
+2025-08-16 00:35:01,672 - INFO - Estimated codex used: 13,373
+2025-08-16 00:35:01,672 - INFO - Estimated dust spent: 267.40T (at 20.00B per codex)
+2025-08-16 00:35:01,673 - INFO - Successfully processed 24 guilds

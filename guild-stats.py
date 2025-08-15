@@ -25,6 +25,7 @@ LEADERBOARD_TYPE = "boost_damage"
 BASE_PER_UPGRADE = 0.02  # 0.02% per upgrade
 MAX_WORKERS = 2  # For concurrent API calls
 API_DELAY = 2  # Reduced delay between API calls
+CODEX_ITEM_ID = "3"  # Codex item ID in market API
 
 @dataclass
 class GuildData:
@@ -37,6 +38,125 @@ class GuildData:
     nexus_codex_cost: Optional[int] = None
     total_codex_cost: Optional[int] = None
     members_count: Optional[int] = None
+
+class MarketDataManager:
+    """Manages market price data and averaging"""
+    
+    def __init__(self, api_client):
+        self.api_client = api_client
+        self.market_file = "docs/market-prices.json"
+    
+    def format_currency(self, amount: float) -> str:
+        """Format large numbers as shortened currency (21.00B, 19.49B, etc.)"""
+        if amount >= 1_000_000_000_000:  # Trillions
+            return f"{amount / 1_000_000_000_000:.2f}T"
+        elif amount >= 1_000_000_000:  # Billions
+            return f"{amount / 1_000_000_000:.2f}B"
+        elif amount >= 1_000_000:  # Millions
+            return f"{amount / 1_000_000:.2f}M"
+        elif amount >= 1_000:  # Thousands
+            return f"{amount / 1_000:.2f}K"
+        else:
+            return f"{amount:.2f}"
+    
+    def get_current_market_prices(self) -> Optional[Dict]:
+        """Fetch current market prices from API"""
+        try:
+            market_data = self.api_client.get_market_data()
+            if not market_data:
+                return None
+            
+            # Extract codex prices (item ID "3")
+            buy_price = market_data.get("Buy", {}).get(CODEX_ITEM_ID)
+            sell_price = market_data.get("Sell", {}).get(CODEX_ITEM_ID)
+            
+            if buy_price is None or sell_price is None:
+                logger.warning("Codex prices not found in market data")
+                return None
+            
+            return {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "buy_price": buy_price,
+                "sell_price": sell_price,
+                "average_price": (buy_price + sell_price) / 2
+            }
+            
+        except Exception as e:
+            logger.error(f"Error fetching market prices: {e}")
+            return None
+    
+    def load_price_history(self) -> Dict:
+        """Load historical price data"""
+        if os.path.exists(self.market_file):
+            try:
+                with open(self.market_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception as e:
+                logger.error(f"Error loading price history: {e}")
+        
+        return {
+            "prices": [],
+            "daily_averages": {}
+        }
+    
+    def save_price_data(self, price_data: Dict, history: Dict) -> Dict:
+        """Save current price data and update history"""
+        # Add current price to history
+        history["prices"].append(price_data)
+        
+        # Calculate daily average
+        today = price_data["timestamp"].split('T')[0]
+        today_prices = [
+            p for p in history["prices"]
+            if p["timestamp"].startswith(today)
+        ]
+        
+        if today_prices:
+            avg_buy = sum(p["buy_price"] for p in today_prices) / len(today_prices)
+            avg_sell = sum(p["sell_price"] for p in today_prices) / len(today_prices)
+            daily_avg = (avg_buy + avg_sell) / 2
+            
+            history["daily_averages"][today] = {
+                "average_price": daily_avg,
+                "buy_average": avg_buy,
+                "sell_average": avg_sell,
+                "sample_count": len(today_prices),
+                "formatted_price": self.format_currency(daily_avg)
+            }
+        
+        # Keep only last 7 days of detailed prices (for storage efficiency)
+        cutoff_date = datetime.now(timezone.utc).timestamp() - (7 * 24 * 60 * 60)
+        history["prices"] = [
+            p for p in history["prices"]
+            if datetime.fromisoformat(p["timestamp"].replace('Z', '+00:00')).timestamp() > cutoff_date
+        ]
+        
+        # Save to file
+        os.makedirs("docs", exist_ok=True)
+        with open(self.market_file, 'w', encoding='utf-8') as f:
+            json.dump(history, f, indent=2)
+        
+        logger.info(f"Updated market prices - Current: {self.format_currency(price_data['sell_price'])}")
+        return history
+    
+    def get_daily_average_price(self) -> Optional[Dict]:
+        """Get today's average price"""
+        history = self.load_price_history()
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        
+        if today in history["daily_averages"]:
+            return history["daily_averages"][today]
+        
+        # If no daily average yet, use current price
+        current_price = self.get_current_market_prices()
+        if current_price:
+            return {
+                "average_price": current_price["sell_price"],  # Use sell price as default
+                "formatted_price": self.format_currency(current_price["sell_price"]),
+                "sample_count": 1
+            }
+        
+        return None
 
 class APIClient:
     """Centralized API client with error handling and rate limiting"""
@@ -69,12 +189,16 @@ class APIClient:
     
     def get_player_profile(self, name: str) -> Optional[Dict]:
         return self._make_request(f"/players/{name}")
+    
+    def get_market_data(self) -> Optional[Dict]:
+        return self._make_request("/market")
 
 class GuildStatsTracker:
     """Main class for tracking guild statistics"""
     
     def __init__(self):
         self.api_client = APIClient(BASE_URL)
+        self.market_manager = MarketDataManager(self.api_client)
         self.guild_lookup = {}  # Cache for guild ID -> name mapping
         self.processed_guilds = set()  # Track already processed guilds
     
@@ -90,6 +214,19 @@ class GuildStatsTracker:
                            for guild in guilds_data}
         logger.info(f"Loaded {len(self.guild_lookup)} guilds")
         return True
+    
+    def update_market_prices(self) -> Optional[Dict]:
+        """Update market price data"""
+        logger.info("Updating market prices...")
+        current_prices = self.market_manager.get_current_market_prices()
+        
+        if current_prices:
+            history = self.market_manager.load_price_history()
+            updated_history = self.market_manager.save_price_data(current_prices, history)
+            return updated_history
+        else:
+            logger.warning("Failed to update market prices")
+            return None
     
     def calculate_nexus_level(self, research_damage_percent: float, upgrades: int) -> Optional[int]:
         """Calculate nexus level from damage percentage and upgrades"""
@@ -349,7 +486,30 @@ class GuildStatsTracker:
             "TotalCodexCost": guild.total_codex_cost
         }
     
-    def save_results(self, guilds_data: List[GuildData], baseline_data: Optional[Dict], timestamp: str):
+    def calculate_dust_spending(self, guilds_data: List[GuildData], price_info: Optional[Dict]) -> Dict:
+        """Calculate total dust spending on codex"""
+        total_codex_used = sum(g.total_codex_cost or 0 for g in guilds_data)
+        
+        if not price_info or total_codex_used == 0:
+            return {
+                "total_dust_spent": 0,
+                "formatted_dust": "0",
+                "codex_used": total_codex_used,
+                "average_price": 0,
+                "formatted_price": "No price data"
+            }
+        
+        total_dust = total_codex_used * price_info["average_price"]
+        
+        return {
+            "total_dust_spent": total_dust,
+            "formatted_dust": self.market_manager.format_currency(total_dust),
+            "codex_used": total_codex_used,
+            "average_price": price_info["average_price"],
+            "formatted_price": price_info["formatted_price"]
+        }
+    
+    def save_results(self, guilds_data: List[GuildData], baseline_data: Optional[Dict], timestamp: str, dust_data: Dict):
         """Save results to files"""
         os.makedirs("docs", exist_ok=True)
         
@@ -368,6 +528,7 @@ class GuildStatsTracker:
             "lastUpdated": timestamp,
             "baselineDate": baseline_data.get("date", None) if baseline_data else None,
             "baselineTimestamp": baseline_data.get("timestamp", None) if baseline_data else None,
+            "dustSpending": dust_data,
             "guilds": guild_dicts
         }
         
@@ -377,15 +538,16 @@ class GuildStatsTracker:
         
         logger.info("Files saved successfully")
     
-    def print_summary(self, guilds_data: List[GuildData], baseline_data: Optional[Dict], timestamp: str):
+    def print_summary(self, guilds_data: List[GuildData], baseline_data: Optional[Dict], timestamp: str, dust_data: Dict):
         """Print progress summary"""
         if baseline_data and baseline_data.get("date") == timestamp.split('T')[0]:
             total_study_gains = sum(g.study_progress or 0 for g in guilds_data)
             total_nexus_gains = sum(g.nexus_progress or 0 for g in guilds_data)
-            total_codex_spent = sum(g.total_codex_cost or 0 for g in guilds_data)
+            total_levels_gained = total_study_gains + total_nexus_gains
             
-            logger.info(f"Daily progress: Study +{total_study_gains}, Nexus +{total_nexus_gains}")
-            logger.info(f"Estimated codex spent today: {total_codex_spent:,}")
+            logger.info(f"Daily levels gained: {total_levels_gained} (Study: +{total_study_gains}, Nexus: +{total_nexus_gains})")
+            logger.info(f"Estimated codex used: {dust_data['codex_used']:,}")
+            logger.info(f"Estimated dust spent: {dust_data['formatted_dust']} (at {dust_data['formatted_price']} per codex)")
     
     def run(self):
         """Main execution method"""
@@ -395,7 +557,10 @@ class GuildStatsTracker:
         timestamp = current_time.isoformat()
         
         try:
-            # Fetch data
+            # Update market prices first
+            self.update_market_prices()
+            
+            # Fetch guild data
             guilds_data = self.fetch_leaderboard_data()
             
             if not guilds_data:
@@ -420,11 +585,15 @@ class GuildStatsTracker:
             # Calculate daily progress
             guilds_with_progress = self.calculate_daily_progress(guilds_data, baseline_data)
             
+            # Calculate dust spending
+            price_info = self.market_manager.get_daily_average_price()
+            dust_data = self.calculate_dust_spending(guilds_with_progress, price_info)
+            
             # Save results
-            self.save_results(guilds_with_progress, baseline_data, timestamp)
+            self.save_results(guilds_with_progress, baseline_data, timestamp, dust_data)
             
             # Print summary
-            self.print_summary(guilds_with_progress, baseline_data, timestamp)
+            self.print_summary(guilds_with_progress, baseline_data, timestamp, dust_data)
             
             logger.info(f"Successfully processed {len(guilds_data)} guilds")
             
