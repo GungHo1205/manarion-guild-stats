@@ -7,8 +7,6 @@ on:
     # Special run at midnight UTC for baseline (only on master branch)
     - cron: "0 0 * * *"
   workflow_dispatch: # Allows manual triggering
-  push:
-    branches: [master, dev] # Trigger on both master and dev
 
 permissions:
   contents: write
