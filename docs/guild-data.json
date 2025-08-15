@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2025-08-14T23:24:09.944654Z",
+  "lastUpdated": "2025-08-15T01:09:00.677345Z",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "StudyLevel": 298,
+      "StudyLevel": 300,
       "NexusLevel": 445
     },
     {
@@ -24,7 +24,7 @@
     {
       "GuildName": "Phoenix",
       "StudyLevel": 240,
-      "NexusLevel": 365
+      "NexusLevel": 366
     },
     {
       "GuildName": "Codex",
@@ -34,7 +34,7 @@
     {
       "GuildName": "EZ ",
       "StudyLevel": 200,
-      "NexusLevel": 255
+      "NexusLevel": 256
     },
     {
       "GuildName": "The First Ones",
@@ -44,12 +44,12 @@
     {
       "GuildName": "Doomed",
       "StudyLevel": 160,
-      "NexusLevel": 235
+      "NexusLevel": 236
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "StudyLevel": 266,
-      "NexusLevel": 210
+      "StudyLevel": 267,
+      "NexusLevel": 211
     },
     {
       "GuildName": "Imperium",
@@ -98,7 +98,7 @@
     },
     {
       "GuildName": "Bureau of Feline Investigators",
-      "StudyLevel": 165,
+      "StudyLevel": 168,
       "NexusLevel": 171
     },
     {
