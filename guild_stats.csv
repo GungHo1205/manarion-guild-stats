@@ -1,35 +1,25 @@
 GuildName,StudyLevel,NexusLevel,StudyProgress,NexusProgress,StudyCodexCost,NexusCodexCost,TotalCodexCost
-Spaghetti and Meatballs,300,447,0,0,0,0,0
+Spaghetti and Meatballs,300,450,0,3,0,1347,1347
 RNG,280,405,0,0,0,0,0
-Divinity,278,395,0,0,0,0,0
-Sanctuary,300,380,0,0,0,0,0
-Phoenix,240,367,0,0,0,0,0
-Codex,227,264,0,0,0,0,0
-EZ ,200,258,0,0,0,0,0
-The First Ones,160,244,0,0,0,0,0
-Doomed,160,237,0,0,0,0,0
-Test Guild Please Ignore,267,211,0,0,0,0,0
-Imperium,187,200,0,0,0,0,0
-Racc City,181,200,0,0,0,0,0
-Fight Club,150,200,0,0,0,0,0
-Minimal Effort,143,200,0,0,0,0,0
-Gatherers Guild,140,193,0,0,0,0,0
+Divinity,281,399,3,4,840,1590,2430
+Sanctuary,300,386,0,6,0,2301,2301
+Phoenix,240,370,0,3,0,1107,1107
+Codex,230,264,3,0,687,0,687
+EZ ,202,259,2,1,403,259,662
+The First Ones,160,247,0,3,0,738,738
+Doomed,160,239,0,2,0,477,477
+Test Guild Please Ignore,267,218,0,7,0,1505,1505
+Imperium,191,200,4,0,758,0,758
+Racc City,182,200,1,0,182,0,182
 Hack n Slash,160,188,0,0,0,0,0
 Caliburnus,139,184,0,0,0,0,0
-BASED,100,184,0,0,0,0,0
 Dino Nuggies,128,175,0,0,0,0,0
 Bureau of Feline Investigators,169,171,0,0,0,0,0
 Osmanthus,143,164,0,0,0,0,0
-Ewbies,152,152,0,0,0,0,0
-Manarion Adventures,128,128,0,0,0,0,0
-Cats,100,120,0,0,0,0,0
+Manarion Adventures,130,131,2,3,259,390,649
+Cats,100,123,0,3,0,366,366
 MooseKnuckles,115,115,0,0,0,0,0
-asylum,64,98,0,0,0,0,0
-Lighthouse Reborn,116,95,0,0,0,0,0
+asylum,65,99,1,1,65,99,164
 Hydra,91,91,0,0,0,0,0
-RevivaL,44,77,0,0,0,0,0
-RPG MO,50,75,0,0,0,0,0
 A Growing Threat,75,65,0,0,0,0,0
-Stormlight,27,58,0,0,0,0,0
-RSH,70,43,0,0,0,0,0
 Unknown,0,0,0,0,0,0,0
