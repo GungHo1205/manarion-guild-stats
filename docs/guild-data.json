@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2025-08-15T19:21:00.211617+00:00",
+  "lastUpdated": "2025-08-15T19:32:49.303779+00:00",
   "baselineDate": "2025-08-15",
   "baselineTimestamp": "2025-08-15T07:35:51.552796+00:00",
   "dustSpending": {
-    "total_dust_spent": 377059812536452.5,
-    "formatted_dust": "377.06T",
-    "codex_used": 19465,
-    "average_price": 19371169408.5,
-    "formatted_price": "19.37B"
+    "total_dust_spent": 378129764363208.4,
+    "formatted_dust": "378.13T",
+    "codex_used": 19750,
+    "average_price": 19145810853.833336,
+    "formatted_price": "19.15B"
   },
   "guilds": [
     {
@@ -32,13 +32,13 @@
     },
     {
       "GuildName": "Divinity",
-      "StudyLevel": 284,
+      "StudyLevel": 285,
       "NexusLevel": 400,
-      "StudyProgress": 6,
+      "StudyProgress": 7,
       "NexusProgress": 5,
-      "StudyCodexCost": 1689,
+      "StudyCodexCost": 1974,
       "NexusCodexCost": 1990,
-      "TotalCodexCost": 3679
+      "TotalCodexCost": 3964
     },
     {
       "GuildName": "Sanctuary",
