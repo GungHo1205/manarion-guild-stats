@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-15T11:22:56.334218Z",
+  "lastUpdated": "2025-08-15T12:32:36.246894Z",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
@@ -13,13 +13,13 @@
     },
     {
       "GuildName": "Divinity",
-      "StudyLevel": 278,
+      "StudyLevel": 279,
       "NexusLevel": 396
     },
     {
       "GuildName": "Sanctuary",
       "StudyLevel": 300,
-      "NexusLevel": 383
+      "NexusLevel": 384
     },
     {
       "GuildName": "Phoenix",
@@ -34,7 +34,7 @@
     {
       "GuildName": "EZ ",
       "StudyLevel": 201,
-      "NexusLevel": 258
+      "NexusLevel": 259
     },
     {
       "GuildName": "The First Ones",
@@ -128,7 +128,7 @@
     },
     {
       "GuildName": "asylum",
-      "StudyLevel": 64,
+      "StudyLevel": 65,
       "NexusLevel": 98
     },
     {
