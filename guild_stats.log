@@ -1,0 +1,250 @@
+2025-08-15 15:34:12,267 - INFO - Starting guild stats collection...
+2025-08-15 15:34:12,267 - INFO - Loading guild lookup data...
+2025-08-15 15:34:13,644 - INFO - Loaded 122 guilds
+2025-08-15 15:34:13,644 - INFO - Starting leaderboard data collection...
+2025-08-15 15:34:13,644 - INFO - Processing leaderboard page 1...
+2025-08-15 15:34:15,069 - INFO - Added guild: Spaghetti and Meatballs, Study: 300, Nexus: 447
+2025-08-15 15:34:15,296 - ERROR - API request failed for https://api.manarion.com/players/Cainneach: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Cainneach
+2025-08-15 15:34:15,487 - INFO - Added guild: Sanctuary, Study: 300, Nexus: 380
+2025-08-15 15:34:15,487 - INFO - Added guild: Divinity, Study: 278, Nexus: 395
+2025-08-15 15:34:15,518 - INFO - Added guild: Dino Nuggies, Study: 128, Nexus: 175
+2025-08-15 15:34:15,521 - ERROR - API request failed for https://api.manarion.com/players/LipoSteve: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/LipoSteve
+2025-08-15 15:34:15,689 - ERROR - API request failed for https://api.manarion.com/players/Gilbert: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Gilbert
+2025-08-15 15:34:15,700 - ERROR - API request failed for https://api.manarion.com/players/Mizarc: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Mizarc
+2025-08-15 15:34:15,717 - ERROR - API request failed for https://api.manarion.com/players/KingBrodius: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/KingBrodius
+2025-08-15 15:34:15,740 - ERROR - API request failed for https://api.manarion.com/players/Lighty: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Lighty
+2025-08-15 15:34:15,741 - ERROR - API request failed for https://api.manarion.com/players/Weeble: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Weeble
+2025-08-15 15:34:15,891 - ERROR - API request failed for https://api.manarion.com/players/Sanguinius: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Sanguinius
+2025-08-15 15:34:15,912 - ERROR - API request failed for https://api.manarion.com/players/MaCoMb: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/MaCoMb
+2025-08-15 15:34:15,924 - ERROR - API request failed for https://api.manarion.com/players/Viktr: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Viktr
+2025-08-15 15:34:15,957 - ERROR - API request failed for https://api.manarion.com/players/Dryp: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Dryp
+2025-08-15 15:34:16,093 - ERROR - API request failed for https://api.manarion.com/players/Numb: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Numb
+2025-08-15 15:34:16,122 - ERROR - API request failed for https://api.manarion.com/players/meow: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/meow
+2025-08-15 15:34:16,125 - ERROR - API request failed for https://api.manarion.com/players/Monty: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Monty
+2025-08-15 15:34:16,177 - ERROR - API request failed for https://api.manarion.com/players/Teerick: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Teerick
+2025-08-15 15:34:16,297 - ERROR - API request failed for https://api.manarion.com/players/Elnaeth: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Elnaeth
+2025-08-15 15:34:16,327 - ERROR - API request failed for https://api.manarion.com/players/Raptor: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Raptor
+2025-08-15 15:34:16,334 - ERROR - API request failed for https://api.manarion.com/players/Caffeine: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Caffeine
+2025-08-15 15:34:16,396 - ERROR - API request failed for https://api.manarion.com/players/VirtualRiot: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/VirtualRiot
+2025-08-15 15:34:16,460 - INFO - Added guild: Phoenix, Study: 240, Nexus: 367
+2025-08-15 15:34:16,497 - ERROR - API request failed for https://api.manarion.com/players/Numberwanx: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Numberwanx
+2025-08-15 15:34:16,527 - ERROR - API request failed for https://api.manarion.com/players/Lethalshot: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Lethalshot
+2025-08-15 15:34:16,542 - ERROR - API request failed for https://api.manarion.com/players/sirusi: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/sirusi
+2025-08-15 15:34:16,614 - ERROR - API request failed for https://api.manarion.com/players/axie: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/axie
+2025-08-15 15:34:16,664 - ERROR - API request failed for https://api.manarion.com/players/Ender: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Ender
+2025-08-15 15:34:16,698 - ERROR - API request failed for https://api.manarion.com/players/Pyrul: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Pyrul
+2025-08-15 15:34:16,726 - ERROR - API request failed for https://api.manarion.com/players/Jowl: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Jowl
+2025-08-15 15:34:16,756 - ERROR - API request failed for https://api.manarion.com/players/Vincent: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Vincent
+2025-08-15 15:34:16,833 - ERROR - API request failed for https://api.manarion.com/players/CatRoxMySoxNKix: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/CatRoxMySoxNKix
+2025-08-15 15:34:16,868 - ERROR - API request failed for https://api.manarion.com/players/Bug: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Bug
+2025-08-15 15:34:16,900 - ERROR - API request failed for https://api.manarion.com/players/Alfie: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Alfie
+2025-08-15 15:34:16,928 - ERROR - API request failed for https://api.manarion.com/players/Rytur: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Rytur
+2025-08-15 15:34:17,055 - ERROR - API request failed for https://api.manarion.com/players/KZP: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/KZP
+2025-08-15 15:34:17,072 - ERROR - API request failed for https://api.manarion.com/players/TheActualSpyder: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/TheActualSpyder
+2025-08-15 15:34:17,107 - ERROR - API request failed for https://api.manarion.com/players/atol: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/atol
+2025-08-15 15:34:17,129 - ERROR - API request failed for https://api.manarion.com/players/Eidolon: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Eidolon
+2025-08-15 15:34:17,275 - ERROR - API request failed for https://api.manarion.com/players/Giggin: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Giggin
+2025-08-15 15:34:17,309 - ERROR - API request failed for https://api.manarion.com/players/Sleeper: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Sleeper
+2025-08-15 15:34:17,329 - ERROR - API request failed for https://api.manarion.com/players/Aroze: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Aroze
+2025-08-15 15:34:17,498 - ERROR - API request failed for https://api.manarion.com/players/Dims: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Dims
+2025-08-15 15:34:17,514 - ERROR - API request failed for https://api.manarion.com/players/Unbe: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Unbe
+2025-08-15 15:34:17,533 - ERROR - API request failed for https://api.manarion.com/players/Fubar: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Fubar
+2025-08-15 15:34:17,591 - ERROR - API request failed for https://api.manarion.com/players/Graedy: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Graedy
+2025-08-15 15:34:17,691 - ERROR - API request failed for https://api.manarion.com/players/bubstew: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/bubstew
+2025-08-15 15:34:17,717 - ERROR - API request failed for https://api.manarion.com/players/Magickella: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Magickella
+2025-08-15 15:34:17,717 - ERROR - API request failed for https://api.manarion.com/players/Dazzer: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Dazzer
+2025-08-15 15:34:17,737 - ERROR - API request failed for https://api.manarion.com/players/Thanu: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Thanu
+2025-08-15 15:34:17,799 - ERROR - API request failed for https://api.manarion.com/players/Surfingbed: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Surfingbed
+2025-08-15 15:34:17,904 - ERROR - API request failed for https://api.manarion.com/players/Rekaro: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Rekaro
+2025-08-15 15:34:17,918 - ERROR - API request failed for https://api.manarion.com/players/Xemos: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Xemos
+2025-08-15 15:34:17,934 - ERROR - API request failed for https://api.manarion.com/players/HITS: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/HITS
+2025-08-15 15:34:18,013 - ERROR - API request failed for https://api.manarion.com/players/James: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/James
+2025-08-15 15:34:18,117 - ERROR - API request failed for https://api.manarion.com/players/Goofy: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Goofy
+2025-08-15 15:34:18,125 - ERROR - API request failed for https://api.manarion.com/players/deathclawslayer: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/deathclawslayer
+2025-08-15 15:34:18,152 - ERROR - API request failed for https://api.manarion.com/players/WEEWOO: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/WEEWOO
+2025-08-15 15:34:18,222 - ERROR - API request failed for https://api.manarion.com/players/TQDB: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/TQDB
+2025-08-15 15:34:18,327 - ERROR - API request failed for https://api.manarion.com/players/Devileyes: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Devileyes
+2025-08-15 15:34:18,329 - ERROR - API request failed for https://api.manarion.com/players/rosgard: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/rosgard
+2025-08-15 15:34:18,371 - ERROR - API request failed for https://api.manarion.com/players/Ghidani: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Ghidani
+2025-08-15 15:34:18,427 - ERROR - API request failed for https://api.manarion.com/players/Catalyst: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Catalyst
+2025-08-15 15:34:18,452 - INFO - Added guild: RNG, Study: 280, Nexus: 405
+2025-08-15 15:34:18,533 - ERROR - API request failed for https://api.manarion.com/players/Pastisio: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Pastisio
+2025-08-15 15:34:18,536 - ERROR - API request failed for https://api.manarion.com/players/Nexus: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Nexus
+2025-08-15 15:34:18,588 - ERROR - API request failed for https://api.manarion.com/players/Jacklefrackle: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Jacklefrackle
+2025-08-15 15:34:18,636 - ERROR - API request failed for https://api.manarion.com/players/Cloud: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Cloud
+2025-08-15 15:34:18,658 - ERROR - API request failed for https://api.manarion.com/players/sassyy: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/sassyy
+2025-08-15 15:34:18,741 - ERROR - API request failed for https://api.manarion.com/players/HeaTcon: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/HeaTcon
+2025-08-15 15:34:18,752 - ERROR - API request failed for https://api.manarion.com/players/Icedflame: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Icedflame
+2025-08-15 15:34:18,808 - ERROR - API request failed for https://api.manarion.com/players/GeoPapPiano: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/GeoPapPiano
+2025-08-15 15:34:18,841 - ERROR - API request failed for https://api.manarion.com/players/TDS: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/TDS
+2025-08-15 15:34:18,859 - ERROR - API request failed for https://api.manarion.com/players/horror: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/horror
+2025-08-15 15:34:18,961 - ERROR - API request failed for https://api.manarion.com/players/torhunter: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/torhunter
+2025-08-15 15:34:19,028 - ERROR - API request failed for https://api.manarion.com/players/Ashycre: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Ashycre
+2025-08-15 15:34:19,054 - ERROR - API request failed for https://api.manarion.com/players/nightspike: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/nightspike
+2025-08-15 15:34:19,061 - ERROR - API request failed for https://api.manarion.com/players/Toohzr: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Toohzr
+2025-08-15 15:34:19,174 - ERROR - API request failed for https://api.manarion.com/players/Deadfam: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Deadfam
+2025-08-15 15:34:19,245 - ERROR - API request failed for https://api.manarion.com/players/Boltonsquad: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Boltonsquad
+2025-08-15 15:34:19,261 - ERROR - API request failed for https://api.manarion.com/players/Fatcall: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Fatcall
+2025-08-15 15:34:19,262 - ERROR - API request failed for https://api.manarion.com/players/Roxas: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Roxas
+2025-08-15 15:34:19,387 - ERROR - API request failed for https://api.manarion.com/players/Shinyou: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Shinyou
+2025-08-15 15:34:19,457 - INFO - Added guild: Manarion Adventures, Study: 128, Nexus: 128
+2025-08-15 15:34:19,464 - ERROR - API request failed for https://api.manarion.com/players/Nouhne: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Nouhne
+2025-08-15 15:34:19,469 - ERROR - API request failed for https://api.manarion.com/players/Chapel: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Chapel
+2025-08-15 15:34:19,474 - ERROR - API request failed for https://api.manarion.com/players/UncleToch: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/UncleToch
+2025-08-15 15:34:19,598 - ERROR - API request failed for https://api.manarion.com/players/arg: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/arg
+2025-08-15 15:34:19,660 - ERROR - API request failed for https://api.manarion.com/players/JonSnow: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/JonSnow
+2025-08-15 15:34:19,679 - ERROR - API request failed for https://api.manarion.com/players/Bozzmuzik: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Bozzmuzik
+2025-08-15 15:34:19,687 - ERROR - API request failed for https://api.manarion.com/players/Josh: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Josh
+2025-08-15 15:34:19,689 - ERROR - API request failed for https://api.manarion.com/players/JvT: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/JvT
+2025-08-15 15:34:19,811 - ERROR - API request failed for https://api.manarion.com/players/Astrocto: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Astrocto
+2025-08-15 15:34:19,863 - ERROR - API request failed for https://api.manarion.com/players/Valeera: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Valeera
+2025-08-15 15:34:19,886 - ERROR - API request failed for https://api.manarion.com/players/Saruga: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Saruga
+2025-08-15 15:34:19,894 - ERROR - API request failed for https://api.manarion.com/players/catball: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/catball
+2025-08-15 15:34:19,913 - ERROR - API request failed for https://api.manarion.com/players/chosenlegacy: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/chosenlegacy
+2025-08-15 15:34:19,914 - INFO - Processing leaderboard page 2...
+2025-08-15 15:34:36,595 - INFO - Starting guild stats collection...
+2025-08-15 15:34:36,595 - INFO - Loading guild lookup data...
+2025-08-15 15:34:38,971 - INFO - Loaded 122 guilds
+2025-08-15 15:34:38,972 - INFO - Starting leaderboard data collection...
+2025-08-15 15:34:38,973 - INFO - Processing leaderboard page 1...
+2025-08-15 15:34:42,424 - INFO - Added guild: Spaghetti and Meatballs, Study: 300, Nexus: 447
+2025-08-15 15:34:42,796 - INFO - Added guild: Divinity, Study: 278, Nexus: 395
+2025-08-15 15:34:42,828 - INFO - Added guild: Dino Nuggies, Study: 128, Nexus: 175
+2025-08-15 15:34:42,829 - INFO - Added guild: Sanctuary, Study: 300, Nexus: 380
+2025-08-15 15:34:43,026 - ERROR - API request failed for https://api.manarion.com/players/KingBrodius: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/KingBrodius
+2025-08-15 15:34:43,035 - ERROR - API request failed for https://api.manarion.com/players/Gilbert: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Gilbert
+2025-08-15 15:34:43,036 - ERROR - API request failed for https://api.manarion.com/players/Mizarc: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Mizarc
+2025-08-15 15:34:43,223 - ERROR - API request failed for https://api.manarion.com/players/Weeble: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Weeble
+2025-08-15 15:34:43,247 - ERROR - API request failed for https://api.manarion.com/players/Lighty: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Lighty
+2025-08-15 15:34:43,247 - ERROR - API request failed for https://api.manarion.com/players/Sanguinius: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Sanguinius
+2025-08-15 15:34:43,422 - ERROR - API request failed for https://api.manarion.com/players/MaCoMb: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/MaCoMb
+2025-08-15 15:34:43,454 - ERROR - API request failed for https://api.manarion.com/players/Viktr: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Viktr
+2025-08-15 15:34:43,459 - ERROR - API request failed for https://api.manarion.com/players/Dryp: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Dryp
+2025-08-15 15:34:43,622 - ERROR - API request failed for https://api.manarion.com/players/TTim: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/TTim
+2025-08-15 15:34:43,661 - ERROR - API request failed for https://api.manarion.com/players/Numb: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Numb
+2025-08-15 15:34:43,669 - ERROR - API request failed for https://api.manarion.com/players/meow: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/meow
+2025-08-15 15:34:43,821 - ERROR - API request failed for https://api.manarion.com/players/Monty: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Monty
+2025-08-15 15:34:43,870 - ERROR - API request failed for https://api.manarion.com/players/Teerick: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Teerick
+2025-08-15 15:34:43,883 - ERROR - API request failed for https://api.manarion.com/players/Elnaeth: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Elnaeth
+2025-08-15 15:34:44,076 - ERROR - API request failed for https://api.manarion.com/players/Raptor: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Raptor
+2025-08-15 15:34:44,102 - ERROR - API request failed for https://api.manarion.com/players/VirtualRiot: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/VirtualRiot
+2025-08-15 15:34:44,286 - ERROR - API request failed for https://api.manarion.com/players/Numberwanx: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Numberwanx
+2025-08-15 15:34:44,315 - ERROR - API request failed for https://api.manarion.com/players/Lethalshot: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Lethalshot
+2025-08-15 15:34:44,338 - ERROR - API request failed for https://api.manarion.com/players/sirusi: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/sirusi
+2025-08-15 15:34:44,495 - ERROR - API request failed for https://api.manarion.com/players/axie: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/axie
+2025-08-15 15:34:44,520 - ERROR - API request failed for https://api.manarion.com/players/Ender: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Ender
+2025-08-15 15:34:44,534 - ERROR - API request failed for https://api.manarion.com/players/Pyrul: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Pyrul
+2025-08-15 15:34:44,701 - ERROR - API request failed for https://api.manarion.com/players/Jowl: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Jowl
+2025-08-15 15:34:44,724 - ERROR - API request failed for https://api.manarion.com/players/Vincent: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Vincent
+2025-08-15 15:34:44,728 - ERROR - API request failed for https://api.manarion.com/players/Bug: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Bug
+2025-08-15 15:34:44,729 - ERROR - API request failed for https://api.manarion.com/players/CatRoxMySoxNKix: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/CatRoxMySoxNKix
+2025-08-15 15:34:44,934 - ERROR - API request failed for https://api.manarion.com/players/KZP: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/KZP
+2025-08-15 15:34:44,935 - ERROR - API request failed for https://api.manarion.com/players/Rytur: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Rytur
+2025-08-15 15:34:44,942 - ERROR - API request failed for https://api.manarion.com/players/Leevi: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Leevi
+2025-08-15 15:34:45,128 - ERROR - API request failed for https://api.manarion.com/players/TheActualSpyder: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/TheActualSpyder
+2025-08-15 15:34:45,139 - ERROR - API request failed for https://api.manarion.com/players/atol: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/atol
+2025-08-15 15:34:45,147 - ERROR - API request failed for https://api.manarion.com/players/Eidolon: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Eidolon
+2025-08-15 15:34:45,330 - ERROR - API request failed for https://api.manarion.com/players/Giggin: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Giggin
+2025-08-15 15:34:45,350 - ERROR - API request failed for https://api.manarion.com/players/Graedy: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Graedy
+2025-08-15 15:34:45,357 - ERROR - API request failed for https://api.manarion.com/players/Sleeper: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Sleeper
+2025-08-15 15:34:45,534 - ERROR - API request failed for https://api.manarion.com/players/Aroze: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Aroze
+2025-08-15 15:34:45,558 - ERROR - API request failed for https://api.manarion.com/players/Dims: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Dims
+2025-08-15 15:34:45,569 - ERROR - API request failed for https://api.manarion.com/players/Unbe: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Unbe
+2025-08-15 15:34:45,732 - ERROR - API request failed for https://api.manarion.com/players/Fubar: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Fubar
+2025-08-15 15:34:45,754 - ERROR - API request failed for https://api.manarion.com/players/bubstew: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/bubstew
+2025-08-15 15:34:45,766 - ERROR - API request failed for https://api.manarion.com/players/Dazzer: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Dazzer
+2025-08-15 15:34:45,775 - ERROR - API request failed for https://api.manarion.com/players/Magickella: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Magickella
+2025-08-15 15:34:45,959 - ERROR - API request failed for https://api.manarion.com/players/Surfingbed: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Surfingbed
+2025-08-15 15:34:45,972 - ERROR - API request failed for https://api.manarion.com/players/Rekaro: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Rekaro
+2025-08-15 15:34:45,980 - ERROR - API request failed for https://api.manarion.com/players/HITS: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/HITS
+2025-08-15 15:34:46,158 - ERROR - API request failed for https://api.manarion.com/players/Xemos: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Xemos
+2025-08-15 15:34:46,183 - ERROR - API request failed for https://api.manarion.com/players/Euj: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Euj
+2025-08-15 15:34:46,189 - ERROR - API request failed for https://api.manarion.com/players/James: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/James
+2025-08-15 15:34:46,355 - ERROR - API request failed for https://api.manarion.com/players/Goofy: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Goofy
+2025-08-15 15:34:46,389 - ERROR - API request failed for https://api.manarion.com/players/deathclawslayer: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/deathclawslayer
+2025-08-15 15:34:46,394 - ERROR - API request failed for https://api.manarion.com/players/WEEWOO: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/WEEWOO
+2025-08-15 15:34:46,551 - ERROR - API request failed for https://api.manarion.com/players/TQDB: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/TQDB
+2025-08-15 15:34:46,596 - ERROR - API request failed for https://api.manarion.com/players/Devileyes: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Devileyes
+2025-08-15 15:34:46,601 - ERROR - API request failed for https://api.manarion.com/players/rosgard: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/rosgard
+2025-08-15 15:34:46,619 - ERROR - API request failed for https://api.manarion.com/players/Ghidani: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Ghidani
+2025-08-15 15:34:46,748 - ERROR - API request failed for https://api.manarion.com/players/Catalyst: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Catalyst
+2025-08-15 15:34:46,801 - ERROR - API request failed for https://api.manarion.com/players/Nexus: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Nexus
+2025-08-15 15:34:46,806 - ERROR - API request failed for https://api.manarion.com/players/Pastisio: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Pastisio
+2025-08-15 15:34:46,829 - ERROR - API request failed for https://api.manarion.com/players/Jacklefrackle: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Jacklefrackle
+2025-08-15 15:34:47,009 - ERROR - API request failed for https://api.manarion.com/players/sassyy: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/sassyy
+2025-08-15 15:34:47,015 - ERROR - API request failed for https://api.manarion.com/players/HeaTcon: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/HeaTcon
+2025-08-15 15:34:47,033 - ERROR - API request failed for https://api.manarion.com/players/Icedflame: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Icedflame
+2025-08-15 15:35:05,700 - INFO - Starting guild stats collection...
+2025-08-15 15:35:05,700 - INFO - Loading guild lookup data...
+2025-08-15 15:35:08,052 - INFO - Loaded 122 guilds
+2025-08-15 15:35:08,053 - INFO - Starting leaderboard data collection...
+2025-08-15 15:35:08,053 - INFO - Processing leaderboard page 1...
+2025-08-15 15:35:11,499 - INFO - Added guild: Spaghetti and Meatballs, Study: 300, Nexus: 447
+2025-08-15 15:35:11,901 - INFO - Added guild: Divinity, Study: 278, Nexus: 395
+2025-08-15 15:35:13,615 - INFO - Added guild: Sanctuary, Study: 300, Nexus: 380
+2025-08-15 15:35:14,930 - INFO - Added guild: Dino Nuggies, Study: 128, Nexus: 175
+2025-08-15 15:35:15,332 - INFO - Added guild: RNG, Study: 280, Nexus: 405
+2025-08-15 15:35:16,646 - INFO - Added guild: Test Guild Please Ignore, Study: 267, Nexus: 211
+2025-08-15 15:35:21,792 - INFO - Added guild: Imperium, Study: 187, Nexus: 200
+2025-08-15 15:35:22,192 - INFO - Added guild: Hack n Slash, Study: 160, Nexus: 188
+2025-08-15 15:35:23,505 - INFO - Added guild: EZ , Study: 200, Nexus: 258
+2025-08-15 15:35:25,223 - INFO - Added guild: Phoenix, Study: 240, Nexus: 367
+2025-08-15 15:35:32,727 - ERROR - API request failed for https://api.manarion.com/players/sirusi: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/sirusi
+2025-08-15 15:35:32,937 - ERROR - API request failed for https://api.manarion.com/players/axie: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/axie
+2025-08-15 15:35:34,870 - ERROR - API request failed for https://api.manarion.com/players/Jowl: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Jowl
+2025-08-15 15:35:35,729 - ERROR - API request failed for https://api.manarion.com/players/CatRoxMySoxNKix: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/CatRoxMySoxNKix
+2025-08-15 15:35:35,943 - ERROR - API request failed for https://api.manarion.com/players/Bug: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Bug
+2025-08-15 15:35:36,812 - ERROR - API request failed for https://api.manarion.com/players/Rytur: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Rytur
+2025-08-15 15:35:37,660 - INFO - Added guild: asylum, Study: 64, Nexus: 98
+2025-08-15 15:35:37,868 - ERROR - API request failed for https://api.manarion.com/players/KZP: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/KZP
+2025-08-15 15:35:38,754 - ERROR - API request failed for https://api.manarion.com/players/atol: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/atol
+2025-08-15 15:35:38,965 - ERROR - API request failed for https://api.manarion.com/players/Eidolon: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Eidolon
+2025-08-15 15:35:39,804 - ERROR - API request failed for https://api.manarion.com/players/Graedy: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Graedy
+2025-08-15 15:35:40,906 - ERROR - API request failed for https://api.manarion.com/players/Aroze: 429 Client Error: Too Many Requests for url: https://api.manarion.com/players/Aroze
+2025-08-15 15:35:51,552 - INFO - Starting guild stats collection...
+2025-08-15 15:35:51,552 - INFO - Loading guild lookup data...
+2025-08-15 15:35:54,357 - INFO - Loaded 122 guilds
+2025-08-15 15:35:54,357 - INFO - Starting leaderboard data collection...
+2025-08-15 15:35:54,358 - INFO - Processing leaderboard page 1...
+2025-08-15 15:35:58,771 - INFO - Added guild: Spaghetti and Meatballs, Study: 300, Nexus: 447
+2025-08-15 15:35:59,205 - INFO - Added guild: Divinity, Study: 278, Nexus: 395
+2025-08-15 15:36:01,418 - INFO - Added guild: Sanctuary, Study: 300, Nexus: 380
+2025-08-15 15:36:03,196 - INFO - Added guild: Dino Nuggies, Study: 128, Nexus: 175
+2025-08-15 15:36:03,629 - INFO - Added guild: RNG, Study: 280, Nexus: 405
+2025-08-15 15:36:05,404 - INFO - Added guild: Test Guild Please Ignore, Study: 267, Nexus: 211
+2025-08-15 15:36:12,026 - INFO - Added guild: Imperium, Study: 187, Nexus: 200
+2025-08-15 15:36:12,490 - INFO - Added guild: Hack n Slash, Study: 160, Nexus: 188
+2025-08-15 15:36:14,236 - INFO - Added guild: EZ , Study: 200, Nexus: 258
+2025-08-15 15:36:16,443 - INFO - Added guild: Phoenix, Study: 240, Nexus: 367
+2025-08-15 15:36:29,710 - INFO - Added guild: Doomed, Study: 160, Nexus: 237
+2025-08-15 15:36:36,780 - INFO - Added guild: asylum, Study: 64, Nexus: 98
+2025-08-15 15:36:41,189 - INFO - Added guild: The First Ones, Study: 160, Nexus: 244
+2025-08-15 15:36:45,183 - INFO - Added guild: Codex, Study: 227, Nexus: 264
+2025-08-15 15:36:45,617 - INFO - Added guild: MooseKnuckles, Study: 115, Nexus: 115
+2025-08-15 15:36:56,679 - INFO - Added guild: Cats, Study: 100, Nexus: 120
+2025-08-15 15:37:05,107 - INFO - Added guild: Hydra, Study: 91, Nexus: 91
+2025-08-15 15:37:09,523 - INFO - Added guild: Manarion Adventures, Study: 128, Nexus: 128
+2025-08-15 15:37:11,742 - INFO - Added guild: Osmanthus, Study: 143, Nexus: 164
+2025-08-15 15:37:14,348 - INFO - Added guild: Bureau of Feline Investigators, Study: 169, Nexus: 171
+2025-08-15 15:37:18,761 - INFO - Added guild: Racc City, Study: 181, Nexus: 200
+2025-08-15 15:37:34,218 - INFO - Added guild: Unknown, Study: 0, Nexus: 0
+2025-08-15 15:37:44,878 - INFO - Added guild: A Growing Threat, Study: 75, Nexus: 65
+2025-08-15 15:37:47,084 - INFO - Added guild: Caliburnus, Study: 139, Nexus: 184
+2025-08-15 15:37:47,453 - INFO - Processing leaderboard page 2...
+2025-08-15 15:37:52,268 - INFO - Added guild: Lighthouse Reborn, Study: 116, Nexus: 95
+2025-08-15 15:37:54,073 - INFO - Added guild: Fight Club, Study: 150, Nexus: 200
+2025-08-15 15:38:01,095 - INFO - Added guild: RPG MO, Study: 50, Nexus: 75
+2025-08-15 15:38:05,524 - INFO - Added guild: Gatherers Guild, Study: 140, Nexus: 193
+2025-08-15 15:38:07,320 - INFO - Added guild: RevivaL, Study: 44, Nexus: 77
+2025-08-15 15:38:12,148 - INFO - Added guild: Ewbies, Study: 152, Nexus: 152
+2025-08-15 15:38:13,939 - INFO - Added guild: RSH, Study: 70, Nexus: 43
+2025-08-15 15:38:16,143 - INFO - Added guild: Minimal Effort, Study: 143, Nexus: 200
+2025-08-15 15:38:18,771 - INFO - Added guild: Stormlight, Study: 27, Nexus: 58
+2025-08-15 15:38:33,817 - INFO - Added guild: BASED, Study: 100, Nexus: 184
+2025-08-15 15:39:40,576 - INFO - Collected data for 34 unique guilds
+2025-08-15 15:39:40,577 - INFO - Updating baseline: No baseline exists
+2025-08-15 15:39:40,580 - INFO - Updated daily baseline for 34 guilds
+2025-08-15 15:39:40,582 - INFO - Files saved successfully
+2025-08-15 15:39:40,582 - INFO - Daily progress: Study +0, Nexus +0
+2025-08-15 15:39:40,583 - INFO - Estimated codex spent today: 0
+2025-08-15 15:39:40,583 - INFO - Successfully processed 34 guilds
