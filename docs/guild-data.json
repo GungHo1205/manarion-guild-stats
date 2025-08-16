@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2025-08-16T10:10:43.556495+00:00",
+  "lastUpdated": "2025-08-16T11:08:49.673362+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "dustSpending": {
-    "total_dust_spent": 163423647879194.0,
-    "formatted_dust": "163.42T",
-    "codex_used": 9140,
-    "average_price": 17880049002.1,
-    "formatted_price": "17.88B"
+    "total_dust_spent": 164966940105740.03,
+    "formatted_dust": "164.97T",
+    "codex_used": 9222,
+    "average_price": 17888412503.333336,
+    "formatted_price": "17.89B"
   },
   "guilds": [
     {
@@ -372,13 +372,13 @@
     },
     {
       "GuildName": "Knighted Order of Angels",
-      "StudyLevel": 40,
-      "NexusLevel": 40,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "StudyLevel": 41,
+      "NexusLevel": 41,
+      "StudyProgress": 1,
+      "NexusProgress": 1,
+      "StudyCodexCost": 41,
+      "NexusCodexCost": 41,
+      "TotalCodexCost": 82
     },
     {
       "GuildName": "Foolishness",
