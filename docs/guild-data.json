@@ -1,17 +1,17 @@
 {
-  "lastUpdated": "2025-08-16T02:38:36.379760+00:00",
+  "lastUpdated": "2025-08-16T03:40:45.436607+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
       "StudyLevel": 300,
-      "NexusLevel": 453,
+      "NexusLevel": 454,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 454,
+      "TotalCodexCost": 454
     },
     {
       "GuildName": "RNG",
@@ -36,12 +36,12 @@
     {
       "GuildName": "Sanctuary",
       "StudyLevel": 300,
-      "NexusLevel": 390,
+      "NexusLevel": 392,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 783,
+      "TotalCodexCost": 783
     },
     {
       "GuildName": "Phoenix",
@@ -275,13 +275,13 @@
     },
     {
       "GuildName": "Hydra",
-      "StudyLevel": 91,
-      "NexusLevel": 91,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "StudyLevel": 92,
+      "NexusLevel": 93,
+      "StudyProgress": 1,
+      "NexusProgress": 2,
+      "StudyCodexCost": 92,
+      "NexusCodexCost": 185,
+      "TotalCodexCost": 277
     },
     {
       "GuildName": "Rainbow",
@@ -374,19 +374,19 @@
       "TotalCodexCost": 0
     },
     {
+      "GuildName": "Foolishness",
+      "StudyLevel": 18,
+      "NexusLevel": 35,
+      "StudyProgress": 0,
+      "NexusProgress": 4,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 134,
+      "TotalCodexCost": 134
+    },
+    {
       "GuildName": "Kappa",
       "StudyLevel": 31,
       "NexusLevel": 32,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Foolishness",
-      "StudyLevel": 18,
-      "NexusLevel": 31,
       "StudyProgress": 0,
       "NexusProgress": 0,
       "StudyCodexCost": 0,
