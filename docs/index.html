@@ -973,20 +973,38 @@
           )
           .join("");
       }
-
       function populateGuildSelectors() {
-        const guildNames = Object.keys(
-          historicalData.guild_history || {}
-        ).sort();
+        const guildNames = Object.keys(historicalData.guild_history || {});
         if (guildNames.length === 0) return;
+
+        // Sort guilds by nexus level descending (like dashboard)
+        const sortedGuildNames = guildNames.sort((a, b) => {
+          const guildA = allGuildsData.find((g) => g.GuildName === a);
+          const guildB = allGuildsData.find((g) => g.GuildName === b);
+          const nexusA = guildA ? guildA.NexusLevel : 0;
+          const nexusB = guildB ? guildB.NexusLevel : 0;
+          return nexusB - nexusA;
+        });
+
+        // Auto-select specific guilds
+        const autoSelectGuilds = [
+          "Doomed",
+          "Spaghetti and Meatballs",
+          "RNG",
+          "Divinity",
+          "Sanctuary",
+          "Phoenix",
+          "Codex",
+          "EZ",
+        ];
 
         ["nexus", "study"].forEach((type) => {
           const list = document.getElementById(`${type}GuildSelectorList`);
-          list.innerHTML = guildNames
+          list.innerHTML = sortedGuildNames
             .map(
-              (name, i) =>
+              (name) =>
                 `<label><input type="checkbox" value="${name}" ${
-                  i < 5 ? "checked" : ""
+                  autoSelectGuilds.includes(name) ? "checked" : ""
                 }> ${name}</label>`
             )
             .join("");
