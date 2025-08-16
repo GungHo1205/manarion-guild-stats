@@ -340,9 +340,9 @@
   "dustSpending": {
     "total_codex": 0,
     "formatted_dust": "0.00",
-    "formatted_price": "11.25B"
+    "formatted_price": "11.26B"
   },
-  "lastUpdated": "2025-08-16T17:09:11.675629+00:00",
+  "lastUpdated": "2025-08-16T17:32:32.723361+00:00",
   "baselineDate": "2025-08-16",
   "dataFreshness": {
     "guild_data_fresh": true,
