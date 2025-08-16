@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-16T04:16:37.604842+00:00",
+  "lastUpdated": "2025-08-16T05:11:19.275077+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "guilds": [
@@ -336,22 +336,22 @@
     {
       "GuildName": "Stormlight",
       "StudyLevel": 27,
-      "NexusLevel": 59,
+      "NexusLevel": 60,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 60,
+      "TotalCodexCost": 60
     },
     {
       "GuildName": "Dark Alliance",
-      "StudyLevel": 54,
-      "NexusLevel": 52,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "StudyLevel": 55,
+      "NexusLevel": 55,
+      "StudyProgress": 1,
+      "NexusProgress": 3,
+      "StudyCodexCost": 55,
+      "NexusCodexCost": 162,
+      "TotalCodexCost": 217
     },
     {
       "GuildName": "RSH",
