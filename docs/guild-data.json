@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2025-08-16T11:08:49.673362+00:00",
+  "lastUpdated": "2025-08-16T12:19:58.270987+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "dustSpending": {
-    "total_dust_spent": 164966940105740.03,
-    "formatted_dust": "164.97T",
-    "codex_used": 9222,
-    "average_price": 17888412503.333336,
+    "total_dust_spent": 222391434599088.84,
+    "formatted_dust": "222.39T",
+    "codex_used": 12428,
+    "average_price": 17894386433.785713,
     "formatted_price": "17.89B"
   },
   "guilds": [
@@ -43,12 +43,12 @@
     {
       "GuildName": "Sanctuary",
       "StudyLevel": 300,
-      "NexusLevel": 392,
+      "NexusLevel": 397,
       "StudyProgress": 0,
-      "NexusProgress": 2,
+      "NexusProgress": 7,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 783,
-      "TotalCodexCost": 783
+      "NexusCodexCost": 2758,
+      "TotalCodexCost": 2758
     },
     {
       "GuildName": "Phoenix",
@@ -72,13 +72,13 @@
     },
     {
       "GuildName": "EZ ",
-      "StudyLevel": 203,
-      "NexusLevel": 261,
-      "StudyProgress": 0,
-      "NexusProgress": 1,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 261,
-      "TotalCodexCost": 261
+      "StudyLevel": 204,
+      "NexusLevel": 263,
+      "StudyProgress": 1,
+      "NexusProgress": 3,
+      "StudyCodexCost": 204,
+      "NexusCodexCost": 786,
+      "TotalCodexCost": 990
     },
     {
       "GuildName": "The First Ones",
@@ -222,13 +222,13 @@
     },
     {
       "GuildName": "Ewbies",
-      "StudyLevel": 152,
-      "NexusLevel": 152,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "StudyLevel": 153,
+      "NexusLevel": 154,
+      "StudyProgress": 1,
+      "NexusProgress": 2,
+      "StudyCodexCost": 153,
+      "NexusCodexCost": 307,
+      "TotalCodexCost": 460
     },
     {
       "GuildName": "Manarion Adventures",
@@ -373,12 +373,12 @@
     {
       "GuildName": "Knighted Order of Angels",
       "StudyLevel": 41,
-      "NexusLevel": 41,
+      "NexusLevel": 42,
       "StudyProgress": 1,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyCodexCost": 41,
-      "NexusCodexCost": 41,
-      "TotalCodexCost": 82
+      "NexusCodexCost": 83,
+      "TotalCodexCost": 124
     },
     {
       "GuildName": "Foolishness",
