@@ -2,7 +2,7 @@
   "guilds": [
     {
       "GuildName": "EZ ",
-      "NexusLevel": 263,
+      "NexusLevel": 265,
       "StudyLevel": 213,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -73,17 +73,17 @@
       "TotalCodexCost": 0
     },
     {
-      "GuildName": "Spaghetti and Meatballs",
+      "GuildName": "Divinity",
       "NexusLevel": 0,
-      "StudyLevel": 305,
+      "StudyLevel": 292,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
     },
     {
-      "GuildName": "Divinity",
+      "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 0,
-      "StudyLevel": 292,
+      "StudyLevel": 305,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -283,7 +283,7 @@
     {
       "GuildName": "Rainbow",
       "NexusLevel": 0,
-      "StudyLevel": 71,
+      "StudyLevel": 72,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -340,9 +340,9 @@
   "dustSpending": {
     "total_codex": 0,
     "formatted_dust": "0.00",
-    "formatted_price": "11.26B"
+    "formatted_price": "11.57B"
   },
-  "lastUpdated": "2025-08-16T17:32:32.723361+00:00",
+  "lastUpdated": "2025-08-16T18:14:29.351296+00:00",
   "baselineDate": "2025-08-16",
   "dataFreshness": {
     "guild_data_fresh": true,
