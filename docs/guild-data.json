@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2025-08-16T08:14:05.188016+00:00",
+  "lastUpdated": "2025-08-16T09:11:22.976690+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "dustSpending": {
-    "total_dust_spent": 152201249602848.0,
-    "formatted_dust": "152.20T",
-    "codex_used": 8544,
-    "average_price": 17813816667.0,
-    "formatted_price": "17.81B"
+    "total_dust_spent": 163097473255712.5,
+    "formatted_dust": "163.10T",
+    "codex_used": 9140,
+    "average_price": 17844362500.625,
+    "formatted_price": "17.84B"
   },
   "guilds": [
     {
@@ -103,12 +103,12 @@
     {
       "GuildName": "Test Guild Please Ignore",
       "StudyLevel": 268,
-      "NexusLevel": 218,
+      "NexusLevel": 219,
       "StudyProgress": 1,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyCodexCost": 268,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 268
+      "NexusCodexCost": 219,
+      "TotalCodexCost": 487
     },
     {
       "GuildName": "Fight Club",
@@ -171,19 +171,19 @@
       "TotalCodexCost": 0
     },
     {
+      "GuildName": "BASED",
+      "StudyLevel": 100,
+      "NexusLevel": 189,
+      "StudyProgress": 0,
+      "NexusProgress": 2,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 377,
+      "TotalCodexCost": 377
+    },
+    {
       "GuildName": "Hack n Slash",
       "StudyLevel": 160,
       "NexusLevel": 188,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "BASED",
-      "StudyLevel": 100,
-      "NexusLevel": 187,
       "StudyProgress": 0,
       "NexusProgress": 0,
       "StudyCodexCost": 0,
