@@ -174,60 +174,121 @@ class GuildStatsTracker:
             return {}
 
     # --- Calculation Formulas ---
-    def calculate_nexus_level(self, total_damage: float, upgrades: int, equip_boost: float) -> int:
-        if upgrades <= 0: return 0
-        base_damage = total_damage * 100 - equip_boost - 100
-        if upgrades * BASE_PER_UPGRADE == 0: return 0
-        multiplier = base_damage / (upgrades * BASE_PER_UPGRADE)
+    def calculate_nexus_level(self, research_damage_percent, upgrades):
+        """Calculate nexus level using the correct formula."""
+        if upgrades <= 0:
+            return 0
+        
+        # Use 0.02 as the base percentage per upgrade (matching your working code)
+        base_pct = 0.02
+        multiplier = research_damage_percent / (upgrades * base_pct)
         level = 100 * (multiplier - 1.0)
         return max(0, round(level))
 
-    def calculate_study_level(self, total_exp: int, codex_exp: int, enchant_exp: int) -> int:
-        return max(0, total_exp - codex_exp - enchant_exp)
+    def calculate_study_level(self, total_exp_boost, codex_boost, enchant_boost):
+        """Calculate study level."""
+        return max(0, total_exp_boost - codex_boost - enchant_boost)
 
+    def safe_get_infusions_count(self, infusions_data):
+        """Safely extract infusion count from infusions data."""
+        if isinstance(infusions_data, dict):
+            return sum(v for v in infusions_data.values() if isinstance(v, (int, float)))
+        elif isinstance(infusions_data, (int, float)):
+            return infusions_data
+        else:
+            return 0
+
+    def process_player(self, player_entry: Dict) -> Optional[Dict]:
+        """Process player with corrected formulas matching your working code exactly."""
+        player_name = player_entry.get("Name")
+        upgrades = player_entry.get("Score", 0)
+        if not player_name: 
+            return None
+
+        player = self.api.get(f"/players/{player_name}")
+        if not player: 
+            return None
+
+        guild_id = player.get("GuildID", 0)
+        guild_name = self.guild_lookup.get(guild_id)
+        if not guild_name or guild_name == "Unknown": 
+            return None
+
+        # Get boost data exactly as in your working code
+        base_boosts = player.get("BaseBoosts", {})
+        total_boosts = player.get("TotalBoosts", {})
+        
+        codex_exp_boost = base_boosts.get("100", 0)
+        total_exp_boost = total_boosts.get("100", 0)
+        
+        # CRITICAL FIX: Your working code multiplies by 100 here!
+        # total_damage_percent = player_data.get("TotalBoosts", {}).get("40", 0) * 100
+        total_damage_percent = total_boosts.get("40", 0) * 100
+        
+        # Process equipment exactly as in your working code
+        equipments = player.get("Equipment", {})
+        totalEquipmentBoosts = 0  # Using same variable name as working code
+        enchant_boost = 0
+        
+        for item in range(1, 9):
+            try:
+                item_key = str(item)
+                item_data = equipments.get(item_key, {})
+                if not item_data:
+                    continue
+                
+                # Get enchant boost from item 5 (exact match to working code)
+                if item == 5:
+                    enchant_boost = item_data.get("Boosts", {}).get("100", 0)
+                
+                # Get infusions count
+                infusions_raw = item_data.get("Infusions", {})
+                infusions_count = self.safe_get_infusions_count(infusions_raw)
+                
+                # Get base boost
+                base_boost = item_data.get("Boosts", {}).get("40", 0)
+                
+                # EXACT formula from your working code:
+                # equip_percent = (base_boost * (1 + 0.05 * infusions_count)) / 50
+                equip_percent = (base_boost * (1 + 0.05 * infusions_count)) / 50
+                totalEquipmentBoosts += equip_percent
+                
+            except Exception as e:
+                print(f"Error processing equipment item {item} for {player_name}: {e}")
+                continue
+        
+        # EXACT base damage calculation from your working code:
+        # base_damage_percent = total_damage_percent - totalEquipmentBoosts - 100
+        base_damage_percent = total_damage_percent - totalEquipmentBoosts - 100
+        
+        # Debug output to verify the fix
+        print(f"DEBUG FIXED: {player_name}")
+        print(f"  total_damage_percent (after *100): {total_damage_percent}")
+        print(f"  totalEquipmentBoosts: {totalEquipmentBoosts}")
+        print(f"  base_damage_percent: {base_damage_percent}")
+        
+        # Calculate levels
+        study_level = self.calculate_study_level(total_exp_boost, codex_exp_boost, enchant_boost)
+        nexus_level = self.calculate_nexus_level(base_damage_percent, upgrades)
+        
+        print(f"  -> Study: {study_level}, Nexus: {nexus_level}")
+        
+        return {
+            "GuildName": guild_name, 
+            "NexusLevel": nexus_level, 
+            "StudyLevel": study_level
+        }
     def calculate_codex_cost(self, start_level: int, progress: int) -> int:
         if progress <= 0: return 0
         return sum(range(start_level + 1, start_level + progress + 1))
 
     # --- Data Processing ---
-    def process_player(self, player_entry: Dict) -> Optional[Dict]:
-        player_name = player_entry.get("Name")
-        upgrades = player_entry.get("Score", 0)
-        if not player_name: return None
-
-        player = self.api.get(f"/players/{player_name}")
-        if not player: return None
-
-        guild_id = player.get("GuildID", 0)
-        guild_name = self.guild_lookup.get(guild_id)
-        if not guild_name or guild_name == "Unknown": return None
-
-        total_boosts = player.get("TotalBoosts", {})
-        equip_boost, enchant_exp = 0, 0
-        for item in player.get("Equipment", {}).values():
-            boosts = item.get("Boosts", {})
-            
-            # Handle infusions safely
-            infusions_data = item.get("Infusions", 0)
-            if isinstance(infusions_data, dict):
-                infusions = sum(infusions_data.values())
-            elif isinstance(infusions_data, int):
-                infusions = infusions_data
-            else:
-                infusions = 0
-
-            equip_boost += (boosts.get("40", 0) * (1 + 0.05 * infusions)) / 50 * 100
-            enchant_exp += boosts.get("100", 0)
-        
-        nexus = self.calculate_nexus_level(total_boosts.get("40", 0), upgrades, equip_boost)
-        study = self.calculate_study_level(total_boosts.get("100", 0), player.get("BaseBoosts", {}).get("100", 0), enchant_exp)
-
-        return {"GuildName": guild_name, "NexusLevel": nexus, "StudyLevel": study}
+   
 
     def fetch_current_guild_data(self) -> tuple[List[Dict], bool]:
         """Fetch current guild data, returns (data, is_fresh_data)"""
         entries = []
-        for page in range(1, 5):  # Top 5 pages
+        for page in range(1, 2):  # Top 5 pages
             lb = self.api.get(f"/leaderboards/{LEADERBOARD_TYPE}", {"page": page})
             if lb and lb.get("Entries"): 
                 entries.extend(lb["Entries"])
