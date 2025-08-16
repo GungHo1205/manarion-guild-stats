@@ -1,78 +1,78 @@
 {
-  "date": "2025-08-15",
-  "timestamp": "2025-08-15T07:35:51.552796+00:00",
+  "date": "2025-08-16",
+  "timestamp": "2025-08-16T00:55:04.634051+00:00",
   "guilds": {
     "Spaghetti and Meatballs": {
       "StudyLevel": 300,
-      "NexusLevel": 447
+      "NexusLevel": 453
     },
     "RNG": {
       "StudyLevel": 280,
-      "NexusLevel": 405
+      "NexusLevel": 410
     },
     "Divinity": {
-      "StudyLevel": 278,
-      "NexusLevel": 395
+      "StudyLevel": 290,
+      "NexusLevel": 400
     },
     "Sanctuary": {
       "StudyLevel": 300,
-      "NexusLevel": 380
+      "NexusLevel": 390
     },
     "Phoenix": {
-      "StudyLevel": 240,
-      "NexusLevel": 367
+      "StudyLevel": 243,
+      "NexusLevel": 372
     },
     "Codex": {
-      "StudyLevel": 227,
+      "StudyLevel": 230,
       "NexusLevel": 264
     },
     "EZ ": {
-      "StudyLevel": 200,
-      "NexusLevel": 258
+      "StudyLevel": 203,
+      "NexusLevel": 260
     },
     "The First Ones": {
       "StudyLevel": 160,
-      "NexusLevel": 244
+      "NexusLevel": 247
     },
     "Doomed": {
       "StudyLevel": 160,
-      "NexusLevel": 237
+      "NexusLevel": 240
     },
     "Test Guild Please Ignore": {
       "StudyLevel": 267,
-      "NexusLevel": 211
-    },
-    "Imperium": {
-      "StudyLevel": 187,
-      "NexusLevel": 200
-    },
-    "Racc City": {
-      "StudyLevel": 181,
-      "NexusLevel": 200
+      "NexusLevel": 218
     },
     "Fight Club": {
       "StudyLevel": 150,
+      "NexusLevel": 203
+    },
+    "Imperium": {
+      "StudyLevel": 191,
+      "NexusLevel": 200
+    },
+    "Racc City": {
+      "StudyLevel": 186,
       "NexusLevel": 200
     },
     "Minimal Effort": {
-      "StudyLevel": 143,
+      "StudyLevel": 144,
       "NexusLevel": 200
     },
     "Gatherers Guild": {
       "StudyLevel": 140,
-      "NexusLevel": 193
+      "NexusLevel": 195
+    },
+    "Caliburnus": {
+      "StudyLevel": 140,
+      "NexusLevel": 189
     },
     "Hack n Slash": {
       "StudyLevel": 160,
       "NexusLevel": 188
     },
-    "Caliburnus": {
-      "StudyLevel": 139,
-      "NexusLevel": 184
-    },
     "BASED": {
       "StudyLevel": 100,
-      "NexusLevel": 184
+      "NexusLevel": 187
     },
     "Dino Nuggies": {
       "StudyLevel": 128,
@@ -83,28 +83,28 @@
       "NexusLevel": 171
     },
     "Osmanthus": {
-      "StudyLevel": 143,
-      "NexusLevel": 164
+      "StudyLevel": 145,
+      "NexusLevel": 167
     },
     "Ewbies": {
       "StudyLevel": 152,
       "NexusLevel": 152
     },
     "Manarion Adventures": {
-      "StudyLevel": 128,
-      "NexusLevel": 128
+      "StudyLevel": 130,
+      "NexusLevel": 131
     },
     "Cats": {
-      "StudyLevel": 100,
-      "NexusLevel": 120
+      "StudyLevel": 106,
+      "NexusLevel": 124
     },
     "MooseKnuckles": {
       "StudyLevel": 115,
       "NexusLevel": 115
     },
     "asylum": {
-      "StudyLevel": 64,
-      "NexusLevel": 98
+      "StudyLevel": 65,
+      "NexusLevel": 99
     },
     "Lighthouse Reborn": {
       "StudyLevel": 116,
@@ -113,6 +113,10 @@
     "Hydra": {
       "StudyLevel": 91,
       "NexusLevel": 91
+    },
+    "Rainbow": {
+      "StudyLevel": 70,
+      "NexusLevel": 80
     },
     "RevivaL": {
       "StudyLevel": 44,
@@ -126,16 +130,48 @@
       "StudyLevel": 75,
       "NexusLevel": 65
     },
+    "Guild": {
+      "StudyLevel": 74,
+      "NexusLevel": 63
+    },
     "Stormlight": {
       "StudyLevel": 27,
-      "NexusLevel": 58
+      "NexusLevel": 59
+    },
+    "Dark Alliance": {
+      "StudyLevel": 54,
+      "NexusLevel": 52
     },
     "RSH": {
       "StudyLevel": 70,
       "NexusLevel": 43
     },
+    "Knighted Order of Angels": {
+      "StudyLevel": 40,
+      "NexusLevel": 40
+    },
+    "Kappa": {
+      "StudyLevel": 31,
+      "NexusLevel": 32
+    },
+    "Foolishness": {
+      "StudyLevel": 18,
+      "NexusLevel": 31
+    },
+    "Insert Guild Name Here": {
+      "StudyLevel": 22,
+      "NexusLevel": 23
+    },
+    "Killer Whale": {
+      "StudyLevel": 8,
+      "NexusLevel": 19
+    },
     "Unknown": {
       "StudyLevel": 0,
+      "NexusLevel": 0
+    },
+    "Catalans Guild": {
+      "StudyLevel": 2,
       "NexusLevel": 0
     }
   }
