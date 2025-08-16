@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2025-08-16T09:11:22.976690+00:00",
+  "lastUpdated": "2025-08-16T10:10:43.556495+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "dustSpending": {
-    "total_dust_spent": 163097473255712.5,
-    "formatted_dust": "163.10T",
+    "total_dust_spent": 163423647879194.0,
+    "formatted_dust": "163.42T",
     "codex_used": 9140,
-    "average_price": 17844362500.625,
-    "formatted_price": "17.84B"
+    "average_price": 17880049002.1,
+    "formatted_price": "17.88B"
   },
   "guilds": [
     {
