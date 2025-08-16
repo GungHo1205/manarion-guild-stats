@@ -30,14 +30,6 @@ MANIFEST
 staging/
 guild_stats.csv
 guild_stats.log
-docs/daily-baseline.json
-docs/guild-data.json
-docs/market-prices.json
-docs/guild-history.json
-daily-baseline.json
-guild-data.json
-market-prices.json
-guild-history.json
 
 # OS-generated files
 .DS_Store
