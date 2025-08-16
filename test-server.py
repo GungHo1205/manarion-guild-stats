@@ -36,10 +36,12 @@ def create_empty_baseline_files():
             "formatted_dust": "0",
             "formatted_price": "0",
             "total_dust": 0,
-            "average_price": 0
+            "average_price": 0,
+            "total_codex": 0
         },
         "lastUpdated": datetime.now(timezone.utc).isoformat(),
-        "baselineDate": datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        "baselineDate": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "totalGuilds": 0
     }
     
     # Minimal combined historical data
@@ -120,10 +122,12 @@ def create_baseline_files():
             "formatted_dust": "2.5B",
             "formatted_price": "16.8B",
             "total_dust": 2500000000,
-            "average_price": 16800000000
+            "average_price": 16800000000,
+            "total_codex": 148 
         },
         "lastUpdated": datetime.now(timezone.utc).isoformat(),
-        "baselineDate": datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        "baselineDate": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "totalGuilds": len(mock_guilds)
     }
     
     # Create baseline file in staging

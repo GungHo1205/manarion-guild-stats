@@ -4,8 +4,10 @@
     "formatted_dust": "0",
     "formatted_price": "0",
     "total_dust": 0,
-    "average_price": 0
+    "average_price": 0,
+    "total_codex": 0
   },
-  "lastUpdated": "2025-08-16T09:05:45.621723+00:00",
-  "baselineDate": "2025-08-16"
+  "lastUpdated": "2025-08-16T09:43:19.503912+00:00",
+  "baselineDate": "2025-08-16",
+  "totalGuilds": 0
 }

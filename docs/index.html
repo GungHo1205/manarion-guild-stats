@@ -118,13 +118,13 @@
         background-clip: text;
       }
       .stat-card.dust-spending h3,
-      .stat-card.codex-spending h3 {
+      .stat-card.codex-used h3 {
         background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
-      .dust-price {
+      .sub-text {
         font-size: 0.9rem;
         color: var(--text-secondary);
         margin-top: 8px;
@@ -530,10 +530,6 @@
           <p>Real-time guild progression tracking with market data</p>
         </header>
         <div class="stats-overview">
-          <div class="stat-card total-guilds">
-            <h3 id="totalGuilds">-</h3>
-            <p>Total Guilds</p>
-          </div>
           <div class="stat-card avg-nexus">
             <h3 id="avgNexus">-</h3>
             <p>Avg Nexus Level</p>
@@ -549,10 +545,15 @@
             <p>Levels Gained Today</p>
             <small id="baselineDate" class="progress-indicator"></small>
           </div>
+          <div class="stat-card codex-used">
+            <h3 id="totalCodexUsed">-</h3>
+            <p>Total Codex Used Today</p>
+            <div class="sub-text">(Approximation)</div>
+          </div>
           <div class="stat-card dust-spending">
             <h3 id="dustSpending">-</h3>
             <p>Daily Dust Spent on Codex</p>
-            <div id="dustPrice" class="dust-price">Loading price...</div>
+            <div id="dustPrice" class="sub-text">(Approximation)</div>
           </div>
         </div>
         <div class="controls">
@@ -898,7 +899,7 @@
           guildsData = data.guilds || [];
           filteredData = [...guildsData];
           dustData = data.dustSpending || {};
-          updateStats();
+          updateStats(data.totalGuilds);
           updateLastUpdated(data.lastUpdated, data.baselineDate);
           renderGuilds();
           document.getElementById("loading").style.display = "none";
@@ -973,13 +974,14 @@
                 (name, index) => `
                     <label>
                         <input type="checkbox" value="${name}" ${
-                  index === 0 ? "checked" : ""
+                  index < 5 ? "checked" : "" // Check top 5 by default
                 }> ${name}
                     </label>
                 `
               )
               .join("");
-            btn.textContent = "1 Guild Selected";
+            const checkedCount = list.querySelectorAll("input:checked").length;
+            btn.textContent = `${checkedCount} Guilds Selected`;
           } else {
             list.innerHTML = "<span>No historical data</span>";
             btn.textContent = "No Guilds Available";
@@ -988,9 +990,9 @@
         });
       }
 
-      function updateStats() {
+      function updateStats(totalGuilds) {
         if (!guildsData || guildsData.length === 0) return;
-        document.getElementById("totalGuilds").textContent = guildsData.length;
+
         const avgNexus =
           guildsData.reduce((sum, g) => sum + (g.NexusLevel || 0), 0) /
           guildsData.length;
@@ -999,6 +1001,7 @@
           guildsData.length;
         document.getElementById("avgNexus").textContent = avgNexus.toFixed(1);
         document.getElementById("avgStudy").textContent = avgStudy.toFixed(1);
+
         const totalNexusProgress = guildsData.reduce(
           (sum, g) => sum + (g.NexusProgress || 0),
           0
@@ -1013,17 +1016,24 @@
         document.getElementById("avgStudyProgress").textContent = `+${(
           totalStudyProgress / guildsData.length
         ).toFixed(1)} today`;
+
         document.getElementById("levelsGained").textContent =
           totalNexusProgress + totalStudyProgress;
+
         if (dustData.formatted_dust) {
           document.getElementById("dustSpending").textContent =
             dustData.formatted_dust;
-          document.getElementById("dustPrice").textContent = `≈ ${
+          document.getElementById(
+            "dustPrice"
+          ).textContent = `Based on avg price of ${
             dustData.formatted_price || "..."
           }`;
+          document.getElementById("totalCodexUsed").textContent =
+            dustData.total_codex || "0";
         } else {
           document.getElementById("dustSpending").textContent = "-";
           document.getElementById("dustPrice").textContent = "No data";
+          document.getElementById("totalCodexUsed").textContent = "-";
         }
       }
 
