@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-16T01:05:13.262532+00:00",
+  "lastUpdated": "2025-08-16T02:38:36.379760+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "guilds": [
@@ -26,12 +26,12 @@
     {
       "GuildName": "Divinity",
       "StudyLevel": 290,
-      "NexusLevel": 400,
+      "NexusLevel": 401,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 401,
+      "TotalCodexCost": 401
     },
     {
       "GuildName": "Sanctuary",
@@ -66,12 +66,12 @@
     {
       "GuildName": "EZ ",
       "StudyLevel": 203,
-      "NexusLevel": 260,
+      "NexusLevel": 261,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 261,
+      "TotalCodexCost": 261
     },
     {
       "GuildName": "The First Ones",
@@ -225,13 +225,13 @@
     },
     {
       "GuildName": "Manarion Adventures",
-      "StudyLevel": 130,
+      "StudyLevel": 131,
       "NexusLevel": 131,
-      "StudyProgress": 0,
+      "StudyProgress": 1,
       "NexusProgress": 0,
-      "StudyCodexCost": 0,
+      "StudyCodexCost": 131,
       "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 131
     },
     {
       "GuildName": "Cats",
@@ -294,19 +294,19 @@
       "TotalCodexCost": 317
     },
     {
+      "GuildName": "RPG MO",
+      "StudyLevel": 50,
+      "NexusLevel": 80,
+      "StudyProgress": 0,
+      "NexusProgress": 5,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 390,
+      "TotalCodexCost": 390
+    },
+    {
       "GuildName": "RevivaL",
       "StudyLevel": 44,
       "NexusLevel": 77,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "RPG MO",
-      "StudyLevel": 50,
-      "NexusLevel": 75,
       "StudyProgress": 0,
       "NexusProgress": 0,
       "StudyCodexCost": 0,
