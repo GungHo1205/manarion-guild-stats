@@ -227,7 +227,7 @@ class GuildStatsTracker:
     def fetch_current_guild_data(self) -> tuple[List[Dict], bool]:
         """Fetch current guild data, returns (data, is_fresh_data)"""
         entries = []
-        for page in range(1, 2):  # Top 5 pages
+        for page in range(1, 5):  # Top 5 pages
             lb = self.api.get(f"/leaderboards/{LEADERBOARD_TYPE}", {"page": page})
             if lb and lb.get("Entries"): 
                 entries.extend(lb["Entries"])
