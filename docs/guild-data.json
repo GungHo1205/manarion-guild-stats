@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2025-08-16T07:10:12.469763+00:00",
+  "lastUpdated": "2025-08-16T08:14:05.188016+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "dustSpending": {
-    "total_dust_spent": 144441918000000.0,
-    "formatted_dust": "144.44T",
-    "codex_used": 8080,
-    "average_price": 17876475000.0,
-    "formatted_price": "17.88B"
+    "total_dust_spent": 152201249602848.0,
+    "formatted_dust": "152.20T",
+    "codex_used": 8544,
+    "average_price": 17813816667.0,
+    "formatted_price": "17.81B"
   },
   "guilds": [
     {
@@ -102,13 +102,13 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "StudyLevel": 267,
+      "StudyLevel": 268,
       "NexusLevel": 218,
-      "StudyProgress": 0,
+      "StudyProgress": 1,
       "NexusProgress": 0,
-      "StudyCodexCost": 0,
+      "StudyCodexCost": 268,
       "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 268
     },
     {
       "GuildName": "Fight Club",
@@ -153,12 +153,12 @@
     {
       "GuildName": "Gatherers Guild",
       "StudyLevel": 140,
-      "NexusLevel": 195,
+      "NexusLevel": 196,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 196,
+      "TotalCodexCost": 196
     },
     {
       "GuildName": "Caliburnus",
