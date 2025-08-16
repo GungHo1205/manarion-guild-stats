@@ -212,7 +212,7 @@ class MockDataGenerator:
 
     def generate_mock_data(self):
         """Generate all mock data files matching guild-stats.py output format."""
-        print("🧪 Generating mock data for local testing...")
+        print(" Generating mock data for local testing...")
         
         # Generate current guild data
         current_guilds = self.generate_guild_data()
@@ -281,7 +281,7 @@ def main():
     """Generate mock data for local testing only."""
     # Safety check to prevent running in production
     if os.environ.get('GITHUB_ACTIONS') or os.environ.get('CI'):
-        print("❌ Mock data generation disabled in CI/production environment")
+        print(" Mock data generation disabled in CI/production environment")
         return
     
     generator = MockDataGenerator()
