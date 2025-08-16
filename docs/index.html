@@ -248,6 +248,7 @@
         display: flex;
         gap: 10px;
         align-items: center;
+        flex-wrap: wrap;
       }
       .chart-controls button {
         background: var(--bg-tertiary);
@@ -258,6 +259,7 @@
         cursor: pointer;
         font-size: 0.9rem;
         transition: all 0.3s;
+        white-space: nowrap;
       }
       .chart-controls button:hover {
         border-color: var(--accent);
@@ -385,6 +387,27 @@
         font-size: 1.1rem;
       }
 
+      .aggregation-controls {
+        margin-left: 20px;
+        padding-left: 20px;
+        border-left: 1px solid var(--border);
+      }
+
+      .aggregation-controls label {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-right: 10px;
+      }
+
+      .aggregation-controls select {
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+      }
+
       @media (max-width: 768px) {
         .navbar {
           justify-content: flex-start;
@@ -398,6 +421,14 @@
         }
         .item-selector {
           min-width: auto;
+        }
+        .aggregation-controls {
+          margin-left: 0;
+          padding-left: 0;
+          border-left: none;
+          border-top: 1px solid var(--border);
+          padding-top: 15px;
+          margin-top: 15px;
         }
       }
     </style>
@@ -501,9 +532,23 @@
               <button
                 class="chart-timespan-btn"
                 data-chart="nexus"
+                data-hours="72"
+              >
+                3D
+              </button>
+              <button
+                class="chart-timespan-btn"
+                data-chart="nexus"
                 data-hours="168"
               >
                 7D
+              </button>
+              <button
+                class="chart-timespan-btn"
+                data-chart="nexus"
+                data-hours="336"
+              >
+                14D
               </button>
               <button
                 class="chart-timespan-btn"
@@ -512,6 +557,14 @@
               >
                 30D
               </button>
+            </div>
+            <div class="aggregation-controls">
+              <label for="nexusAggregation">View:</label>
+              <select id="nexusAggregation">
+                <option value="auto">Auto</option>
+                <option value="hourly">Hourly</option>
+                <option value="daily">Daily</option>
+              </select>
             </div>
           </div>
           <div id="nexusChartLoading" class="chart-loading">
@@ -554,9 +607,23 @@
               <button
                 class="chart-timespan-btn"
                 data-chart="study"
+                data-hours="72"
+              >
+                3D
+              </button>
+              <button
+                class="chart-timespan-btn"
+                data-chart="study"
                 data-hours="168"
               >
                 7D
+              </button>
+              <button
+                class="chart-timespan-btn"
+                data-chart="study"
+                data-hours="336"
+              >
+                14D
               </button>
               <button
                 class="chart-timespan-btn"
@@ -565,6 +632,14 @@
               >
                 30D
               </button>
+            </div>
+            <div class="aggregation-controls">
+              <label for="studyAggregation">View:</label>
+              <select id="studyAggregation">
+                <option value="auto">Auto</option>
+                <option value="hourly">Hourly</option>
+                <option value="daily">Daily</option>
+              </select>
             </div>
           </div>
           <div id="studyChartLoading" class="chart-loading">
@@ -601,8 +676,18 @@
               <button class="market-timespan-btn active" data-hours="24">
                 1D
               </button>
+              <button class="market-timespan-btn" data-hours="72">3D</button>
               <button class="market-timespan-btn" data-hours="168">7D</button>
+              <button class="market-timespan-btn" data-hours="336">14D</button>
               <button class="market-timespan-btn" data-hours="720">30D</button>
+            </div>
+            <div class="aggregation-controls">
+              <label for="marketAggregation">View:</label>
+              <select id="marketAggregation">
+                <option value="auto">Auto</option>
+                <option value="hourly">Hourly</option>
+                <option value="daily">Daily</option>
+              </select>
             </div>
           </div>
           <div id="marketChartLoading" class="chart-loading">
@@ -628,6 +713,10 @@
         "#a78bfa",
         "#fde047",
         "#fb923c",
+        "#f87171",
+        "#34d399",
+        "#fbbf24",
+        "#c084fc",
       ];
 
       // Initialization
@@ -678,16 +767,22 @@
           .getElementById("searchInput")
           .addEventListener("input", renderGuilds);
 
-        // Chart timespan buttons
+        // Chart timespan buttons - Fixed selector and event handling
         document.querySelectorAll(".chart-timespan-btn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             const chartType = e.target.dataset.chart;
             const section = e.target.closest(".page-section").id;
+
+            // Update active state for buttons in current section
             document
               .querySelectorAll(`#${section} .chart-timespan-btn`)
               .forEach((b) => b.classList.remove("active"));
             e.target.classList.add("active");
-            if (chartType) updateGuildChart(chartType);
+
+            // Update chart
+            if (chartType) {
+              updateGuildChart(chartType);
+            }
           });
         });
 
@@ -701,6 +796,23 @@
             updateMarketChart();
           });
         });
+
+        // Aggregation controls
+        document
+          .getElementById("nexusAggregation")
+          .addEventListener("change", () => {
+            updateGuildChart("nexus");
+          });
+        document
+          .getElementById("studyAggregation")
+          .addEventListener("change", () => {
+            updateGuildChart("study");
+          });
+        document
+          .getElementById("marketAggregation")
+          .addEventListener("change", () => {
+            updateMarketChart();
+          });
 
         // Setup dropdowns
         setupDropdown("nexusGuildSelectorBtn", "nexusGuildSelectorList", () =>
@@ -889,6 +1001,7 @@
         btn.textContent = `${count} Guild${count !== 1 ? "s" : ""} Selected`;
       }
 
+      // Fixed and enhanced chart update function with proper aggregation
       function updateGuildChart(chartType) {
         if (!historicalData.guild_history) return;
 
@@ -898,18 +1011,31 @@
             `#${chartType}GuildSelectorList input:checked`
           )
         ).map((cb) => cb.value);
-        const hours = parseInt(
-          document.querySelector(
-            `#${chartType}-charts .chart-timespan-btn.active`
-          ).dataset.hours
+
+        // Get hours from active button in the correct section
+        const activeBtn = document.querySelector(
+          `#${chartType}-charts .chart-timespan-btn.active`
         );
+        const hours = parseInt(activeBtn.dataset.hours);
         const cutoff = new Date(Date.now() - hours * 3600 * 1000);
+
+        // Get aggregation setting
+        const aggregation = document.getElementById(
+          `${chartType}Aggregation`
+        ).value;
+        const useDaily =
+          aggregation === "daily" || (aggregation === "auto" && hours >= 168);
 
         const datasets = selectedGuilds.map((name, i) => {
           const guildData = historicalData.guild_history[name] || [];
-          const filteredData = guildData
+          let filteredData = guildData
             .filter((d) => new Date(d.timestamp) >= cutoff)
             .map((d) => ({ x: d.timestamp, y: d[chartType] }));
+
+          // Apply daily aggregation if needed
+          if (useDaily && filteredData.length > 0) {
+            filteredData = aggregateDataByDay(filteredData);
+          }
 
           return {
             label: name,
@@ -917,8 +1043,8 @@
             borderColor: chartColors[i % chartColors.length],
             backgroundColor: chartColors[i % chartColors.length] + "20",
             tension: 0.1,
-            pointRadius: 2,
-            pointHoverRadius: 4,
+            pointRadius: useDaily ? 3 : 2,
+            pointHoverRadius: useDaily ? 5 : 4,
           };
         });
 
@@ -937,7 +1063,7 @@
         chartInstance = new Chart(ctx, {
           type: "line",
           data: { datasets },
-          options: getChartOptions(hours, false),
+          options: getChartOptions(hours, false, useDaily),
         });
 
         if (chartType === "nexus") guildNexusChart = chartInstance;
@@ -1026,6 +1152,7 @@
         });
       }
 
+      // Enhanced market chart function with aggregation
       function updateMarketChart() {
         const selectedItem =
           document.getElementById("itemSelectBtn").dataset.selected;
@@ -1037,11 +1164,21 @@
             .dataset.hours
         );
         const cutoff = new Date(Date.now() - hours * 3600 * 1000);
-        const prices = historicalData.item_prices[selectedItem].prices.filter(
+        let prices = historicalData.item_prices[selectedItem].prices.filter(
           (p) => new Date(p.timestamp) >= cutoff
         );
 
         if (prices.length === 0) return;
+
+        // Get aggregation setting
+        const aggregation = document.getElementById("marketAggregation").value;
+        const useDaily =
+          aggregation === "daily" || (aggregation === "auto" && hours >= 168);
+
+        // Apply daily aggregation if needed
+        if (useDaily && prices.length > 0) {
+          prices = aggregateMarketDataByDay(prices);
+        }
 
         const datasets = [
           {
@@ -1050,8 +1187,8 @@
             borderColor: "#4ade80",
             backgroundColor: "#4ade8020",
             tension: 0.1,
-            pointRadius: 2,
-            pointHoverRadius: 4,
+            pointRadius: useDaily ? 3 : 2,
+            pointHoverRadius: useDaily ? 5 : 4,
           },
           {
             label: "Sell Price",
@@ -1059,8 +1196,8 @@
             borderColor: "#f87171",
             backgroundColor: "#f8717120",
             tension: 0.1,
-            pointRadius: 2,
-            pointHoverRadius: 4,
+            pointRadius: useDaily ? 3 : 2,
+            pointHoverRadius: useDaily ? 5 : 4,
           },
         ];
 
@@ -1077,11 +1214,59 @@
         marketPriceChart = new Chart(ctx, {
           type: "line",
           data: { datasets },
-          options: getChartOptions(hours, true),
+          options: getChartOptions(hours, true, useDaily),
         });
       }
 
-      function getChartOptions(hours, isCurrency) {
+      // New aggregation functions
+      function aggregateDataByDay(data) {
+        const dailyData = {};
+
+        data.forEach((point) => {
+          const date = new Date(point.x).toDateString();
+          if (!dailyData[date]) {
+            dailyData[date] = { values: [], timestamp: point.x };
+          }
+          dailyData[date].values.push(point.y);
+        });
+
+        return Object.values(dailyData)
+          .map((day) => ({
+            x: day.timestamp,
+            y: Math.round(day.values[day.values.length - 1]), // Use last value of the day
+          }))
+          .sort((a, b) => new Date(a.x) - new Date(b.x));
+      }
+
+      function aggregateMarketDataByDay(prices) {
+        const dailyData = {};
+
+        prices.forEach((price) => {
+          const date = new Date(price.timestamp).toDateString();
+          if (!dailyData[date]) {
+            dailyData[date] = { buy: [], sell: [], timestamp: price.timestamp };
+          }
+          dailyData[date].buy.push(price.buy);
+          dailyData[date].sell.push(price.sell);
+        });
+
+        return Object.values(dailyData)
+          .map((day) => ({
+            timestamp: day.timestamp,
+            buy: Math.round(day.buy[day.buy.length - 1]), // Use last value of the day
+            sell: Math.round(day.sell[day.sell.length - 1]),
+          }))
+          .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+      }
+
+      function getChartOptions(hours, isCurrency, useDaily = false) {
+        const timeUnit = useDaily ? "day" : hours <= 72 ? "hour" : "day";
+        const displayFormat = useDaily
+          ? "MMM dd"
+          : hours <= 72
+          ? "MMM dd HH:mm"
+          : "MMM dd";
+
         return {
           responsive: true,
           maintainAspectRatio: false,
@@ -1093,7 +1278,7 @@
             x: {
               type: "time",
               time: {
-                unit: hours <= 48 ? "hour" : "day",
+                unit: timeUnit,
                 displayFormats: {
                   hour: "MMM dd HH:mm",
                   day: "MMM dd",
@@ -1101,7 +1286,7 @@
               },
               ticks: {
                 color: "#b3b3b3",
-                maxTicksLimit: 10,
+                maxTicksLimit: useDaily ? 15 : 10,
               },
               grid: {
                 color: "rgba(255,255,255,0.1)",
