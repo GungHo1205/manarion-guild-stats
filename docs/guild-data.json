@@ -1,24 +1,24 @@
 {
-  "lastUpdated": "2025-08-16T13:20:54.172359+00:00",
+  "lastUpdated": "2025-08-16T14:09:35.088373+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "dustSpending": {
-    "total_dust_spent": 305093415062415.25,
-    "formatted_dust": "305.09T",
-    "codex_used": 17027,
-    "average_price": 17918213135.75,
-    "formatted_price": "17.92B"
+    "total_dust_spent": 339001129431797.2,
+    "formatted_dust": "339.00T",
+    "codex_used": 18955,
+    "average_price": 17884522787.22222,
+    "formatted_price": "17.88B"
   },
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
       "StudyLevel": 305,
-      "NexusLevel": 455,
+      "NexusLevel": 456,
       "StudyProgress": 5,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyCodexCost": 1515,
-      "NexusCodexCost": 909,
-      "TotalCodexCost": 2424
+      "NexusCodexCost": 1365,
+      "TotalCodexCost": 2880
     },
     {
       "GuildName": "RNG",
@@ -82,13 +82,13 @@
     },
     {
       "GuildName": "The First Ones",
-      "StudyLevel": 160,
+      "StudyLevel": 164,
       "NexusLevel": 250,
-      "StudyProgress": 0,
+      "StudyProgress": 4,
       "NexusProgress": 3,
-      "StudyCodexCost": 0,
+      "StudyCodexCost": 650,
       "NexusCodexCost": 747,
-      "TotalCodexCost": 747
+      "TotalCodexCost": 1397
     },
     {
       "GuildName": "Doomed",
@@ -113,12 +113,12 @@
     {
       "GuildName": "Fight Club",
       "StudyLevel": 150,
-      "NexusLevel": 203,
+      "NexusLevel": 207,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 4,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 822,
+      "TotalCodexCost": 822
     },
     {
       "GuildName": "Imperium",
