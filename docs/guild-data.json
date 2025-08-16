@@ -1,24 +1,24 @@
 {
-  "lastUpdated": "2025-08-16T12:19:58.270987+00:00",
+  "lastUpdated": "2025-08-16T13:20:54.172359+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "dustSpending": {
-    "total_dust_spent": 222391434599088.84,
-    "formatted_dust": "222.39T",
-    "codex_used": 12428,
-    "average_price": 17894386433.785713,
-    "formatted_price": "17.89B"
+    "total_dust_spent": 305093415062415.25,
+    "formatted_dust": "305.09T",
+    "codex_used": 17027,
+    "average_price": 17918213135.75,
+    "formatted_price": "17.92B"
   },
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "StudyLevel": 300,
+      "StudyLevel": 305,
       "NexusLevel": 455,
-      "StudyProgress": 0,
+      "StudyProgress": 5,
       "NexusProgress": 2,
-      "StudyCodexCost": 0,
+      "StudyCodexCost": 1515,
       "NexusCodexCost": 909,
-      "TotalCodexCost": 909
+      "TotalCodexCost": 2424
     },
     {
       "GuildName": "RNG",
@@ -33,12 +33,12 @@
     {
       "GuildName": "Divinity",
       "StudyLevel": 290,
-      "NexusLevel": 402,
+      "NexusLevel": 405,
       "StudyProgress": 0,
-      "NexusProgress": 2,
+      "NexusProgress": 5,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 803,
-      "TotalCodexCost": 803
+      "NexusCodexCost": 2015,
+      "TotalCodexCost": 2015
     },
     {
       "GuildName": "Sanctuary",
@@ -63,12 +63,12 @@
     {
       "GuildName": "Codex",
       "StudyLevel": 230,
-      "NexusLevel": 264,
+      "NexusLevel": 265,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 265,
+      "TotalCodexCost": 265
     },
     {
       "GuildName": "EZ ",
@@ -83,12 +83,12 @@
     {
       "GuildName": "The First Ones",
       "StudyLevel": 160,
-      "NexusLevel": 247,
+      "NexusLevel": 250,
       "StudyProgress": 0,
-      "NexusProgress": 0,
+      "NexusProgress": 3,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "NexusCodexCost": 747,
+      "TotalCodexCost": 747
     },
     {
       "GuildName": "Doomed",
@@ -161,6 +161,16 @@
       "TotalCodexCost": 196
     },
     {
+      "GuildName": "Hack n Slash",
+      "StudyLevel": 160,
+      "NexusLevel": 190,
+      "StudyProgress": 0,
+      "NexusProgress": 2,
+      "StudyCodexCost": 0,
+      "NexusCodexCost": 379,
+      "TotalCodexCost": 379
+    },
+    {
       "GuildName": "Caliburnus",
       "StudyLevel": 140,
       "NexusLevel": 189,
@@ -179,16 +189,6 @@
       "StudyCodexCost": 0,
       "NexusCodexCost": 377,
       "TotalCodexCost": 377
-    },
-    {
-      "GuildName": "Hack n Slash",
-      "StudyLevel": 160,
-      "NexusLevel": 188,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
     },
     {
       "GuildName": "Dino Nuggies",
@@ -312,23 +312,23 @@
     },
     {
       "GuildName": "RevivaL",
-      "StudyLevel": 44,
-      "NexusLevel": 77,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "StudyLevel": 46,
+      "NexusLevel": 80,
+      "StudyProgress": 2,
+      "NexusProgress": 3,
+      "StudyCodexCost": 91,
+      "NexusCodexCost": 237,
+      "TotalCodexCost": 328
     },
     {
       "GuildName": "A Growing Threat",
-      "StudyLevel": 75,
+      "StudyLevel": 77,
       "NexusLevel": 65,
-      "StudyProgress": 0,
+      "StudyProgress": 2,
       "NexusProgress": 0,
-      "StudyCodexCost": 0,
+      "StudyCodexCost": 153,
       "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 153
     },
     {
       "GuildName": "Guild",
