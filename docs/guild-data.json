@@ -99,7 +99,7 @@
     {
       "GuildName": "RNG",
       "NexusLevel": 0,
-      "StudyLevel": 285,
+      "StudyLevel": 286,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -251,7 +251,7 @@
     {
       "GuildName": "Minimal Effort",
       "NexusLevel": 0,
-      "StudyLevel": 148,
+      "StudyLevel": 149,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -340,9 +340,9 @@
   "dustSpending": {
     "total_codex": 0,
     "formatted_dust": "0.00",
-    "formatted_price": "10.94B"
+    "formatted_price": "11.25B"
   },
-  "lastUpdated": "2025-08-16T16:51:02.068839+00:00",
+  "lastUpdated": "2025-08-16T17:09:11.675629+00:00",
   "baselineDate": "2025-08-16",
   "dataFreshness": {
     "guild_data_fresh": true,
