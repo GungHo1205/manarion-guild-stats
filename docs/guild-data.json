@@ -1,13 +1,199 @@
 {
-  "guilds": [],
+  "guilds": [
+    {
+      "GuildName": "EZ ",
+      "NexusLevel": 263,
+      "StudyLevel": 213,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Doomed",
+      "NexusLevel": 240,
+      "StudyLevel": 160,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Ewbies",
+      "NexusLevel": 154,
+      "StudyLevel": 154,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Manarion Adventures",
+      "NexusLevel": 133,
+      "StudyLevel": 133,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Cats",
+      "NexusLevel": 124,
+      "StudyLevel": 106,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "MooseKnuckles",
+      "NexusLevel": 115,
+      "StudyLevel": 115,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Divinity",
+      "NexusLevel": 0,
+      "StudyLevel": 292,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Spaghetti and Meatballs",
+      "NexusLevel": 0,
+      "StudyLevel": 305,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Sanctuary",
+      "NexusLevel": 0,
+      "StudyLevel": 300,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "RNG",
+      "NexusLevel": 0,
+      "StudyLevel": 285,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Dino Nuggies",
+      "NexusLevel": 0,
+      "StudyLevel": 128,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Test Guild Please Ignore",
+      "NexusLevel": 0,
+      "StudyLevel": 268,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Imperium",
+      "NexusLevel": 0,
+      "StudyLevel": 196,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Phoenix",
+      "NexusLevel": 0,
+      "StudyLevel": 243,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Hack n Slash",
+      "NexusLevel": 0,
+      "StudyLevel": 160,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Codex",
+      "NexusLevel": 0,
+      "StudyLevel": 230,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "asylum",
+      "NexusLevel": 0,
+      "StudyLevel": 65,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "The First Ones",
+      "NexusLevel": 0,
+      "StudyLevel": 164,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Bureau of Feline Investigators",
+      "NexusLevel": 0,
+      "StudyLevel": 170,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Hydra",
+      "NexusLevel": 0,
+      "StudyLevel": 92,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Osmanthus",
+      "NexusLevel": 0,
+      "StudyLevel": 145,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Racc City",
+      "NexusLevel": 0,
+      "StudyLevel": 186,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    },
+    {
+      "GuildName": "Caliburnus",
+      "NexusLevel": 0,
+      "StudyLevel": 140,
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
+    }
+  ],
   "dustSpending": {
-    "formatted_dust": "0",
-    "formatted_price": "0",
-    "total_dust": 0,
-    "average_price": 0,
-    "total_codex": 0
+    "total_codex": 0,
+    "formatted_dust": "0.00",
+    "formatted_price": "10.43B"
   },
-  "lastUpdated": "2025-08-16T09:43:19.503912+00:00",
+  "lastUpdated": "2025-08-16T15:53:39.463448+00:00",
   "baselineDate": "2025-08-16",
-  "totalGuilds": 0
+  "dataFreshness": {
+    "guild_data_fresh": true,
+    "market_data_fresh": true
+  }
 }

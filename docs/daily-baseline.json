@@ -1,5 +1,69 @@
 {
   "date": "2025-08-16",
-  "timestamp": "2025-08-16T09:43:19.503912+00:00",
-  "guilds": {}
+  "guilds": {
+    "Earth Shapers": {
+      "NexusLevel": 694,
+      "StudyLevel": 422
+    },
+    "Phoenix Legends": {
+      "NexusLevel": 669,
+      "StudyLevel": 395
+    },
+    "Storm Riders": {
+      "NexusLevel": 669,
+      "StudyLevel": 409
+    },
+    "Void Seekers": {
+      "NexusLevel": 646,
+      "StudyLevel": 403
+    },
+    "Frost Giants": {
+      "NexusLevel": 639,
+      "StudyLevel": 507
+    },
+    "Fire Keepers": {
+      "NexusLevel": 632,
+      "StudyLevel": 384
+    },
+    "Ember Guild": {
+      "NexusLevel": 630,
+      "StudyLevel": 448
+    },
+    "Moonlight Society": {
+      "NexusLevel": 615,
+      "StudyLevel": 357
+    },
+    "Iron Brotherhood": {
+      "NexusLevel": 588,
+      "StudyLevel": 377
+    },
+    "Wave Masters": {
+      "NexusLevel": 583,
+      "StudyLevel": 510
+    },
+    "Crystal Guard": {
+      "NexusLevel": 569,
+      "StudyLevel": 501
+    },
+    "Wind Walkers": {
+      "NexusLevel": 576,
+      "StudyLevel": 487
+    },
+    "Mystic Order": {
+      "NexusLevel": 574,
+      "StudyLevel": 409
+    },
+    "Dragon Warriors": {
+      "NexusLevel": 570,
+      "StudyLevel": 449
+    },
+    "Thunder Clan": {
+      "NexusLevel": 566,
+      "StudyLevel": 473
+    },
+    "Shadow Hunters": {
+      "NexusLevel": 506,
+      "StudyLevel": 387
+    }
+  }
 }

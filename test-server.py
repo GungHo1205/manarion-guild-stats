@@ -1,400 +1,291 @@
 #!/usr/bin/env python3
 """
-Windows-compatible script to set up a local testing environment.
-- Creates a 'staging' directory with a visual banner.
-- Generates mock combined historical data for both guild and market data.
-- Creates proper baseline files to prevent errors.
+Mock Data Generation Server for Guild Stats Testing
+- Generates realistic mock data that matches guild-stats.py output exactly
+- Creates complete historical data for testing charts and functionality
+- Only runs locally for testing, never in production
 """
-
 import os
-import shutil
-import sys
 import json
 import random
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone, timedelta
+from typing import List, Dict
 
-def safe_print(message):
-    """Print with Unicode fallback for Windows"""
-    try:
-        print(message)
-    except UnicodeEncodeError:
-        message = message.replace('🧪', '[TEST]').replace('📁', '[FOLDER]').replace('📄', '[FILE]')
-        message = message.replace('✅', '[OK]').replace('⚠️', '[WARN]').replace('❌', '[ERROR]')
-        message = message.replace('🎨', '[STYLE]').replace('🚀', '[ROCKET]').replace('🌐', '[WEB]')
-        message = message.replace('🔍', '[SEARCH]').replace('🚧', '[CONSTRUCTION]').replace('📈', '[CHART]')
-        message = message.replace('💰', '[MONEY]').replace('📊', '[DATA]')
-        print(message)
+# --- Configuration matching guild-stats.py ---
+DATA_DIR = "docs"
+GUILD_DATA_FILE = os.path.join(DATA_DIR, "guild-data.json")
+BASELINE_FILE = os.path.join(DATA_DIR, "daily-baseline.json")
+HISTORICAL_FILE = os.path.join(DATA_DIR, "historical-data.json")
 
-def create_empty_baseline_files():
-    """Creates minimal baseline files that prevent errors in production."""
-    safe_print("\n📊 Creating production-safe baseline files...")
-    
-    # Minimal guild data structure
-    minimal_guild_data = {
-        "guilds": [],
-        "dustSpending": {
-            "formatted_dust": "0",
-            "formatted_price": "0",
-            "total_dust": 0,
-            "average_price": 0,
-            "total_codex": 0
-        },
-        "lastUpdated": datetime.now(timezone.utc).isoformat(),
-        "baselineDate": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "totalGuilds": 0
-    }
-    
-    # Minimal combined historical data
-    minimal_historical_data = {
-        "guild_history": {},
-        "market_prices": {
-            "prices": [],
-            "daily_averages": {}
-        },
-        "last_updated": datetime.now(timezone.utc).isoformat()
-    }
-    
-    # Minimal baseline structure
-    minimal_baseline = {
-        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "timestamp": datetime.now(timezone.utc).isoformat(),
-        "guilds": {}
-    }
-    
-    # Create files in docs directory for production
-    docs_dir = "docs"
-    if not os.path.exists(docs_dir):
-        os.makedirs(docs_dir)
-        safe_print(f"📁 Created '{docs_dir}' directory")
-    
-    files_to_create = [
-        ("guild-data.json", minimal_guild_data),
-        ("historical-data.json", minimal_historical_data),
-        ("daily-baseline.json", minimal_baseline)
-    ]
-    
-    for filename, data in files_to_create:
-        file_path = os.path.join(docs_dir, filename)
-        with open(file_path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=2)
-        safe_print(f"✅ Created minimal '{filename}' in docs/")
+ITEM_MAPPING = {
+    # Resources
+    1: "Mana Dust", 7: "Fish", 8: "Wood", 9: "Iron",
+    # Essentials
+    2: "Elemental Shards", 3: "Codex",
+    # Essences
+    4: "Fire Essence", 5: "Water Essence", 6: "Nature Essence",
+    # Equipment Materials
+    10: "Asbestos", 11: "Ironbark", 12: "Fish Scales",
+    # Spell Tomes
+    13: "Tome of Fire", 14: "Tome of Water", 15: "Tome of Nature", 16: "Tome of Mana Shield",
+    # Enchanting Formulas
+    17: "Formula: Fire Resistance", 18: "Formula: Water Resistance", 19: "Formula: Nature Resistance",
+    20: "Formula: Inferno", 21: "Formula: Tidal Wrath", 22: "Formula: Wildheart",
+    23: "Formula: Insight", 24: "Formula: Bountiful Harvest", 25: "Formula: Prosperity",
+    26: "Formula: Fortune", 27: "Formula: Growth", 28: "Formula: Vitality",
+    # Enchanting Reagents
+    29: "Elderwood", 30: "Lodestone", 31: "White Pearl",
+    32: "Four-Leaf Clover", 33: "Enchanted Droplet", 34: "Infernal Heart",
+    # Orbs/Upgrades
+    35: "Orb of Power", 36: "Orb of Chaos", 37: "Orb of Divinity", 45: "Orb of Legacy",
+    46: "Elementium", 47: "Divine Essence",
+    # Herbs
+    39: "Sunpetal", 40: "Sageroot", 41: "Bloomwell",
+    # Special
+    44: "Crystallized Mana"
+}
 
-def create_baseline_files():
-    """Creates proper baseline files for testing."""
-    safe_print("\n📊 Creating baseline files...")
-    
-    # Create some realistic guild names and levels
-    mock_guilds = {
-        "Elite Dragons": {"StudyLevel": 150, "NexusLevel": 120},
-        "Shadow Legends": {"StudyLevel": 145, "NexusLevel": 115},
-        "Phoenix Rising": {"StudyLevel": 140, "NexusLevel": 110},
-        "Storm Riders": {"StudyLevel": 135, "NexusLevel": 105},
-        "Mystic Warriors": {"StudyLevel": 130, "NexusLevel": 100},
-        "Iron Wolves": {"StudyLevel": 125, "NexusLevel": 95},
-        "Crystal Guardians": {"StudyLevel": 120, "NexusLevel": 90},
-        "Thunder Hawks": {"StudyLevel": 115, "NexusLevel": 85},
-        "Void Seekers": {"StudyLevel": 110, "NexusLevel": 80},
-        "Flame Bringers": {"StudyLevel": 105, "NexusLevel": 75}
-    }
-    
-    baseline_data = {
-        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "timestamp": datetime.now(timezone.utc).isoformat(),
-        "guilds": mock_guilds
-    }
-    
-    # Create guild-data.json (current data file)
-    guild_data = {
-        "guilds": [
-            {
-                "GuildName": name,
-                "NexusLevel": levels["NexusLevel"] + random.randint(0, 5),
-                "StudyLevel": levels["StudyLevel"] + random.randint(0, 5),
-                "NexusProgress": random.randint(0, 3),
-                "StudyProgress": random.randint(0, 4),
-                "NexusCodexCost": random.randint(100, 500),
-                "StudyCodexCost": random.randint(150, 600),
-                "TotalCodexCost": random.randint(250, 1100)
-            }
-            for name, levels in mock_guilds.items()
-        ],
-        "dustSpending": {
-            "formatted_dust": "2.5B",
-            "formatted_price": "16.8B",
-            "total_dust": 2500000000,
-            "average_price": 16800000000,
-            "total_codex": 148 
-        },
-        "lastUpdated": datetime.now(timezone.utc).isoformat(),
-        "baselineDate": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "totalGuilds": len(mock_guilds)
-    }
-    
-    # Create baseline file in staging
-    staging_dir = "staging"
-    if os.path.exists(staging_dir):
-        baseline_file_path = os.path.join(staging_dir, "daily-baseline.json")
-        with open(baseline_file_path, 'w', encoding='utf-8') as f:
-            json.dump(baseline_data, f, indent=2)
+ITEM_CATEGORIES = {
+    "Essentials": ["Elemental Shards", "Codex"],
+    "Resources": ["Fish", "Wood", "Iron"],
+    "Spell Tomes": ["Tome of Fire", "Tome of Water", "Tome of Nature", "Tome of Mana Shield"],
+    "Orbs/Upgrades": ["Orb of Power", "Orb of Chaos", "Orb of Divinity", "Orb of Legacy", "Elementium", "Divine Essence"],
+    "Herbs": ["Sunpetal", "Sageroot", "Bloomwell"],
+    "Enchanting Reagents": ["Fire Essence", "Water Essence", "Nature Essence", "Asbestos", "Ironbark", "Fish Scales", 
+                           "Elderwood", "Lodestone", "White Pearl", "Four-Leaf Clover", "Enchanted Droplet", "Infernal Heart"],
+    "Enchanting Formulas": ["Formula: Fire Resistance", "Formula: Water Resistance", "Formula: Nature Resistance",
+                           "Formula: Inferno", "Formula: Tidal Wrath", "Formula: Wildheart", "Formula: Insight",
+                           "Formula: Bountiful Harvest", "Formula: Prosperity", "Formula: Fortune", "Formula: Growth", "Formula: Vitality"],
+    "Special": ["Crystallized Mana"]
+}
+
+UNTRADEABLE_IDS = {38, 42, 43, 48, 49}
+
+class MockDataGenerator:
+    def __init__(self):
+        self.BASE_PER_UPGRADE = 0.02
+        os.makedirs(DATA_DIR, exist_ok=True)
+
+    def calculate_codex_cost(self, start_level: int, progress: int) -> int:
+        if progress <= 0: return 0
+        return sum(range(start_level + 1, start_level + progress + 1))
+
+    def format_currency(self, amount: float) -> str:
+        if amount >= 1e12: return f"{amount / 1e12:.2f}T"
+        if amount >= 1e9: return f"{amount / 1e9:.2f}B"
+        if amount >= 1e6: return f"{amount / 1e6:.2f}M"
+        if amount >= 1e3: return f"{amount / 1e3:.2f}K"
+        return f"{amount:.2f}"
+
+    def generate_guild_data(self) -> List[Dict]:
+        """Generate realistic guild data matching actual API responses."""
+        guild_names = [
+            "Phoenix Legends", "Dragon Warriors", "Shadow Hunters", "Mystic Order",
+            "Iron Brotherhood", "Storm Riders", "Void Seekers", "Crystal Guard",
+            "Fire Keepers", "Wind Walkers", "Earth Shapers", "Wave Masters",
+            "Thunder Clan", "Frost Giants", "Ember Guild", "Moonlight Society"
+        ]
         
-        # Create guild data file
-        guild_data_path = os.path.join(staging_dir, "guild-data.json")
-        with open(guild_data_path, 'w', encoding='utf-8') as f:
-            json.dump(guild_data, f, indent=2)
-        
-        safe_print(f"✅ Baseline files created in '{staging_dir}/'")
-
-def generate_combined_historical_data():
-    """Generates combined historical data for both guilds and market prices."""
-    safe_print("\n📈 Generating combined historical data for charts...")
-    
-    # Mock guilds for testing
-    mock_guilds = {
-        "Elite Dragons": {"StudyLevel": 150, "NexusLevel": 120},
-        "Shadow Legends": {"StudyLevel": 145, "NexusLevel": 115},
-        "Phoenix Rising": {"StudyLevel": 140, "NexusLevel": 110},
-        "Storm Riders": {"StudyLevel": 135, "NexusLevel": 105},
-        "Mystic Warriors": {"StudyLevel": 130, "NexusLevel": 100},
-        "Iron Wolves": {"StudyLevel": 125, "NexusLevel": 95},
-        "Crystal Guardians": {"StudyLevel": 120, "NexusLevel": 90},
-        "Thunder Hawks": {"StudyLevel": 115, "NexusLevel": 85},
-        "Void Seekers": {"StudyLevel": 110, "NexusLevel": 80},
-        "Flame Bringers": {"StudyLevel": 105, "NexusLevel": 75}
-    }
-
-    now = datetime.now(timezone.utc)
-    total_hours = 30 * 24  # 30 days of hourly data
-    
-    # Initialize the combined historical data structure
-    historical_data = {
-        "guild_history": {},
-        "market_prices": {
-            "prices": [],
-            "daily_averages": {}
-        },
-        "last_updated": now.isoformat()
-    }
-
-    # Generate guild history data
-    for guild_name, levels in mock_guilds.items():
-        historical_data["guild_history"][guild_name] = []
-        
-        # Start with levels slightly lower than the baseline
-        current_nexus = levels["NexusLevel"] - random.randint(15, 30)
-        current_study = levels["StudyLevel"] - random.randint(15, 30)
-
-        for i in range(total_hours):
-            # Go back in time hour by hour
-            timestamp = now - timedelta(hours=total_hours - i)
+        guilds = []
+        for i, name in enumerate(guild_names):
+            # Generate realistic levels with some variation
+            base_nexus = 580 + random.randint(-80, 120)
+            base_study = 420 + random.randint(-60, 100)
             
-            # Occasionally increase the level to show progression
-            if random.random() < 0.1:  # 10% chance to level up each hour
-                current_nexus += 1
-            if random.random() < 0.15:  # 15% chance
-                current_study += 1
+            guilds.append({
+                "GuildName": name,
+                "NexusLevel": base_nexus,
+                "StudyLevel": base_study
+            })
+        
+        return sorted(guilds, key=lambda x: x["NexusLevel"], reverse=True)
 
-            entry = {
-                "timestamp": timestamp.isoformat(),
-                "nexus": max(0, current_nexus),
-                "study": max(0, current_study)
-            }
-            historical_data["guild_history"][guild_name].append(entry)
-
-    # Generate market price data
-    daily_averages = {}
-    
-    # Starting prices (realistic codex market values)
-    base_buy_price = 15_000_000_000  # 15B
-    base_sell_price = 18_000_000_000  # 18B
-    
-    current_buy = base_buy_price
-    current_sell = base_sell_price
-    
-    for i in range(total_hours):
-        # Go back in time hour by hour
-        timestamp = now - timedelta(hours=total_hours - i)
+    def generate_historical_data(self, current_guilds: List[Dict], hours_back: int = 72) -> Dict:
+        """Generate comprehensive historical data for guilds and market prices."""
+        now = datetime.now(timezone.utc)
+        history = {"guild_history": {}, "item_prices": {}, "item_categories": ITEM_CATEGORIES}
         
-        # Add some realistic market volatility
-        # Buy price fluctuates ±5% from base with some trending
-        buy_volatility = random.uniform(-0.05, 0.05)
-        trend_factor = 0.1 * random.random() * (i / total_hours)  # Slight upward trend over time
-        current_buy = base_buy_price * (1 + buy_volatility + trend_factor)
+        # Generate guild progression history
+        for guild in current_guilds:
+            name = guild["GuildName"]
+            history["guild_history"][name] = []
+            
+            current_nexus = guild["NexusLevel"]
+            current_study = guild["StudyLevel"]
+            
+            for i in range(hours_back):
+                timestamp = (now - timedelta(hours=i)).isoformat()
+                
+                # Simulate realistic backward progression (levels decrease going back in time)
+                nexus_decline = int(i * random.uniform(0.6, 1.4))
+                study_decline = int(i * random.uniform(0.4, 1.2))
+                
+                historical_nexus = max(0, current_nexus - nexus_decline)
+                historical_study = max(0, current_study - study_decline)
+                
+                history["guild_history"][name].insert(0, {
+                    "timestamp": timestamp,
+                    "nexus": historical_nexus,
+                    "study": historical_study
+                })
         
-        # Sell price is always higher than buy price, with similar volatility
-        sell_volatility = random.uniform(-0.05, 0.05)
-        current_sell = base_sell_price * (1 + sell_volatility + trend_factor)
+        # Generate market price history for all tradeable items
+        tradeable_items = {k: v for k, v in ITEM_MAPPING.items() if k not in UNTRADEABLE_IDS}
         
-        # Ensure sell > buy
-        if current_sell <= current_buy:
-            current_sell = current_buy * 1.1
-        
-        average_price = (current_buy + current_sell) / 2
-        
-        price_entry = {
-            "timestamp": timestamp.isoformat(),
-            "buy_price": int(current_buy),
-            "sell_price": int(current_sell),
-            "average_price": int(average_price)
+        # Define realistic base prices
+        base_prices = {
+            "Codex": 10000000000,  # 10B base price for Codex
+            "Mana Dust": 50000000,  # 50M
+            "Elemental Shards": 75000000,  # 75M
+            "Orb of Power": 5000000000,  # 5B
+            "Orb of Chaos": 8000000000,  # 8B
+            "Orb of Divinity": 15000000000,  # 15B
+            "Orb of Legacy": 12000000000,  # 12B
+            "Elementium": 2000000000,  # 2B
+            "Divine Essence": 3000000000,  # 3B
+            "Crystallized Mana": 500000000,  # 500M
+            # Resources
+            "Fish": 100000,
+            "Wood": 150000,
+            "Iron": 200000,
+            # Spell Tomes
+            "Tome of Fire": 10000000,
+            "Tome of Water": 10000000,
+            "Tome of Nature": 10000000,
+            "Tome of Mana Shield": 15000000,
+            # Herbs
+            "Sunpetal": 5000000,
+            "Sageroot": 7000000,
+            "Bloomwell": 12000000,
         }
-        historical_data["market_prices"]["prices"].append(price_entry)
         
-        # Calculate daily averages
-        date_str = timestamp.strftime("%Y-%m-%d")
-        if date_str not in daily_averages:
-            daily_averages[date_str] = {
-                "buy_prices": [],
-                "sell_prices": [],
-                "avg_prices": []
+        for item_id, item_name in tradeable_items.items():
+            base_price = base_prices.get(item_name, random.randint(500000, 100000000))
+            history["item_prices"][item_name] = {"prices": []}
+            
+            for i in range(hours_back):
+                timestamp = (now - timedelta(hours=i)).isoformat()
+                
+                # Simulate realistic price fluctuations
+                price_variation = 1 + random.uniform(-0.15, 0.15)  # ±15% variation
+                time_trend = 1 + (random.uniform(-0.002, 0.002) * i)  # Small random trend
+                
+                current_price = int(base_price * price_variation * time_trend)
+                buy_price = current_price
+                sell_price = int(current_price * random.uniform(1.02, 1.12))  # 2-12% spread
+                
+                history["item_prices"][item_name]["prices"].insert(0, {
+                    "timestamp": timestamp,
+                    "buy": buy_price,
+                    "sell": sell_price
+                })
+        
+        return history
+
+    def generate_baseline(self, guilds: List[Dict]) -> Dict:
+        """Generate baseline data for daily progress calculation."""
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        
+        baseline_guilds = {}
+        for guild in guilds:
+            # Baseline should be lower than current levels to show positive progress
+            baseline_guilds[guild["GuildName"]] = {
+                "NexusLevel": max(0, guild["NexusLevel"] - random.randint(2, 10)),
+                "StudyLevel": max(0, guild["StudyLevel"] - random.randint(1, 8))
             }
         
-        daily_averages[date_str]["buy_prices"].append(current_buy)
-        daily_averages[date_str]["sell_prices"].append(current_sell)
-        daily_averages[date_str]["avg_prices"].append(average_price)
-    
-    # Calculate final daily averages
-    def format_currency(amount):
-        if amount >= 1_000_000_000_000:
-            return f"{amount / 1_000_000_000_000:.2f}T"
-        elif amount >= 1_000_000_000:
-            return f"{amount / 1_000_000_000:.2f}B"
-        elif amount >= 1_000_000:
-            return f"{amount / 1_000_000:.2f}M"
-        elif amount >= 1_000:
-            return f"{amount / 1_000:.2f}K"
-        else:
-            return f"{amount:.2f}"
-    
-    final_daily_averages = {}
-    for date_str, day_data in daily_averages.items():
-        avg_buy = sum(day_data["buy_prices"]) / len(day_data["buy_prices"])
-        avg_sell = sum(day_data["sell_prices"]) / len(day_data["sell_prices"])
-        daily_avg = sum(day_data["avg_prices"]) / len(day_data["avg_prices"])
-        
-        final_daily_averages[date_str] = {
-            "average_price": daily_avg,
-            "buy_average": avg_buy,
-            "sell_average": avg_sell,
-            "sample_count": len(day_data["avg_prices"]),
-            "formatted_price": format_currency(daily_avg)
+        return {
+            "date": today,
+            "guilds": baseline_guilds
         }
-    
-    historical_data["market_prices"]["daily_averages"] = final_daily_averages
 
-    # Save the combined historical data to staging directory only
-    staging_dir = "staging"
-    if os.path.exists(staging_dir):
-        historical_file_path = os.path.join(staging_dir, "historical-data.json")
-        with open(historical_file_path, 'w', encoding='utf-8') as f:
+    def calculate_average_codex_price(self, history: Dict) -> float:
+        """Calculate realistic average Codex price from historical data."""
+        codex_prices = history.get('item_prices', {}).get('Codex', {}).get('prices', [])
+        if not codex_prices:
+            return 10000000000
+        
+        # Use last 24 price points for average
+        recent_prices = codex_prices[-24:] if len(codex_prices) >= 24 else codex_prices
+        total_avg = sum((p['buy'] + p['sell']) / 2 for p in recent_prices)
+        return total_avg / len(recent_prices)
+
+    def generate_mock_data(self):
+        """Generate all mock data files matching guild-stats.py output format."""
+        print("🧪 Generating mock data for local testing...")
+        
+        # Generate current guild data
+        current_guilds = self.generate_guild_data()
+        print(f"Generated {len(current_guilds)} mock guilds")
+        
+        # Generate historical data (72 hours of data points)
+        historical_data = self.generate_historical_data(current_guilds, 72)
+        
+        # Save historical data first
+        with open(HISTORICAL_FILE, 'w') as f:
             json.dump(historical_data, f, indent=2)
-        safe_print(f"✅ Combined 'historical-data.json' created in '{staging_dir}/' with:")
-        safe_print(f"   - {len(historical_data['guild_history'])} guilds with historical data")
-        safe_print(f"   - {len(historical_data['market_prices']['prices'])} market price points")
-        safe_print(f"   - {len(final_daily_averages)} days of price averages")
+        print("Generated historical data for charts")
+        
+        # Generate baseline
+        baseline = self.generate_baseline(current_guilds)
+        with open(BASELINE_FILE, 'w') as f:
+            json.dump(baseline, f, indent=2)
+        print("Generated baseline data")
+        
+        # Calculate progress and codex costs
+        total_codex = 0
+        for guild in current_guilds:
+            base = baseline["guilds"][guild["GuildName"]]
+            guild["NexusProgress"] = guild["NexusLevel"] - base["NexusLevel"]
+            guild["StudyProgress"] = guild["StudyLevel"] - base["StudyLevel"]
+            guild["TotalCodexCost"] = (
+                self.calculate_codex_cost(base["NexusLevel"], guild["NexusProgress"]) +
+                self.calculate_codex_cost(base["StudyLevel"], guild["StudyProgress"])
+            )
+            total_codex += guild["TotalCodexCost"]
+        
+        # Calculate dust spending using average Codex price
+        avg_price = self.calculate_average_codex_price(historical_data)
+        
+        dust_spending = {
+            "total_codex": total_codex,
+            "formatted_dust": self.format_currency(total_codex * avg_price),
+            "formatted_price": self.format_currency(avg_price)
+        }
+        
+        # Generate final guild data file
+        final_data = {
+            "guilds": current_guilds,  # Already sorted by NexusLevel
+            "dustSpending": dust_spending,
+            "lastUpdated": datetime.now(timezone.utc).isoformat(),
+            "baselineDate": baseline["date"],
+            "dataFreshness": {
+                "guild_data_fresh": True,
+                "market_data_fresh": True
+            }
+        }
+        
+        with open(GUILD_DATA_FILE, 'w') as f:
+            json.dump(final_data, f, indent=2)
+        
+        print(" Mock data generation complete!")
+        print(f" Dashboard: {len(current_guilds)} guilds with progress tracking")
+        print(f" Historical: {len(historical_data['guild_history'])} guild histories")
+        print(f" Market: {len(historical_data['item_prices'])} item price histories")
+        print(f" Total Codex Used: {total_codex:,}")
+        print(f" Dust Spent: {dust_spending['formatted_dust']}")
+        print(f" Item Categories: {len(historical_data['item_categories'])} categories")
+        print("\n Open docs/index.html to view the mock dashboard!")
 
 def main():
-    """Main function to run the staging setup."""
-    safe_print("🧪 Testing Staging Setup")
-    safe_print("========================")
+    """Generate mock data for local testing only."""
+    # Safety check to prevent running in production
+    if os.environ.get('GITHUB_ACTIONS') or os.environ.get('CI'):
+        print("❌ Mock data generation disabled in CI/production environment")
+        return
     
-    # First create empty baseline files for production safety
-    create_empty_baseline_files()
-    
-    # Create staging directory
-    staging_dir = "staging"
-    safe_print(f"📁 Creating '{staging_dir}' directory...")
-    if not os.path.exists(staging_dir):
-        os.makedirs(staging_dir)
-    
-    # Create baseline files for testing
-    create_baseline_files()
-    
-    # Copy any existing docs files to staging (excluding the ones we're about to generate)
-    docs_dir = "docs"
-    if os.path.exists(docs_dir):
-        try:
-            for filename in os.listdir(docs_dir):
-                if filename not in ['historical-data.json', 'daily-baseline.json', 'guild-data.json']:
-                    src = os.path.join(docs_dir, filename)
-                    dst = os.path.join(staging_dir, filename)
-                    if os.path.isfile(src):
-                        shutil.copy2(src, dst)
-            safe_print(f"✅ Copied existing files from '{docs_dir}' to '{staging_dir}'")
-        except Exception as e:
-            safe_print(f"⚠️ Error copying files: {e}")
-    
-    # Generate combined mock data for testing
-    generate_combined_historical_data()
-
-    # Copy index.html and modify it for staging
-    index_src = "docs/index.html"
-    index_staging = os.path.join(staging_dir, "index.html")
-    
-    if os.path.exists(index_src):
-        safe_print("\n🎨 Adding staging visual indicators...")
-        shutil.copy2(index_src, index_staging)
-        
-        try:
-            with open(index_staging, 'r', encoding='utf-8') as f:
-                content = f.read()
-            
-            # Modify title
-            content = content.replace('<title>Guild Stats Dashboard</title>', '<title>[STAGING] Guild Stats Dashboard</title>')
-            
-            # Add staging CSS variables
-            css_addition = '''        --staging-bg: linear-gradient(45deg, #ff6b35, #f7931e);
-        --staging-text: #ffffff;
-        --staging-border: #ff6b35;'''
-            content = content.replace('--gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);', 
-                                    '--gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);' + css_addition)
-            
-            # Add staging banner
-            banner_html = '''        <div style="background: var(--staging-bg); margin: -40px -25px 20px -25px; padding: 12px 0; border-radius: 15px 15px 0 0; text-align: center; border: 2px solid var(--staging-border);">
-          <span style="color: var(--staging-text); font-size: 1rem; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">🚧 STAGING ENVIRONMENT - TEST DATA 🚧</span>
-        </div>'''
-            content = content.replace('<header class="header">', '<header class="header">\n' + banner_html)
-            
-            with open(index_staging, 'w', encoding='utf-8') as f:
-                f.write(content)
-            safe_print("✅ Staging modifications applied to 'index.html'")
-            
-        except Exception as e:
-            safe_print(f"❌ Error modifying index.html: {e}")
-            return False
-    else:
-        safe_print(f"❌ No 'index.html' found in root directory")
-        return False
-
-    safe_print("\n🚀 Test Setup Complete!")
-    safe_print("========================")
-    safe_print("🌐 To test locally:")
-    safe_print("1. Run a local server: python -m http.server 8000")
-    safe_print("2. Visit: http://localhost:8000 (production version with empty data)")
-    safe_print("3. Visit: http://localhost:8000/staging/ (staging version with test data)")
-    safe_print("\n   Production version (docs/) now has:")
-    safe_print("   - Empty but valid JSON files to prevent errors")
-    safe_print("   - Safe deployment-ready structure")
-    safe_print("   - Combined historical data structure")
-    safe_print("\n   Staging version (staging/) has:")
-    safe_print("   - Complete guild data with progress tracking")
-    safe_print("   - Guild Progress Charts with 30 days of mock data")
-    safe_print("   - Codex Price Charts with realistic market fluctuations")
-    safe_print("   - Hourly/Daily interval switching")
-    safe_print("   - All time ranges (1D, 3D, 7D, 14D, 30D) functional")
-    safe_print("   - Current price display with daily change calculations")
-    safe_print("\n   Chart features:")
-    safe_print("   - Smart interval switching (hourly < 7 days, daily > 6 days)")
-    safe_print("   - Manual interval override controls")
-    safe_print("   - Buy/Sell/Average price lines for codex")
-    safe_print("   - Proper currency formatting (B/T notation)")
-    safe_print("   - Combined data structure for efficiency")
-    safe_print("\n   Production safety:")
-    safe_print("   - docs/ contains minimal valid files")
-    safe_print("   - No errors when deployed without real data")
-    safe_print("   - Ready for your actual API integration")
-    safe_print("   - Efficient single JSON file for historical data")
-    
-    return True
+    generator = MockDataGenerator()
+    generator.generate_mock_data()
 
 if __name__ == "__main__":
-    if not main():
-        sys.exit(1)
+    main()
