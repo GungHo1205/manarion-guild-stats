@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """
-Guild Stats Collection Script
-Collects guild data, tracks progress, and monitors codex market prices.
+Guild Stats Collection and Historical Data Logging Script
+- Fetches player data from leaderboards to calculate guild Nexus and Study levels.
+- Tracks daily progress against a baseline, calculating approximate codex usage.
+- Fetches market prices for all tradeable items.
+- Appends new hourly data to a historical log for chart visualization.
+- Handles API failures gracefully by using previous data points.
 """
 
 import json
@@ -9,403 +13,432 @@ import os
 import requests
 import time
 from datetime import datetime, timezone, timedelta
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional
+import concurrent.futures
 
-class GuildStatsCollector:
-    def __init__(self, api_base_url: str):
-        self.api_base_url = api_base_url
-        self.data_dir = "docs"
-        self.guild_data_file = os.path.join(self.data_dir, "guild-data.json")
-        self.historical_data_file = os.path.join(self.data_dir, "historical-data.json")
-        self.baseline_file = os.path.join(self.data_dir, "daily-baseline.json")
-        
-        # Ensure data directory exists
-        os.makedirs(self.data_dir, exist_ok=True)
-        
-    def safe_api_call(self, url: str, max_retries: int = 3) -> Optional[Dict]:
-        """Make API call with retry logic and error handling."""
-        for attempt in range(max_retries):
+# --- Configuration ---
+API_BASE_URL = "https://api.manarion.com"
+LEADERBOARD_TYPE = "boost_damage"
+MAX_WORKERS = 2
+API_DELAY = 2
+BASE_PER_UPGRADE = 0.02
+DATA_DIR = "docs"
+GUILD_DATA_FILE = os.path.join(DATA_DIR, "guild-data.json")
+BASELINE_FILE = os.path.join(DATA_DIR, "daily-baseline.json")
+HISTORICAL_FILE = os.path.join(DATA_DIR, "historical-data.json")
+
+# --- Item Configuration with proper names ---
+ITEM_MAPPING = {
+    # Resources
+    1: "Mana Dust", 7: "Fish", 8: "Wood", 9: "Iron",
+    # Essentials
+    2: "Elemental Shards", 3: "Codex",
+    # Essences
+    4: "Fire Essence", 5: "Water Essence", 6: "Nature Essence",
+    # Equipment Materials
+    10: "Asbestos", 11: "Ironbark", 12: "Fish Scales",
+    # Spell Tomes
+    13: "Tome of Fire", 14: "Tome of Water", 15: "Tome of Nature", 16: "Tome of Mana Shield",
+    # Enchanting Formulas
+    17: "Formula: Fire Resistance", 18: "Formula: Water Resistance", 19: "Formula: Nature Resistance",
+    20: "Formula: Inferno", 21: "Formula: Tidal Wrath", 22: "Formula: Wildheart",
+    23: "Formula: Insight", 24: "Formula: Bountiful Harvest", 25: "Formula: Prosperity",
+    26: "Formula: Fortune", 27: "Formula: Growth", 28: "Formula: Vitality",
+    # Enchanting Reagents
+    29: "Elderwood", 30: "Lodestone", 31: "White Pearl",
+    32: "Four-Leaf Clover", 33: "Enchanted Droplet", 34: "Infernal Heart",
+    # Orbs/Upgrades
+    35: "Orb of Power", 36: "Orb of Chaos", 37: "Orb of Divinity", 45: "Orb of Legacy",
+    46: "Elementium", 47: "Divine Essence",
+    # Herbs
+    39: "Sunpetal", 40: "Sageroot", 41: "Bloomwell",
+    # Special
+    44: "Crystallized Mana"
+}
+
+ITEM_CATEGORIES = {
+    "Essentials": ["Elemental Shards", "Codex"],
+    "Resources": ["Fish", "Wood", "Iron"],
+    "Spell Tomes": ["Tome of Fire", "Tome of Water", "Tome of Nature", "Tome of Mana Shield"],
+    "Orbs/Upgrades": ["Orb of Power", "Orb of Chaos", "Orb of Divinity", "Orb of Legacy", "Elementium", "Divine Essence"],
+    "Herbs": ["Sunpetal", "Sageroot", "Bloomwell"],
+    "Enchanting Reagents": ["Fire Essence", "Water Essence", "Nature Essence", "Asbestos", "Ironbark", "Fish Scales", 
+                           "Elderwood", "Lodestone", "White Pearl", "Four-Leaf Clover", "Enchanted Droplet", "Infernal Heart"],
+    "Enchanting Formulas": ["Formula: Fire Resistance", "Formula: Water Resistance", "Formula: Nature Resistance",
+                           "Formula: Inferno", "Formula: Tidal Wrath", "Formula: Wildheart", "Formula: Insight",
+                           "Formula: Bountiful Harvest", "Formula: Prosperity", "Formula: Fortune", "Formula: Growth", "Formula: Vitality"],
+    "Special": ["Crystallized Mana"]
+}
+
+UNTRADEABLE_IDS = {38, 42, 43, 48, 49}
+
+class APIClient:
+    """Handles API communication with error handling and rate limiting."""
+    def __init__(self, base_url: str):
+        self.base_url = base_url
+        self.session = requests.Session()
+        self.session.headers.update({'User-Agent': 'GuildStatsTracker/2.0'})
+
+    def get(self, endpoint: str, params: Optional[Dict] = None, retries: int = 3) -> Optional[Dict]:
+        url = f"{self.base_url}{endpoint}"
+        for attempt in range(retries):
             try:
-                response = requests.get(url, timeout=10)
+                time.sleep(API_DELAY)
+                response = self.session.get(url, params=params, timeout=30)
                 response.raise_for_status()
                 return response.json()
-            except requests.exceptions.RequestException as e:
-                print(f"API call failed (attempt {attempt + 1}/{max_retries}): {e}")
-                if attempt < max_retries - 1:
-                    time.sleep(2 ** attempt)  # Exponential backoff
-        return None
+            except requests.RequestException as e:
+                print(f"API Error on {url} (attempt {attempt + 1}/{retries}): {e}")
+                if attempt < retries - 1:
+                    time.sleep(5 * (attempt + 1))  # Exponential backoff
+                else:
+                    return None
 
-    def get_leaderboard_data(self) -> Optional[List[Dict]]:
-        """Get leaderboard data from API."""
-        url = f"{self.api_base_url}/leaderboard"  # Replace with actual endpoint
-        return self.safe_api_call(url)
+class GuildStatsTracker:
+    """Orchestrates data collection, processing, and file I/O."""
+    def __init__(self):
+        self.api = APIClient(API_BASE_URL)
+        os.makedirs(DATA_DIR, exist_ok=True)
+        self.guild_lookup = self._load_guild_lookup()
+        self._ensure_data_files_exist()
 
-    def get_player_data(self, player_name: str) -> Optional[Dict]:
-        """Get individual player data from API."""
-        url = f"{self.api_base_url}/player/{player_name}"  # Replace with actual endpoint
-        return self.safe_api_call(url)
+    def _ensure_data_files_exist(self):
+        """Creates empty placeholder files if they don't exist to prevent frontend errors."""
+        empty_files = {
+            GUILD_DATA_FILE: {
+                "guilds": [], 
+                "dustSpending": {"total_codex": 0, "formatted_dust": "0.00", "formatted_price": "N/A"}, 
+                "lastUpdated": None, 
+                "baselineDate": None
+            },
+            BASELINE_FILE: {"date": None, "guilds": {}},
+            HISTORICAL_FILE: {"guild_history": {}, "item_prices": {}, "item_categories": ITEM_CATEGORIES}
+        }
+        for path, content in empty_files.items():
+            if not os.path.exists(path):
+                print(f"Creating placeholder file: {path}")
+                with open(path, 'w') as f:
+                    json.dump(content, f, indent=2)
 
-    def get_codex_market_prices(self) -> Optional[Dict]:
-        """Get current codex market prices."""
-        url = f"{self.api_base_url}/market/codex"  # Replace with actual endpoint
-        return self.safe_api_call(url)
-
-    def load_existing_data(self, filename: str) -> Dict:
-        """Load existing data file or return empty dict."""
-        filepath = os.path.join(self.data_dir, filename)
-        if os.path.exists(filepath):
+    def _load_guild_lookup(self) -> Dict[int, str]:
+        print("Loading guild lookup...")
+        data = self.api.get("/guilds")
+        if not data:
+            print("WARNING: Could not load guild lookup. Using cached data if available.")
+            # Try to load from previous successful run
             try:
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    return json.load(f)
-            except (json.JSONDecodeError, IOError) as e:
-                print(f"Error loading {filename}: {e}")
-        return {}
-
-    def save_data(self, filename: str, data: Dict):
-        """Save data to file."""
-        filepath = os.path.join(self.data_dir, filename)
+                with open(os.path.join(DATA_DIR, "guild_cache.json"), 'r') as f:
+                    cached = json.load(f)
+                    return cached.get("guild_lookup", {})
+            except (IOError, json.JSONDecodeError):
+                return {}
+        
+        guild_lookup = {g.get("ID", 0): g.get("Name", "Unknown") for g in data}
+        # Cache successful guild lookup
         try:
-            with open(filepath, 'w', encoding='utf-8') as f:
-                json.dump(data, f, indent=2)
-            print(f"Saved {filename}")
-        except IOError as e:
-            print(f"Error saving {filename}: {e}")
-
-    def calculate_level_from_upgrades(self, upgrades: int, upgrade_type: str) -> int:
-        """Calculate level from upgrade count."""
-        # Replace with your actual level calculation logic
-        # This is just an example
-        if upgrade_type == "nexus":
-            return min(upgrades // 10, 200)  # Example calculation
-        elif upgrade_type == "study":
-            return min(upgrades // 15, 200)  # Example calculation
-        return 0
-
-    def estimate_codex_cost(self, level_diff: int, upgrade_type: str) -> int:
-        """Estimate codex cost for level increases."""
-        # Replace with your actual cost calculation logic
-        base_cost = 100 if upgrade_type == "nexus" else 150
-        return level_diff * base_cost
-
-    def format_currency(self, amount: int) -> str:
-        """Format currency with appropriate units."""
-        if amount >= 1_000_000_000_000:
-            return f"{amount / 1_000_000_000_000:.2f}T"
-        elif amount >= 1_000_000_000:
-            return f"{amount / 1_000_000_000:.2f}B"
-        elif amount >= 1_000_000:
-            return f"{amount / 1_000_000:.2f}M"
-        elif amount >= 1_000:
-            return f"{amount / 1_000:.2f}K"
-        else:
-            return f"{amount:.2f}"
-
-    def get_or_create_baseline(self) -> Dict:
-        """Get existing baseline or create new one."""
-        baseline = self.load_existing_data("daily-baseline.json")
-        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            with open(os.path.join(DATA_DIR, "guild_cache.json"), 'w') as f:
+                json.dump({"guild_lookup": guild_lookup, "last_updated": datetime.now(timezone.utc).isoformat()}, f)
+        except IOError:
+            pass
         
-        # Create new baseline if doesn't exist or is from different day
-        if not baseline or baseline.get("date") != today:
-            print("Creating new daily baseline...")
-            baseline = {
-                "date": today,
-                "timestamp": datetime.now(timezone.utc).isoformat(),
-                "guilds": {}
-            }
+        return guild_lookup
+
+    def _get_previous_data_point(self, data_type: str = "guild") -> Optional[Dict]:
+        """Get the most recent data point for fallback purposes."""
+        try:
+            if data_type == "guild":
+                with open(GUILD_DATA_FILE, 'r') as f:
+                    return json.load(f)
+            elif data_type == "historical":
+                with open(HISTORICAL_FILE, 'r') as f:
+                    return json.load(f)
+        except (IOError, json.JSONDecodeError):
+            return None
+
+    def _get_latest_market_prices(self) -> Dict:
+        """Get latest market prices from historical data if API fails."""
+        try:
+            with open(HISTORICAL_FILE, 'r') as f:
+                history = json.load(f)
             
-        return baseline
-
-    def update_historical_data(self, guild_name: str, nexus_level: int, study_level: int, 
-                             buy_price: Optional[int] = None, sell_price: Optional[int] = None):
-        """Update combined historical data for guilds and market prices."""
-        historical_data = self.load_existing_data("historical-data.json")
-        
-        # Initialize structure if needed
-        if "guild_history" not in historical_data:
-            historical_data["guild_history"] = {}
-        if "market_prices" not in historical_data:
-            historical_data["market_prices"] = {"prices": [], "daily_averages": {}}
-        
-        # Update guild history
-        if guild_name not in historical_data["guild_history"]:
-            historical_data["guild_history"][guild_name] = []
-        
-        # Add new guild data point
-        new_guild_entry = {
-            "timestamp": datetime.now(timezone.utc).isoformat(),
-            "nexus": nexus_level,
-            "study": study_level
-        }
-        
-        historical_data["guild_history"][guild_name].append(new_guild_entry)
-        
-        # Update market prices if provided
-        if buy_price is not None and sell_price is not None:
-            average_price = (buy_price + sell_price) / 2
+            market_prices = {}
+            for item_name, data in history.get('item_prices', {}).items():
+                prices = data.get('prices', [])
+                if prices:
+                    latest = prices[-1]  # Most recent price
+                    market_prices[item_name] = {"buy": latest['buy'], "sell": latest['sell']}
             
-            new_price_entry = {
-                "timestamp": datetime.now(timezone.utc).isoformat(),
-                "buy_price": buy_price,
-                "sell_price": sell_price,
-                "average_price": int(average_price)
-            }
-            
-            historical_data["market_prices"]["prices"].append(new_price_entry)
-            
-            # Update daily averages
-            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-            if today not in historical_data["market_prices"]["daily_averages"]:
-                historical_data["market_prices"]["daily_averages"][today] = {
-                    "buy_prices": [],
-                    "sell_prices": [],
-                    "avg_prices": []
-                }
-            
-            historical_data["market_prices"]["daily_averages"][today]["buy_prices"].append(buy_price)
-            historical_data["market_prices"]["daily_averages"][today]["sell_prices"].append(sell_price)
-            historical_data["market_prices"]["daily_averages"][today]["avg_prices"].append(average_price)
-            
-            # Calculate final daily averages
-            day_data = historical_data["market_prices"]["daily_averages"][today]
-            historical_data["market_prices"]["daily_averages"][today] = {
-                "average_price": sum(day_data["avg_prices"]) / len(day_data["avg_prices"]),
-                "buy_average": sum(day_data["buy_prices"]) / len(day_data["buy_prices"]),
-                "sell_average": sum(day_data["sell_prices"]) / len(day_data["sell_prices"]),
-                "sample_count": len(day_data["avg_prices"]),
-                "formatted_price": self.format_currency(sum(day_data["avg_prices"]) / len(day_data["avg_prices"]))
-            }
-        
-        # Clean old data (keep 30 days)
-        cutoff_date = datetime.now(timezone.utc) - timedelta(days=30)
-        
-        # Clean guild history
-        for guild in historical_data["guild_history"]:
-            historical_data["guild_history"][guild] = [
-                entry for entry in historical_data["guild_history"][guild]
-                if datetime.fromisoformat(entry["timestamp"]) >= cutoff_date
-            ]
-        
-        # Clean market prices
-        historical_data["market_prices"]["prices"] = [
-            entry for entry in historical_data["market_prices"]["prices"]
-            if datetime.fromisoformat(entry["timestamp"]) >= cutoff_date
-        ]
-        
-        # Clean daily averages
-        cutoff_date_str = cutoff_date.strftime("%Y-%m-%d")
-        historical_data["market_prices"]["daily_averages"] = {
-            date: data for date, data in historical_data["market_prices"]["daily_averages"].items()
-            if date >= cutoff_date_str
-        }
-        
-        # Update metadata
-        historical_data["last_updated"] = datetime.now(timezone.utc).isoformat()
-        
-        self.save_data("historical-data.json", historical_data)
-
-    def get_previous_market_price(self) -> Optional[int]:
-        """Get the most recent market price if current API call fails."""
-        historical_data = self.load_existing_data("historical-data.json")
-        prices = historical_data.get("market_prices", {}).get("prices", [])
-        
-        if prices:
-            return prices[-1]["average_price"]
-        return None
-
-    def collect_guild_data(self) -> Dict:
-        """Main function to collect and process guild data."""
-        print(f"Starting guild data collection at {datetime.now(timezone.utc)}")
-        
-        # Get baseline data
-        baseline = self.get_or_create_baseline()
-        
-        # Get leaderboard data
-        leaderboard_data = self.get_leaderboard_data()
-        if not leaderboard_data:
-            print("Failed to get leaderboard data")
+            print(f"Using cached market prices for {len(market_prices)} items")
+            return market_prices
+        except (IOError, json.JSONDecodeError):
             return {}
+
+    # --- Calculation Formulas ---
+    def calculate_nexus_level(self, total_damage: float, upgrades: int, equip_boost: float) -> int:
+        if upgrades <= 0: return 0
+        base_damage = total_damage * 100 - equip_boost - 100
+        if upgrades * BASE_PER_UPGRADE == 0: return 0
+        multiplier = base_damage / (upgrades * BASE_PER_UPGRADE)
+        level = 100 * (multiplier - 1.0)
+        return max(0, round(level))
+
+    def calculate_study_level(self, total_exp: int, codex_exp: int, enchant_exp: int) -> int:
+        return max(0, total_exp - codex_exp - enchant_exp)
+
+    def calculate_codex_cost(self, start_level: int, progress: int) -> int:
+        if progress <= 0: return 0
+        return sum(range(start_level + 1, start_level + progress + 1))
+
+    # --- Data Processing ---
+    def process_player(self, player_entry: Dict) -> Optional[Dict]:
+        player_name = player_entry.get("Name")
+        upgrades = player_entry.get("Score", 0)
+        if not player_name: return None
+
+        player = self.api.get(f"/players/{player_name}")
+        if not player: return None
+
+        guild_id = player.get("GuildID", 0)
+        guild_name = self.guild_lookup.get(guild_id)
+        if not guild_name or guild_name == "Unknown": return None
+
+        total_boosts = player.get("TotalBoosts", {})
+        equip_boost, enchant_exp = 0, 0
+        for item in player.get("Equipment", {}).values():
+            boosts = item.get("Boosts", {})
+            
+            # Handle infusions safely
+            infusions_data = item.get("Infusions", 0)
+            if isinstance(infusions_data, dict):
+                infusions = sum(infusions_data.values())
+            elif isinstance(infusions_data, int):
+                infusions = infusions_data
+            else:
+                infusions = 0
+
+            equip_boost += (boosts.get("40", 0) * (1 + 0.05 * infusions)) / 50 * 100
+            enchant_exp += boosts.get("100", 0)
         
-        # Process guild data
-        guilds = []
-        total_codex_spent = 0
+        nexus = self.calculate_nexus_level(total_boosts.get("40", 0), upgrades, equip_boost)
+        study = self.calculate_study_level(total_boosts.get("100", 0), player.get("BaseBoosts", {}).get("100", 0), enchant_exp)
+
+        return {"GuildName": guild_name, "NexusLevel": nexus, "StudyLevel": study}
+
+    def fetch_current_guild_data(self) -> tuple[List[Dict], bool]:
+        """Fetch current guild data, returns (data, is_fresh_data)"""
+        entries = []
+        for page in range(1, 2):  # Top 5 pages
+            lb = self.api.get(f"/leaderboards/{LEADERBOARD_TYPE}", {"page": page})
+            if lb and lb.get("Entries"): 
+                entries.extend(lb["Entries"])
+            else: 
+                break
         
-        # Track which guilds we've seen to avoid duplicates
-        seen_guilds = {}
+        if not entries:
+            print("No leaderboard data available, using previous data point...")
+            prev_data = self._get_previous_data_point("guild")
+            if prev_data and prev_data.get("guilds"):
+                # Return previous guild data but strip progress info since it's stale
+                guild_data = []
+                for guild in prev_data["guilds"]:
+                    guild_copy = guild.copy()
+                    # Remove progress data since it's from a previous run
+                    guild_copy.pop("NexusProgress", None)
+                    guild_copy.pop("StudyProgress", None)
+                    guild_copy.pop("TotalCodexCost", None)
+                    guild_data.append(guild_copy)
+                return guild_data, False
+            return [], False
         
-        for player_entry in leaderboard_data:
-            # Extract player info and get detailed data
-            player_name = player_entry.get("name", "")
-            if not player_name:
-                continue
-                
-            player_data = self.get_player_data(player_name)
-            if not player_data:
-                print(f"Failed to get data for player: {player_name}")
-                continue
-            
-            # Extract guild and level info
-            guild_name = player_data.get("guild_name", "")
-            if not guild_name or guild_name in seen_guilds:
-                continue
-                
-            # Calculate levels from upgrade counts
-            nexus_upgrades = player_data.get("nexus_upgrades", 0)
-            study_upgrades = player_data.get("study_upgrades", 0)
-            
-            nexus_level = self.calculate_level_from_upgrades(nexus_upgrades, "nexus")
-            study_level = self.calculate_level_from_upgrades(study_upgrades, "study")
-            
-            # Calculate progress since baseline
-            baseline_guild = baseline["guilds"].get(guild_name, {})
-            baseline_nexus = baseline_guild.get("NexusLevel", nexus_level)
-            baseline_study = baseline_guild.get("StudyLevel", study_level)
-            
-            nexus_progress = nexus_level - baseline_nexus
-            study_progress = study_level - baseline_study
-            
-            # Estimate codex costs
-            nexus_codex_cost = self.estimate_codex_cost(max(0, nexus_progress), "nexus")
-            study_codex_cost = self.estimate_codex_cost(max(0, study_progress), "study")
-            total_codex_cost = nexus_codex_cost + study_codex_cost
-            
-            total_codex_spent += total_codex_cost
-            
-            # Update guild data
-            guild_info = {
-                "GuildName": guild_name,
-                "NexusLevel": nexus_level,
-                "StudyLevel": study_level,
-                "NexusProgress": nexus_progress,
-                "StudyProgress": study_progress,
-                "NexusCodexCost": nexus_codex_cost,
-                "StudyCodexCost": study_codex_cost,
-                "TotalCodexCost": total_codex_cost
-            }
-            
-            guilds.append(guild_info)
-            seen_guilds[guild_name] = True
-            
-            # Update baseline if this is first time seeing this guild
-            if guild_name not in baseline["guilds"]:
-                baseline["guilds"][guild_name] = {
-                    "NexusLevel": nexus_level,
-                    "StudyLevel": study_level
-                }
+        print(f"Processing {len(entries)} leaderboard entries...")
+        processed_guilds, guild_data = set(), []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+            futures = [executor.submit(self.process_player, e) for e in entries]
+            for future in concurrent.futures.as_completed(futures):
+                result = future.result()
+                if result and result["GuildName"] not in processed_guilds:
+                    processed_guilds.add(result["GuildName"])
+                    guild_data.append(result)
         
-        # Save updated baseline
-        self.save_data("daily-baseline.json", baseline)
+        print(f"Found fresh data for {len(guild_data)} unique guilds.")
+        return guild_data, True
+
+    def update_historical_data(self, guilds: List[Dict], market_prices: Dict, timestamp: str):
+        try:
+            with open(HISTORICAL_FILE, 'r') as f:
+                history = json.load(f)
+        except (IOError, json.JSONDecodeError):
+            history = {"guild_history": {}, "item_prices": {}, "item_categories": ITEM_CATEGORIES}
+
+        # Add item categories if missing
+        if "item_categories" not in history:
+            history["item_categories"] = ITEM_CATEGORIES
+
+        # Update guild history only with fresh data
+        for guild in guilds:
+            name = guild['GuildName']
+            if name not in history['guild_history']: 
+                history['guild_history'][name] = []
+            history['guild_history'][name].append({
+                "timestamp": timestamp, 
+                "nexus": guild['NexusLevel'], 
+                "study": guild['StudyLevel']
+            })
+
+        # Update item price history
+        for item_name, prices in market_prices.items():
+            if item_name not in history['item_prices']: 
+                history['item_prices'][item_name] = {"prices": []}
+            history['item_prices'][item_name]['prices'].append({
+                "timestamp": timestamp, 
+                "buy": prices['buy'], 
+                "sell": prices['sell']
+            })
         
-        # Get market prices
-        market_data = self.get_codex_market_prices()
-        average_price = None
-        buy_price = None
-        sell_price = None
+        # Prune old data (older than 30 days)
+        cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).isoformat()
+        for data in history['guild_history'].values():
+            data[:] = [d for d in data if d['timestamp'] >= cutoff]
+        for data in history['item_prices'].values():
+            data['prices'][:] = [p for p in data['prices'] if p['timestamp'] >= cutoff]
+            
+        with open(HISTORICAL_FILE, 'w') as f:
+            json.dump(history, f)
+        print("Historical data updated.")
+
+    def fetch_market_prices(self) -> tuple[Dict, bool]:
+        """Fetch market prices, returns (prices, is_fresh_data)"""
+        print("Fetching market prices for all items...")
+        market_data = self.api.get("/market")
         
-        if market_data:
-            buy_price = market_data.get("buy_price", 0)
-            sell_price = market_data.get("sell_price", 0)
+        if not market_data:
+            print("Market API failed, using previous data...")
+            return self._get_latest_market_prices(), False
+
+        prices = {}
+        buy_data, sell_data = market_data.get("Buy", {}), market_data.get("Sell", {})
+        for item_id, item_name in ITEM_MAPPING.items():
+            if item_id in UNTRADEABLE_IDS: continue
+            buy_price, sell_price = buy_data.get(str(item_id)), sell_data.get(str(item_id))
             if buy_price and sell_price:
-                average_price = (buy_price + sell_price) / 2
-                print(f"Updated market prices: Buy={self.format_currency(buy_price)}, Sell={self.format_currency(sell_price)}")
+                prices[item_name] = {"buy": buy_price, "sell": sell_price}
         
-        # If market API failed, use previous price
-        if average_price is None:
-            average_price = self.get_previous_market_price()
-            if average_price:
-                print(f"Using previous market price: {self.format_currency(average_price)}")
+        print(f"Fetched fresh prices for {len(prices)} items.")
+        return prices, True
+
+    def calculate_average_codex_price(self) -> float:
+        """Calculate average Codex price from recent historical data."""
+        try:
+            with open(HISTORICAL_FILE, 'r') as f:
+                history = json.load(f)
+            
+            codex_prices = history.get('item_prices', {}).get('Codex', {}).get('prices', [])
+            if not codex_prices:
+                return 10000000000  # Default fallback price
+            
+            # Use last 24 hours of data for average
+            cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
+            recent_prices = [
+                p for p in codex_prices[-24:] 
+                if datetime.fromisoformat(p['timestamp'].replace('Z', '+00:00')) >= cutoff
+            ]
+            
+            if not recent_prices:
+                recent_prices = codex_prices[-1:]  # Use most recent if no recent data
+            
+            total_avg = sum((p['buy'] + p['sell']) / 2 for p in recent_prices)
+            return total_avg / len(recent_prices)
+            
+        except (IOError, json.JSONDecodeError, KeyError):
+            return 10000000000  # Default fallback price
+
+    def run_update(self):
+        """Main execution method."""
+        print(f"--- Starting update at {datetime.now(timezone.utc).isoformat()} ---")
+        if not self.guild_lookup: 
+            print("No guild lookup available, cannot proceed.")
+            return
+
+        timestamp = datetime.now(timezone.utc).isoformat()
+        current_guilds, guild_data_fresh = self.fetch_current_guild_data()
+        market_prices, market_data_fresh = self.fetch_market_prices()
         
-        # Update historical data for each guild and market prices
-        for guild_info in guilds:
-            self.update_historical_data(
-                guild_info["GuildName"], 
-                guild_info["NexusLevel"], 
-                guild_info["StudyLevel"],
-                buy_price,
-                sell_price
-            )
-        
-        # Calculate dust spending
-        dust_spending = {}
-        if average_price and total_codex_spent > 0:
-            total_dust = int(average_price * total_codex_spent)
-            dust_spending = {
-                "formatted_dust": self.format_currency(total_dust),
-                "formatted_price": self.format_currency(average_price),
-                "total_dust": total_dust,
-                "average_price": int(average_price),
-                "total_codex": total_codex_spent
+        # Only update historical data if we have fresh data
+        if guild_data_fresh or market_data_fresh:
+            # Only add guild data to history if it's fresh
+            guild_data_for_history = current_guilds if guild_data_fresh else []
+            self.update_historical_data(guild_data_for_history, market_prices if market_data_fresh else {}, timestamp)
+
+        # Load/create baseline
+        try:
+            with open(BASELINE_FILE, 'r') as f: 
+                baseline = json.load(f)
+        except (IOError, json.JSONDecodeError): 
+            baseline = {"date": None, "guilds": {}}
+
+        today_str = timestamp.split('T')[0]
+        if baseline.get("date") != today_str:
+            print(f"New day detected. Creating new baseline for {today_str}.")
+            baseline = {
+                "date": today_str, 
+                "guilds": {
+                    g["GuildName"]: {
+                        "NexusLevel": g["NexusLevel"], 
+                        "StudyLevel": g["StudyLevel"]
+                    } for g in current_guilds
+                }
             }
+            with open(BASELINE_FILE, 'w') as f: 
+                json.dump(baseline, f, indent=2)
+
+        # Calculate progress and codex cost (only for guilds with baseline data)
+        total_codex = 0
+        for guild in current_guilds:
+            base = baseline.get("guilds", {}).get(guild["GuildName"])
+            if base:
+                guild["NexusProgress"] = max(0, guild["NexusLevel"] - base["NexusLevel"])
+                guild["StudyProgress"] = max(0, guild["StudyLevel"] - base["StudyLevel"])
+                guild["TotalCodexCost"] = (
+                    self.calculate_codex_cost(base["NexusLevel"], guild["NexusProgress"]) +
+                    self.calculate_codex_cost(base["StudyLevel"], guild["StudyProgress"])
+                )
+                total_codex += guild["TotalCodexCost"]
+            else:
+                guild["NexusProgress"] = guild["StudyProgress"] = guild["TotalCodexCost"] = 0
         
-        # Compile final data
+        # Calculate dust spending using average Codex price
+        avg_price = self.calculate_average_codex_price()
+        
+        dust_spending = {
+            "total_codex": total_codex,
+            "formatted_dust": self.format_currency(total_codex * avg_price),
+            "formatted_price": self.format_currency(avg_price)
+        }
+
+        # Save final output
         final_data = {
-            "guilds": guilds,
+            "guilds": sorted(current_guilds, key=lambda g: g.get("NexusLevel", 0), reverse=True),
             "dustSpending": dust_spending,
-            "lastUpdated": datetime.now(timezone.utc).isoformat(),
-            "baselineDate": baseline.get("date", "Unknown"),
-            "totalGuilds": len(guilds)
-        }
-        
-        # Save guild data
-        self.save_data("guild-data.json", final_data)
-        
-        print(f"Collection complete: {len(guilds)} guilds processed, {total_codex_spent} total codex spent")
-        return final_data
-
-    def create_empty_files_if_missing(self):
-        """Create empty data files if they don't exist to prevent errors."""
-        files_to_create = {
-            "guild-data.json": {
-                "guilds": [],
-                "dustSpending": {},
-                "lastUpdated": datetime.now(timezone.utc).isoformat(),
-                "baselineDate": "No baseline yet",
-                "totalGuilds": 0
-            },
-            "historical-data.json": {
-                "guild_history": {},
-                "market_prices": {
-                    "prices": [],
-                    "daily_averages": {}
-                },
-                "last_updated": datetime.now(timezone.utc).isoformat()
-            },
-            "daily-baseline.json": {
-                "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-                "timestamp": datetime.now(timezone.utc).isoformat(),
-                "guilds": {}
+            "lastUpdated": timestamp,
+            "baselineDate": baseline.get("date"),
+            "dataFreshness": {
+                "guild_data_fresh": guild_data_fresh,
+                "market_data_fresh": market_data_fresh
             }
         }
         
-        for filename, default_data in files_to_create.items():
-            filepath = os.path.join(self.data_dir, filename)
-            if not os.path.exists(filepath):
-                self.save_data(filename, default_data)
-                print(f"Created empty {filename}")
+        with open(GUILD_DATA_FILE, 'w') as f:
+            json.dump(final_data, f, indent=2)
+        
+        print(f"--- Update complete. Fresh data: guilds={guild_data_fresh}, market={market_data_fresh} ---")
 
-def main():
-    """Main execution function."""
-    # Replace with your actual API base URL
-    API_BASE_URL = "https://your-game-api.com/api/v1"
-    
-    collector = GuildStatsCollector(API_BASE_URL)
-    
-    # Ensure all data files exist
-    collector.create_empty_files_if_missing()
-    
-    # Collect data
-    try:
-        result = collector.collect_guild_data()
-        if result:
-            print("Data collection successful!")
-        else:
-            print("Data collection failed!")
-            return 1
-    except Exception as e:
-        print(f"Error during data collection: {e}")
-        return 1
-    
-    return 0
+    def format_currency(self, amount: float) -> str:
+        if amount >= 1e12: return f"{amount / 1e12:.2f}T"
+        if amount >= 1e9: return f"{amount / 1e9:.2f}B"
+        if amount >= 1e6: return f"{amount / 1e6:.2f}M"
+        if amount >= 1e3: return f"{amount / 1e3:.2f}K"
+        return f"{amount:.2f}"
 
 if __name__ == "__main__":
-    exit(main())
+    tracker = GuildStatsTracker()
+    tracker.run_update()
