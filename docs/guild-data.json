@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2025-08-16T06:24:51.881530+00:00",
+  "lastUpdated": "2025-08-16T07:10:12.469763+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "dustSpending": {
-    "total_dust_spent": 121527274400000.0,
-    "formatted_dust": "121.53T",
-    "codex_used": 6832,
-    "average_price": 17787950000.0,
-    "formatted_price": "17.79B"
+    "total_dust_spent": 144441918000000.0,
+    "formatted_dust": "144.44T",
+    "codex_used": 8080,
+    "average_price": 17876475000.0,
+    "formatted_price": "17.88B"
   },
   "guilds": [
     {
@@ -33,12 +33,12 @@
     {
       "GuildName": "Divinity",
       "StudyLevel": 290,
-      "NexusLevel": 401,
+      "NexusLevel": 402,
       "StudyProgress": 0,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 401,
-      "TotalCodexCost": 401
+      "NexusCodexCost": 803,
+      "TotalCodexCost": 803
     },
     {
       "GuildName": "Sanctuary",
@@ -202,13 +202,13 @@
     },
     {
       "GuildName": "Bureau of Feline Investigators",
-      "StudyLevel": 169,
-      "NexusLevel": 171,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "StudyLevel": 170,
+      "NexusLevel": 173,
+      "StudyProgress": 1,
+      "NexusProgress": 2,
+      "StudyCodexCost": 170,
+      "NexusCodexCost": 345,
+      "TotalCodexCost": 515
     },
     {
       "GuildName": "Osmanthus",
@@ -272,13 +272,13 @@
     },
     {
       "GuildName": "Lighthouse Reborn",
-      "StudyLevel": 116,
-      "NexusLevel": 95,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "StudyLevel": 118,
+      "NexusLevel": 96,
+      "StudyProgress": 2,
+      "NexusProgress": 1,
+      "StudyCodexCost": 235,
+      "NexusCodexCost": 96,
+      "TotalCodexCost": 331
     },
     {
       "GuildName": "Hydra",
