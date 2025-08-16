@@ -2,10 +2,8 @@ name: Update Guild Stats
 
 on:
   schedule:
-    # Runs every hour at minute 0 (only on master branch)
+    # Runs every hour
     - cron: "0 * * * *"
-    # Special run at midnight UTC for baseline (only on master branch)
-    - cron: "0 0 * * *"
   workflow_dispatch: # Allows manual triggering
 
 permissions:
@@ -38,33 +36,42 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-
-          # Pull latest changes first to avoid conflicts
           git pull origin ${{ github.ref_name }}
 
-          # Add files that exist
+          # Add all relevant data files
           git add docs/guild-data.json
+
+          # Add historical data file (combines guild history and market prices)
+          if [ -f "docs/historical-data.json" ]; then
+            git add docs/historical-data.json
+          fi
 
           # Only add baseline file if it exists
           if [ -f "docs/daily-baseline.json" ]; then
             git add docs/daily-baseline.json
           fi
 
-          # Add market prices if it exists
-          if [ -f "docs/market-prices.json" ]; then
-            git add docs/market-prices.json
-          fi
-
-          # Only commit if there are changes
+          # Check if there are any changes to commit
           if ! git diff --staged --quiet; then
             git commit -m "Update guild stats data - $(date)"
             
-            # Try to push, retry once if it fails
-            if ! git push origin ${{ github.ref_name }}; then
-              echo "Push failed, pulling and retrying..."
-              git pull --rebase origin ${{ github.ref_name }}
-              git push origin ${{ github.ref_name }}
-            fi
+            # Push with retry logic
+            for i in {1..3}; do
+              if git push origin ${{ github.ref_name }}; then
+                echo "Successfully pushed changes"
+                break
+              else
+                echo "Push failed, attempt $i/3"
+                if [ $i -lt 3 ]; then
+                  echo "Pulling latest changes and retrying..."
+                  git pull --rebase origin ${{ github.ref_name }}
+                  sleep 2
+                else
+                  echo "All push attempts failed"
+                  exit 1
+                fi
+              fi
+            done
           else
             echo "No changes to commit"
           fi
@@ -72,9 +79,7 @@ jobs:
   deploy:
     needs: update-data
     runs-on: ubuntu-latest
-    # Deploy from both master and dev branches
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
-
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -97,23 +102,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  deployment-info:
-    needs: deploy
-    runs-on: ubuntu-latest
-    if: always()
-
-    steps:
-      - name: Deployment Summary
-        run: |
-          echo "🚀 Deployment Summary:"
-          echo "================================"
-          echo "✅ Deployed from ${{ github.ref_name }} branch"
-          echo "🔗 URL: https://gungho1205.github.io/manarion-guild-stats/"
-          echo ""
-          if [ "${{ github.ref_name }}" = "dev" ]; then
-            echo "⚠️  DEV DEPLOYMENT - Testing in progress"
-            echo "💡 This is a development deployment for testing purposes"
-          else
-            echo "🎉 PRODUCTION DEPLOYMENT - Live site updated"
-          fi

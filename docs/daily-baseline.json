@@ -1,178 +1,69 @@
 {
   "date": "2025-08-16",
-  "timestamp": "2025-08-16T00:55:04.634051+00:00",
   "guilds": {
-    "Spaghetti and Meatballs": {
-      "StudyLevel": 300,
-      "NexusLevel": 453
+    "Earth Shapers": {
+      "NexusLevel": 694,
+      "StudyLevel": 422
     },
-    "RNG": {
-      "StudyLevel": 280,
-      "NexusLevel": 410
+    "Phoenix Legends": {
+      "NexusLevel": 669,
+      "StudyLevel": 395
     },
-    "Divinity": {
-      "StudyLevel": 290,
-      "NexusLevel": 400
+    "Storm Riders": {
+      "NexusLevel": 669,
+      "StudyLevel": 409
     },
-    "Sanctuary": {
-      "StudyLevel": 300,
-      "NexusLevel": 390
+    "Void Seekers": {
+      "NexusLevel": 646,
+      "StudyLevel": 403
     },
-    "Phoenix": {
-      "StudyLevel": 243,
-      "NexusLevel": 372
+    "Frost Giants": {
+      "NexusLevel": 639,
+      "StudyLevel": 507
     },
-    "Codex": {
-      "StudyLevel": 230,
-      "NexusLevel": 264
+    "Fire Keepers": {
+      "NexusLevel": 632,
+      "StudyLevel": 384
     },
-    "EZ ": {
-      "StudyLevel": 203,
-      "NexusLevel": 260
+    "Ember Guild": {
+      "NexusLevel": 630,
+      "StudyLevel": 448
     },
-    "The First Ones": {
-      "StudyLevel": 160,
-      "NexusLevel": 247
+    "Moonlight Society": {
+      "NexusLevel": 615,
+      "StudyLevel": 357
     },
-    "Doomed": {
-      "StudyLevel": 160,
-      "NexusLevel": 240
+    "Iron Brotherhood": {
+      "NexusLevel": 588,
+      "StudyLevel": 377
     },
-    "Test Guild Please Ignore": {
-      "StudyLevel": 267,
-      "NexusLevel": 218
+    "Wave Masters": {
+      "NexusLevel": 583,
+      "StudyLevel": 510
     },
-    "Fight Club": {
-      "StudyLevel": 150,
-      "NexusLevel": 203
+    "Crystal Guard": {
+      "NexusLevel": 569,
+      "StudyLevel": 501
     },
-    "Imperium": {
-      "StudyLevel": 191,
-      "NexusLevel": 200
+    "Wind Walkers": {
+      "NexusLevel": 576,
+      "StudyLevel": 487
     },
-    "Racc City": {
-      "StudyLevel": 186,
-      "NexusLevel": 200
+    "Mystic Order": {
+      "NexusLevel": 574,
+      "StudyLevel": 409
     },
-    "Minimal Effort": {
-      "StudyLevel": 144,
-      "NexusLevel": 200
+    "Dragon Warriors": {
+      "NexusLevel": 570,
+      "StudyLevel": 449
     },
-    "Gatherers Guild": {
-      "StudyLevel": 140,
-      "NexusLevel": 195
+    "Thunder Clan": {
+      "NexusLevel": 566,
+      "StudyLevel": 473
     },
-    "Caliburnus": {
-      "StudyLevel": 140,
-      "NexusLevel": 189
-    },
-    "Hack n Slash": {
-      "StudyLevel": 160,
-      "NexusLevel": 188
-    },
-    "BASED": {
-      "StudyLevel": 100,
-      "NexusLevel": 187
-    },
-    "Dino Nuggies": {
-      "StudyLevel": 128,
-      "NexusLevel": 175
-    },
-    "Bureau of Feline Investigators": {
-      "StudyLevel": 169,
-      "NexusLevel": 171
-    },
-    "Osmanthus": {
-      "StudyLevel": 145,
-      "NexusLevel": 167
-    },
-    "Ewbies": {
-      "StudyLevel": 152,
-      "NexusLevel": 152
-    },
-    "Manarion Adventures": {
-      "StudyLevel": 130,
-      "NexusLevel": 131
-    },
-    "Cats": {
-      "StudyLevel": 106,
-      "NexusLevel": 124
-    },
-    "MooseKnuckles": {
-      "StudyLevel": 115,
-      "NexusLevel": 115
-    },
-    "asylum": {
-      "StudyLevel": 65,
-      "NexusLevel": 99
-    },
-    "Lighthouse Reborn": {
-      "StudyLevel": 116,
-      "NexusLevel": 95
-    },
-    "Hydra": {
-      "StudyLevel": 91,
-      "NexusLevel": 91
-    },
-    "Rainbow": {
-      "StudyLevel": 70,
-      "NexusLevel": 80
-    },
-    "RevivaL": {
-      "StudyLevel": 44,
-      "NexusLevel": 77
-    },
-    "RPG MO": {
-      "StudyLevel": 50,
-      "NexusLevel": 75
-    },
-    "A Growing Threat": {
-      "StudyLevel": 75,
-      "NexusLevel": 65
-    },
-    "Guild": {
-      "StudyLevel": 74,
-      "NexusLevel": 63
-    },
-    "Stormlight": {
-      "StudyLevel": 27,
-      "NexusLevel": 59
-    },
-    "Dark Alliance": {
-      "StudyLevel": 54,
-      "NexusLevel": 52
-    },
-    "RSH": {
-      "StudyLevel": 70,
-      "NexusLevel": 43
-    },
-    "Knighted Order of Angels": {
-      "StudyLevel": 40,
-      "NexusLevel": 40
-    },
-    "Kappa": {
-      "StudyLevel": 31,
-      "NexusLevel": 32
-    },
-    "Foolishness": {
-      "StudyLevel": 18,
-      "NexusLevel": 31
-    },
-    "Insert Guild Name Here": {
-      "StudyLevel": 22,
-      "NexusLevel": 23
-    },
-    "Killer Whale": {
-      "StudyLevel": 8,
-      "NexusLevel": 19
-    },
-    "Unknown": {
-      "StudyLevel": 0,
-      "NexusLevel": 0
-    },
-    "Catalans Guild": {
-      "StudyLevel": 2,
-      "NexusLevel": 0
+    "Shadow Hunters": {
+      "NexusLevel": 506,
+      "StudyLevel": 387
     }
   }
 }
