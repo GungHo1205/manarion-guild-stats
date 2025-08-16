@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-16T00:55:04.634051+00:00",
+  "lastUpdated": "2025-08-16T01:05:13.262532+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "guilds": [
@@ -285,13 +285,13 @@
     },
     {
       "GuildName": "Rainbow",
-      "StudyLevel": 70,
-      "NexusLevel": 80,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "StudyLevel": 71,
+      "NexusLevel": 83,
+      "StudyProgress": 1,
+      "NexusProgress": 3,
+      "StudyCodexCost": 71,
+      "NexusCodexCost": 246,
+      "TotalCodexCost": 317
     },
     {
       "GuildName": "RevivaL",
