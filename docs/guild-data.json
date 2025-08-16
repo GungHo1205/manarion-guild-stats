@@ -1,27 +1,34 @@
 {
-  "lastUpdated": "2025-08-16T05:11:19.275077+00:00",
+  "lastUpdated": "2025-08-16T06:24:51.881530+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
+  "dustSpending": {
+    "total_dust_spent": 121527274400000.0,
+    "formatted_dust": "121.53T",
+    "codex_used": 6832,
+    "average_price": 17787950000.0,
+    "formatted_price": "17.79B"
+  },
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
       "StudyLevel": 300,
-      "NexusLevel": 454,
+      "NexusLevel": 455,
       "StudyProgress": 0,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyCodexCost": 0,
-      "NexusCodexCost": 454,
-      "TotalCodexCost": 454
+      "NexusCodexCost": 909,
+      "TotalCodexCost": 909
     },
     {
       "GuildName": "RNG",
-      "StudyLevel": 280,
-      "NexusLevel": 410,
-      "StudyProgress": 0,
-      "NexusProgress": 0,
-      "StudyCodexCost": 0,
-      "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "StudyLevel": 284,
+      "NexusLevel": 413,
+      "StudyProgress": 4,
+      "NexusProgress": 3,
+      "StudyCodexCost": 1130,
+      "NexusCodexCost": 1236,
+      "TotalCodexCost": 2366
     },
     {
       "GuildName": "Divinity",
