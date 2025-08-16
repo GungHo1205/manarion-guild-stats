@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-08-16T03:40:45.436607+00:00",
+  "lastUpdated": "2025-08-16T04:16:37.604842+00:00",
   "baselineDate": "2025-08-16",
   "baselineTimestamp": "2025-08-16T00:55:04.634051+00:00",
   "guilds": [
@@ -135,13 +135,13 @@
     },
     {
       "GuildName": "Minimal Effort",
-      "StudyLevel": 144,
+      "StudyLevel": 148,
       "NexusLevel": 200,
-      "StudyProgress": 0,
+      "StudyProgress": 4,
       "NexusProgress": 0,
-      "StudyCodexCost": 0,
+      "StudyCodexCost": 586,
       "NexusCodexCost": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 586
     },
     {
       "GuildName": "Gatherers Guild",
