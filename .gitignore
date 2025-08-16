@@ -1,1 +1,8 @@
-/staging/
+staging/
+guild_stats.csv
+guild_stats.log
+docs/daily-baseline.json
+docs/guild-data.json
+docs/market-prices.json
+docs/historical-data.json
+docs/guild-history.json
