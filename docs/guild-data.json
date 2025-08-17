@@ -10,11 +10,11 @@
     },
     {
       "GuildName": "RNG",
-      "NexusLevel": 416,
+      "NexusLevel": 418,
       "StudyLevel": 290,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 835
     },
     {
       "GuildName": "Divinity",
@@ -41,17 +41,17 @@
       "TotalCodexCost": 0
     },
     {
+      "GuildName": "Codex",
+      "NexusLevel": 267,
+      "StudyLevel": 230,
+      "NexusProgress": 1,
+      "StudyProgress": 0,
+      "TotalCodexCost": 267
+    },
+    {
       "GuildName": "EZ ",
       "NexusLevel": 266,
       "StudyLevel": 215,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Codex",
-      "NexusLevel": 266,
-      "StudyLevel": 230,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -170,19 +170,19 @@
     },
     {
       "GuildName": "Ewbies",
-      "NexusLevel": 155,
-      "StudyLevel": 154,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusLevel": 157,
+      "StudyLevel": 156,
+      "NexusProgress": 2,
+      "StudyProgress": 2,
+      "TotalCodexCost": 624
     },
     {
       "GuildName": "Manarion Adventures",
       "NexusLevel": 133,
-      "StudyLevel": 134,
+      "StudyLevel": 135,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 135
     },
     {
       "GuildName": "Cats",
@@ -299,10 +299,10 @@
     {
       "GuildName": "Foolishness",
       "NexusLevel": 35,
-      "StudyLevel": 18,
+      "StudyLevel": 20,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 2,
+      "TotalCodexCost": 39
     },
     {
       "GuildName": "Kappa",
@@ -338,11 +338,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 2455,
-    "formatted_dust": "39.24T",
-    "formatted_price": "15.98B"
+    "total_codex": 4355,
+    "formatted_dust": "69.52T",
+    "formatted_price": "15.96B"
   },
-  "lastUpdated": "2025-08-17T05:12:28.933399+00:00",
+  "lastUpdated": "2025-08-17T06:16:32.371764+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
