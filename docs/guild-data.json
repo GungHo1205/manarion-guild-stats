@@ -2,19 +2,19 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 463,
+      "NexusLevel": 464,
       "StudyLevel": 305,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 1386
+      "TotalCodexCost": 1850
     },
     {
       "GuildName": "RNG",
-      "NexusLevel": 420,
+      "NexusLevel": 421,
       "StudyLevel": 290,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1674
+      "TotalCodexCost": 2095
     },
     {
       "GuildName": "Divinity",
@@ -26,19 +26,19 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 405,
+      "NexusLevel": 406,
       "StudyLevel": 300,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1614
+      "TotalCodexCost": 2020
     },
     {
       "GuildName": "Phoenix",
       "NexusLevel": 377,
-      "StudyLevel": 243,
+      "StudyLevel": 245,
       "NexusProgress": 5,
-      "StudyProgress": 0,
-      "TotalCodexCost": 1875
+      "StudyProgress": 2,
+      "TotalCodexCost": 2364
     },
     {
       "GuildName": "EZ ",
@@ -74,11 +74,11 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 222,
+      "NexusLevel": 223,
       "StudyLevel": 272,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 3,
-      "TotalCodexCost": 1035
+      "TotalCodexCost": 1258
     },
     {
       "GuildName": "Fight Club",
@@ -139,10 +139,10 @@
     {
       "GuildName": "BASED",
       "NexusLevel": 189,
-      "StudyLevel": 106,
+      "StudyLevel": 108,
       "NexusProgress": 0,
-      "StudyProgress": 6,
-      "TotalCodexCost": 621
+      "StudyProgress": 8,
+      "TotalCodexCost": 836
     },
     {
       "GuildName": "Dino Nuggies",
@@ -187,10 +187,10 @@
     {
       "GuildName": "Cats",
       "NexusLevel": 124,
-      "StudyLevel": 106,
+      "StudyLevel": 108,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 2,
+      "TotalCodexCost": 215
     },
     {
       "GuildName": "MooseKnuckles",
@@ -243,10 +243,10 @@
     {
       "GuildName": "RevivaL",
       "NexusLevel": 80,
-      "StudyLevel": 46,
+      "StudyLevel": 53,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 7,
+      "TotalCodexCost": 350
     },
     {
       "GuildName": "A Growing Threat",
@@ -338,11 +338,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 18166,
-    "formatted_dust": "295.62T",
-    "formatted_price": "16.27B"
+    "total_codex": 20949,
+    "formatted_dust": "341.28T",
+    "formatted_price": "16.29B"
   },
-  "lastUpdated": "2025-08-17T12:20:51.274638+00:00",
+  "lastUpdated": "2025-08-17T13:21:42.214190+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
