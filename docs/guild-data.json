@@ -2,11 +2,11 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 464,
+      "NexusLevel": 465,
       "StudyLevel": 305,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1850
+      "TotalCodexCost": 2315
     },
     {
       "GuildName": "RNG",
@@ -26,11 +26,11 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 408,
+      "NexusLevel": 409,
       "StudyLevel": 300,
-      "NexusProgress": 7,
+      "NexusProgress": 8,
       "StudyProgress": 0,
-      "TotalCodexCost": 2835
+      "TotalCodexCost": 3244
     },
     {
       "GuildName": "Phoenix",
@@ -74,11 +74,11 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 224,
+      "NexusLevel": 225,
       "StudyLevel": 272,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 3,
-      "TotalCodexCost": 1482
+      "TotalCodexCost": 1707
     },
     {
       "GuildName": "Fight Club",
@@ -90,11 +90,11 @@
     },
     {
       "GuildName": "Minimal Effort",
-      "NexusLevel": 201,
+      "NexusLevel": 202,
       "StudyLevel": 150,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 201
+      "TotalCodexCost": 403
     },
     {
       "GuildName": "Imperium",
@@ -162,19 +162,19 @@
     },
     {
       "GuildName": "Osmanthus",
-      "NexusLevel": 172,
+      "NexusLevel": 175,
       "StudyLevel": 150,
-      "NexusProgress": 2,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 343
+      "TotalCodexCost": 865
     },
     {
       "GuildName": "Ewbies",
       "NexusLevel": 157,
-      "StudyLevel": 156,
+      "StudyLevel": 157,
       "NexusProgress": 2,
-      "StudyProgress": 2,
-      "TotalCodexCost": 624
+      "StudyProgress": 3,
+      "TotalCodexCost": 781
     },
     {
       "GuildName": "Manarion Adventures",
@@ -227,18 +227,18 @@
     {
       "GuildName": "Rainbow",
       "NexusLevel": 85,
-      "StudyLevel": 74,
+      "StudyLevel": 75,
       "NexusProgress": 1,
-      "StudyProgress": 2,
-      "TotalCodexCost": 232
+      "StudyProgress": 3,
+      "TotalCodexCost": 307
     },
     {
       "GuildName": "RPG MO",
       "NexusLevel": 82,
-      "StudyLevel": 51,
+      "StudyLevel": 52,
       "NexusProgress": 2,
-      "StudyProgress": 1,
-      "TotalCodexCost": 214
+      "StudyProgress": 2,
+      "TotalCodexCost": 266
     },
     {
       "GuildName": "RevivaL",
@@ -338,11 +338,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 23549,
-    "formatted_dust": "383.41T",
-    "formatted_price": "16.28B"
+    "total_codex": 25656,
+    "formatted_dust": "417.19T",
+    "formatted_price": "16.26B"
   },
-  "lastUpdated": "2025-08-17T15:10:26.770103+00:00",
+  "lastUpdated": "2025-08-17T16:12:55.991261+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
