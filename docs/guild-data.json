@@ -17,6 +17,14 @@
       "TotalCodexCost": 2095
     },
     {
+      "GuildName": "Sanctuary",
+      "NexusLevel": 410,
+      "StudyLevel": 300,
+      "NexusProgress": 9,
+      "StudyProgress": 0,
+      "TotalCodexCost": 3654
+    },
+    {
       "GuildName": "Divinity",
       "NexusLevel": 409,
       "StudyLevel": 314,
@@ -25,20 +33,12 @@
       "TotalCodexCost": 4714
     },
     {
-      "GuildName": "Sanctuary",
-      "NexusLevel": 409,
-      "StudyLevel": 300,
-      "NexusProgress": 8,
-      "StudyProgress": 0,
-      "TotalCodexCost": 3244
-    },
-    {
       "GuildName": "Phoenix",
-      "NexusLevel": 377,
+      "NexusLevel": 378,
       "StudyLevel": 245,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 2,
-      "TotalCodexCost": 2364
+      "TotalCodexCost": 2742
     },
     {
       "GuildName": "EZ ",
@@ -121,20 +121,20 @@
       "TotalCodexCost": 597
     },
     {
+      "GuildName": "Caliburnus",
+      "NexusLevel": 194,
+      "StudyLevel": 142,
+      "NexusProgress": 4,
+      "StudyProgress": 0,
+      "TotalCodexCost": 770
+    },
+    {
       "GuildName": "Hack n Slash",
       "NexusLevel": 191,
       "StudyLevel": 160,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Caliburnus",
-      "NexusLevel": 191,
-      "StudyLevel": 142,
-      "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 191
     },
     {
       "GuildName": "BASED",
@@ -218,11 +218,11 @@
     },
     {
       "GuildName": "Hydra",
-      "NexusLevel": 93,
-      "StudyLevel": 93,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusLevel": 95,
+      "StudyLevel": 94,
+      "NexusProgress": 2,
+      "StudyProgress": 1,
+      "TotalCodexCost": 283
     },
     {
       "GuildName": "Rainbow",
@@ -338,11 +338,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 25656,
-    "formatted_dust": "417.19T",
+    "total_codex": 27306,
+    "formatted_dust": "444.12T",
     "formatted_price": "16.26B"
   },
-  "lastUpdated": "2025-08-17T16:12:55.991261+00:00",
+  "lastUpdated": "2025-08-17T17:09:26.946843+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
