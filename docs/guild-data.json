@@ -104,7 +104,7 @@
       "NexusLevel": 225,
       "StudyLevel": 272,
       "TotalUpgrades": 941,
-      "GuildLevel": 51,
+      "GuildLevel": 52,
       "GuildID": 14,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -291,7 +291,7 @@
       "NexusLevel": 96,
       "StudyLevel": 118,
       "TotalUpgrades": 475,
-      "GuildLevel": 45,
+      "GuildLevel": 46,
       "GuildID": 65,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -554,9 +554,9 @@
   "dustSpending": {
     "total_codex": 0,
     "formatted_dust": "0.00",
-    "formatted_price": "16.26B"
+    "formatted_price": "16.25B"
   },
-  "lastUpdated": "2025-08-17T17:47:04.396521+00:00",
+  "lastUpdated": "2025-08-17T18:15:05.149070+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
