@@ -19,18 +19,18 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 409,
-      "StudyLevel": 312,
+      "StudyLevel": 314,
       "NexusProgress": 1,
-      "StudyProgress": 12,
-      "TotalCodexCost": 4087
+      "StudyProgress": 14,
+      "TotalCodexCost": 4714
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 406,
+      "NexusLevel": 408,
       "StudyLevel": 300,
-      "NexusProgress": 5,
+      "NexusProgress": 7,
       "StudyProgress": 0,
-      "TotalCodexCost": 2020
+      "TotalCodexCost": 2835
     },
     {
       "GuildName": "Phoenix",
@@ -74,11 +74,11 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 223,
+      "NexusLevel": 224,
       "StudyLevel": 272,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 3,
-      "TotalCodexCost": 1258
+      "TotalCodexCost": 1482
     },
     {
       "GuildName": "Fight Club",
@@ -130,11 +130,11 @@
     },
     {
       "GuildName": "Caliburnus",
-      "NexusLevel": 190,
+      "NexusLevel": 191,
       "StudyLevel": 142,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 191
     },
     {
       "GuildName": "BASED",
@@ -338,11 +338,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 20949,
-    "formatted_dust": "341.28T",
+    "total_codex": 22806,
+    "formatted_dust": "371.53T",
     "formatted_price": "16.29B"
   },
-  "lastUpdated": "2025-08-17T13:21:42.214190+00:00",
+  "lastUpdated": "2025-08-17T14:10:10.476096+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
