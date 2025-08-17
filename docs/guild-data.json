@@ -14,13 +14,13 @@
     {
       "GuildName": "RNG",
       "NexusLevel": 422,
-      "StudyLevel": 291,
-      "TotalUpgrades": 1347,
-      "GuildLevel": 99,
+      "StudyLevel": 295,
+      "TotalUpgrades": 1351,
+      "GuildLevel": 100,
       "GuildID": 17,
       "NexusProgress": 1,
-      "StudyProgress": 1,
-      "TotalCodexCost": 713
+      "StudyProgress": 5,
+      "TotalCodexCost": 1887
     },
     {
       "GuildName": "Divinity",
@@ -158,7 +158,7 @@
       "GuildName": "Racc City",
       "NexusLevel": 200,
       "StudyLevel": 187,
-      "TotalUpgrades": 825,
+      "TotalUpgrades": 840,
       "GuildLevel": 65,
       "GuildID": 9,
       "NexusProgress": 0,
@@ -167,14 +167,14 @@
     },
     {
       "GuildName": "Hack n Slash",
-      "NexusLevel": 194,
+      "NexusLevel": 195,
       "StudyLevel": 160,
-      "TotalUpgrades": 739,
-      "GuildLevel": 65,
+      "TotalUpgrades": 740,
+      "GuildLevel": 66,
       "GuildID": 86,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 579
+      "TotalCodexCost": 774
     },
     {
       "GuildName": "Caliburnus",
@@ -211,14 +211,14 @@
     },
     {
       "GuildName": "Osmanthus",
-      "NexusLevel": 175,
+      "NexusLevel": 176,
       "StudyLevel": 152,
-      "TotalUpgrades": 657,
+      "TotalUpgrades": 658,
       "GuildLevel": 71,
       "GuildID": 21,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 176
     },
     {
       "GuildName": "Dino Nuggies",
@@ -246,7 +246,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 136,
       "StudyLevel": 147,
-      "TotalUpgrades": 658,
+      "TotalUpgrades": 659,
       "GuildLevel": 60,
       "GuildID": 54,
       "NexusProgress": 0,
@@ -410,13 +410,13 @@
     {
       "GuildName": "Foolishness",
       "NexusLevel": 35,
-      "StudyLevel": 20,
+      "StudyLevel": 22,
       "TotalUpgrades": 105,
       "GuildLevel": 16,
       "GuildID": 195,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 2,
+      "TotalCodexCost": 43
     },
     {
       "GuildName": "Chaos company",
@@ -552,11 +552,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 8786,
-    "formatted_dust": "141.27T",
-    "formatted_price": "16.08B"
+    "total_codex": 10374,
+    "formatted_dust": "166.51T",
+    "formatted_price": "16.05B"
   },
-  "lastUpdated": "2025-08-17T22:10:51.456444+00:00",
+  "lastUpdated": "2025-08-17T23:10:55.398753+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
@@ -564,8 +564,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 50,
-    "guilds_with_progress": 15,
-    "total_codex_used": 8786,
+    "guilds_with_progress": 17,
+    "total_codex_used": 10374,
     "baseline_date": "2025-08-17"
   }
 }
