@@ -18,11 +18,11 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 408,
+      "NexusLevel": 409,
       "StudyLevel": 300,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 409
     },
     {
       "GuildName": "Sanctuary",
@@ -59,10 +59,10 @@
     {
       "GuildName": "The First Ones",
       "NexusLevel": 250,
-      "StudyLevel": 171,
+      "StudyLevel": 172,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 172
     },
     {
       "GuildName": "Doomed",
@@ -226,11 +226,11 @@
     },
     {
       "GuildName": "Rainbow",
-      "NexusLevel": 84,
-      "StudyLevel": 72,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusLevel": 85,
+      "StudyLevel": 74,
+      "NexusProgress": 1,
+      "StudyProgress": 2,
+      "TotalCodexCost": 232
     },
     {
       "GuildName": "RPG MO",
@@ -338,11 +338,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 1642,
-    "formatted_dust": "26.88T",
-    "formatted_price": "16.37B"
+    "total_codex": 2455,
+    "formatted_dust": "39.24T",
+    "formatted_price": "15.98B"
   },
-  "lastUpdated": "2025-08-17T04:25:34.941571+00:00",
+  "lastUpdated": "2025-08-17T05:12:28.933399+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
