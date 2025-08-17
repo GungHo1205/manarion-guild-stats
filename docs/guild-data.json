@@ -10,11 +10,11 @@
     },
     {
       "GuildName": "RNG",
-      "NexusLevel": 418,
+      "NexusLevel": 420,
       "StudyLevel": 290,
-      "NexusProgress": 2,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 835
+      "TotalCodexCost": 1674
     },
     {
       "GuildName": "Divinity",
@@ -41,17 +41,17 @@
       "TotalCodexCost": 1498
     },
     {
+      "GuildName": "Codex",
+      "NexusLevel": 268,
+      "StudyLevel": 230,
+      "NexusProgress": 2,
+      "StudyProgress": 0,
+      "TotalCodexCost": 535
+    },
+    {
       "GuildName": "EZ ",
       "NexusLevel": 267,
       "StudyLevel": 215,
-      "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 267
-    },
-    {
-      "GuildName": "Codex",
-      "NexusLevel": 267,
-      "StudyLevel": 230,
       "NexusProgress": 1,
       "StudyProgress": 0,
       "TotalCodexCost": 267
@@ -178,11 +178,11 @@
     },
     {
       "GuildName": "Manarion Adventures",
-      "NexusLevel": 133,
+      "NexusLevel": 134,
       "StudyLevel": 135,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 1,
-      "TotalCodexCost": 135
+      "TotalCodexCost": 269
     },
     {
       "GuildName": "Cats",
@@ -338,11 +338,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 10371,
-    "formatted_dust": "166.41T",
-    "formatted_price": "16.05B"
+    "total_codex": 11612,
+    "formatted_dust": "186.76T",
+    "formatted_price": "16.08B"
   },
-  "lastUpdated": "2025-08-17T08:14:42.629543+00:00",
+  "lastUpdated": "2025-08-17T09:11:01.520533+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
