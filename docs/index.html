@@ -25,6 +25,7 @@
         --success: #4ade80;
         --warning: #fbbf24;
         --error: #f87171;
+        --favorite: #fbbf24;
       }
       * {
         margin: 0;
@@ -178,10 +179,39 @@
         border: 1px solid var(--border);
         border-radius: 15px;
         padding: 25px;
+        position: relative;
+      }
+      .guild-card.favorite {
+        border-color: var(--favorite);
+        background: linear-gradient(
+          135deg,
+          var(--bg-secondary) 0%,
+          rgba(251, 191, 36, 0.1) 100%
+        );
       }
       .guild-name {
         font-size: 1.3rem;
         font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .favorite-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        transition: all 0.3s;
+        padding: 5px;
+        border-radius: 4px;
+      }
+      .favorite-btn:hover {
+        background: var(--bg-tertiary);
+        color: var(--favorite);
+      }
+      .favorite-btn.favorited {
+        color: var(--favorite);
       }
       .level-info {
         display: flex;
@@ -238,7 +268,7 @@
 
       .chart-controls {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         gap: 15px;
@@ -249,6 +279,7 @@
         gap: 10px;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: center;
       }
       .chart-controls button {
         background: var(--bg-tertiary);
@@ -258,8 +289,10 @@
         padding: 8px 14px;
         cursor: pointer;
         font-size: 0.9rem;
+        font-weight: 600;
         transition: all 0.3s;
         white-space: nowrap;
+        text-align: center;
       }
       .chart-controls button:hover {
         border-color: var(--accent);
@@ -317,6 +350,10 @@
       }
       .multiselect-dropdown-list input {
         margin-right: 10px;
+      }
+      .multiselect-dropdown-list label.favorite-guild {
+        color: var(--favorite);
+        font-weight: 600;
       }
 
       .item-selector {
@@ -408,11 +445,198 @@
         font-size: 0.9rem;
       }
 
+      /* Price Predictor Styles */
+      .predictor-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .prediction-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 25px;
+      }
+
+      .prediction-summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 25px;
+      }
+
+      .prediction-metric {
+        text-align: center;
+        padding: 20px;
+        background: var(--bg-tertiary);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+
+      .prediction-metric h4 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .prediction-metric p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+      /* Add this CSS rule to match the other button styles */
+      .predictor-period-btn {
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 14px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        white-space: nowrap;
+        text-align: center;
+      }
+
+      .predictor-period-btn:hover {
+        border-color: var(--accent);
+      }
+
+      .predictor-period-btn.active {
+        background-color: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      .trend-up {
+        color: var(--success);
+      }
+
+      .trend-down {
+        color: var(--error);
+      }
+
+      .trend-stable {
+        color: var(--warning);
+      }
+
+      .testing-disclaimer {
+        background: var(--bg-tertiary);
+        border-left: 4px solid var(--warning);
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      .testing-disclaimer strong {
+        color: var(--warning);
+        font-weight: 600;
+      }
+
+      /* Leaderboard Styles */
+      .leaderboard-controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .leaderboard-btn {
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px 20px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        white-space: nowrap;
+      }
+
+      .leaderboard-btn:hover {
+        border-color: var(--accent);
+        background: var(--bg-secondary);
+      }
+
+      .leaderboard-btn.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      .leaderboard-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 25px;
+      }
+
+      .leaderboard-item {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+      }
+
+      .leaderboard-rank {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--accent);
+        min-width: 60px;
+        text-align: center;
+      }
+
+      .leaderboard-rank.gold {
+        color: #ffd700;
+      }
+
+      .leaderboard-rank.silver {
+        color: #c0c0c0;
+      }
+
+      .leaderboard-rank.bronze {
+        color: #cd7f32;
+      }
+
+      .leaderboard-info {
+        flex: 1;
+      }
+
+      .leaderboard-guild {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .leaderboard-stat {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+      }
+
+      .leaderboard-value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--success);
+      }
+
       @media (max-width: 768px) {
         .navbar {
           justify-content: flex-start;
         }
-        .chart-controls {
+        .chart-controls,
+        .predictor-controls {
           flex-direction: column;
           align-items: stretch;
         }
@@ -430,6 +654,14 @@
           padding-top: 15px;
           margin-top: 15px;
         }
+        .leaderboard-controls {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .leaderboard-item {
+          flex-direction: column;
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -440,6 +672,10 @@
         <a class="nav-link" data-section="nexus-charts">Nexus Progress</a>
         <a class="nav-link" data-section="study-charts">Study Progress</a>
         <a class="nav-link" data-section="item-prices">Item Prices</a>
+        <a class="nav-link" data-section="price-predictor"
+          >Item Price Predictor</a
+        >
+        <a class="nav-link" data-section="leaderboards">Leaderboards</a>
       </nav>
 
       <!-- Dashboard Section -->
@@ -698,14 +934,122 @@
           </div>
         </div>
       </div>
+
+      <!-- Price Predictor Section -->
+      <div id="price-predictor" class="page-section">
+        <div class="chart-container">
+          <div class="chart-header">
+            <h1>Item Price Predictor</h1>
+            <p>AI-powered market analysis and price forecasting</p>
+          </div>
+
+          <div class="testing-disclaimer">
+            <strong>Testing Phase:</strong> This price prediction feature is
+            experimental and in active testing. Predictions should not be
+            considered certain or guaranteed to happen. Use at your own
+            discretion and always verify market conditions independently.
+          </div>
+
+          <div class="predictor-controls">
+            <div class="item-selector">
+              <button id="predictorItemSelectBtn" class="item-select-btn">
+                Loading items...
+              </button>
+              <div
+                id="predictorItemSelectDropdown"
+                class="item-select-dropdown"
+              >
+                <input
+                  type="text"
+                  id="predictorItemSearchInput"
+                  placeholder="Search items..."
+                />
+                <div id="predictorItemList"></div>
+              </div>
+            </div>
+            <div class="control-group">
+              <button class="predictor-period-btn active" data-days="3">
+                3 Days
+              </button>
+              <button class="predictor-period-btn" data-days="7">7 Days</button>
+              <button class="predictor-period-btn" data-days="14">
+                14 Days
+              </button>
+              <button class="predictor-period-btn" data-days="30">
+                30 Days
+              </button>
+            </div>
+          </div>
+
+          <div id="predictionLoading" class="chart-loading">
+            Select an item to see price predictions...
+          </div>
+
+          <div id="predictionResults" style="display: none">
+            <div class="prediction-card">
+              <div class="prediction-summary">
+                <div class="prediction-metric">
+                  <h4 id="currentPrice">-</h4>
+                  <p>Current Average Price</p>
+                </div>
+                <div class="prediction-metric">
+                  <h4 id="predictedPrice">-</h4>
+                  <p>Predicted Price</p>
+                </div>
+                <div class="prediction-metric">
+                  <h4 id="priceChange">-</h4>
+                  <p>Expected Change</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-canvas-container">
+              <canvas id="predictionChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leaderboards Section -->
+      <div id="leaderboards" class="page-section">
+        <header class="header">
+          <h1>Guild Leaderboards</h1>
+          <p>Rankings based on daily progress and achievements</p>
+        </header>
+
+        <div class="leaderboard-controls">
+          <button class="leaderboard-btn active" data-type="codex">
+            Most Codex Spent
+          </button>
+          <button class="leaderboard-btn" data-type="nexus">
+            Top Nexus Upgrades
+          </button>
+          <button class="leaderboard-btn" data-type="study">
+            Top Study Upgrades
+          </button>
+        </div>
+
+        <div id="leaderboardLoading" class="loading">
+          Loading leaderboard data...
+        </div>
+        <div
+          id="leaderboardContent"
+          class="leaderboard-list"
+          style="display: none"
+        ></div>
+      </div>
     </div>
 
     <script>
       // Global State
       let allGuildsData = [];
       let historicalData = {};
-      let guildNexusChart, guildStudyChart, marketPriceChart;
+      let guildNexusChart, guildStudyChart, marketPriceChart, predictionChart;
       let dataLoaded = false;
+      let favoriteGuilds = JSON.parse(
+        localStorage.getItem("favoriteGuilds") || "[]"
+      );
+
       const chartColors = [
         "#ec4899",
         "#38bdf8",
@@ -743,6 +1087,7 @@
             : { guild_history: {}, item_prices: {}, item_categories: {} };
           populateGuildSelectors();
           populateItemSelector();
+          populatePredictorItemSelector();
 
           document.getElementById("loading").style.display = "none";
           document.getElementById("guildGrid").style.display = "grid";
@@ -752,6 +1097,10 @@
           document.getElementById("nexusChartLoading").style.display = "none";
           document.getElementById("studyChartLoading").style.display = "none";
           document.getElementById("marketChartLoading").style.display = "none";
+          document.getElementById("leaderboardLoading").style.display = "none";
+
+          // Load leaderboard data
+          updateLeaderboard("codex");
         } catch (error) {
           console.error("Error loading data:", error);
           document.getElementById("loading").style.display = "none";
@@ -767,19 +1116,17 @@
           .getElementById("searchInput")
           .addEventListener("input", renderGuilds);
 
-        // Chart timespan buttons - Fixed selector and event handling
+        // Chart timespan buttons
         document.querySelectorAll(".chart-timespan-btn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             const chartType = e.target.dataset.chart;
             const section = e.target.closest(".page-section").id;
 
-            // Update active state for buttons in current section
             document
               .querySelectorAll(`#${section} .chart-timespan-btn`)
               .forEach((b) => b.classList.remove("active"));
             e.target.classList.add("active");
 
-            // Update chart
             if (chartType) {
               updateGuildChart(chartType);
             }
@@ -794,6 +1141,28 @@
               .forEach((b) => b.classList.remove("active"));
             e.target.classList.add("active");
             updateMarketChart();
+          });
+        });
+
+        // Predictor period buttons
+        document.querySelectorAll(".predictor-period-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            document
+              .querySelectorAll(".predictor-period-btn")
+              .forEach((b) => b.classList.remove("active"));
+            e.target.classList.add("active");
+            updatePrediction();
+          });
+        });
+
+        // Leaderboard buttons
+        document.querySelectorAll(".leaderboard-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            document
+              .querySelectorAll(".leaderboard-btn")
+              .forEach((b) => b.classList.remove("active"));
+            e.target.classList.add("active");
+            updateLeaderboard(e.target.dataset.type);
           });
         });
 
@@ -822,9 +1191,14 @@
           updateGuildChart("study")
         );
         setupDropdown("itemSelectBtn", "itemSelectDropdown");
+        setupDropdown("predictorItemSelectBtn", "predictorItemSelectDropdown");
+
         document
           .getElementById("itemSearchInput")
           .addEventListener("input", filterItems);
+        document
+          .getElementById("predictorItemSearchInput")
+          .addEventListener("input", filterPredictorItems);
       }
 
       function setupDropdown(btnId, listId, onChangeCallback) {
@@ -875,7 +1249,42 @@
           if (targetId === "item-prices" && !marketPriceChart) {
             setTimeout(() => updateMarketChart(), 100);
           }
+          if (targetId === "leaderboards") {
+            document.getElementById("leaderboardContent").style.display =
+              "grid";
+          }
         }
+      }
+
+      // Favorite Guilds Functions
+      function toggleFavorite(guildName) {
+        const index = favoriteGuilds.indexOf(guildName);
+        if (index > -1) {
+          favoriteGuilds.splice(index, 1);
+        } else {
+          favoriteGuilds.push(guildName);
+        }
+        localStorage.setItem("favoriteGuilds", JSON.stringify(favoriteGuilds));
+        renderGuilds();
+        populateGuildSelectors(); // Refresh dropdowns to show favorite status
+      }
+
+      function isFavorite(guildName) {
+        return favoriteGuilds.includes(guildName);
+      }
+
+      function sortGuildsByFavorite(guilds) {
+        return guilds.sort((a, b) => {
+          const aFav = isFavorite(a.GuildName);
+          const bFav = isFavorite(b.GuildName);
+
+          // Favorites first
+          if (aFav && !bFav) return -1;
+          if (!aFav && bFav) return 1;
+
+          // Within favorites or non-favorites, sort by nexus level
+          return (b.NexusLevel || 0) - (a.NexusLevel || 0);
+        });
       }
 
       function updateDashboard(data) {
@@ -923,11 +1332,11 @@
         const freshnessDiv = document.getElementById("dataFreshness");
         if (dataFreshness) {
           const guildStatus = dataFreshness.guild_data_fresh
-            ? '<span class="fresh-data">✓ Guild data fresh</span>'
-            : '<span class="stale-data">⚠ Using cached guild data</span>';
+            ? '<span class="fresh-data">Guild data fresh</span>'
+            : '<span class="stale-data">Using cached guild data</span>';
           const marketStatus = dataFreshness.market_data_fresh
-            ? '<span class="fresh-data">✓ Market data fresh</span>'
-            : '<span class="stale-data">⚠ Using cached market data</span>';
+            ? '<span class="fresh-data">Market data fresh</span>'
+            : '<span class="stale-data">Using cached market data</span>';
           freshnessDiv.innerHTML = `${guildStatus} | ${marketStatus}`;
         }
       }
@@ -936,9 +1345,14 @@
         const searchTerm = document
           .getElementById("searchInput")
           .value.toLowerCase();
-        const filtered = allGuildsData.filter((g) =>
+
+        let filtered = allGuildsData.filter((g) =>
           g.GuildName.toLowerCase().includes(searchTerm)
         );
+
+        // Sort by favorites first, then by nexus level
+        filtered = sortGuildsByFavorite(filtered);
+
         const grid = document.getElementById("guildGrid");
 
         if (filtered.length === 0) {
@@ -950,8 +1364,23 @@
         grid.innerHTML = filtered
           .map(
             (g) => `
-                <div class="guild-card">
-                    <div class="guild-name">${g.GuildName}</div>
+                <div class="guild-card ${
+                  isFavorite(g.GuildName) ? "favorite" : ""
+                }">
+                    <div class="guild-name">
+                        <span>${g.GuildName}</span>
+                        <button class="favorite-btn ${
+                          isFavorite(g.GuildName) ? "favorited" : ""
+                        }" 
+                                onclick="toggleFavorite('${g.GuildName}')" 
+                                title="${
+                                  isFavorite(g.GuildName)
+                                    ? "Remove from favorites"
+                                    : "Add to favorites"
+                                }">
+                            ${isFavorite(g.GuildName) ? "★" : "☆"}
+                        </button>
+                    </div>
                     <div class="level-info">
                         <div class="level-item">
                             <div class="level-label">Nexus</div>
@@ -973,12 +1402,21 @@
           )
           .join("");
       }
+
       function populateGuildSelectors() {
         const guildNames = Object.keys(historicalData.guild_history || {});
         if (guildNames.length === 0) return;
 
-        // Sort guilds by nexus level descending (like dashboard)
+        // Sort guilds: favorites first, then by nexus level
         const sortedGuildNames = guildNames.sort((a, b) => {
+          const aFav = isFavorite(a);
+          const bFav = isFavorite(b);
+
+          // Favorites first
+          if (aFav && !bFav) return -1;
+          if (!aFav && bFav) return 1;
+
+          // Within same favorite status, sort by nexus level
           const guildA = allGuildsData.find((g) => g.GuildName === a);
           const guildB = allGuildsData.find((g) => g.GuildName === b);
           const nexusA = guildA ? guildA.NexusLevel : 0;
@@ -986,26 +1424,31 @@
           return nexusB - nexusA;
         });
 
-        // Auto-select specific guilds
-        const autoSelectGuilds = [
-          "Doomed",
-          "Spaghetti and Meatballs",
-          "RNG",
-          "Divinity",
-          "Sanctuary",
-          "Phoenix",
-          "Codex",
-          "EZ",
-        ];
+        // Auto-select favorite guilds, or default guilds if no favorites
+        let autoSelectGuilds =
+          favoriteGuilds.length > 0
+            ? favoriteGuilds
+            : [
+                "Doomed",
+                "Spaghetti and Meatballs",
+                "RNG",
+                "Divinity",
+                "Sanctuary",
+                "Phoenix",
+                "Codex",
+                "EZ",
+              ];
 
         ["nexus", "study"].forEach((type) => {
           const list = document.getElementById(`${type}GuildSelectorList`);
           list.innerHTML = sortedGuildNames
             .map(
               (name) =>
-                `<label><input type="checkbox" value="${name}" ${
+                `<label class="${isFavorite(name) ? "favorite-guild" : ""}">
+                  <input type="checkbox" value="${name}" ${
                   autoSelectGuilds.includes(name) ? "checked" : ""
-                }> ${name}</label>`
+                }> ${isFavorite(name) ? "★ " : ""}${name}
+                </label>`
             )
             .join("");
           updateSelectedGuildCount(type);
@@ -1019,7 +1462,6 @@
         btn.textContent = `${count} Guild${count !== 1 ? "s" : ""} Selected`;
       }
 
-      // Fixed and enhanced chart update function with proper aggregation
       function updateGuildChart(chartType) {
         if (!historicalData.guild_history) return;
 
@@ -1095,8 +1537,6 @@
         if (Object.keys(items).length === 0) return;
 
         const itemList = document.getElementById("itemList");
-
-        // Define the display order for categories
         const categoryOrder = [
           "Essentials",
           "Resources",
@@ -1109,7 +1549,6 @@
         ];
 
         let html = "";
-
         categoryOrder.forEach((categoryName) => {
           const categoryItems = itemCategories[categoryName] || [];
           const availableItems = categoryItems.filter((item) => items[item]);
@@ -1140,7 +1579,7 @@
           });
         });
 
-        // Select Codex by default, or first available item
+        // Select Codex by default
         const defaultOption =
           document.querySelector('.item-option[data-item="Codex"]') ||
           document.querySelector(".item-option");
@@ -1152,25 +1591,114 @@
         }
       }
 
+      function populatePredictorItemSelector() {
+        const itemCategories = historicalData.item_categories || {};
+        const items = historicalData.item_prices || {};
+
+        if (Object.keys(items).length === 0) return;
+
+        const itemList = document.getElementById("predictorItemList");
+        const categoryOrder = [
+          "Essentials",
+          "Resources",
+          "Spell Tomes",
+          "Orbs/Upgrades",
+          "Herbs",
+          "Enchanting Reagents",
+          "Enchanting Formulas",
+          "Special",
+        ];
+
+        let html = "";
+        categoryOrder.forEach((categoryName) => {
+          const categoryItems = itemCategories[categoryName] || [];
+          const availableItems = categoryItems.filter((item) => items[item]);
+
+          if (availableItems.length > 0) {
+            html += `<div class="item-category">
+              <div class="category-header">${categoryName}</div>`;
+
+            availableItems.forEach((itemName) => {
+              html += `<div class="item-option" data-item="${itemName}">${itemName}</div>`;
+            });
+
+            html += `</div>`;
+          }
+        });
+
+        itemList.innerHTML = html;
+
+        document
+          .querySelectorAll("#predictorItemList .item-option")
+          .forEach((option) => {
+            option.addEventListener("click", () => {
+              document.getElementById("predictorItemSelectBtn").textContent =
+                option.textContent;
+              document.getElementById(
+                "predictorItemSelectBtn"
+              ).dataset.selected = option.dataset.item;
+              document.getElementById(
+                "predictorItemSelectDropdown"
+              ).style.display = "none";
+              updatePrediction();
+            });
+          });
+
+        // Select Codex by default
+        const defaultOption =
+          document.querySelector(
+            '#predictorItemList .item-option[data-item="Codex"]'
+          ) || document.querySelector("#predictorItemList .item-option");
+        if (defaultOption) {
+          document.getElementById("predictorItemSelectBtn").textContent =
+            defaultOption.textContent;
+          document.getElementById("predictorItemSelectBtn").dataset.selected =
+            defaultOption.dataset.item;
+        }
+      }
+
       function filterItems() {
         const term = document
           .getElementById("itemSearchInput")
           .value.toLowerCase();
-        document.querySelectorAll(".item-option").forEach((opt) => {
+        document.querySelectorAll("#itemList .item-option").forEach((opt) => {
           const matches = opt.textContent.toLowerCase().includes(term);
           opt.style.display = matches ? "block" : "none";
         });
 
-        // Hide/show category headers based on whether they have visible items
-        document.querySelectorAll(".item-category").forEach((category) => {
-          const visibleItems = category.querySelectorAll(
-            '.item-option[style="display: block;"], .item-option:not([style*="display: none"])'
-          );
-          category.style.display = visibleItems.length > 0 ? "block" : "none";
-        });
+        // Hide/show category headers
+        document
+          .querySelectorAll("#itemList .item-category")
+          .forEach((category) => {
+            const visibleItems = category.querySelectorAll(
+              '.item-option[style="display: block;"], .item-option:not([style*="display: none"])'
+            );
+            category.style.display = visibleItems.length > 0 ? "block" : "none";
+          });
       }
 
-      // Enhanced market chart function with aggregation
+      function filterPredictorItems() {
+        const term = document
+          .getElementById("predictorItemSearchInput")
+          .value.toLowerCase();
+        document
+          .querySelectorAll("#predictorItemList .item-option")
+          .forEach((opt) => {
+            const matches = opt.textContent.toLowerCase().includes(term);
+            opt.style.display = matches ? "block" : "none";
+          });
+
+        // Hide/show category headers
+        document
+          .querySelectorAll("#predictorItemList .item-category")
+          .forEach((category) => {
+            const visibleItems = category.querySelectorAll(
+              '.item-option[style="display: block;"], .item-option:not([style*="display: none"])'
+            );
+            category.style.display = visibleItems.length > 0 ? "block" : "none";
+          });
+      }
+
       function updateMarketChart() {
         const selectedItem =
           document.getElementById("itemSelectBtn").dataset.selected;
@@ -1188,12 +1716,10 @@
 
         if (prices.length === 0) return;
 
-        // Get aggregation setting
         const aggregation = document.getElementById("marketAggregation").value;
         const useDaily =
           aggregation === "daily" || (aggregation === "auto" && hours >= 168);
 
-        // Apply daily aggregation if needed
         if (useDaily && prices.length > 0) {
           prices = aggregateMarketDataByDay(prices);
         }
@@ -1219,7 +1745,6 @@
           },
         ];
 
-        // Show canvas container
         document.querySelector(
           "#item-prices .chart-canvas-container"
         ).style.display = "block";
@@ -1236,7 +1761,252 @@
         });
       }
 
-      // New aggregation functions
+      // Price Prediction Functions
+      function updatePrediction() {
+        const selectedItem = document.getElementById("predictorItemSelectBtn")
+          .dataset.selected;
+        if (!selectedItem || !historicalData.item_prices?.[selectedItem]) {
+          document.getElementById("predictionLoading").style.display = "block";
+          document.getElementById("predictionResults").style.display = "none";
+          return;
+        }
+
+        const days = parseInt(
+          document.querySelector(".predictor-period-btn.active").dataset.days
+        );
+
+        const cutoff = new Date(Date.now() - days * 24 * 3600 * 1000);
+        const prices = historicalData.item_prices[selectedItem].prices.filter(
+          (p) => new Date(p.timestamp) >= cutoff
+        );
+
+        if (prices.length < 2) return;
+
+        const prediction = calculatePrediction(prices);
+        displayPrediction(selectedItem, prediction, prices);
+      }
+
+      function calculatePrediction(prices) {
+        // Calculate current and historical averages
+        const recent = prices.slice(-24); // Last 24 hours
+        const currentAvg =
+          recent.reduce((sum, p) => sum + (p.buy + p.sell) / 2, 0) /
+          recent.length;
+
+        // Calculate trend using linear regression
+        const values = prices.map((p, i) => ({
+          x: i,
+          y: (p.buy + p.sell) / 2,
+        }));
+        const n = values.length;
+        const sumX = values.reduce((sum, v) => sum + v.x, 0);
+        const sumY = values.reduce((sum, v) => sum + v.y, 0);
+        const sumXY = values.reduce((sum, v) => sum + v.x * v.y, 0);
+        const sumX2 = values.reduce((sum, v) => sum + v.x * v.x, 0);
+
+        const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+        const intercept = (sumY - slope * sumX) / n;
+
+        // Predict next price point
+        const predictedPrice = slope * n + intercept;
+        const priceChange = ((predictedPrice - currentAvg) / currentAvg) * 100;
+
+        // Determine trend direction
+        let trend = "stable";
+        if (Math.abs(priceChange) > 5) {
+          trend = priceChange > 0 ? "up" : "down";
+        }
+
+        return {
+          currentPrice: currentAvg,
+          predictedPrice: predictedPrice,
+          priceChange: priceChange,
+          trend: trend,
+        };
+      }
+
+      function displayPrediction(itemName, prediction, prices) {
+        document.getElementById("predictionLoading").style.display = "none";
+        document.getElementById("predictionResults").style.display = "block";
+
+        document.getElementById("currentPrice").textContent = formatCurrency(
+          prediction.currentPrice
+        );
+        document.getElementById("predictedPrice").textContent = formatCurrency(
+          prediction.predictedPrice
+        );
+
+        const changeElement = document.getElementById("priceChange");
+        changeElement.textContent = `${
+          prediction.priceChange >= 0 ? "+" : ""
+        }${prediction.priceChange.toFixed(1)}%`;
+        changeElement.className = `trend-${prediction.trend}`;
+
+        // Update prediction chart
+        updatePredictionChart(itemName, prices, prediction);
+      }
+
+      function updatePredictionChart(itemName, prices, prediction) {
+        // Prepare historical data
+        const historicalData = prices.map((p) => ({
+          x: p.timestamp,
+          y: (p.buy + p.sell) / 2,
+        }));
+
+        // Add prediction point (24 hours ahead)
+        const futureTime = new Date(
+          Date.now() + 24 * 3600 * 1000
+        ).toISOString();
+        const predictionPoint = {
+          x: futureTime,
+          y: prediction.predictedPrice,
+        };
+
+        const datasets = [
+          {
+            label: "Historical Average Price",
+            data: historicalData,
+            borderColor: "#4a9eff",
+            backgroundColor: "#4a9eff20",
+            tension: 0.1,
+            pointRadius: 2,
+            pointHoverRadius: 4,
+          },
+          {
+            label: "Prediction",
+            data: [historicalData[historicalData.length - 1], predictionPoint],
+            borderColor: "#fbbf24",
+            backgroundColor: "#fbbf2440",
+            borderDash: [5, 5],
+            tension: 0,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+          },
+        ];
+
+        if (predictionChart) predictionChart.destroy();
+
+        const ctx = document.getElementById("predictionChart").getContext("2d");
+        predictionChart = new Chart(ctx, {
+          type: "line",
+          data: { datasets },
+          options: {
+            ...getChartOptions(
+              24 *
+                parseInt(
+                  document.querySelector(".predictor-period-btn.active").dataset
+                    .days
+                ),
+              true,
+              false
+            ),
+            plugins: {
+              ...getChartOptions(24, true, false).plugins,
+              title: {
+                display: true,
+                text: `${itemName} Price Prediction`,
+                color: "#f8f9fa",
+                font: {
+                  size: 16,
+                  weight: "bold",
+                },
+              },
+            },
+          },
+        });
+      }
+
+      // Leaderboard Functions
+      function updateLeaderboard(type) {
+        document.getElementById("leaderboardContent").style.display = "grid";
+
+        let sortedGuilds = [...allGuildsData];
+        let title = "";
+        let valueKey = "";
+        let formatValue = (val) => val;
+
+        switch (type) {
+          case "codex":
+            sortedGuilds.sort(
+              (a, b) => (b.TotalCodexCost || 0) - (a.TotalCodexCost || 0)
+            );
+            title = "Most Codex Spent Today";
+            valueKey = "TotalCodexCost";
+            formatValue = (val) => (val || 0).toLocaleString() + " Codex";
+            break;
+          case "nexus":
+            sortedGuilds.sort(
+              (a, b) => (b.NexusProgress || 0) - (a.NexusProgress || 0)
+            );
+            title = "Top Nexus Upgrades Today";
+            valueKey = "NexusProgress";
+            formatValue = (val) => "+" + (val || 0) + " Levels";
+            break;
+          case "study":
+            sortedGuilds.sort(
+              (a, b) => (b.StudyProgress || 0) - (a.StudyProgress || 0)
+            );
+            title = "Top Study Upgrades Today";
+            valueKey = "StudyProgress";
+            formatValue = (val) => "+" + (val || 0) + " Levels";
+            break;
+        }
+
+        // Only show guilds with progress > 0
+        const filteredGuilds = sortedGuilds.filter(
+          (g) => (g[valueKey] || 0) > 0
+        );
+
+        const content = document.getElementById("leaderboardContent");
+
+        if (filteredGuilds.length === 0) {
+          content.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 60px;">
+              No progress data available for ${title.toLowerCase()}
+            </div>
+          `;
+          return;
+        }
+
+        content.innerHTML = filteredGuilds
+          .map((guild, index) => {
+            const rank = index + 1;
+            let rankClass = "";
+            let rankDisplay = rank;
+
+            if (rank === 1) {
+              rankClass = "gold";
+              rankDisplay = "1st";
+            } else if (rank === 2) {
+              rankClass = "silver";
+              rankDisplay = "2nd";
+            } else if (rank === 3) {
+              rankClass = "bronze";
+              rankDisplay = "3rd";
+            }
+
+            return `
+            <div class="leaderboard-item ${
+              isFavorite(guild.GuildName) ? "favorite" : ""
+            }">
+              <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
+              <div class="leaderboard-info">
+                <div class="leaderboard-guild">
+                  ${isFavorite(guild.GuildName) ? "★ " : ""}${guild.GuildName}
+                </div>
+                <div class="leaderboard-stat">
+                  <span class="leaderboard-value">${formatValue(
+                    guild[valueKey]
+                  )}</span>
+                </div>
+              </div>
+            </div>
+          `;
+          })
+          .join("");
+      }
+
+      // Aggregation functions
       function aggregateDataByDay(data) {
         const dailyData = {};
 

@@ -48,7 +48,7 @@ ITEM_MAPPING = {
     29: "Elderwood", 30: "Lodestone", 31: "White Pearl",
     32: "Four-Leaf Clover", 33: "Enchanted Droplet", 34: "Infernal Heart",
     # Orbs/Upgrades
-    35: "Orb of Power", 36: "Orb of Chaos", 37: "Orb of Divinity", 45: "Orb of Legacy",
+    35: "Orb of Power", 36: "Orb of Chaos", 37: "Orb of Divinity", 50: "Orb of Perfection", 45: "Orb of Legacy",
     46: "Elementium", 47: "Divine Essence",
     # Herbs
     39: "Sunpetal", 40: "Sageroot", 41: "Bloomwell",
@@ -60,7 +60,7 @@ ITEM_CATEGORIES = {
     "Essentials": ["Elemental Shards", "Codex"],
     "Resources": ["Fish", "Wood", "Iron"],
     "Spell Tomes": ["Tome of Fire", "Tome of Water", "Tome of Nature", "Tome of Mana Shield"],
-    "Orbs/Upgrades": ["Orb of Power", "Orb of Chaos", "Orb of Divinity", "Orb of Legacy", "Elementium", "Divine Essence"],
+    "Orbs/Upgrades": ["Orb of Power", "Orb of Chaos", "Orb of Divinity", "Orb of Perfection", "Orb of Legacy", "Elementium", "Divine Essence"],
     "Herbs": ["Sunpetal", "Sageroot", "Bloomwell"],
     "Enchanting Reagents": ["Fire Essence", "Water Essence", "Nature Essence", "Asbestos", "Ironbark", "Fish Scales", 
                            "Elderwood", "Lodestone", "White Pearl", "Four-Leaf Clover", "Enchanted Droplet", "Infernal Heart"],
