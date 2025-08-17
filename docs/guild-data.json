@@ -2,11 +2,11 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 460,
+      "NexusLevel": 461,
       "StudyLevel": 305,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 461
     },
     {
       "GuildName": "RNG",
@@ -26,11 +26,11 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 401,
+      "NexusLevel": 403,
       "StudyLevel": 300,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 805
     },
     {
       "GuildName": "Phoenix",
@@ -89,6 +89,14 @@
       "TotalCodexCost": 0
     },
     {
+      "GuildName": "Minimal Effort",
+      "NexusLevel": 201,
+      "StudyLevel": 150,
+      "NexusProgress": 1,
+      "StudyProgress": 0,
+      "TotalCodexCost": 201
+    },
+    {
       "GuildName": "Imperium",
       "NexusLevel": 200,
       "StudyLevel": 200,
@@ -100,14 +108,6 @@
       "GuildName": "Racc City",
       "NexusLevel": 200,
       "StudyLevel": 187,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Minimal Effort",
-      "NexusLevel": 200,
-      "StudyLevel": 150,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -154,11 +154,11 @@
     },
     {
       "GuildName": "Bureau of Feline Investigators",
-      "NexusLevel": 174,
+      "NexusLevel": 175,
       "StudyLevel": 170,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 175
     },
     {
       "GuildName": "Osmanthus",
@@ -338,11 +338,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 0,
-    "formatted_dust": "0.00",
-    "formatted_price": "17.09B"
+    "total_codex": 1642,
+    "formatted_dust": "26.88T",
+    "formatted_price": "16.37B"
   },
-  "lastUpdated": "2025-08-17T03:29:06.800874+00:00",
+  "lastUpdated": "2025-08-17T04:25:34.941571+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
