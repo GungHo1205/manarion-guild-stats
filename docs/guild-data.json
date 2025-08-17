@@ -3,10 +3,10 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 463,
-      "StudyLevel": 311,
+      "StudyLevel": 305,
       "NexusProgress": 3,
-      "StudyProgress": 6,
-      "TotalCodexCost": 3237
+      "StudyProgress": 0,
+      "TotalCodexCost": 1386
     },
     {
       "GuildName": "RNG",
@@ -34,11 +34,11 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 376,
+      "NexusLevel": 377,
       "StudyLevel": 243,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1498
+      "TotalCodexCost": 1875
     },
     {
       "GuildName": "Codex",
@@ -75,10 +75,10 @@
     {
       "GuildName": "Test Guild Please Ignore",
       "NexusLevel": 221,
-      "StudyLevel": 269,
+      "StudyLevel": 272,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 3,
+      "TotalCodexCost": 813
     },
     {
       "GuildName": "Fight Club",
@@ -338,11 +338,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 12274,
-    "formatted_dust": "198.07T",
-    "formatted_price": "16.14B"
+    "total_codex": 11613,
+    "formatted_dust": "188.53T",
+    "formatted_price": "16.23B"
   },
-  "lastUpdated": "2025-08-17T10:11:15.602072+00:00",
+  "lastUpdated": "2025-08-17T11:09:02.652323+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
