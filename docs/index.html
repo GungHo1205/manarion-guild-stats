@@ -72,7 +72,39 @@
         background-color: var(--accent);
         color: #fff;
       }
+      .important-notice {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--warning);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        position: relative;
+      }
 
+      .notice-header {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--warning);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .notice-header::before {
+        content: "⚠";
+        font-size: 1.2rem;
+      }
+
+      .notice-content {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        max-width: none;
+        margin: 0;
+        font-weight: 400;
+      }
       .page-section {
         display: none;
       }
@@ -684,6 +716,16 @@
           <h1>Guild Stats Dashboard</h1>
           <p>Real-time guild progression tracking</p>
         </header>
+
+        <div class="important-notice">
+          <div class="notice-header">Important Data Accuracy Notice</div>
+          <div class="notice-content">
+            Study levels are inaccurate. Gathering pets increase study levels
+            according to pet level. Please check the leader of the guild and
+            subtract the bonus exp from the pet to get the correct study room
+            level.
+          </div>
+        </div>
         <div class="stats-overview">
           <div class="stat-card">
             <h3 id="stat-avg-nexus">-</h3>
