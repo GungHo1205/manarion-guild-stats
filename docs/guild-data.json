@@ -2,11 +2,11 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 461,
-      "StudyLevel": 305,
-      "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 461
+      "NexusLevel": 462,
+      "StudyLevel": 311,
+      "NexusProgress": 2,
+      "StudyProgress": 6,
+      "TotalCodexCost": 2774
     },
     {
       "GuildName": "RNG",
@@ -19,10 +19,10 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 409,
-      "StudyLevel": 300,
+      "StudyLevel": 302,
       "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 409
+      "StudyProgress": 2,
+      "TotalCodexCost": 1012
     },
     {
       "GuildName": "Sanctuary",
@@ -34,11 +34,19 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 372,
+      "NexusLevel": 376,
       "StudyLevel": 243,
-      "NexusProgress": 0,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 1498
+    },
+    {
+      "GuildName": "EZ ",
+      "NexusLevel": 267,
+      "StudyLevel": 215,
+      "NexusProgress": 1,
+      "StudyProgress": 0,
+      "TotalCodexCost": 267
     },
     {
       "GuildName": "Codex",
@@ -47,14 +55,6 @@
       "NexusProgress": 1,
       "StudyProgress": 0,
       "TotalCodexCost": 267
-    },
-    {
-      "GuildName": "EZ ",
-      "NexusLevel": 266,
-      "StudyLevel": 215,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
     },
     {
       "GuildName": "The First Ones",
@@ -114,11 +114,11 @@
     },
     {
       "GuildName": "Gatherers Guild",
-      "NexusLevel": 197,
+      "NexusLevel": 198,
       "StudyLevel": 140,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 198
     },
     {
       "GuildName": "Hack n Slash",
@@ -139,10 +139,10 @@
     {
       "GuildName": "BASED",
       "NexusLevel": 189,
-      "StudyLevel": 100,
+      "StudyLevel": 106,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 6,
+      "TotalCodexCost": 621
     },
     {
       "GuildName": "Dino Nuggies",
@@ -338,11 +338,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 4355,
-    "formatted_dust": "69.52T",
-    "formatted_price": "15.96B"
+    "total_codex": 9855,
+    "formatted_dust": "158.26T",
+    "formatted_price": "16.06B"
   },
-  "lastUpdated": "2025-08-17T06:16:32.371764+00:00",
+  "lastUpdated": "2025-08-17T07:10:27.534653+00:00",
   "baselineDate": "2025-08-17",
   "dataFreshness": {
     "guild_data_fresh": true,
