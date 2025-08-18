@@ -729,7 +729,8 @@ class GuildStatsTracker:
         if baseline.get("date") != today_str and current_guilds:
             print(f" New day detected. Creating new baseline for {today_str}.")
             baseline = {
-                "date": today_str, 
+                "date": today_str,
+                "created_at": timestamp,  # Add this line
                 "guilds": {
                     g["GuildName"]: {
                         "NexusLevel": g["NexusLevel"], 
@@ -787,15 +788,16 @@ class GuildStatsTracker:
         # Save final output with tracking metadata - FIXED SORTING ORDER
         final_data = {
             "guilds": sorted(current_guilds, key=lambda g: (
-                -g.get("NexusLevel", 0),      # Highest Nexus Level first
-                -g.get("StudyLevel", 0),      # Then highest Study Level  
-                -g.get("TotalUpgrades", 0),   # Then highest Total Upgrades
-                -g.get("GuildLevel", 0),      # Then highest Guild Level
-                g.get("GuildID", 999999)      # Then lowest Guild ID
+                -g.get("NexusLevel", 0),      
+                -g.get("StudyLevel", 0),      
+                -g.get("TotalUpgrades", 0),   
+                -g.get("GuildLevel", 0),      
+                g.get("GuildID", 999999)      
             )),
             "dustSpending": dust_spending,
             "lastUpdated": timestamp,
             "baselineDate": baseline.get("date"),
+            "baselineCreatedAt": baseline.get("created_at"),  # Add this line
             "dataFreshness": {
                 "guild_data_fresh": guild_data_fresh,
                 "market_data_fresh": market_data_fresh
