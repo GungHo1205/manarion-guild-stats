@@ -26,8 +26,8 @@
       "GuildName": "Divinity",
       "NexusLevel": 414,
       "StudyLevel": 322,
-      "TotalUpgrades": 1391,
-      "GuildLevel": 102,
+      "TotalUpgrades": 1392,
+      "GuildLevel": 103,
       "GuildID": 25,
       "NexusProgress": 1,
       "StudyProgress": 0,
@@ -46,14 +46,14 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 383,
+      "NexusLevel": 384,
       "StudyLevel": 245,
-      "TotalUpgrades": 1186,
+      "TotalUpgrades": 1187,
       "GuildLevel": 90,
       "GuildID": 8,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 383
+      "TotalCodexCost": 767
     },
     {
       "GuildName": "EZ ",
@@ -112,14 +112,14 @@
     },
     {
       "GuildName": "Fight Club",
-      "NexusLevel": 226,
+      "NexusLevel": 227,
       "StudyLevel": 160,
-      "TotalUpgrades": 754,
+      "TotalUpgrades": 755,
       "GuildLevel": 64,
       "GuildID": 10,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 227
     },
     {
       "GuildName": "Imperium",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 7173,
-    "formatted_dust": "113.69T",
+    "total_codex": 7784,
+    "formatted_dust": "123.35T",
     "formatted_price": "15.85B"
   },
-  "lastUpdated": "2025-08-18T09:20:12.874628+00:00",
+  "lastUpdated": "2025-08-18T10:17:09.706122+00:00",
   "baselineDate": "2025-08-18",
   "baselineCreatedAt": "2025-08-18T04:45:21.149154+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 15,
-    "total_codex_used": 7173,
+    "guilds_with_progress": 16,
+    "total_codex_used": 7784,
     "baseline_date": "2025-08-18"
   }
 }
