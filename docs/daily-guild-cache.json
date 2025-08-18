@@ -1,0 +1,466 @@
+{
+  "date": "2025-08-18",
+  "guild_data": [
+    {
+      "GuildName": "Spaghetti and Meatballs",
+      "NexusLevel": 467,
+      "StudyLevel": 320,
+      "TotalUpgrades": 1421,
+      "GuildLevel": 101,
+      "GuildID": 5
+    },
+    {
+      "GuildName": "Sanctuary",
+      "NexusLevel": 410,
+      "StudyLevel": 300,
+      "TotalUpgrades": 1397,
+      "GuildLevel": 115,
+      "GuildID": 19
+    },
+    {
+      "GuildName": "Divinity",
+      "NexusLevel": 413,
+      "StudyLevel": 325,
+      "TotalUpgrades": 1381,
+      "GuildLevel": 102,
+      "GuildID": 25
+    },
+    {
+      "GuildName": "RNG",
+      "NexusLevel": 422,
+      "StudyLevel": 295,
+      "TotalUpgrades": 1351,
+      "GuildLevel": 100,
+      "GuildID": 17
+    },
+    {
+      "GuildName": "Phoenix",
+      "NexusLevel": 382,
+      "StudyLevel": 245,
+      "TotalUpgrades": 1185,
+      "GuildLevel": 89,
+      "GuildID": 8
+    },
+    {
+      "GuildName": "Test Guild Please Ignore",
+      "NexusLevel": 227,
+      "StudyLevel": 272,
+      "TotalUpgrades": 944,
+      "GuildLevel": 52,
+      "GuildID": 14
+    },
+    {
+      "GuildName": "Codex",
+      "NexusLevel": 269,
+      "StudyLevel": 238,
+      "TotalUpgrades": 895,
+      "GuildLevel": 79,
+      "GuildID": 59
+    },
+    {
+      "GuildName": "EZ ",
+      "NexusLevel": 270,
+      "StudyLevel": 209,
+      "TotalUpgrades": 842,
+      "GuildLevel": 76,
+      "GuildID": 2
+    },
+    {
+      "GuildName": "Racc City",
+      "NexusLevel": 200,
+      "StudyLevel": 187,
+      "TotalUpgrades": 840,
+      "GuildLevel": 65,
+      "GuildID": 9
+    },
+    {
+      "GuildName": "The First Ones",
+      "NexusLevel": 252,
+      "StudyLevel": 175,
+      "TotalUpgrades": 835,
+      "GuildLevel": 79,
+      "GuildID": 112
+    },
+    {
+      "GuildName": "Fight Club",
+      "NexusLevel": 226,
+      "StudyLevel": 160,
+      "TotalUpgrades": 754,
+      "GuildLevel": 64,
+      "GuildID": 10
+    },
+    {
+      "GuildName": "Doomed",
+      "NexusLevel": 240,
+      "StudyLevel": 170,
+      "TotalUpgrades": 748,
+      "GuildLevel": 68,
+      "GuildID": 183
+    },
+    {
+      "GuildName": "Hack n Slash",
+      "NexusLevel": 197,
+      "StudyLevel": 160,
+      "TotalUpgrades": 742,
+      "GuildLevel": 66,
+      "GuildID": 86
+    },
+    {
+      "GuildName": "Imperium",
+      "NexusLevel": 200,
+      "StudyLevel": 200,
+      "TotalUpgrades": 728,
+      "GuildLevel": 74,
+      "GuildID": 15
+    },
+    {
+      "GuildName": "Minimal Effort",
+      "NexusLevel": 202,
+      "StudyLevel": 160,
+      "TotalUpgrades": 720,
+      "GuildLevel": 56,
+      "GuildID": 172
+    },
+    {
+      "GuildName": "Caliburnus",
+      "NexusLevel": 195,
+      "StudyLevel": 144,
+      "TotalUpgrades": 667,
+      "GuildLevel": 57,
+      "GuildID": 42
+    },
+    {
+      "GuildName": "Ewbies",
+      "NexusLevel": 160,
+      "StudyLevel": 169,
+      "TotalUpgrades": 664,
+      "GuildLevel": 56,
+      "GuildID": 4
+    },
+    {
+      "GuildName": "Manarion Adventures",
+      "NexusLevel": 136,
+      "StudyLevel": 147,
+      "TotalUpgrades": 660,
+      "GuildLevel": 60,
+      "GuildID": 54
+    },
+    {
+      "GuildName": "Osmanthus",
+      "NexusLevel": 176,
+      "StudyLevel": 152,
+      "TotalUpgrades": 658,
+      "GuildLevel": 71,
+      "GuildID": 21
+    },
+    {
+      "GuildName": "Gatherers Guild",
+      "NexusLevel": 201,
+      "StudyLevel": 140,
+      "TotalUpgrades": 636,
+      "GuildLevel": 56,
+      "GuildID": 1
+    },
+    {
+      "GuildName": "Dino Nuggies",
+      "NexusLevel": 175,
+      "StudyLevel": 138,
+      "TotalUpgrades": 598,
+      "GuildLevel": 63,
+      "GuildID": 122
+    },
+    {
+      "GuildName": "MooseKnuckles",
+      "NexusLevel": 115,
+      "StudyLevel": 115,
+      "TotalUpgrades": 593,
+      "GuildLevel": 47,
+      "GuildID": 64
+    },
+    {
+      "GuildName": "Bureau of Feline Investigators",
+      "NexusLevel": 180,
+      "StudyLevel": 170,
+      "TotalUpgrades": 552,
+      "GuildLevel": 53,
+      "GuildID": 18
+    },
+    {
+      "GuildName": "Lighthouse Reborn",
+      "NexusLevel": 98,
+      "StudyLevel": 120,
+      "TotalUpgrades": 480,
+      "GuildLevel": 46,
+      "GuildID": 65
+    },
+    {
+      "GuildName": "BASED",
+      "NexusLevel": 189,
+      "StudyLevel": 119,
+      "TotalUpgrades": 437,
+      "GuildLevel": 45,
+      "GuildID": 27
+    },
+    {
+      "GuildName": "Hydra",
+      "NexusLevel": 95,
+      "StudyLevel": 104,
+      "TotalUpgrades": 427,
+      "GuildLevel": 37,
+      "GuildID": 79
+    },
+    {
+      "GuildName": "asylum",
+      "NexusLevel": 99,
+      "StudyLevel": 66,
+      "TotalUpgrades": 420,
+      "GuildLevel": 49,
+      "GuildID": 130
+    },
+    {
+      "GuildName": "A Growing Threat",
+      "NexusLevel": 65,
+      "StudyLevel": 67,
+      "TotalUpgrades": 375,
+      "GuildLevel": 31,
+      "GuildID": 70
+    },
+    {
+      "GuildName": "Cats",
+      "NexusLevel": 126,
+      "StudyLevel": 108,
+      "TotalUpgrades": 367,
+      "GuildLevel": 37,
+      "GuildID": 55
+    },
+    {
+      "GuildName": "Rainbow",
+      "NexusLevel": 85,
+      "StudyLevel": 75,
+      "TotalUpgrades": 332,
+      "GuildLevel": 38,
+      "GuildID": 105
+    },
+    {
+      "GuildName": "Guild",
+      "NexusLevel": 66,
+      "StudyLevel": 76,
+      "TotalUpgrades": 332,
+      "GuildLevel": 32,
+      "GuildID": 11
+    },
+    {
+      "GuildName": "Dark Alliance",
+      "NexusLevel": 59,
+      "StudyLevel": 59,
+      "TotalUpgrades": 285,
+      "GuildLevel": 36,
+      "GuildID": 103
+    },
+    {
+      "GuildName": "RevivaL",
+      "NexusLevel": 80,
+      "StudyLevel": 53,
+      "TotalUpgrades": 273,
+      "GuildLevel": 31,
+      "GuildID": 91
+    },
+    {
+      "GuildName": "RSH",
+      "NexusLevel": 50,
+      "StudyLevel": 71,
+      "TotalUpgrades": 259,
+      "GuildLevel": 32,
+      "GuildID": 104
+    },
+    {
+      "GuildName": "RPG MO",
+      "NexusLevel": 82,
+      "StudyLevel": 58,
+      "TotalUpgrades": 228,
+      "GuildLevel": 34,
+      "GuildID": 154
+    },
+    {
+      "GuildName": "Chaos company",
+      "NexusLevel": 34,
+      "StudyLevel": 40,
+      "TotalUpgrades": 186,
+      "GuildLevel": 15,
+      "GuildID": 34
+    },
+    {
+      "GuildName": "Knighted Order of Angels",
+      "NexusLevel": 42,
+      "StudyLevel": 41,
+      "TotalUpgrades": 172,
+      "GuildLevel": 24,
+      "GuildID": 60
+    },
+    {
+      "GuildName": "Stormlight",
+      "NexusLevel": 60,
+      "StudyLevel": 27,
+      "TotalUpgrades": 158,
+      "GuildLevel": 23,
+      "GuildID": 136
+    },
+    {
+      "GuildName": "Draconic Knights",
+      "NexusLevel": 0,
+      "StudyLevel": 19,
+      "TotalUpgrades": 109,
+      "GuildLevel": 9,
+      "GuildID": 7
+    },
+    {
+      "GuildName": "Foolishness",
+      "NexusLevel": 35,
+      "StudyLevel": 22,
+      "TotalUpgrades": 105,
+      "GuildLevel": 16,
+      "GuildID": 195
+    },
+    {
+      "GuildName": "Kappa",
+      "NexusLevel": 34,
+      "StudyLevel": 33,
+      "TotalUpgrades": 102,
+      "GuildLevel": 18,
+      "GuildID": 189
+    },
+    {
+      "GuildName": "this is the way",
+      "NexusLevel": 20,
+      "StudyLevel": 16,
+      "TotalUpgrades": 97,
+      "GuildLevel": 10,
+      "GuildID": 142
+    },
+    {
+      "GuildName": "Insert Guild Name Here",
+      "NexusLevel": 23,
+      "StudyLevel": 22,
+      "TotalUpgrades": 96,
+      "GuildLevel": 14,
+      "GuildID": 166
+    },
+    {
+      "GuildName": "Rakkasan",
+      "NexusLevel": 16,
+      "StudyLevel": 13,
+      "TotalUpgrades": 94,
+      "GuildLevel": 16,
+      "GuildID": 184
+    },
+    {
+      "GuildName": "Survey Corps",
+      "NexusLevel": 13,
+      "StudyLevel": 20,
+      "TotalUpgrades": 84,
+      "GuildLevel": 6,
+      "GuildID": 28
+    },
+    {
+      "GuildName": "Rush",
+      "NexusLevel": 20,
+      "StudyLevel": 13,
+      "TotalUpgrades": 82,
+      "GuildLevel": 6,
+      "GuildID": 111
+    },
+    {
+      "GuildName": "Chilli Peppers",
+      "NexusLevel": 20,
+      "StudyLevel": 19,
+      "TotalUpgrades": 78,
+      "GuildLevel": 10,
+      "GuildID": 62
+    },
+    {
+      "GuildName": "Sister Fister",
+      "NexusLevel": 18,
+      "StudyLevel": 42,
+      "TotalUpgrades": 76,
+      "GuildLevel": 14,
+      "GuildID": 129
+    },
+    {
+      "GuildName": "Syndicate",
+      "NexusLevel": 11,
+      "StudyLevel": 10,
+      "TotalUpgrades": 72,
+      "GuildLevel": 7,
+      "GuildID": 3
+    },
+    {
+      "GuildName": "Killer Whale",
+      "NexusLevel": 21,
+      "StudyLevel": 12,
+      "TotalUpgrades": 67,
+      "GuildLevel": 11,
+      "GuildID": 169
+    }
+  ],
+  "last_updated": "2025-08-18T04:24:30.420098+00:00",
+  "last_processed_hour": "2025-08-18-04",
+  "guild_member_mapping": {},
+  "processed_guilds_today": [
+    "Spaghetti and Meatballs",
+    "Sanctuary",
+    "Divinity",
+    "RNG",
+    "Phoenix",
+    "Test Guild Please Ignore",
+    "Codex",
+    "EZ ",
+    "Racc City",
+    "The First Ones",
+    "Fight Club",
+    "Doomed",
+    "Hack n Slash",
+    "Imperium",
+    "Minimal Effort",
+    "Caliburnus",
+    "Ewbies",
+    "Manarion Adventures",
+    "Osmanthus",
+    "Gatherers Guild",
+    "Dino Nuggies",
+    "MooseKnuckles",
+    "Bureau of Feline Investigators",
+    "Lighthouse Reborn",
+    "BASED",
+    "Hydra",
+    "asylum",
+    "A Growing Threat",
+    "Cats",
+    "Rainbow",
+    "Guild",
+    "Dark Alliance",
+    "RevivaL",
+    "RSH",
+    "RPG MO",
+    "Chaos company",
+    "Knighted Order of Angels",
+    "Stormlight",
+    "Draconic Knights",
+    "Foolishness",
+    "Kappa",
+    "this is the way",
+    "Insert Guild Name Here",
+    "Rakkasan",
+    "Survey Corps",
+    "Rush",
+    "Chilli Peppers",
+    "Sister Fister",
+    "Syndicate",
+    "Killer Whale"
+  ],
+  "processing_stats": {
+    "players_processed": 50,
+    "players_skipped": 0,
+    "guilds_found": 50,
+    "efficiency_percent": 100
+  }
+}
