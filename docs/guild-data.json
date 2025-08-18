@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 468,
+      "NexusLevel": 469,
       "StudyLevel": 320,
-      "TotalUpgrades": 1422,
+      "TotalUpgrades": 1423,
       "GuildLevel": 101,
       "GuildID": 5,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 468
+      "TotalCodexCost": 937
     },
     {
       "GuildName": "RNG",
@@ -26,7 +26,7 @@
       "GuildName": "Divinity",
       "NexusLevel": 413,
       "StudyLevel": 330,
-      "TotalUpgrades": 1386,
+      "TotalUpgrades": 1388,
       "GuildLevel": 102,
       "GuildID": 25,
       "NexusProgress": 0,
@@ -276,6 +276,17 @@
       "TotalCodexCost": 0
     },
     {
+      "GuildName": "asylum",
+      "NexusLevel": 101,
+      "StudyLevel": 66,
+      "TotalUpgrades": 426,
+      "GuildLevel": 49,
+      "GuildID": 130,
+      "NexusProgress": 2,
+      "StudyProgress": 0,
+      "TotalCodexCost": 201
+    },
+    {
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 100,
       "StudyLevel": 120,
@@ -285,17 +296,6 @@
       "NexusProgress": 2,
       "StudyProgress": 0,
       "TotalCodexCost": 199
-    },
-    {
-      "GuildName": "asylum",
-      "NexusLevel": 99,
-      "StudyLevel": 66,
-      "TotalUpgrades": 420,
-      "GuildLevel": 49,
-      "GuildID": 130,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
     },
     {
       "GuildName": "Hydra",
@@ -313,7 +313,7 @@
       "NexusLevel": 85,
       "StudyLevel": 75,
       "TotalUpgrades": 332,
-      "GuildLevel": 38,
+      "GuildLevel": 39,
       "GuildID": 105,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 3834,
-    "formatted_dust": "60.42T",
+    "total_codex": 4504,
+    "formatted_dust": "70.97T",
     "formatted_price": "15.76B"
   },
-  "lastUpdated": "2025-08-18T07:18:52.975217+00:00",
+  "lastUpdated": "2025-08-18T08:22:09.774883+00:00",
   "baselineDate": "2025-08-18",
   "baselineCreatedAt": "2025-08-18T04:45:21.149154+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 10,
-    "total_codex_used": 3834,
+    "guilds_with_progress": 11,
+    "total_codex_used": 4504,
     "baseline_date": "2025-08-18"
   }
 }
