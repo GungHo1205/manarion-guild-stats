@@ -1,6 +1,6 @@
 {
   "date": "2025-08-18",
-  "created_at": "2025-08-18T04:23:03.156492+00:00",
+  "created_at": "2025-08-18T04:45:21.149154+00:00",
   "guilds": {
     "Spaghetti and Meatballs": {
       "NexusLevel": 467,
@@ -12,7 +12,7 @@
     },
     "Divinity": {
       "NexusLevel": 413,
-      "StudyLevel": 325
+      "StudyLevel": 328
     },
     "RNG": {
       "NexusLevel": 422,
@@ -66,13 +66,13 @@
       "NexusLevel": 195,
       "StudyLevel": 144
     },
-    "Ewbies": {
-      "NexusLevel": 160,
-      "StudyLevel": 169
-    },
     "Manarion Adventures": {
       "NexusLevel": 136,
       "StudyLevel": 147
+    },
+    "Ewbies": {
+      "NexusLevel": 160,
+      "StudyLevel": 169
     },
     "Osmanthus": {
       "NexusLevel": 176,
@@ -121,86 +121,6 @@
     "Rainbow": {
       "NexusLevel": 85,
       "StudyLevel": 75
-    },
-    "Guild": {
-      "NexusLevel": 66,
-      "StudyLevel": 76
-    },
-    "Dark Alliance": {
-      "NexusLevel": 59,
-      "StudyLevel": 59
-    },
-    "RevivaL": {
-      "NexusLevel": 80,
-      "StudyLevel": 53
-    },
-    "RSH": {
-      "NexusLevel": 50,
-      "StudyLevel": 71
-    },
-    "RPG MO": {
-      "NexusLevel": 82,
-      "StudyLevel": 58
-    },
-    "Chaos company": {
-      "NexusLevel": 34,
-      "StudyLevel": 40
-    },
-    "Knighted Order of Angels": {
-      "NexusLevel": 42,
-      "StudyLevel": 41
-    },
-    "Stormlight": {
-      "NexusLevel": 60,
-      "StudyLevel": 27
-    },
-    "Draconic Knights": {
-      "NexusLevel": 0,
-      "StudyLevel": 19
-    },
-    "Foolishness": {
-      "NexusLevel": 35,
-      "StudyLevel": 22
-    },
-    "Kappa": {
-      "NexusLevel": 34,
-      "StudyLevel": 33
-    },
-    "this is the way": {
-      "NexusLevel": 20,
-      "StudyLevel": 16
-    },
-    "Insert Guild Name Here": {
-      "NexusLevel": 23,
-      "StudyLevel": 22
-    },
-    "Rakkasan": {
-      "NexusLevel": 16,
-      "StudyLevel": 13
-    },
-    "Survey Corps": {
-      "NexusLevel": 13,
-      "StudyLevel": 20
-    },
-    "Rush": {
-      "NexusLevel": 20,
-      "StudyLevel": 13
-    },
-    "Chilli Peppers": {
-      "NexusLevel": 20,
-      "StudyLevel": 19
-    },
-    "Sister Fister": {
-      "NexusLevel": 18,
-      "StudyLevel": 42
-    },
-    "Syndicate": {
-      "NexusLevel": 11,
-      "StudyLevel": 10
-    },
-    "Killer Whale": {
-      "NexusLevel": 21,
-      "StudyLevel": 12
     }
   }
 }

@@ -14,14 +14,14 @@
       "NexusLevel": 410,
       "StudyLevel": 300,
       "TotalUpgrades": 1397,
-      "GuildLevel": 115,
+      "GuildLevel": 116,
       "GuildID": 19
     },
     {
       "GuildName": "Divinity",
       "NexusLevel": 413,
-      "StudyLevel": 325,
-      "TotalUpgrades": 1381,
+      "StudyLevel": 328,
+      "TotalUpgrades": 1384,
       "GuildLevel": 102,
       "GuildID": 25
     },
@@ -130,20 +130,20 @@
       "GuildID": 42
     },
     {
+      "GuildName": "Manarion Adventures",
+      "NexusLevel": 136,
+      "StudyLevel": 147,
+      "TotalUpgrades": 664,
+      "GuildLevel": 60,
+      "GuildID": 54
+    },
+    {
       "GuildName": "Ewbies",
       "NexusLevel": 160,
       "StudyLevel": 169,
       "TotalUpgrades": 664,
       "GuildLevel": 56,
       "GuildID": 4
-    },
-    {
-      "GuildName": "Manarion Adventures",
-      "NexusLevel": 136,
-      "StudyLevel": 147,
-      "TotalUpgrades": 660,
-      "GuildLevel": 60,
-      "GuildID": 54
     },
     {
       "GuildName": "Osmanthus",
@@ -240,169 +240,9 @@
       "TotalUpgrades": 332,
       "GuildLevel": 38,
       "GuildID": 105
-    },
-    {
-      "GuildName": "Guild",
-      "NexusLevel": 66,
-      "StudyLevel": 76,
-      "TotalUpgrades": 332,
-      "GuildLevel": 32,
-      "GuildID": 11
-    },
-    {
-      "GuildName": "Dark Alliance",
-      "NexusLevel": 59,
-      "StudyLevel": 59,
-      "TotalUpgrades": 285,
-      "GuildLevel": 36,
-      "GuildID": 103
-    },
-    {
-      "GuildName": "RevivaL",
-      "NexusLevel": 80,
-      "StudyLevel": 53,
-      "TotalUpgrades": 273,
-      "GuildLevel": 31,
-      "GuildID": 91
-    },
-    {
-      "GuildName": "RSH",
-      "NexusLevel": 50,
-      "StudyLevel": 71,
-      "TotalUpgrades": 259,
-      "GuildLevel": 32,
-      "GuildID": 104
-    },
-    {
-      "GuildName": "RPG MO",
-      "NexusLevel": 82,
-      "StudyLevel": 58,
-      "TotalUpgrades": 228,
-      "GuildLevel": 34,
-      "GuildID": 154
-    },
-    {
-      "GuildName": "Chaos company",
-      "NexusLevel": 34,
-      "StudyLevel": 40,
-      "TotalUpgrades": 186,
-      "GuildLevel": 15,
-      "GuildID": 34
-    },
-    {
-      "GuildName": "Knighted Order of Angels",
-      "NexusLevel": 42,
-      "StudyLevel": 41,
-      "TotalUpgrades": 172,
-      "GuildLevel": 24,
-      "GuildID": 60
-    },
-    {
-      "GuildName": "Stormlight",
-      "NexusLevel": 60,
-      "StudyLevel": 27,
-      "TotalUpgrades": 158,
-      "GuildLevel": 23,
-      "GuildID": 136
-    },
-    {
-      "GuildName": "Draconic Knights",
-      "NexusLevel": 0,
-      "StudyLevel": 19,
-      "TotalUpgrades": 109,
-      "GuildLevel": 9,
-      "GuildID": 7
-    },
-    {
-      "GuildName": "Foolishness",
-      "NexusLevel": 35,
-      "StudyLevel": 22,
-      "TotalUpgrades": 105,
-      "GuildLevel": 16,
-      "GuildID": 195
-    },
-    {
-      "GuildName": "Kappa",
-      "NexusLevel": 34,
-      "StudyLevel": 33,
-      "TotalUpgrades": 102,
-      "GuildLevel": 18,
-      "GuildID": 189
-    },
-    {
-      "GuildName": "this is the way",
-      "NexusLevel": 20,
-      "StudyLevel": 16,
-      "TotalUpgrades": 97,
-      "GuildLevel": 10,
-      "GuildID": 142
-    },
-    {
-      "GuildName": "Insert Guild Name Here",
-      "NexusLevel": 23,
-      "StudyLevel": 22,
-      "TotalUpgrades": 96,
-      "GuildLevel": 14,
-      "GuildID": 166
-    },
-    {
-      "GuildName": "Rakkasan",
-      "NexusLevel": 16,
-      "StudyLevel": 13,
-      "TotalUpgrades": 94,
-      "GuildLevel": 16,
-      "GuildID": 184
-    },
-    {
-      "GuildName": "Survey Corps",
-      "NexusLevel": 13,
-      "StudyLevel": 20,
-      "TotalUpgrades": 84,
-      "GuildLevel": 6,
-      "GuildID": 28
-    },
-    {
-      "GuildName": "Rush",
-      "NexusLevel": 20,
-      "StudyLevel": 13,
-      "TotalUpgrades": 82,
-      "GuildLevel": 6,
-      "GuildID": 111
-    },
-    {
-      "GuildName": "Chilli Peppers",
-      "NexusLevel": 20,
-      "StudyLevel": 19,
-      "TotalUpgrades": 78,
-      "GuildLevel": 10,
-      "GuildID": 62
-    },
-    {
-      "GuildName": "Sister Fister",
-      "NexusLevel": 18,
-      "StudyLevel": 42,
-      "TotalUpgrades": 76,
-      "GuildLevel": 14,
-      "GuildID": 129
-    },
-    {
-      "GuildName": "Syndicate",
-      "NexusLevel": 11,
-      "StudyLevel": 10,
-      "TotalUpgrades": 72,
-      "GuildLevel": 7,
-      "GuildID": 3
-    },
-    {
-      "GuildName": "Killer Whale",
-      "NexusLevel": 21,
-      "StudyLevel": 12,
-      "TotalUpgrades": 67,
-      "GuildLevel": 11,
-      "GuildID": 169
     }
   ],
-  "last_updated": "2025-08-18T04:24:30.420098+00:00",
+  "last_updated": "2025-08-18T04:46:14.252806+00:00",
   "last_processed_hour": "2025-08-18-04",
   "guild_member_mapping": {},
   "processed_guilds_today": [
@@ -422,8 +262,8 @@
     "Imperium",
     "Minimal Effort",
     "Caliburnus",
-    "Ewbies",
     "Manarion Adventures",
+    "Ewbies",
     "Osmanthus",
     "Gatherers Guild",
     "Dino Nuggies",
@@ -435,32 +275,12 @@
     "asylum",
     "A Growing Threat",
     "Cats",
-    "Rainbow",
-    "Guild",
-    "Dark Alliance",
-    "RevivaL",
-    "RSH",
-    "RPG MO",
-    "Chaos company",
-    "Knighted Order of Angels",
-    "Stormlight",
-    "Draconic Knights",
-    "Foolishness",
-    "Kappa",
-    "this is the way",
-    "Insert Guild Name Here",
-    "Rakkasan",
-    "Survey Corps",
-    "Rush",
-    "Chilli Peppers",
-    "Sister Fister",
-    "Syndicate",
-    "Killer Whale"
+    "Rainbow"
   ],
   "processing_stats": {
-    "players_processed": 50,
+    "players_processed": 30,
     "players_skipped": 0,
-    "guilds_found": 50,
+    "guilds_found": 30,
     "efficiency_percent": 100
   }
 }
