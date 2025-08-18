@@ -14,24 +14,24 @@
     {
       "GuildName": "RNG",
       "NexusLevel": 422,
-      "StudyLevel": 295,
-      "TotalUpgrades": 1351,
+      "StudyLevel": 300,
+      "TotalUpgrades": 1356,
       "GuildLevel": 100,
       "GuildID": 17,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 5,
+      "TotalCodexCost": 1490
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 413,
-      "StudyLevel": 330,
-      "TotalUpgrades": 1388,
+      "NexusLevel": 414,
+      "StudyLevel": 322,
+      "TotalUpgrades": 1391,
       "GuildLevel": 102,
       "GuildID": 25,
-      "NexusProgress": 0,
-      "StudyProgress": 2,
-      "TotalCodexCost": 659
+      "NexusProgress": 1,
+      "StudyProgress": 0,
+      "TotalCodexCost": 414
     },
     {
       "GuildName": "Sanctuary",
@@ -56,26 +56,26 @@
       "TotalCodexCost": 383
     },
     {
+      "GuildName": "EZ ",
+      "NexusLevel": 272,
+      "StudyLevel": 210,
+      "TotalUpgrades": 847,
+      "GuildLevel": 76,
+      "GuildID": 2,
+      "NexusProgress": 2,
+      "StudyProgress": 1,
+      "TotalCodexCost": 753
+    },
+    {
       "GuildName": "Codex",
       "NexusLevel": 270,
       "StudyLevel": 238,
       "TotalUpgrades": 897,
-      "GuildLevel": 79,
+      "GuildLevel": 80,
       "GuildID": 59,
       "NexusProgress": 1,
       "StudyProgress": 0,
       "TotalCodexCost": 270
-    },
-    {
-      "GuildName": "EZ ",
-      "NexusLevel": 270,
-      "StudyLevel": 210,
-      "TotalUpgrades": 845,
-      "GuildLevel": 76,
-      "GuildID": 2,
-      "NexusProgress": 0,
-      "StudyProgress": 1,
-      "TotalCodexCost": 210
     },
     {
       "GuildName": "The First Ones",
@@ -101,14 +101,14 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 227,
+      "NexusLevel": 228,
       "StudyLevel": 272,
-      "TotalUpgrades": 944,
+      "TotalUpgrades": 945,
       "GuildLevel": 53,
       "GuildID": 14,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 228
     },
     {
       "GuildName": "Fight Club",
@@ -159,7 +159,7 @@
       "NexusLevel": 200,
       "StudyLevel": 187,
       "TotalUpgrades": 841,
-      "GuildLevel": 65,
+      "GuildLevel": 66,
       "GuildID": 9,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -201,13 +201,13 @@
     {
       "GuildName": "Bureau of Feline Investigators",
       "NexusLevel": 180,
-      "StudyLevel": 170,
-      "TotalUpgrades": 552,
+      "StudyLevel": 173,
+      "TotalUpgrades": 555,
       "GuildLevel": 53,
       "GuildID": 18,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 3,
+      "TotalCodexCost": 516
     },
     {
       "GuildName": "Osmanthus",
@@ -244,19 +244,19 @@
     },
     {
       "GuildName": "Manarion Adventures",
-      "NexusLevel": 136,
+      "NexusLevel": 137,
       "StudyLevel": 147,
-      "TotalUpgrades": 664,
+      "TotalUpgrades": 665,
       "GuildLevel": 60,
       "GuildID": 54,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 137
     },
     {
       "GuildName": "Cats",
       "NexusLevel": 126,
-      "StudyLevel": 108,
+      "StudyLevel": 100,
       "TotalUpgrades": 367,
       "GuildLevel": 37,
       "GuildID": 55,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 4504,
-    "formatted_dust": "70.97T",
-    "formatted_price": "15.76B"
+    "total_codex": 7173,
+    "formatted_dust": "113.69T",
+    "formatted_price": "15.85B"
   },
-  "lastUpdated": "2025-08-18T08:22:09.774883+00:00",
+  "lastUpdated": "2025-08-18T09:20:12.874628+00:00",
   "baselineDate": "2025-08-18",
   "baselineCreatedAt": "2025-08-18T04:45:21.149154+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 11,
-    "total_codex_used": 4504,
+    "guilds_with_progress": 15,
+    "total_codex_used": 7173,
     "baseline_date": "2025-08-18"
   }
 }
