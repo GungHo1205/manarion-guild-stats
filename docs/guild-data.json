@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 467,
+      "NexusLevel": 468,
       "StudyLevel": 320,
-      "TotalUpgrades": 1421,
+      "TotalUpgrades": 1422,
       "GuildLevel": 101,
       "GuildID": 5,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 468
     },
     {
       "GuildName": "RNG",
@@ -58,19 +58,19 @@
     {
       "GuildName": "EZ ",
       "NexusLevel": 270,
-      "StudyLevel": 209,
-      "TotalUpgrades": 842,
+      "StudyLevel": 210,
+      "TotalUpgrades": 845,
       "GuildLevel": 76,
       "GuildID": 2,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 210
     },
     {
       "GuildName": "Codex",
       "NexusLevel": 269,
       "StudyLevel": 238,
-      "TotalUpgrades": 895,
+      "TotalUpgrades": 896,
       "GuildLevel": 79,
       "GuildID": 59,
       "NexusProgress": 0,
@@ -92,8 +92,8 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 170,
-      "TotalUpgrades": 748,
-      "GuildLevel": 68,
+      "TotalUpgrades": 752,
+      "GuildLevel": 69,
       "GuildID": 183,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -104,7 +104,7 @@
       "NexusLevel": 227,
       "StudyLevel": 272,
       "TotalUpgrades": 944,
-      "GuildLevel": 52,
+      "GuildLevel": 53,
       "GuildID": 14,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -158,7 +158,7 @@
       "GuildName": "Racc City",
       "NexusLevel": 200,
       "StudyLevel": 187,
-      "TotalUpgrades": 840,
+      "TotalUpgrades": 841,
       "GuildLevel": 65,
       "GuildID": 9,
       "NexusProgress": 0,
@@ -276,23 +276,23 @@
       "TotalCodexCost": 0
     },
     {
+      "GuildName": "Lighthouse Reborn",
+      "NexusLevel": 100,
+      "StudyLevel": 120,
+      "TotalUpgrades": 482,
+      "GuildLevel": 46,
+      "GuildID": 65,
+      "NexusProgress": 2,
+      "StudyProgress": 0,
+      "TotalCodexCost": 199
+    },
+    {
       "GuildName": "asylum",
       "NexusLevel": 99,
       "StudyLevel": 66,
       "TotalUpgrades": 420,
       "GuildLevel": 49,
       "GuildID": 130,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Lighthouse Reborn",
-      "NexusLevel": 98,
-      "StudyLevel": 120,
-      "TotalUpgrades": 480,
-      "GuildLevel": 46,
-      "GuildID": 65,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 0,
-    "formatted_dust": "0.00",
-    "formatted_price": "15.83B"
+    "total_codex": 877,
+    "formatted_dust": "13.86T",
+    "formatted_price": "15.80B"
   },
-  "lastUpdated": "2025-08-18T04:49:57.165092+00:00",
+  "lastUpdated": "2025-08-18T05:19:35.049013+00:00",
   "baselineDate": "2025-08-18",
   "baselineCreatedAt": "2025-08-18T04:45:21.149154+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 0,
-    "total_codex_used": 0,
+    "guilds_with_progress": 3,
+    "total_codex_used": 877,
     "baseline_date": "2025-08-18"
   }
 }
