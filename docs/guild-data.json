@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 472,
+      "NexusLevel": 473,
       "StudyLevel": 320,
-      "TotalUpgrades": 1427,
+      "TotalUpgrades": 1428,
       "GuildLevel": 102,
       "GuildID": 5,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 2350
+      "TotalCodexCost": 2823
     },
     {
       "GuildName": "RNG",
@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 415,
+      "NexusLevel": 416,
       "StudyLevel": 334,
-      "TotalUpgrades": 1403,
+      "TotalUpgrades": 1404,
       "GuildLevel": 103,
       "GuildID": 25,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 6,
-      "TotalCodexCost": 2818
+      "TotalCodexCost": 3234
     },
     {
       "GuildName": "Sanctuary",
@@ -69,13 +69,13 @@
     {
       "GuildName": "EZ ",
       "NexusLevel": 273,
-      "StudyLevel": 211,
-      "TotalUpgrades": 851,
+      "StudyLevel": 212,
+      "TotalUpgrades": 852,
       "GuildLevel": 77,
       "GuildID": 2,
       "NexusProgress": 3,
-      "StudyProgress": 2,
-      "TotalCodexCost": 1237
+      "StudyProgress": 3,
+      "TotalCodexCost": 1449
     },
     {
       "GuildName": "The First Ones",
@@ -126,7 +126,7 @@
       "NexusLevel": 206,
       "StudyLevel": 200,
       "TotalUpgrades": 751,
-      "GuildLevel": 75,
+      "GuildLevel": 76,
       "GuildID": 15,
       "NexusProgress": 6,
       "StudyProgress": 0,
@@ -168,13 +168,13 @@
     {
       "GuildName": "Hack n Slash",
       "NexusLevel": 200,
-      "StudyLevel": 160,
-      "TotalUpgrades": 745,
+      "StudyLevel": 161,
+      "TotalUpgrades": 751,
       "GuildLevel": 67,
       "GuildID": 86,
       "NexusProgress": 3,
-      "StudyProgress": 0,
-      "TotalCodexCost": 597
+      "StudyProgress": 1,
+      "TotalCodexCost": 758
     },
     {
       "GuildName": "Caliburnus",
@@ -203,7 +203,7 @@
       "NexusLevel": 180,
       "StudyLevel": 173,
       "TotalUpgrades": 555,
-      "GuildLevel": 53,
+      "GuildLevel": 54,
       "GuildID": 18,
       "NexusProgress": 0,
       "StudyProgress": 3,
@@ -268,7 +268,7 @@
       "GuildName": "MooseKnuckles",
       "NexusLevel": 115,
       "StudyLevel": 115,
-      "TotalUpgrades": 596,
+      "TotalUpgrades": 601,
       "GuildLevel": 48,
       "GuildID": 64,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 26203,
-    "formatted_dust": "429.50T",
-    "formatted_price": "16.39B"
+    "total_codex": 27465,
+    "formatted_dust": "450.68T",
+    "formatted_price": "16.41B"
   },
-  "lastUpdated": "2025-08-18T19:13:13.365013+00:00",
+  "lastUpdated": "2025-08-18T20:15:46.439621+00:00",
   "baselineDate": "2025-08-18",
   "baselineCreatedAt": "2025-08-18T04:45:21.149154+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 27,
-    "total_codex_used": 26203,
+    "total_codex_used": 27465,
     "baseline_date": "2025-08-18"
   }
 }
