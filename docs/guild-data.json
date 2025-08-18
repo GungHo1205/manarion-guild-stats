@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 416,
+      "NexusLevel": 417,
       "StudyLevel": 334,
-      "TotalUpgrades": 1404,
+      "TotalUpgrades": 1405,
       "GuildLevel": 103,
       "GuildID": 25,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 6,
-      "TotalCodexCost": 3234
+      "TotalCodexCost": 3651
     },
     {
       "GuildName": "Sanctuary",
@@ -46,14 +46,14 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 386,
+      "NexusLevel": 387,
       "StudyLevel": 246,
-      "TotalUpgrades": 1190,
+      "TotalUpgrades": 1192,
       "GuildLevel": 91,
       "GuildID": 8,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 1,
-      "TotalCodexCost": 1784
+      "TotalCodexCost": 2171
     },
     {
       "GuildName": "Codex",
@@ -92,7 +92,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 170,
-      "TotalUpgrades": 763,
+      "TotalUpgrades": 765,
       "GuildLevel": 70,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -112,25 +112,25 @@
     },
     {
       "GuildName": "Fight Club",
-      "NexusLevel": 231,
+      "NexusLevel": 232,
       "StudyLevel": 160,
-      "TotalUpgrades": 759,
+      "TotalUpgrades": 760,
       "GuildLevel": 65,
       "GuildID": 10,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 1145
+      "TotalCodexCost": 1377
     },
     {
       "GuildName": "Imperium",
-      "NexusLevel": 206,
+      "NexusLevel": 207,
       "StudyLevel": 200,
-      "TotalUpgrades": 751,
+      "TotalUpgrades": 760,
       "GuildLevel": 76,
       "GuildID": 15,
-      "NexusProgress": 6,
+      "NexusProgress": 7,
       "StudyProgress": 0,
-      "TotalCodexCost": 1221
+      "TotalCodexCost": 1428
     },
     {
       "GuildName": "Minimal Effort",
@@ -213,7 +213,7 @@
       "GuildName": "Osmanthus",
       "NexusLevel": 180,
       "StudyLevel": 155,
-      "TotalUpgrades": 664,
+      "TotalUpgrades": 668,
       "GuildLevel": 72,
       "GuildID": 21,
       "NexusProgress": 4,
@@ -246,7 +246,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 139,
       "StudyLevel": 149,
-      "TotalUpgrades": 670,
+      "TotalUpgrades": 672,
       "GuildLevel": 61,
       "GuildID": 54,
       "NexusProgress": 3,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 27465,
-    "formatted_dust": "450.68T",
-    "formatted_price": "16.41B"
+    "total_codex": 28708,
+    "formatted_dust": "471.57T",
+    "formatted_price": "16.43B"
   },
-  "lastUpdated": "2025-08-18T20:15:46.439621+00:00",
+  "lastUpdated": "2025-08-18T21:12:47.733750+00:00",
   "baselineDate": "2025-08-18",
   "baselineCreatedAt": "2025-08-18T04:45:21.149154+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 27,
-    "total_codex_used": 27465,
+    "total_codex_used": 28708,
     "baseline_date": "2025-08-18"
   }
 }
