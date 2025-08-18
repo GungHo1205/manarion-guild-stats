@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 469,
+      "NexusLevel": 470,
       "StudyLevel": 320,
-      "TotalUpgrades": 1423,
+      "TotalUpgrades": 1424,
       "GuildLevel": 101,
       "GuildID": 5,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 937
+      "TotalCodexCost": 1407
     },
     {
       "GuildName": "RNG",
@@ -25,8 +25,8 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 414,
-      "StudyLevel": 322,
-      "TotalUpgrades": 1392,
+      "StudyLevel": 323,
+      "TotalUpgrades": 1395,
       "GuildLevel": 103,
       "GuildID": 25,
       "NexusProgress": 1,
@@ -37,7 +37,7 @@
       "GuildName": "Sanctuary",
       "NexusLevel": 410,
       "StudyLevel": 300,
-      "TotalUpgrades": 1397,
+      "TotalUpgrades": 1404,
       "GuildLevel": 116,
       "GuildID": 19,
       "NexusProgress": 0,
@@ -82,7 +82,7 @@
       "NexusLevel": 252,
       "StudyLevel": 175,
       "TotalUpgrades": 835,
-      "GuildLevel": 79,
+      "GuildLevel": 80,
       "GuildID": 112,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -92,7 +92,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 170,
-      "TotalUpgrades": 755,
+      "TotalUpgrades": 756,
       "GuildLevel": 69,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -101,14 +101,14 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 228,
+      "NexusLevel": 230,
       "StudyLevel": 272,
-      "TotalUpgrades": 945,
+      "TotalUpgrades": 947,
       "GuildLevel": 53,
       "GuildID": 14,
-      "NexusProgress": 1,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 228
+      "TotalCodexCost": 687
     },
     {
       "GuildName": "Fight Club",
@@ -190,13 +190,13 @@
     {
       "GuildName": "BASED",
       "NexusLevel": 189,
-      "StudyLevel": 120,
-      "TotalUpgrades": 438,
+      "StudyLevel": 127,
+      "TotalUpgrades": 446,
       "GuildLevel": 45,
       "GuildID": 27,
       "NexusProgress": 0,
-      "StudyProgress": 1,
-      "TotalCodexCost": 120
+      "StudyProgress": 8,
+      "TotalCodexCost": 988
     },
     {
       "GuildName": "Bureau of Feline Investigators",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 7784,
-    "formatted_dust": "123.35T",
-    "formatted_price": "15.85B"
+    "total_codex": 9581,
+    "formatted_dust": "153.37T",
+    "formatted_price": "16.01B"
   },
-  "lastUpdated": "2025-08-18T10:17:09.706122+00:00",
+  "lastUpdated": "2025-08-18T11:13:29.540086+00:00",
   "baselineDate": "2025-08-18",
   "baselineCreatedAt": "2025-08-18T04:45:21.149154+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 16,
-    "total_codex_used": 7784,
+    "total_codex_used": 9581,
     "baseline_date": "2025-08-18"
   }
 }
