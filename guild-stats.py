@@ -700,6 +700,9 @@ class GuildStatsTracker:
             return
 
         timestamp = datetime.now(timezone.utc).isoformat()
+        today_str = timestamp.split('T')[0]
+        
+        # Fetch current data
         current_guilds, guild_data_fresh = self.fetch_current_guild_data()
         market_prices, market_data_fresh = self.fetch_market_prices()
         
@@ -715,20 +718,15 @@ class GuildStatsTracker:
             if len(current_guilds) > 5:
                 print(f"   ... and {len(current_guilds) - 5} more guilds")
         
-        # Only update historical data if we have fresh data
-        if guild_data_fresh or market_data_fresh:
-            guild_data_for_history = current_guilds if guild_data_fresh else []
-            self.update_historical_data(guild_data_for_history, market_prices if market_data_fresh else {}, timestamp)
-
-        # Load/create baseline for progress calculation
+        # Load/create baseline - ALWAYS check for new day, regardless of data freshness
         try:
             with open(BASELINE_FILE, 'r') as f: 
                 baseline = json.load(f)
         except (IOError, json.JSONDecodeError): 
             baseline = {"date": None, "guilds": {}}
 
-        today_str = timestamp.split('T')[0]
-        if baseline.get("date") != today_str:
+        # Check for new day and create baseline if needed
+        if baseline.get("date") != today_str and current_guilds:
             print(f" New day detected. Creating new baseline for {today_str}.")
             baseline = {
                 "date": today_str, 
@@ -741,6 +739,16 @@ class GuildStatsTracker:
             }
             with open(BASELINE_FILE, 'w') as f: 
                 json.dump(baseline, f, indent=2)
+            print(f" Baseline created/updated for {len(current_guilds)} guilds.")
+        elif baseline.get("date") == today_str:
+            print(f" Using existing baseline from {today_str}.")
+        else:
+            print(f" No current guild data available for baseline creation.")
+
+        # Only update historical data if we have fresh data
+        if guild_data_fresh or market_data_fresh:
+            guild_data_for_history = current_guilds if guild_data_fresh else []
+            self.update_historical_data(guild_data_for_history, market_prices if market_data_fresh else {}, timestamp)
 
         # Calculate progress and codex cost (CRITICAL: This is where level changes are tracked!)
         total_codex = 0
@@ -813,6 +821,7 @@ class GuildStatsTracker:
         print(f"   Estimated dust spent: {dust_spending['formatted_dust']}")
         print(f"   Performance: {len(current_guilds)/execution_time:.1f} guilds/second")
         print(f"   Fresh data: guilds={guild_data_fresh}, market={market_data_fresh}")
+        print(f"   Baseline date: {baseline.get('date')}")
         
         # Load and display processing stats
         cache_data = self._load_consolidated_cache()
