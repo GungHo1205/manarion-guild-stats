@@ -191,7 +191,6 @@
         margin-left: auto;
       }
       .data-freshness {
-        font-size: 0.75rem;
         margin-top: 4px;
       }
       .fresh-data {
@@ -1113,15 +1112,19 @@
 
       async function loadAllData() {
         try {
-          const [guildRes, historicalRes] = await Promise.all([
+          const [dailyBaseline, guildRes, historicalRes] = await Promise.all([
+            fetch(`./daily-baseline.json?v=${new Date().getTime()}`),
             fetch(`./guild-data.json?v=${new Date().getTime()}`),
             fetch(`./historical-data.json?v=${new Date().getTime()}`),
           ]);
 
           if (!guildRes.ok) throw new Error("Failed to load guild data");
+          const dailyBaselineData = await dailyBaseline.json();
+          console.log(dailyBaseline);
+          console.log(dailyBaselineData);
           const guildData = await guildRes.json();
           allGuildsData = guildData.guilds || [];
-          updateDashboard(guildData);
+          updateDashboard(dailyBaseline, guildData);
           renderGuilds();
 
           historicalData = historicalRes.ok
@@ -1329,7 +1332,8 @@
         });
       }
 
-      function updateDashboard(data) {
+      function updateDashboard(dailyBaseline, data) {
+        const { created_at } = dailyBaseline;
         const { guilds, dustSpending, lastUpdated, dataFreshness } = data;
         if (!guilds || guilds.length === 0) return;
 
@@ -1364,23 +1368,41 @@
           dustSpending.formatted_price || "N/A"
         } per Codex`;
 
-        const lastUpdateTime = new Date(lastUpdated).toLocaleString();
+        const lastUpdateTime =
+          new Date(lastUpdated).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }) +
+          " at " +
+          new Date(lastUpdated).toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          });
+        console.log(data.baselineCreatedAt);
+        const dailyBaselineDate = data.baselineCreatedAt
+          ? (function () {
+              const d = new Date(data.baselineCreatedAt);
+              return (
+                d.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                }) +
+                " at " +
+                d.toLocaleTimeString("en-US", {
+                  hour: "numeric",
+                  minute: "2-digit",
+                  hour12: true,
+                })
+              );
+            })()
+          : "Not set";
         document.getElementById("lastUpdate").innerHTML = `
-          <div>Last updated: ${lastUpdateTime}</div>
-          <div id="dataFreshness" class="data-freshness"></div>
-        `;
-
-        // Show data freshness indicators
-        const freshnessDiv = document.getElementById("dataFreshness");
-        if (dataFreshness) {
-          const guildStatus = dataFreshness.guild_data_fresh
-            ? '<span class="fresh-data">Guild data fresh</span>'
-            : '<span class="stale-data">Using cached guild data</span>';
-          const marketStatus = dataFreshness.market_data_fresh
-            ? '<span class="fresh-data">Market data fresh</span>'
-            : '<span class="stale-data">Using cached market data</span>';
-          freshnessDiv.innerHTML = `${guildStatus} | ${marketStatus}`;
-        }
+        <div>Last updated: ${lastUpdateTime}</div>
+        <div class="data-freshness">Daily baseline date: ${dailyBaselineDate}</div>
+      `;
       }
 
       function renderGuilds() {
@@ -1406,41 +1428,45 @@
         grid.innerHTML = filtered
           .map(
             (g) => `
-                <div class="guild-card ${
-                  isFavorite(g.GuildName) ? "favorite" : ""
-                }">
-                    <div class="guild-name">
-                        <span>${g.GuildName}</span>
-                        <button class="favorite-btn ${
-                          isFavorite(g.GuildName) ? "favorited" : ""
-                        }" 
-                                onclick="toggleFavorite('${g.GuildName}')" 
-                                title="${
-                                  isFavorite(g.GuildName)
-                                    ? "Remove from favorites"
-                                    : "Add to favorites"
-                                }">
-                            ${isFavorite(g.GuildName) ? "★" : "☆"}
-                        </button>
-                    </div>
-                    <div class="level-info">
-                        <div class="level-item">
-                            <div class="level-label">Nexus</div>
-                            <div class="level-value">${g.NexusLevel || 0}</div>
-                            <div class="daily-change positive">+${
-                              g.NexusProgress || 0
-                            }</div>
-                        </div>
-                        <div class="level-item">
-                            <div class="level-label">Study</div>
-                            <div class="level-value">${g.StudyLevel || 0}</div>
-                            <div class="daily-change positive">+${
-                              g.StudyProgress || 0
-                            }</div>
-                        </div>
-                    </div>
-                </div>
-            `
+                      <div class="guild-card ${
+                        isFavorite(g.GuildName) ? "favorite" : ""
+                      }">
+                          <div class="guild-name">
+                              <span>${g.GuildName}</span>
+                              <button class="favorite-btn ${
+                                isFavorite(g.GuildName) ? "favorited" : ""
+                              }"
+                                      onclick="toggleFavorite('${g.GuildName}')"
+                                      title="${
+                                        isFavorite(g.GuildName)
+                                          ? "Remove from favorites"
+                                          : "Add to favorites"
+                                      }">
+                                  ${isFavorite(g.GuildName) ? "★" : "☆"}
+                              </button>
+                          </div>
+                          <div class="level-info">
+                              <div class="level-item">
+                                  <div class="level-label">Nexus</div>
+                                  <div class="level-value">${
+                                    g.NexusLevel || 0
+                                  }</div>
+                                  <div class="daily-change positive">+${
+                                    g.NexusProgress || 0
+                                  }</div>
+                              </div>
+                              <div class="level-item">
+                                  <div class="level-label">Study</div>
+                                  <div class="level-value">${
+                                    g.StudyLevel || 0
+                                  }</div>
+                                  <div class="daily-change positive">+${
+                                    g.StudyProgress || 0
+                                  }</div>
+                              </div>
+                          </div>
+                      </div>
+                  `
           )
           .join("");
       }
@@ -1487,10 +1513,10 @@
             .map(
               (name) =>
                 `<label class="${isFavorite(name) ? "favorite-guild" : ""}">
-                  <input type="checkbox" value="${name}" ${
+                        <input type="checkbox" value="${name}" ${
                   autoSelectGuilds.includes(name) ? "checked" : ""
                 }> ${isFavorite(name) ? "★ " : ""}${name}
-                </label>`
+                      </label>`
             )
             .join("");
           updateSelectedGuildCount(type);
@@ -1597,7 +1623,7 @@
 
           if (availableItems.length > 0) {
             html += `<div class="item-category">
-              <div class="category-header">${categoryName}</div>`;
+                    <div class="category-header">${categoryName}</div>`;
 
             availableItems.forEach((itemName) => {
               html += `<div class="item-option" data-item="${itemName}">${itemName}</div>`;
@@ -1658,7 +1684,7 @@
 
           if (availableItems.length > 0) {
             html += `<div class="item-category">
-              <div class="category-header">${categoryName}</div>`;
+                    <div class="category-header">${categoryName}</div>`;
 
             availableItems.forEach((itemName) => {
               html += `<div class="item-option" data-item="${itemName}">${itemName}</div>`;
@@ -2003,10 +2029,10 @@
 
         if (filteredGuilds.length === 0) {
           content.innerHTML = `
-            <div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 60px;">
-              No progress data available for ${title.toLowerCase()}
-            </div>
-          `;
+                  <div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 60px;">
+                    No progress data available for ${title.toLowerCase()}
+                  </div>
+                `;
           return;
         }
 
@@ -2028,22 +2054,24 @@
             }
 
             return `
-            <div class="leaderboard-item ${
-              isFavorite(guild.GuildName) ? "favorite" : ""
-            }">
-              <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
-              <div class="leaderboard-info">
-                <div class="leaderboard-guild">
-                  ${isFavorite(guild.GuildName) ? "★ " : ""}${guild.GuildName}
-                </div>
-                <div class="leaderboard-stat">
-                  <span class="leaderboard-value">${formatValue(
-                    guild[valueKey]
-                  )}</span>
-                </div>
-              </div>
-            </div>
-          `;
+                  <div class="leaderboard-item ${
+                    isFavorite(guild.GuildName) ? "favorite" : ""
+                  }">
+                    <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
+                    <div class="leaderboard-info">
+                      <div class="leaderboard-guild">
+                        ${isFavorite(guild.GuildName) ? "★ " : ""}${
+              guild.GuildName
+            }
+                      </div>
+                      <div class="leaderboard-stat">
+                        <span class="leaderboard-value">${formatValue(
+                          guild[valueKey]
+                        )}</span>
+                      </div>
+                    </div>
+                  </div>
+                `;
           })
           .join("");
       }
