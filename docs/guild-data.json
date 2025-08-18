@@ -92,7 +92,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 170,
-      "TotalUpgrades": 752,
+      "TotalUpgrades": 755,
       "GuildLevel": 69,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -268,7 +268,7 @@
       "GuildName": "MooseKnuckles",
       "NexusLevel": 115,
       "StudyLevel": 115,
-      "TotalUpgrades": 593,
+      "TotalUpgrades": 596,
       "GuildLevel": 47,
       "GuildID": 64,
       "NexusProgress": 0,
@@ -333,10 +333,10 @@
   ],
   "dustSpending": {
     "total_codex": 3834,
-    "formatted_dust": "60.47T",
-    "formatted_price": "15.77B"
+    "formatted_dust": "60.42T",
+    "formatted_price": "15.76B"
   },
-  "lastUpdated": "2025-08-18T06:24:45.655257+00:00",
+  "lastUpdated": "2025-08-18T07:18:52.975217+00:00",
   "baselineDate": "2025-08-18",
   "baselineCreatedAt": "2025-08-18T04:45:21.149154+00:00",
   "dataFreshness": {
