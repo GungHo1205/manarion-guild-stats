@@ -25,13 +25,13 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 414,
-      "StudyLevel": 325,
-      "TotalUpgrades": 1401,
+      "StudyLevel": 334,
+      "TotalUpgrades": 1402,
       "GuildLevel": 103,
       "GuildID": 25,
       "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 414
+      "StudyProgress": 6,
+      "TotalCodexCost": 2403
     },
     {
       "GuildName": "Sanctuary",
@@ -46,14 +46,14 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 385,
+      "NexusLevel": 386,
       "StudyLevel": 246,
-      "TotalUpgrades": 1189,
-      "GuildLevel": 90,
+      "TotalUpgrades": 1190,
+      "GuildLevel": 91,
       "GuildID": 8,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 1,
-      "TotalCodexCost": 1398
+      "TotalCodexCost": 1784
     },
     {
       "GuildName": "Codex",
@@ -68,14 +68,14 @@
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 272,
+      "NexusLevel": 273,
       "StudyLevel": 211,
-      "TotalUpgrades": 848,
+      "TotalUpgrades": 851,
       "GuildLevel": 77,
       "GuildID": 2,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 2,
-      "TotalCodexCost": 964
+      "TotalCodexCost": 1237
     },
     {
       "GuildName": "The First Ones",
@@ -92,7 +92,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 170,
-      "TotalUpgrades": 759,
+      "TotalUpgrades": 760,
       "GuildLevel": 69,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -122,6 +122,17 @@
       "TotalCodexCost": 1145
     },
     {
+      "GuildName": "Imperium",
+      "NexusLevel": 206,
+      "StudyLevel": 200,
+      "TotalUpgrades": 751,
+      "GuildLevel": 75,
+      "GuildID": 15,
+      "NexusProgress": 6,
+      "StudyProgress": 0,
+      "TotalCodexCost": 1221
+    },
+    {
       "GuildName": "Minimal Effort",
       "NexusLevel": 206,
       "StudyLevel": 160,
@@ -131,17 +142,6 @@
       "NexusProgress": 4,
       "StudyProgress": 0,
       "TotalCodexCost": 818
-    },
-    {
-      "GuildName": "Imperium",
-      "NexusLevel": 205,
-      "StudyLevel": 200,
-      "TotalUpgrades": 739,
-      "GuildLevel": 75,
-      "GuildID": 15,
-      "NexusProgress": 5,
-      "StudyProgress": 0,
-      "TotalCodexCost": 1015
     },
     {
       "GuildName": "Gatherers Guild",
@@ -179,24 +179,24 @@
     {
       "GuildName": "Caliburnus",
       "NexusLevel": 196,
-      "StudyLevel": 144,
-      "TotalUpgrades": 669,
+      "StudyLevel": 145,
+      "TotalUpgrades": 670,
       "GuildLevel": 57,
       "GuildID": 42,
       "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 196
+      "StudyProgress": 1,
+      "TotalCodexCost": 341
     },
     {
       "GuildName": "BASED",
       "NexusLevel": 189,
-      "StudyLevel": 127,
-      "TotalUpgrades": 446,
+      "StudyLevel": 131,
+      "TotalUpgrades": 450,
       "GuildLevel": 46,
       "GuildID": 27,
       "NexusProgress": 0,
-      "StudyProgress": 8,
-      "TotalCodexCost": 988
+      "StudyProgress": 12,
+      "TotalCodexCost": 1506
     },
     {
       "GuildName": "Bureau of Feline Investigators",
@@ -247,7 +247,7 @@
       "NexusLevel": 137,
       "StudyLevel": 147,
       "TotalUpgrades": 665,
-      "GuildLevel": 60,
+      "GuildLevel": 61,
       "GuildID": 54,
       "NexusProgress": 1,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 19414,
-    "formatted_dust": "317.46T",
-    "formatted_price": "16.35B"
+    "total_codex": 22931,
+    "formatted_dust": "375.22T",
+    "formatted_price": "16.36B"
   },
-  "lastUpdated": "2025-08-18T16:19:17.729949+00:00",
+  "lastUpdated": "2025-08-18T17:14:59.614119+00:00",
   "baselineDate": "2025-08-18",
   "baselineCreatedAt": "2025-08-18T04:45:21.149154+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 27,
-    "total_codex_used": 19414,
+    "total_codex_used": 22931,
     "baseline_date": "2025-08-18"
   }
 }
