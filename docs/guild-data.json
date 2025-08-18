@@ -37,7 +37,7 @@
       "GuildName": "Sanctuary",
       "NexusLevel": 410,
       "StudyLevel": 300,
-      "TotalUpgrades": 1404,
+      "TotalUpgrades": 1405,
       "GuildLevel": 116,
       "GuildID": 19,
       "NexusProgress": 0,
@@ -46,25 +46,25 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 384,
+      "NexusLevel": 385,
       "StudyLevel": 245,
-      "TotalUpgrades": 1187,
+      "TotalUpgrades": 1188,
       "GuildLevel": 90,
       "GuildID": 8,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 767
+      "TotalCodexCost": 1152
     },
     {
       "GuildName": "EZ ",
       "NexusLevel": 272,
-      "StudyLevel": 210,
-      "TotalUpgrades": 847,
+      "StudyLevel": 211,
+      "TotalUpgrades": 848,
       "GuildLevel": 76,
       "GuildID": 2,
       "NexusProgress": 2,
-      "StudyProgress": 1,
-      "TotalCodexCost": 753
+      "StudyProgress": 2,
+      "TotalCodexCost": 964
     },
     {
       "GuildName": "Codex",
@@ -79,20 +79,20 @@
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 252,
+      "NexusLevel": 256,
       "StudyLevel": 175,
-      "TotalUpgrades": 835,
+      "TotalUpgrades": 839,
       "GuildLevel": 80,
       "GuildID": 112,
-      "NexusProgress": 0,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 1018
     },
     {
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 170,
-      "TotalUpgrades": 756,
+      "TotalUpgrades": 757,
       "GuildLevel": 69,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -145,25 +145,25 @@
     },
     {
       "GuildName": "Gatherers Guild",
-      "NexusLevel": 201,
+      "NexusLevel": 202,
       "StudyLevel": 140,
-      "TotalUpgrades": 636,
+      "TotalUpgrades": 637,
       "GuildLevel": 56,
       "GuildID": 1,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 202
     },
     {
       "GuildName": "Racc City",
       "NexusLevel": 200,
-      "StudyLevel": 187,
-      "TotalUpgrades": 841,
+      "StudyLevel": 188,
+      "TotalUpgrades": 845,
       "GuildLevel": 66,
       "GuildID": 9,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 188
     },
     {
       "GuildName": "Hack n Slash",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 9581,
-    "formatted_dust": "153.37T",
-    "formatted_price": "16.01B"
+    "total_codex": 11585,
+    "formatted_dust": "186.94T",
+    "formatted_price": "16.14B"
   },
-  "lastUpdated": "2025-08-18T11:13:29.540086+00:00",
+  "lastUpdated": "2025-08-18T12:31:56.065978+00:00",
   "baselineDate": "2025-08-18",
   "baselineCreatedAt": "2025-08-18T04:45:21.149154+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 16,
-    "total_codex_used": 9581,
+    "guilds_with_progress": 19,
+    "total_codex_used": 11585,
     "baseline_date": "2025-08-18"
   }
 }
