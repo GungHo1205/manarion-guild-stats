@@ -239,7 +239,7 @@ class GuildStatsTracker:
         guild_list.sort(key=lambda g: (-g["TotalUpgrades"], -g["Level"], g["ID"]))
         
         # Take top 50 guilds
-        top_guilds = guild_list[:50]
+        top_guilds = guild_list[:30]
         print(f"Selected top {len(top_guilds)} guilds for processing")
         
         # Step 4-6: Process each guild owner to calculate levels
