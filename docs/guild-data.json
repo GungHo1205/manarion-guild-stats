@@ -7,9 +7,9 @@
       "TotalUpgrades": 1421,
       "GuildLevel": 101,
       "GuildID": 5,
-      "NexusProgress": 1,
+      "NexusProgress": 0,
       "StudyProgress": 0,
-      "TotalCodexCost": 467
+      "TotalCodexCost": 0
     },
     {
       "GuildName": "RNG",
@@ -25,13 +25,13 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 413,
-      "StudyLevel": 317,
+      "StudyLevel": 325,
       "TotalUpgrades": 1381,
       "GuildLevel": 102,
       "GuildID": 25,
       "NexusProgress": 0,
-      "StudyProgress": 2,
-      "TotalCodexCost": 633
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
     },
     {
       "GuildName": "Sanctuary",
@@ -51,9 +51,9 @@
       "TotalUpgrades": 1185,
       "GuildLevel": 89,
       "GuildID": 8,
-      "NexusProgress": 1,
+      "NexusProgress": 0,
       "StudyProgress": 0,
-      "TotalCodexCost": 382
+      "TotalCodexCost": 0
     },
     {
       "GuildName": "EZ ",
@@ -68,9 +68,9 @@
     },
     {
       "GuildName": "Codex",
-      "NexusLevel": 268,
+      "NexusLevel": 269,
       "StudyLevel": 238,
-      "TotalUpgrades": 894,
+      "TotalUpgrades": 895,
       "GuildLevel": 79,
       "GuildID": 59,
       "NexusProgress": 0,
@@ -84,9 +84,9 @@
       "TotalUpgrades": 835,
       "GuildLevel": 79,
       "GuildID": 112,
-      "NexusProgress": 1,
+      "NexusProgress": 0,
       "StudyProgress": 0,
-      "TotalCodexCost": 252
+      "TotalCodexCost": 0
     },
     {
       "GuildName": "Doomed",
@@ -117,9 +117,9 @@
       "TotalUpgrades": 754,
       "GuildLevel": 64,
       "GuildID": 10,
-      "NexusProgress": 6,
+      "NexusProgress": 0,
       "StudyProgress": 0,
-      "TotalCodexCost": 1341
+      "TotalCodexCost": 0
     },
     {
       "GuildName": "Minimal Effort",
@@ -183,9 +183,9 @@
       "TotalUpgrades": 667,
       "GuildLevel": 57,
       "GuildID": 42,
-      "NexusProgress": 1,
+      "NexusProgress": 0,
       "StudyProgress": 0,
-      "TotalCodexCost": 195
+      "TotalCodexCost": 0
     },
     {
       "GuildName": "BASED",
@@ -238,9 +238,9 @@
       "TotalUpgrades": 664,
       "GuildLevel": 56,
       "GuildID": 4,
-      "NexusProgress": 3,
-      "StudyProgress": 2,
-      "TotalCodexCost": 814
+      "NexusProgress": 0,
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
     },
     {
       "GuildName": "Manarion Adventures",
@@ -280,11 +280,11 @@
       "NexusLevel": 99,
       "StudyLevel": 66,
       "TotalUpgrades": 420,
-      "GuildLevel": 48,
+      "GuildLevel": 49,
       "GuildID": 130,
       "NexusProgress": 0,
-      "StudyProgress": 1,
-      "TotalCodexCost": 66
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
     },
     {
       "GuildName": "Lighthouse Reborn",
@@ -327,8 +327,8 @@
       "GuildLevel": 34,
       "GuildID": 154,
       "NexusProgress": 0,
-      "StudyProgress": 6,
-      "TotalCodexCost": 333
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
     },
     {
       "GuildName": "RevivaL",
@@ -552,20 +552,21 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 4483,
-    "formatted_dust": "71.65T",
-    "formatted_price": "15.98B"
+    "total_codex": 0,
+    "formatted_dust": "0.00",
+    "formatted_price": "15.83B"
   },
-  "lastUpdated": "2025-08-18T03:23:28.421663+00:00",
+  "lastUpdated": "2025-08-18T04:23:03.156492+00:00",
   "baselineDate": "2025-08-18",
+  "baselineCreatedAt": "2025-08-18T04:23:03.156492+00:00",
   "dataFreshness": {
     "guild_data_fresh": true,
     "market_data_fresh": true
   },
   "levelTrackingStats": {
     "guilds_tracked": 50,
-    "guilds_with_progress": 9,
-    "total_codex_used": 4483,
+    "guilds_with_progress": 0,
+    "total_codex_used": 0,
     "baseline_date": "2025-08-18"
   }
 }
