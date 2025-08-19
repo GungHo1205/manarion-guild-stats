@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 475,
-      "StudyLevel": 322,
-      "TotalUpgrades": 1438,
+      "StudyLevel": 324,
+      "TotalUpgrades": 1440,
       "GuildLevel": 103,
       "GuildID": 5,
       "NexusProgress": 1,
-      "StudyProgress": 2,
-      "TotalCodexCost": 1118
+      "StudyProgress": 4,
+      "TotalCodexCost": 1765
     },
     {
       "GuildName": "RNG",
@@ -25,8 +25,8 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 419,
-      "StudyLevel": 326,
-      "TotalUpgrades": 1408,
+      "StudyLevel": 327,
+      "TotalUpgrades": 1409,
       "GuildLevel": 104,
       "GuildID": 25,
       "NexusProgress": 2,
@@ -91,13 +91,13 @@
     {
       "GuildName": "Doomed",
       "NexusLevel": 240,
-      "StudyLevel": 170,
-      "TotalUpgrades": 767,
-      "GuildLevel": 70,
+      "StudyLevel": 175,
+      "TotalUpgrades": 772,
+      "GuildLevel": 71,
       "GuildID": 183,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 5,
+      "TotalCodexCost": 865
     },
     {
       "GuildName": "Fight Club",
@@ -224,7 +224,7 @@
       "GuildName": "Dino Nuggies",
       "NexusLevel": 177,
       "StudyLevel": 140,
-      "TotalUpgrades": 607,
+      "TotalUpgrades": 608,
       "GuildLevel": 63,
       "GuildID": 122,
       "NexusProgress": 0,
@@ -289,13 +289,13 @@
     {
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 100,
-      "StudyLevel": 120,
-      "TotalUpgrades": 485,
-      "GuildLevel": 46,
+      "StudyLevel": 121,
+      "TotalUpgrades": 490,
+      "GuildLevel": 47,
       "GuildID": 65,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 121
     },
     {
       "GuildName": "Hydra",
@@ -312,7 +312,7 @@
       "GuildName": "Rainbow",
       "NexusLevel": 88,
       "StudyLevel": 76,
-      "TotalUpgrades": 339,
+      "TotalUpgrades": 340,
       "GuildLevel": 39,
       "GuildID": 105,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 7382,
-    "formatted_dust": "122.89T",
-    "formatted_price": "16.65B"
+    "total_codex": 9015,
+    "formatted_dust": "150.44T",
+    "formatted_price": "16.69B"
   },
-  "lastUpdated": "2025-08-19T04:17:36.975092+00:00",
+  "lastUpdated": "2025-08-19T05:14:37.940752+00:00",
   "baselineDate": "2025-08-19",
   "baselineCreatedAt": "2025-08-19T00:58:48.353003+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 12,
-    "total_codex_used": 7382,
+    "guilds_with_progress": 14,
+    "total_codex_used": 9015,
     "baseline_date": "2025-08-19"
   }
 }
