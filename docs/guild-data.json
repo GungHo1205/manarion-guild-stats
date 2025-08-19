@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 474,
+      "NexusLevel": 475,
       "StudyLevel": 320,
-      "TotalUpgrades": 1429,
+      "TotalUpgrades": 1430,
       "GuildLevel": 103,
       "GuildID": 5,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 475
     },
     {
       "GuildName": "RNG",
@@ -112,14 +112,14 @@
     },
     {
       "GuildName": "Fight Club",
-      "NexusLevel": 233,
+      "NexusLevel": 235,
       "StudyLevel": 160,
-      "TotalUpgrades": 761,
+      "TotalUpgrades": 763,
       "GuildLevel": 65,
       "GuildID": 10,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 469
     },
     {
       "GuildName": "Imperium",
@@ -157,13 +157,13 @@
     {
       "GuildName": "Racc City",
       "NexusLevel": 200,
-      "StudyLevel": 190,
-      "TotalUpgrades": 848,
+      "StudyLevel": 191,
+      "TotalUpgrades": 850,
       "GuildLevel": 66,
       "GuildID": 9,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 191
     },
     {
       "GuildName": "Hack n Slash",
@@ -290,7 +290,7 @@
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 100,
       "StudyLevel": 120,
-      "TotalUpgrades": 484,
+      "TotalUpgrades": 485,
       "GuildLevel": 46,
       "GuildID": 65,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 0,
-    "formatted_dust": "0.00",
+    "total_codex": 1135,
+    "formatted_dust": "18.70T",
     "formatted_price": "16.48B"
   },
-  "lastUpdated": "2025-08-19T00:58:48.353003+00:00",
+  "lastUpdated": "2025-08-19T01:09:52.452906+00:00",
   "baselineDate": "2025-08-19",
   "baselineCreatedAt": "2025-08-19T00:58:48.353003+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 0,
-    "total_codex_used": 0,
+    "guilds_with_progress": 3,
+    "total_codex_used": 1135,
     "baseline_date": "2025-08-19"
   }
 }
