@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 475,
-      "StudyLevel": 321,
-      "TotalUpgrades": 1437,
+      "StudyLevel": 322,
+      "TotalUpgrades": 1438,
       "GuildLevel": 103,
       "GuildID": 5,
       "NexusProgress": 1,
-      "StudyProgress": 1,
-      "TotalCodexCost": 796
+      "StudyProgress": 2,
+      "TotalCodexCost": 1118
     },
     {
       "GuildName": "RNG",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 7060,
-    "formatted_dust": "116.96T",
-    "formatted_price": "16.57B"
+    "total_codex": 7382,
+    "formatted_dust": "122.58T",
+    "formatted_price": "16.61B"
   },
-  "lastUpdated": "2025-08-19T04:02:07.269029+00:00",
+  "lastUpdated": "2025-08-19T04:09:36.753808+00:00",
   "baselineDate": "2025-08-19",
   "baselineCreatedAt": "2025-08-19T00:58:48.353003+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 12,
-    "total_codex_used": 7060,
+    "total_codex_used": 7382,
     "baseline_date": "2025-08-19"
   }
 }
