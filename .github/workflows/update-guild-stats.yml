@@ -53,7 +53,7 @@ jobs:
 
           # Add frontend files
           git add docs/index.html
-          git add docs/api.py
+          git add api.py
 
           # Check if there are any changes to commit
           if ! git diff --staged --quiet; then
