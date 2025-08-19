@@ -628,7 +628,87 @@
         "#a78bfa",
         "#fde047",
         "#fb923c",
+        "#f87171",
+        "#34d399",
+        "#fbbf24",
+        "#c084fc",
       ];
+
+      // Check if API is available
+      async function checkApiAvailability() {
+        try {
+          const response = await fetch(`${API_BASE_URL}/guild-data`);
+          apiAvailable = response.ok;
+          if (!apiAvailable) {
+            document.getElementById("apiNotice").style.display = "block";
+          }
+          return apiAvailable;
+        } catch (error) {
+          console.log("API not available, will try JSON fallback");
+          document.getElementById("apiNotice").style.display = "block";
+          return false;
+        }
+      }
+
+      // API or JSON fetch wrapper
+      async function fetchData(endpoint, fallbackFile = null) {
+        console.log(
+          `Attempting to fetch: ${endpoint}, fallback: ${fallbackFile}`
+        );
+
+        if (apiAvailable) {
+          try {
+            const response = await fetch(`${API_BASE_URL}/${endpoint}`);
+            if (response.ok) {
+              const data = await response.json();
+              console.log(`Successfully fetched from API: ${endpoint}`);
+              return data;
+            } else {
+              console.log(
+                `API response not OK for ${endpoint}: ${response.status}`
+              );
+            }
+          } catch (error) {
+            console.error(`API fetch failed for ${endpoint}:`, error);
+          }
+        }
+
+        // Fallback to JSON files
+        if (fallbackFile) {
+          try {
+            const response = await fetch(
+              `${fallbackFile}?v=${new Date().getTime()}`
+            );
+            if (response.ok) {
+              const data = await response.json();
+              console.log(`Successfully fetched from JSON: ${fallbackFile}`);
+              return data;
+            } else {
+              console.log(
+                `JSON fetch failed for ${fallbackFile}: ${response.status}`
+              );
+            }
+          } catch (error) {
+            console.error(`JSON fallback failed for ${fallbackFile}:`, error);
+          }
+        }
+
+        // Return empty data structure instead of throwing error
+        console.warn(
+          `No data available for ${endpoint}, returning empty structure`
+        );
+        if (endpoint.includes("historical-data")) {
+          return {
+            guild_history: {},
+            item_prices: {},
+            item_categories: {
+              Essentials: ["Codex"],
+              Resources: ["Fish", "Wood", "Iron"],
+            },
+          };
+        }
+        return {};
+      }
 
       // Initialization
       document.addEventListener("DOMContentLoaded", () => {
@@ -638,20 +718,48 @@
 
       async function loadAllData() {
         try {
-          const [guildRes, historicalRes] = await Promise.all([
-            fetch(`./guild-data.json?v=${new Date().getTime()}`),
-            fetch(`./historical-data.json?v=${new Date().getTime()}`),
-          ]);
+          console.log("Starting data load...");
 
-          if (!guildRes.ok) throw new Error("Failed to load guild data");
-          const guildData = await guildRes.json();
+          const [dailyBaseline, guildData, historicalDataRes] =
+            await Promise.all([
+              fetchData("daily-baseline", "./daily-baseline.json").catch(
+                () => ({})
+              ),
+              fetchData("guild-data", "./guild-data.json").catch(() => ({
+                guilds: [],
+              })),
+              fetchData(
+                "historical-data?hours=720",
+                "./historical-data.json"
+              ).catch(() => ({
+                guild_history: {},
+                item_prices: {},
+                item_categories: {
+                  Essentials: ["Codex"],
+                  Resources: ["Fish", "Wood", "Iron"],
+                },
+              })),
+            ]);
+
           allGuildsData = guildData.guilds || [];
-          updateDashboard(guildData);
+          console.log(`Loaded ${allGuildsData.length} guilds`);
+
+          updateDashboard(dailyBaseline, guildData);
           renderGuilds();
 
-          historicalData = historicalRes.ok
-            ? await historicalRes.json()
-            : { guild_history: {}, item_prices: {}, item_categories: {} };
+          historicalData = historicalDataRes || {
+            guild_history: {},
+            item_prices: {},
+            item_categories: {},
+          };
+
+          console.log("Historical data loaded:", {
+            guilds: Object.keys(historicalData.guild_history || {}).length,
+            items: Object.keys(historicalData.item_prices || {}).length,
+            categories: Object.keys(historicalData.item_categories || {})
+              .length,
+          });
+
           populateGuildSelectors();
           populateItemSelector();
 
@@ -663,10 +771,19 @@
           document.getElementById("nexusChartLoading").style.display = "none";
           document.getElementById("studyChartLoading").style.display = "none";
           document.getElementById("marketChartLoading").style.display = "none";
+          document.getElementById("leaderboardLoading").style.display = "none";
+
+          // Load leaderboard data
+          updateLeaderboard("codex");
+
+          console.log("Data loading completed successfully");
         } catch (error) {
           console.error("Error loading data:", error);
           document.getElementById("loading").style.display = "none";
           document.getElementById("error").style.display = "block";
+          document.getElementById(
+            "error"
+          ).textContent = `Failed to load data: ${error.message}`;
         }
       }
 
@@ -739,6 +856,7 @@
       function handleNavigation(e) {
         e.preventDefault();
         const targetId = e.target.getAttribute("data-section");
+        console.log(`Navigating to: ${targetId}`);
 
         // Update nav links
         document
@@ -752,22 +870,80 @@
           .forEach((s) => s.classList.remove("active"));
         document.getElementById(targetId).classList.add("active");
 
-        // Load charts when navigating to chart pages
+        // Load charts when navigating to chart pages - but only if data is loaded
         if (dataLoaded) {
-          if (targetId === "nexus-charts" && !guildNexusChart) {
-            setTimeout(() => updateGuildChart("nexus"), 100);
+          try {
+            if (targetId === "nexus-charts" && !guildNexusChart) {
+              setTimeout(() => updateGuildChart("nexus"), 100);
+            }
+            if (targetId === "study-charts" && !guildStudyChart) {
+              setTimeout(() => updateGuildChart("study"), 100);
+            }
+            if (targetId === "item-prices") {
+              setTimeout(() => {
+                const selectedItem =
+                  document.getElementById("itemSelectBtn").dataset.selected;
+                console.log(
+                  `Item prices page loaded, selected item: ${selectedItem}`
+                );
+                if (selectedItem && selectedItem !== "No items available") {
+                  updateMarketChart();
+                } else {
+                  console.log("No valid item selected for market chart");
+                  // Show message instead of trying to load chart
+                  document.querySelector(
+                    "#item-prices .chart-canvas-container"
+                  ).style.display = "none";
+                  document.getElementById("marketChartLoading").style.display =
+                    "block";
+                  document.getElementById("marketChartLoading").textContent =
+                    "Select an item to view price history";
+                }
+              }, 100);
+            }
+            if (targetId === "leaderboards") {
+              document.getElementById("leaderboardContent").style.display =
+                "grid";
+            }
+          } catch (error) {
+            console.error(`Error in navigation to ${targetId}:`, error);
           }
-          if (targetId === "study-charts" && !guildStudyChart) {
-            setTimeout(() => updateGuildChart("study"), 100);
-          }
-          if (targetId === "item-prices" && !marketPriceChart) {
-            setTimeout(() => updateMarketChart(), 100);
-          }
+        } else {
+          console.log("Data not loaded yet, skipping chart initialization");
         }
       }
 
-      function updateDashboard(data) {
-        const { guilds, dustSpending, lastUpdated, dataFreshness } = data;
+      // Favorite Guilds Functions
+      function toggleFavorite(guildName) {
+        const index = favoriteGuilds.indexOf(guildName);
+        if (index > -1) {
+          favoriteGuilds.splice(index, 1);
+        } else {
+          favoriteGuilds.push(guildName);
+        }
+        localStorage.setItem("favoriteGuilds", JSON.stringify(favoriteGuilds));
+        renderGuilds();
+        populateGuildSelectors();
+      }
+
+      function isFavorite(guildName) {
+        return favoriteGuilds.includes(guildName);
+      }
+
+      function sortGuildsByFavorite(guilds) {
+        return guilds.sort((a, b) => {
+          const aFav = isFavorite(a.GuildName);
+          const bFav = isFavorite(b.GuildName);
+
+          if (aFav && !bFav) return -1;
+          if (!aFav && bFav) return 1;
+
+          return (b.NexusLevel || 0) - (a.NexusLevel || 0);
+        });
+      }
+
+      function updateDashboard(dailyBaseline, data) {
+        const { guilds, dustSpending, lastUpdated, baselineCreatedAt } = data;
         if (!guilds || guilds.length === 0) return;
 
         const avg = (key) =>
@@ -945,10 +1121,20 @@
       }
 
       function populateItemSelector() {
+        console.log("Populating item selector...");
+
         const itemCategories = historicalData.item_categories || {};
         const items = historicalData.item_prices || {};
 
-        if (Object.keys(items).length === 0) return;
+        console.log("Available items:", Object.keys(items));
+        console.log("Item categories:", itemCategories);
+
+        if (Object.keys(items).length === 0) {
+          console.log("No items available, showing placeholder");
+          document.getElementById("itemSelectBtn").textContent =
+            "No items available";
+          return;
+        }
 
         const itemList = document.getElementById("itemList");
 
@@ -965,15 +1151,16 @@
         ];
 
         let html = "";
+        let hasItems = false;
 
         categoryOrder.forEach((categoryName) => {
           const categoryItems = itemCategories[categoryName] || [];
           const availableItems = categoryItems.filter((item) => items[item]);
 
           if (availableItems.length > 0) {
+            hasItems = true;
             html += `<div class="item-category">
-              <div class="category-header">${categoryName}</div>`;
-
+        <div class="category-header">${categoryName}</div>`;
             availableItems.forEach((itemName) => {
               html += `<div class="item-option" data-item="${itemName}">${itemName}</div>`;
             });
@@ -982,10 +1169,27 @@
           }
         });
 
+        // If no categorized items, show all available items
+        if (!hasItems && Object.keys(items).length > 0) {
+          html = `<div class="item-category">
+      <div class="category-header">Available Items</div>`;
+          Object.keys(items).forEach((itemName) => {
+            html += `<div class="item-option" data-item="${itemName}">${itemName}</div>`;
+          });
+          html += `</div>`;
+          hasItems = true;
+        }
+
+        if (!hasItems) {
+          html =
+            '<div style="padding: 20px; text-align: center; color: var(--text-secondary);">No items available</div>';
+        }
+
         itemList.innerHTML = html;
 
         document.querySelectorAll(".item-option").forEach((option) => {
           option.addEventListener("click", () => {
+            console.log(`Selected item: ${option.dataset.item}`);
             document.getElementById("itemSelectBtn").textContent =
               option.textContent;
             document.getElementById("itemSelectBtn").dataset.selected =
@@ -996,14 +1200,82 @@
           });
         });
 
-        // Select Codex by default, or first available item
-        const defaultOption =
-          document.querySelector('.item-option[data-item="Codex"]') ||
-          document.querySelector(".item-option");
-        if (defaultOption) {
+        // Select Codex by default
+        const firstOption = document.querySelector(".item-option");
+        if (firstOption) {
           document.getElementById("itemSelectBtn").textContent =
-            defaultOption.textContent;
+            firstOption.textContent;
           document.getElementById("itemSelectBtn").dataset.selected =
+            firstOption.dataset.item;
+          console.log(`Default item selected: ${firstOption.dataset.item}`);
+        } else {
+          document.getElementById("itemSelectBtn").textContent =
+            "No items available";
+          console.log("No items available for selection");
+        }
+      }
+
+      function populatePredictorItemSelector() {
+        // Same logic as populateItemSelector but for predictor
+        const itemCategories = historicalData.item_categories || {};
+        const items = historicalData.item_prices || {};
+
+        if (Object.keys(items).length === 0) return;
+
+        const itemList = document.getElementById("predictorItemList");
+        const categoryOrder = [
+          "Essentials",
+          "Resources",
+          "Spell Tomes",
+          "Orbs/Upgrades",
+          "Herbs",
+          "Enchanting Reagents",
+          "Enchanting Formulas",
+          "Special",
+        ];
+
+        let html = "";
+        categoryOrder.forEach((categoryName) => {
+          const categoryItems = itemCategories[categoryName] || [];
+          const availableItems = categoryItems.filter((item) => items[item]);
+
+          if (availableItems.length > 0) {
+            html += `<div class="item-category">
+              <div class="category-header">${categoryName}</div>`;
+            availableItems.forEach((itemName) => {
+              html += `<div class="item-option" data-item="${itemName}">${itemName}</div>`;
+            });
+            html += `</div>`;
+          }
+        });
+
+        itemList.innerHTML = html;
+
+        document
+          .querySelectorAll("#predictorItemList .item-option")
+          .forEach((option) => {
+            option.addEventListener("click", () => {
+              document.getElementById("predictorItemSelectBtn").textContent =
+                option.textContent;
+              document.getElementById(
+                "predictorItemSelectBtn"
+              ).dataset.selected = option.dataset.item;
+              document.getElementById(
+                "predictorItemSelectDropdown"
+              ).style.display = "none";
+              updatePrediction();
+            });
+          });
+
+        // Select Codex by default
+        const defaultOption =
+          document.querySelector(
+            '#predictorItemList .item-option[data-item="Codex"]'
+          ) || document.querySelector("#predictorItemList .item-option");
+        if (defaultOption) {
+          document.getElementById("predictorItemSelectBtn").textContent =
+            defaultOption.textContent;
+          document.getElementById("predictorItemSelectBtn").dataset.selected =
             defaultOption.dataset.item;
         }
       }
@@ -1026,22 +1298,82 @@
         });
       }
 
-      function updateMarketChart() {
+      function filterPredictorItems() {
+        const term = document
+          .getElementById("predictorItemSearchInput")
+          .value.toLowerCase();
+        document
+          .querySelectorAll("#predictorItemList .item-option")
+          .forEach((opt) => {
+            const matches = opt.textContent.toLowerCase().includes(term);
+            opt.style.display = matches ? "block" : "none";
+          });
+
+        document
+          .querySelectorAll("#predictorItemList .item-category")
+          .forEach((category) => {
+            const visibleItems = category.querySelectorAll(
+              '.item-option[style="display: block;"], .item-option:not([style*="display: none"])'
+            );
+            category.style.display = visibleItems.length > 0 ? "block" : "none";
+          });
+      }
+
+      async function updateMarketChart() {
         const selectedItem =
           document.getElementById("itemSelectBtn").dataset.selected;
-        if (!selectedItem || !historicalData.item_prices?.[selectedItem])
+
+        // Safety check - don't proceed if no item is selected
+        if (!selectedItem) {
+          console.log("No item selected for market chart");
           return;
+        }
 
         const hours = parseInt(
           document.querySelector("#item-prices .market-timespan-btn.active")
-            .dataset.hours
+            ?.dataset.hours || "24" // Add fallback value
         );
+
+        // Fetch fresh market data if API is available
+        if (apiAvailable) {
+          try {
+            const marketPrices = await fetchData(
+              `market-prices?hours=${hours}`
+            );
+            if (marketPrices) {
+              historicalData.item_prices = {
+                ...historicalData.item_prices,
+                ...marketPrices,
+              };
+            }
+          } catch (error) {
+            console.error("Failed to fetch fresh market data:", error);
+          }
+        }
+
+        if (!historicalData.item_prices?.[selectedItem]) {
+          console.log(`No price data available for ${selectedItem}`);
+          return;
+        }
+
+        // Rest of your existing updateMarketChart code...
         const cutoff = new Date(Date.now() - hours * 3600 * 1000);
         const prices = historicalData.item_prices[selectedItem].prices.filter(
           (p) => new Date(p.timestamp) >= cutoff
         );
 
-        if (prices.length === 0) return;
+        if (prices.length === 0) {
+          console.log(`No recent price data for ${selectedItem}`);
+          return;
+        }
+
+        const aggregation = document.getElementById("marketAggregation").value;
+        const useDaily =
+          aggregation === "daily" || (aggregation === "auto" && hours >= 168);
+
+        if (useDaily && prices.length > 0) {
+          prices = aggregateMarketDataByDay(prices);
+        }
 
         const datasets = [
           {
@@ -1081,7 +1413,291 @@
         });
       }
 
-      function getChartOptions(hours, isCurrency) {
+      // Price Prediction Functions
+      function updatePrediction() {
+        const selectedItem = document.getElementById("predictorItemSelectBtn")
+          .dataset.selected;
+        if (!selectedItem || !historicalData.item_prices?.[selectedItem]) {
+          document.getElementById("predictionLoading").style.display = "block";
+          document.getElementById("predictionResults").style.display = "none";
+          return;
+        }
+
+        const days = parseInt(
+          document.querySelector(".predictor-period-btn.active").dataset.days
+        );
+        const cutoff = new Date(Date.now() - days * 24 * 3600 * 1000);
+        const prices = historicalData.item_prices[selectedItem].prices.filter(
+          (p) => new Date(p.timestamp) >= cutoff
+        );
+
+        if (prices.length < 2) return;
+
+        const prediction = calculatePrediction(prices);
+        displayPrediction(selectedItem, prediction, prices);
+      }
+
+      function calculatePrediction(prices) {
+        // Calculate current and historical averages
+        const recent = prices.slice(-24); // Last 24 hours
+        const currentAvg =
+          recent.reduce((sum, p) => sum + (p.buy + p.sell) / 2, 0) /
+          recent.length;
+
+        // Calculate trend using linear regression
+        const values = prices.map((p, i) => ({
+          x: i,
+          y: (p.buy + p.sell) / 2,
+        }));
+        const n = values.length;
+        const sumX = values.reduce((sum, v) => sum + v.x, 0);
+        const sumY = values.reduce((sum, v) => sum + v.y, 0);
+        const sumXY = values.reduce((sum, v) => sum + v.x * v.y, 0);
+        const sumX2 = values.reduce((sum, v) => sum + v.x * v.x, 0);
+
+        const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+        const intercept = (sumY - slope * sumX) / n;
+
+        // Predict next price point
+        const predictedPrice = slope * n + intercept;
+        const priceChange = ((predictedPrice - currentAvg) / currentAvg) * 100;
+
+        // Determine trend direction
+        let trend = "stable";
+        if (Math.abs(priceChange) > 5) {
+          trend = priceChange > 0 ? "up" : "down";
+        }
+
+        return {
+          currentPrice: currentAvg,
+          predictedPrice: predictedPrice,
+          priceChange: priceChange,
+          trend: trend,
+        };
+      }
+
+      function displayPrediction(itemName, prediction, prices) {
+        document.getElementById("predictionLoading").style.display = "none";
+        document.getElementById("predictionResults").style.display = "block";
+
+        document.getElementById("currentPrice").textContent = formatCurrency(
+          prediction.currentPrice
+        );
+        document.getElementById("predictedPrice").textContent = formatCurrency(
+          prediction.predictedPrice
+        );
+
+        const changeElement = document.getElementById("priceChange");
+        changeElement.textContent = `${
+          prediction.priceChange >= 0 ? "+" : ""
+        }${prediction.priceChange.toFixed(1)}%`;
+        changeElement.className = `trend-${prediction.trend}`;
+
+        updatePredictionChart(itemName, prices, prediction);
+      }
+
+      function updatePredictionChart(itemName, prices, prediction) {
+        const historicalData = prices.map((p) => ({
+          x: p.timestamp,
+          y: (p.buy + p.sell) / 2,
+        }));
+        const futureTime = new Date(
+          Date.now() + 24 * 3600 * 1000
+        ).toISOString();
+        const predictionPoint = { x: futureTime, y: prediction.predictedPrice };
+
+        const datasets = [
+          {
+            label: "Historical Average Price",
+            data: historicalData,
+            borderColor: "#4a9eff",
+            backgroundColor: "#4a9eff20",
+            tension: 0.1,
+            pointRadius: 2,
+            pointHoverRadius: 4,
+          },
+          {
+            label: "Prediction",
+            data: [historicalData[historicalData.length - 1], predictionPoint],
+            borderColor: "#fbbf24",
+            backgroundColor: "#fbbf2440",
+            borderDash: [5, 5],
+            tension: 0,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+          },
+        ];
+
+        if (predictionChart) predictionChart.destroy();
+
+        const ctx = document.getElementById("predictionChart").getContext("2d");
+        predictionChart = new Chart(ctx, {
+          type: "line",
+          data: { datasets },
+          options: {
+            ...getChartOptions(
+              24 *
+                parseInt(
+                  document.querySelector(".predictor-period-btn.active").dataset
+                    .days
+                ),
+              true,
+              false
+            ),
+            plugins: {
+              ...getChartOptions(24, true, false).plugins,
+              title: {
+                display: true,
+                text: `${itemName} Price Prediction`,
+                color: "#f8f9fa",
+                font: { size: 16, weight: "bold" },
+              },
+            },
+          },
+        });
+      }
+
+      // Leaderboard Functions
+      async function updateLeaderboard(type) {
+        document.getElementById("leaderboardContent").style.display = "grid";
+
+        // Directly use the guild data already loaded for the dashboard
+        let sortedGuilds = [...allGuildsData];
+
+        let title = "";
+        let valueKey = "";
+        let formatValue = (val) => val;
+
+        // Sort the data based on the selected leaderboard type
+        switch (type) {
+          case "codex":
+            sortedGuilds.sort(
+              (a, b) => (b.TotalCodexCost || 0) - (a.TotalCodexCost || 0)
+            );
+            title = "Most Codex Spent Today";
+            valueKey = "TotalCodexCost";
+            formatValue = (val) => (val || 0).toLocaleString() + " Codex";
+            break;
+          case "nexus":
+            sortedGuilds.sort(
+              (a, b) => (b.NexusProgress || 0) - (a.NexusProgress || 0)
+            );
+            title = "Top Nexus Upgrades Today";
+            valueKey = "NexusProgress";
+            formatValue = (val) => "+" + (val || 0) + " Levels";
+            break;
+          case "study":
+            sortedGuilds.sort(
+              (a, b) => (b.StudyProgress || 0) - (a.StudyProgress || 0)
+            );
+            title = "Top Study Upgrades Today";
+            valueKey = "StudyProgress";
+            formatValue = (val) => "+" + (val || 0) + " Levels";
+            break;
+        }
+
+        const guildNameKey = "GuildName"; // Key from the allGuildsData object
+        const filteredGuilds = sortedGuilds.filter(
+          (g) => (g[valueKey] || 0) > 0
+        );
+
+        const content = document.getElementById("leaderboardContent");
+
+        if (filteredGuilds.length === 0) {
+          content.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 60px;">
+              No progress data available for ${title.toLowerCase()}
+            </div>
+          `;
+          return;
+        }
+
+        content.innerHTML = filteredGuilds
+          .slice(0, 20) // Limit to top 20
+          .map((guild, index) => {
+            const rank = index + 1;
+            let rankClass = "";
+            let rankDisplay = rank;
+
+            if (rank === 1) {
+              rankClass = "gold";
+              rankDisplay = "1st";
+            } else if (rank === 2) {
+              rankClass = "silver";
+              rankDisplay = "2nd";
+            } else if (rank === 3) {
+              rankClass = "bronze";
+              rankDisplay = "3rd";
+            }
+
+            const guildName = guild[guildNameKey];
+            const guildValue = guild[valueKey] || 0;
+
+            return `
+              <div class="leaderboard-item ${
+                isFavorite(guildName) ? "favorite" : ""
+              }">
+                <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
+                <div class="leaderboard-info">
+                  <div class="leaderboard-guild">
+                    ${isFavorite(guildName) ? "★ " : ""}${guildName}
+                  </div>
+                  <div class="leaderboard-stat">
+                    <span class="leaderboard-value">${formatValue(
+                      guildValue
+                    )}</span>
+                  </div>
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      // Aggregation functions
+      function aggregateDataByDay(data) {
+        const dailyData = {};
+
+        data.forEach((point) => {
+          const date = new Date(point.x).toDateString();
+          if (!dailyData[date]) {
+            dailyData[date] = { values: [], timestamp: point.x };
+          }
+          dailyData[date].values.push(point.y);
+        });
+
+        return Object.values(dailyData)
+          .map((day) => ({
+            x: day.timestamp,
+            y: Math.round(day.values[day.values.length - 1]), // Use last value of the day
+          }))
+          .sort((a, b) => new Date(a.x) - new Date(b.x));
+      }
+
+      function aggregateMarketDataByDay(prices) {
+        const dailyData = {};
+
+        prices.forEach((price) => {
+          const date = new Date(price.timestamp).toDateString();
+          if (!dailyData[date]) {
+            dailyData[date] = { buy: [], sell: [], timestamp: price.timestamp };
+          }
+          dailyData[date].buy.push(price.buy);
+          dailyData[date].sell.push(price.sell);
+        });
+
+        return Object.values(dailyData)
+          .map((day) => ({
+            timestamp: day.timestamp,
+            buy: Math.round(day.buy[day.buy.length - 1]), // Use last value of the day
+            sell: Math.round(day.sell[day.sell.length - 1]),
+          }))
+          .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+      }
+
+      function getChartOptions(hours, isCurrency, useDaily = false) {
+        const timeUnit = useDaily ? "day" : hours <= 72 ? "hour" : "day";
+
         return {
           responsive: true,
           maintainAspectRatio: false,
