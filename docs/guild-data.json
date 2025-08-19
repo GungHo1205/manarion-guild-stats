@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 475,
-      "StudyLevel": 341,
-      "TotalUpgrades": 1457,
+      "StudyLevel": 342,
+      "TotalUpgrades": 1458,
       "GuildLevel": 104,
       "GuildID": 5,
       "NexusProgress": 1,
-      "StudyProgress": 21,
-      "TotalCodexCost": 7426
+      "StudyProgress": 22,
+      "TotalCodexCost": 7768
     },
     {
       "GuildName": "RNG",
@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 423,
+      "NexusLevel": 424,
       "StudyLevel": 300,
-      "TotalUpgrades": 1421,
+      "TotalUpgrades": 1422,
       "GuildLevel": 119,
       "GuildID": 19,
-      "NexusProgress": 6,
+      "NexusProgress": 7,
       "StudyProgress": 0,
-      "TotalCodexCost": 2523
+      "TotalCodexCost": 2947
     },
     {
       "GuildName": "Divinity",
@@ -59,7 +59,7 @@
       "GuildName": "EZ ",
       "NexusLevel": 276,
       "StudyLevel": 215,
-      "TotalUpgrades": 859,
+      "TotalUpgrades": 860,
       "GuildLevel": 79,
       "GuildID": 2,
       "NexusProgress": 3,
@@ -102,13 +102,13 @@
     {
       "GuildName": "Doomed",
       "NexusLevel": 240,
-      "StudyLevel": 178,
-      "TotalUpgrades": 775,
+      "StudyLevel": 179,
+      "TotalUpgrades": 776,
       "GuildLevel": 71,
       "GuildID": 183,
       "NexusProgress": 0,
-      "StudyProgress": 8,
-      "TotalCodexCost": 1396
+      "StudyProgress": 9,
+      "TotalCodexCost": 1575
     },
     {
       "GuildName": "Fight Club",
@@ -199,6 +199,17 @@
       "TotalCodexCost": 267
     },
     {
+      "GuildName": "Osmanthus",
+      "NexusLevel": 182,
+      "StudyLevel": 160,
+      "TotalUpgrades": 673,
+      "GuildLevel": 73,
+      "GuildID": 21,
+      "NexusProgress": 2,
+      "StudyProgress": 5,
+      "TotalCodexCost": 1153
+    },
+    {
       "GuildName": "Bureau of Feline Investigators",
       "NexusLevel": 180,
       "StudyLevel": 178,
@@ -208,17 +219,6 @@
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Osmanthus",
-      "NexusLevel": 180,
-      "StudyLevel": 157,
-      "TotalUpgrades": 668,
-      "GuildLevel": 72,
-      "GuildID": 21,
-      "NexusProgress": 0,
-      "StudyProgress": 2,
-      "TotalCodexCost": 313
     },
     {
       "GuildName": "Dino Nuggies",
@@ -233,14 +233,14 @@
     },
     {
       "GuildName": "Ewbies",
-      "NexusLevel": 163,
+      "NexusLevel": 164,
       "StudyLevel": 173,
-      "TotalUpgrades": 671,
+      "TotalUpgrades": 672,
       "GuildLevel": 57,
       "GuildID": 4,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 1,
-      "TotalCodexCost": 173
+      "TotalCodexCost": 337
     },
     {
       "GuildName": "Manarion Adventures",
@@ -277,14 +277,14 @@
     },
     {
       "GuildName": "asylum",
-      "NexusLevel": 106,
+      "NexusLevel": 107,
       "StudyLevel": 67,
-      "TotalUpgrades": 433,
+      "TotalUpgrades": 434,
       "GuildLevel": 50,
       "GuildID": 130,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 107
     },
     {
       "GuildName": "Lighthouse Reborn",
@@ -299,25 +299,25 @@
     },
     {
       "GuildName": "Hydra",
-      "NexusLevel": 97,
+      "NexusLevel": 98,
       "StudyLevel": 107,
-      "TotalUpgrades": 434,
+      "TotalUpgrades": 435,
       "GuildLevel": 38,
       "GuildID": 79,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 2,
-      "TotalCodexCost": 406
+      "TotalCodexCost": 504
     },
     {
       "GuildName": "Rainbow",
-      "NexusLevel": 88,
-      "StudyLevel": 76,
-      "TotalUpgrades": 340,
+      "NexusLevel": 90,
+      "StudyLevel": 78,
+      "TotalUpgrades": 346,
       "GuildLevel": 40,
       "GuildID": 105,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusProgress": 2,
+      "StudyProgress": 2,
+      "TotalCodexCost": 334
     },
     {
       "GuildName": "A Growing Threat",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 29929,
-    "formatted_dust": "492.65T",
-    "formatted_price": "16.46B"
+    "total_codex": 32417,
+    "formatted_dust": "533.22T",
+    "formatted_price": "16.45B"
   },
-  "lastUpdated": "2025-08-19T14:14:29.851937+00:00",
+  "lastUpdated": "2025-08-19T15:15:44.118581+00:00",
   "baselineDate": "2025-08-19",
   "baselineCreatedAt": "2025-08-19T00:58:48.353003+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 21,
-    "total_codex_used": 29929,
+    "guilds_with_progress": 23,
+    "total_codex_used": 32417,
     "baseline_date": "2025-08-19"
   }
 }
