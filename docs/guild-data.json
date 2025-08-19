@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 475,
-      "StudyLevel": 324,
-      "TotalUpgrades": 1440,
+      "StudyLevel": 327,
+      "TotalUpgrades": 1443,
       "GuildLevel": 103,
       "GuildID": 5,
       "NexusProgress": 1,
-      "StudyProgress": 4,
-      "TotalCodexCost": 1765
+      "StudyProgress": 7,
+      "TotalCodexCost": 2743
     },
     {
       "GuildName": "RNG",
@@ -47,24 +47,24 @@
     {
       "GuildName": "Phoenix",
       "NexusLevel": 388,
-      "StudyLevel": 248,
-      "TotalUpgrades": 1195,
+      "StudyLevel": 249,
+      "TotalUpgrades": 1196,
       "GuildLevel": 92,
       "GuildID": 8,
       "NexusProgress": 1,
-      "StudyProgress": 1,
-      "TotalCodexCost": 636
+      "StudyProgress": 2,
+      "TotalCodexCost": 885
     },
     {
       "GuildName": "Codex",
       "NexusLevel": 275,
-      "StudyLevel": 238,
-      "TotalUpgrades": 902,
+      "StudyLevel": 242,
+      "TotalUpgrades": 906,
       "GuildLevel": 80,
       "GuildID": 59,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 4,
+      "TotalCodexCost": 962
     },
     {
       "GuildName": "EZ ",
@@ -202,7 +202,7 @@
       "GuildName": "Bureau of Feline Investigators",
       "NexusLevel": 180,
       "StudyLevel": 178,
-      "TotalUpgrades": 561,
+      "TotalUpgrades": 562,
       "GuildLevel": 54,
       "GuildID": 18,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 9015,
-    "formatted_dust": "150.44T",
-    "formatted_price": "16.69B"
+    "total_codex": 11204,
+    "formatted_dust": "187.26T",
+    "formatted_price": "16.71B"
   },
-  "lastUpdated": "2025-08-19T05:14:37.940752+00:00",
+  "lastUpdated": "2025-08-19T06:21:43.958734+00:00",
   "baselineDate": "2025-08-19",
   "baselineCreatedAt": "2025-08-19T00:58:48.353003+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 14,
-    "total_codex_used": 9015,
+    "guilds_with_progress": 15,
+    "total_codex_used": 11204,
     "baseline_date": "2025-08-19"
   }
 }
