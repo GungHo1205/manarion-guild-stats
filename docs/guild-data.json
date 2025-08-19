@@ -333,10 +333,10 @@
   ],
   "dustSpending": {
     "total_codex": 7382,
-    "formatted_dust": "122.58T",
-    "formatted_price": "16.61B"
+    "formatted_dust": "122.89T",
+    "formatted_price": "16.65B"
   },
-  "lastUpdated": "2025-08-19T04:09:36.753808+00:00",
+  "lastUpdated": "2025-08-19T04:17:36.975092+00:00",
   "baselineDate": "2025-08-19",
   "baselineCreatedAt": "2025-08-19T00:58:48.353003+00:00",
   "dataFreshness": {
