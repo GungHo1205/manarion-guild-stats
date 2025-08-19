@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 475,
-      "StudyLevel": 320,
-      "TotalUpgrades": 1433,
+      "StudyLevel": 321,
+      "TotalUpgrades": 1437,
       "GuildLevel": 103,
       "GuildID": 5,
       "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 475
+      "StudyProgress": 1,
+      "TotalCodexCost": 796
     },
     {
       "GuildName": "RNG",
@@ -23,6 +23,17 @@
       "TotalCodexCost": 0
     },
     {
+      "GuildName": "Divinity",
+      "NexusLevel": 419,
+      "StudyLevel": 326,
+      "TotalUpgrades": 1408,
+      "GuildLevel": 104,
+      "GuildID": 25,
+      "NexusProgress": 2,
+      "StudyProgress": 0,
+      "TotalCodexCost": 837
+    },
+    {
       "GuildName": "Sanctuary",
       "NexusLevel": 418,
       "StudyLevel": 300,
@@ -34,26 +45,15 @@
       "TotalCodexCost": 418
     },
     {
-      "GuildName": "Divinity",
-      "NexusLevel": 417,
-      "StudyLevel": 328,
-      "TotalUpgrades": 1406,
-      "GuildLevel": 104,
-      "GuildID": 25,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
-    },
-    {
       "GuildName": "Phoenix",
       "NexusLevel": 388,
-      "StudyLevel": 247,
-      "TotalUpgrades": 1194,
-      "GuildLevel": 91,
+      "StudyLevel": 248,
+      "TotalUpgrades": 1195,
+      "GuildLevel": 92,
       "GuildID": 8,
       "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 388
+      "StudyProgress": 1,
+      "TotalCodexCost": 636
     },
     {
       "GuildName": "Codex",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 5654,
-    "formatted_dust": "93.39T",
-    "formatted_price": "16.52B"
+    "total_codex": 7060,
+    "formatted_dust": "116.96T",
+    "formatted_price": "16.57B"
   },
-  "lastUpdated": "2025-08-19T03:06:45.549193+00:00",
+  "lastUpdated": "2025-08-19T04:02:07.269029+00:00",
   "baselineDate": "2025-08-19",
   "baselineCreatedAt": "2025-08-19T00:58:48.353003+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 11,
-    "total_codex_used": 5654,
+    "guilds_with_progress": 12,
+    "total_codex_used": 7060,
     "baseline_date": "2025-08-19"
   }
 }
