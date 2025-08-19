@@ -261,7 +261,7 @@ class GuildStatsTracker:
         os.makedirs(DATA_DIR, exist_ok=True)
         self.guild_lookup = {}
 
-    def fetch_guild_data(self) -> Tuple[List[Dict], bool]:
+    def fetch_guild_data(self) -> tuple[List[Dict], bool]:
         """Fetch guild data using the direct guild approach with SQLite caching."""
         print("Fetching guild data using direct guild approach...")
         
@@ -406,7 +406,7 @@ class GuildStatsTracker:
             return 0
         return sum(range(start_level + 1, start_level + progress + 1))
 
-    def fetch_market_prices(self) -> Tuple[Dict, bool]:
+    def fetch_market_prices(self) -> tuple[Dict, bool]:
         """Fetch market prices with fallback to database cache."""
         print("Fetching market prices...")
         market_data = self.api.get("/market")
