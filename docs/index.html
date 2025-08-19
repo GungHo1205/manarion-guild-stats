@@ -519,7 +519,7 @@
         font-size: 0.9rem;
         color: var(--text-secondary);
       }
-      /* Add this CSS rule to match the other button styles */
+
       .predictor-period-btn {
         background: var(--bg-tertiary);
         color: var(--text-primary);
@@ -662,6 +662,28 @@
         color: var(--success);
       }
 
+      .api-notice {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--accent);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .api-notice-header {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+
+      .api-notice-content {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
       @media (max-width: 768px) {
         .navbar {
           justify-content: flex-start;
@@ -698,6 +720,16 @@
   </head>
   <body>
     <div class="container">
+      <!-- API Notice -->
+      <div class="api-notice" id="apiNotice" style="display: none">
+        <div class="api-notice-header">API Server Required</div>
+        <div class="api-notice-content">
+          This version requires the API server to be running. Start it with:
+          <code>python api.py</code><br />
+          If the API is not available, some features may not work properly.
+        </div>
+      </div>
+
       <nav class="navbar">
         <a class="nav-link active" data-section="dashboard">Dashboard</a>
         <a class="nav-link" data-section="nexus-charts">Nexus Progress</a>
@@ -725,6 +757,7 @@
             level.
           </div>
         </div>
+
         <div class="stats-overview">
           <div class="stat-card">
             <h3 id="stat-avg-nexus">-</h3>
@@ -758,6 +791,7 @@
             </div>
           </div>
         </div>
+
         <div class="controls">
           <div class="search-box">
             <input
@@ -771,6 +805,7 @@
             <div id="dataFreshness" class="data-freshness"></div>
           </div>
         </div>
+
         <div id="loading" class="loading">Loading guild data...</div>
         <div id="error" class="error" style="display: none">
           Failed to load data.
@@ -1025,7 +1060,6 @@
           <div id="predictionLoading" class="chart-loading">
             Select an item to see price predictions...
           </div>
-
           <div id="predictionResults" style="display: none">
             <div class="prediction-card">
               <div class="prediction-summary">
@@ -1043,7 +1077,6 @@
                 </div>
               </div>
             </div>
-
             <div class="chart-canvas-container">
               <canvas id="predictionChart"></canvas>
             </div>
@@ -1091,6 +1124,10 @@
         localStorage.getItem("favoriteGuilds") || "[]"
       );
 
+      // API Configuration
+      const API_BASE_URL = "http://localhost:8000/api";
+      let apiAvailable = false;
+
       const chartColors = [
         "#ec4899",
         "#38bdf8",
@@ -1104,32 +1141,77 @@
         "#c084fc",
       ];
 
+      // Check if API is available
+      async function checkApiAvailability() {
+        try {
+          const response = await fetch(`${API_BASE_URL}/guild-data`);
+          apiAvailable = response.ok;
+          if (!apiAvailable) {
+            document.getElementById("apiNotice").style.display = "block";
+          }
+          return apiAvailable;
+        } catch (error) {
+          console.log("API not available, will try JSON fallback");
+          document.getElementById("apiNotice").style.display = "block";
+          return false;
+        }
+      }
+
+      // API or JSON fetch wrapper
+      async function fetchData(endpoint, fallbackFile = null) {
+        if (apiAvailable) {
+          try {
+            const response = await fetch(`${API_BASE_URL}/${endpoint}`);
+            if (response.ok) {
+              return await response.json();
+            }
+          } catch (error) {
+            console.error(`API fetch failed for ${endpoint}:`, error);
+          }
+        }
+
+        // Fallback to JSON files
+        if (fallbackFile) {
+          try {
+            const response = await fetch(
+              `${fallbackFile}?v=${new Date().getTime()}`
+            );
+            if (response.ok) {
+              return await response.json();
+            }
+          } catch (error) {
+            console.error(`JSON fallback failed for ${fallbackFile}:`, error);
+          }
+        }
+
+        throw new Error(`Failed to fetch data from both API and JSON fallback`);
+      }
+
       // Initialization
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", async () => {
+        await checkApiAvailability();
         loadAllData();
         setupEventListeners();
       });
 
       async function loadAllData() {
         try {
-          const [dailyBaseline, guildRes, historicalRes] = await Promise.all([
-            fetch(`./daily-baseline.json?v=${new Date().getTime()}`),
-            fetch(`./guild-data.json?v=${new Date().getTime()}`),
-            fetch(`./historical-data.json?v=${new Date().getTime()}`),
-          ]);
+          const [dailyBaseline, guildData, historicalDataRes] =
+            await Promise.all([
+              fetchData("daily-baseline", "./daily-baseline.json"),
+              fetchData("guild-data", "./guild-data.json"),
+              fetchData("historical-data?hours=720", "./historical-data.json"),
+            ]);
 
-          if (!guildRes.ok) throw new Error("Failed to load guild data");
-          const dailyBaselineData = await dailyBaseline.json();
-          console.log(dailyBaseline);
-          console.log(dailyBaselineData);
-          const guildData = await guildRes.json();
           allGuildsData = guildData.guilds || [];
           updateDashboard(dailyBaseline, guildData);
           renderGuilds();
 
-          historicalData = historicalRes.ok
-            ? await historicalRes.json()
-            : { guild_history: {}, item_prices: {}, item_categories: {} };
+          historicalData = historicalDataRes || {
+            guild_history: {},
+            item_prices: {},
+            item_categories: {},
+          };
           populateGuildSelectors();
           populateItemSelector();
           populatePredictorItemSelector();
@@ -1138,7 +1220,7 @@
           document.getElementById("guildGrid").style.display = "grid";
           dataLoaded = true;
 
-          // Hide loading indicators on chart pages
+          // Hide loading indicators
           document.getElementById("nexusChartLoading").style.display = "none";
           document.getElementById("studyChartLoading").style.display = "none";
           document.getElementById("marketChartLoading").style.display = "none";
@@ -1311,7 +1393,7 @@
         }
         localStorage.setItem("favoriteGuilds", JSON.stringify(favoriteGuilds));
         renderGuilds();
-        populateGuildSelectors(); // Refresh dropdowns to show favorite status
+        populateGuildSelectors();
       }
 
       function isFavorite(guildName) {
@@ -1323,18 +1405,15 @@
           const aFav = isFavorite(a.GuildName);
           const bFav = isFavorite(b.GuildName);
 
-          // Favorites first
           if (aFav && !bFav) return -1;
           if (!aFav && bFav) return 1;
 
-          // Within favorites or non-favorites, sort by nexus level
           return (b.NexusLevel || 0) - (a.NexusLevel || 0);
         });
       }
 
       function updateDashboard(dailyBaseline, data) {
-        const { created_at } = dailyBaseline;
-        const { guilds, dustSpending, lastUpdated, dataFreshness } = data;
+        const { guilds, dustSpending, lastUpdated, baselineCreatedAt } = data;
         if (!guilds || guilds.length === 0) return;
 
         const avg = (key) =>
@@ -1380,41 +1459,34 @@
             minute: "2-digit",
             hour12: true,
           });
-        console.log(data.baselineCreatedAt);
-        const dailyBaselineDate = data.baselineCreatedAt
-          ? (function () {
-              const d = new Date(data.baselineCreatedAt);
-              return (
-                d.toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                }) +
-                " at " +
-                d.toLocaleTimeString("en-US", {
-                  hour: "numeric",
-                  minute: "2-digit",
-                  hour12: true,
-                })
-              );
-            })()
+
+        const dailyBaselineDate = baselineCreatedAt
+          ? new Date(baselineCreatedAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            }) +
+            " at " +
+            new Date(baselineCreatedAt).toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "2-digit",
+              hour12: true,
+            })
           : "Not set";
+
         document.getElementById("lastUpdate").innerHTML = `
-        <div>Last updated: ${lastUpdateTime}</div>
-        <div class="data-freshness">Daily baseline date: ${dailyBaselineDate}</div>
-      `;
+          <div>Last updated: ${lastUpdateTime}</div>
+          <div class="data-freshness">Daily baseline date: ${dailyBaselineDate}</div>
+        `;
       }
 
       function renderGuilds() {
         const searchTerm = document
           .getElementById("searchInput")
           .value.toLowerCase();
-
         let filtered = allGuildsData.filter((g) =>
           g.GuildName.toLowerCase().includes(searchTerm)
         );
-
-        // Sort by favorites first, then by nexus level
         filtered = sortGuildsByFavorite(filtered);
 
         const grid = document.getElementById("guildGrid");
@@ -1428,45 +1500,39 @@
         grid.innerHTML = filtered
           .map(
             (g) => `
-                      <div class="guild-card ${
-                        isFavorite(g.GuildName) ? "favorite" : ""
+          <div class="guild-card ${isFavorite(g.GuildName) ? "favorite" : ""}">
+            <div class="guild-name">
+              <span>${g.GuildName}</span>
+              <button class="favorite-btn ${
+                isFavorite(g.GuildName) ? "favorited" : ""
+              }"
+                      onclick="toggleFavorite('${g.GuildName}')"
+                      title="${
+                        isFavorite(g.GuildName)
+                          ? "Remove from favorites"
+                          : "Add to favorites"
                       }">
-                          <div class="guild-name">
-                              <span>${g.GuildName}</span>
-                              <button class="favorite-btn ${
-                                isFavorite(g.GuildName) ? "favorited" : ""
-                              }"
-                                      onclick="toggleFavorite('${g.GuildName}')"
-                                      title="${
-                                        isFavorite(g.GuildName)
-                                          ? "Remove from favorites"
-                                          : "Add to favorites"
-                                      }">
-                                  ${isFavorite(g.GuildName) ? "★" : "☆"}
-                              </button>
-                          </div>
-                          <div class="level-info">
-                              <div class="level-item">
-                                  <div class="level-label">Nexus</div>
-                                  <div class="level-value">${
-                                    g.NexusLevel || 0
-                                  }</div>
-                                  <div class="daily-change positive">+${
-                                    g.NexusProgress || 0
-                                  }</div>
-                              </div>
-                              <div class="level-item">
-                                  <div class="level-label">Study</div>
-                                  <div class="level-value">${
-                                    g.StudyLevel || 0
-                                  }</div>
-                                  <div class="daily-change positive">+${
-                                    g.StudyProgress || 0
-                                  }</div>
-                              </div>
-                          </div>
-                      </div>
-                  `
+                ${isFavorite(g.GuildName) ? "★" : "☆"}
+              </button>
+            </div>
+            <div class="level-info">
+              <div class="level-item">
+                <div class="level-label">Nexus</div>
+                <div class="level-value">${g.NexusLevel || 0}</div>
+                <div class="daily-change positive">+${
+                  g.NexusProgress || 0
+                }</div>
+              </div>
+              <div class="level-item">
+                <div class="level-label">Study</div>
+                <div class="level-value">${g.StudyLevel || 0}</div>
+                <div class="daily-change positive">+${
+                  g.StudyProgress || 0
+                }</div>
+              </div>
+            </div>
+          </div>
+        `
           )
           .join("");
       }
@@ -1475,16 +1541,13 @@
         const guildNames = Object.keys(historicalData.guild_history || {});
         if (guildNames.length === 0) return;
 
-        // Sort guilds: favorites first, then by nexus level
         const sortedGuildNames = guildNames.sort((a, b) => {
           const aFav = isFavorite(a);
           const bFav = isFavorite(b);
 
-          // Favorites first
           if (aFav && !bFav) return -1;
           if (!aFav && bFav) return 1;
 
-          // Within same favorite status, sort by nexus level
           const guildA = allGuildsData.find((g) => g.GuildName === a);
           const guildB = allGuildsData.find((g) => g.GuildName === b);
           const nexusA = guildA ? guildA.NexusLevel : 0;
@@ -1492,7 +1555,6 @@
           return nexusB - nexusA;
         });
 
-        // Auto-select favorite guilds, or default guilds if no favorites
         let autoSelectGuilds =
           favoriteGuilds.length > 0
             ? favoriteGuilds
@@ -1513,10 +1575,11 @@
             .map(
               (name) =>
                 `<label class="${isFavorite(name) ? "favorite-guild" : ""}">
-                        <input type="checkbox" value="${name}" ${
+              <input type="checkbox" value="${name}" ${
                   autoSelectGuilds.includes(name) ? "checked" : ""
-                }> ${isFavorite(name) ? "★ " : ""}${name}
-                      </label>`
+                }> 
+              ${isFavorite(name) ? "★ " : ""}${name}
+            </label>`
             )
             .join("");
           updateSelectedGuildCount(type);
@@ -1530,7 +1593,7 @@
         btn.textContent = `${count} Guild${count !== 1 ? "s" : ""} Selected`;
       }
 
-      function updateGuildChart(chartType) {
+      async function updateGuildChart(chartType) {
         if (!historicalData.guild_history) return;
 
         updateSelectedGuildCount(chartType);
@@ -1540,14 +1603,29 @@
           )
         ).map((cb) => cb.value);
 
-        // Get hours from active button in the correct section
         const activeBtn = document.querySelector(
           `#${chartType}-charts .chart-timespan-btn.active`
         );
         const hours = parseInt(activeBtn.dataset.hours);
-        const cutoff = new Date(Date.now() - hours * 3600 * 1000);
 
-        // Get aggregation setting
+        // If API is available, fetch fresh data for selected guilds
+        if (apiAvailable && selectedGuilds.length > 0) {
+          try {
+            const guildHistoryData = await fetchData(
+              `guild-history?guilds=${selectedGuilds.join(",")}&hours=${hours}`
+            );
+            if (guildHistoryData) {
+              historicalData.guild_history = {
+                ...historicalData.guild_history,
+                ...guildHistoryData,
+              };
+            }
+          } catch (error) {
+            console.error("Failed to fetch fresh guild history:", error);
+          }
+        }
+
+        const cutoff = new Date(Date.now() - hours * 3600 * 1000);
         const aggregation = document.getElementById(
           `${chartType}Aggregation`
         ).value;
@@ -1560,7 +1638,6 @@
             .filter((d) => new Date(d.timestamp) >= cutoff)
             .map((d) => ({ x: d.timestamp, y: d[chartType] }));
 
-          // Apply daily aggregation if needed
           if (useDaily && filteredData.length > 0) {
             filteredData = aggregateDataByDay(filteredData);
           }
@@ -1579,8 +1656,6 @@
         const canvasId =
           chartType === "nexus" ? "guildNexusChart" : "guildStudyChart";
         const containerSelector = `#${chartType}-charts .chart-canvas-container`;
-
-        // Show canvas container
         document.querySelector(containerSelector).style.display = "block";
 
         let chartInstance =
@@ -1623,12 +1698,10 @@
 
           if (availableItems.length > 0) {
             html += `<div class="item-category">
-                    <div class="category-header">${categoryName}</div>`;
-
+              <div class="category-header">${categoryName}</div>`;
             availableItems.forEach((itemName) => {
               html += `<div class="item-option" data-item="${itemName}">${itemName}</div>`;
             });
-
             html += `</div>`;
           }
         });
@@ -1660,6 +1733,7 @@
       }
 
       function populatePredictorItemSelector() {
+        // Same logic as populateItemSelector but for predictor
         const itemCategories = historicalData.item_categories || {};
         const items = historicalData.item_prices || {};
 
@@ -1684,12 +1758,10 @@
 
           if (availableItems.length > 0) {
             html += `<div class="item-category">
-                    <div class="category-header">${categoryName}</div>`;
-
+              <div class="category-header">${categoryName}</div>`;
             availableItems.forEach((itemName) => {
               html += `<div class="item-option" data-item="${itemName}">${itemName}</div>`;
             });
-
             html += `</div>`;
           }
         });
@@ -1734,7 +1806,6 @@
           opt.style.display = matches ? "block" : "none";
         });
 
-        // Hide/show category headers
         document
           .querySelectorAll("#itemList .item-category")
           .forEach((category) => {
@@ -1756,7 +1827,6 @@
             opt.style.display = matches ? "block" : "none";
           });
 
-        // Hide/show category headers
         document
           .querySelectorAll("#predictorItemList .item-category")
           .forEach((category) => {
@@ -1767,16 +1837,35 @@
           });
       }
 
-      function updateMarketChart() {
+      async function updateMarketChart() {
         const selectedItem =
           document.getElementById("itemSelectBtn").dataset.selected;
-        if (!selectedItem || !historicalData.item_prices?.[selectedItem])
-          return;
+        if (!selectedItem) return;
 
         const hours = parseInt(
           document.querySelector("#item-prices .market-timespan-btn.active")
             .dataset.hours
         );
+
+        // Fetch fresh market data if API is available
+        if (apiAvailable) {
+          try {
+            const marketPrices = await fetchData(
+              `market-prices?hours=${hours}`
+            );
+            if (marketPrices) {
+              historicalData.item_prices = {
+                ...historicalData.item_prices,
+                ...marketPrices,
+              };
+            }
+          } catch (error) {
+            console.error("Failed to fetch fresh market data:", error);
+          }
+        }
+
+        if (!historicalData.item_prices?.[selectedItem]) return;
+
         const cutoff = new Date(Date.now() - hours * 3600 * 1000);
         let prices = historicalData.item_prices[selectedItem].prices.filter(
           (p) => new Date(p.timestamp) >= cutoff
@@ -1842,7 +1931,6 @@
         const days = parseInt(
           document.querySelector(".predictor-period-btn.active").dataset.days
         );
-
         const cutoff = new Date(Date.now() - days * 24 * 3600 * 1000);
         const prices = historicalData.item_prices[selectedItem].prices.filter(
           (p) => new Date(p.timestamp) >= cutoff
@@ -1910,25 +1998,18 @@
         }${prediction.priceChange.toFixed(1)}%`;
         changeElement.className = `trend-${prediction.trend}`;
 
-        // Update prediction chart
         updatePredictionChart(itemName, prices, prediction);
       }
 
       function updatePredictionChart(itemName, prices, prediction) {
-        // Prepare historical data
         const historicalData = prices.map((p) => ({
           x: p.timestamp,
           y: (p.buy + p.sell) / 2,
         }));
-
-        // Add prediction point (24 hours ahead)
         const futureTime = new Date(
           Date.now() + 24 * 3600 * 1000
         ).toISOString();
-        const predictionPoint = {
-          x: futureTime,
-          y: prediction.predictedPrice,
-        };
+        const predictionPoint = { x: futureTime, y: prediction.predictedPrice };
 
         const datasets = [
           {
@@ -1974,10 +2055,7 @@
                 display: true,
                 text: `${itemName} Price Prediction`,
                 color: "#f8f9fa",
-                font: {
-                  size: 16,
-                  weight: "bold",
-                },
+                font: { size: 16, weight: "bold" },
               },
             },
           },
@@ -1985,42 +2063,56 @@
       }
 
       // Leaderboard Functions
-      function updateLeaderboard(type) {
+      async function updateLeaderboard(type) {
         document.getElementById("leaderboardContent").style.display = "grid";
 
-        let sortedGuilds = [...allGuildsData];
+        let sortedGuilds;
+        try {
+          if (apiAvailable) {
+            sortedGuilds = await fetchData(`leaderboard?type=${type}`);
+          } else {
+            sortedGuilds = [...allGuildsData];
+          }
+        } catch (error) {
+          console.error("Failed to fetch leaderboard data:", error);
+          sortedGuilds = [...allGuildsData];
+        }
+
         let title = "";
         let valueKey = "";
         let formatValue = (val) => val;
 
         switch (type) {
           case "codex":
-            sortedGuilds.sort(
-              (a, b) => (b.TotalCodexCost || 0) - (a.TotalCodexCost || 0)
-            );
+            if (!apiAvailable)
+              sortedGuilds.sort(
+                (a, b) => (b.TotalCodexCost || 0) - (a.TotalCodexCost || 0)
+              );
             title = "Most Codex Spent Today";
-            valueKey = "TotalCodexCost";
+            valueKey = apiAvailable ? "codex_cost" : "TotalCodexCost";
             formatValue = (val) => (val || 0).toLocaleString() + " Codex";
             break;
           case "nexus":
-            sortedGuilds.sort(
-              (a, b) => (b.NexusProgress || 0) - (a.NexusProgress || 0)
-            );
+            if (!apiAvailable)
+              sortedGuilds.sort(
+                (a, b) => (b.NexusProgress || 0) - (a.NexusProgress || 0)
+              );
             title = "Top Nexus Upgrades Today";
-            valueKey = "NexusProgress";
+            valueKey = apiAvailable ? "nexus_progress" : "NexusProgress";
             formatValue = (val) => "+" + (val || 0) + " Levels";
             break;
           case "study":
-            sortedGuilds.sort(
-              (a, b) => (b.StudyProgress || 0) - (a.StudyProgress || 0)
-            );
+            if (!apiAvailable)
+              sortedGuilds.sort(
+                (a, b) => (b.StudyProgress || 0) - (a.StudyProgress || 0)
+              );
             title = "Top Study Upgrades Today";
-            valueKey = "StudyProgress";
+            valueKey = apiAvailable ? "study_progress" : "StudyProgress";
             formatValue = (val) => "+" + (val || 0) + " Levels";
             break;
         }
 
-        // Only show guilds with progress > 0
+        const guildNameKey = apiAvailable ? "guild_name" : "GuildName";
         const filteredGuilds = sortedGuilds.filter(
           (g) => (g[valueKey] || 0) > 0
         );
@@ -2029,10 +2121,10 @@
 
         if (filteredGuilds.length === 0) {
           content.innerHTML = `
-                  <div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 60px;">
-                    No progress data available for ${title.toLowerCase()}
-                  </div>
-                `;
+            <div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 60px;">
+              No progress data available for ${title.toLowerCase()}
+            </div>
+          `;
           return;
         }
 
@@ -2053,25 +2145,24 @@
               rankDisplay = "3rd";
             }
 
+            const guildName = guild[guildNameKey];
             return `
-                  <div class="leaderboard-item ${
-                    isFavorite(guild.GuildName) ? "favorite" : ""
-                  }">
-                    <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
-                    <div class="leaderboard-info">
-                      <div class="leaderboard-guild">
-                        ${isFavorite(guild.GuildName) ? "★ " : ""}${
-              guild.GuildName
-            }
-                      </div>
-                      <div class="leaderboard-stat">
-                        <span class="leaderboard-value">${formatValue(
-                          guild[valueKey]
-                        )}</span>
-                      </div>
-                    </div>
-                  </div>
-                `;
+            <div class="leaderboard-item ${
+              isFavorite(guildName) ? "favorite" : ""
+            }">
+              <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
+              <div class="leaderboard-info">
+                <div class="leaderboard-guild">
+                  ${isFavorite(guildName) ? "★ " : ""}${guildName}
+                </div>
+                <div class="leaderboard-stat">
+                  <span class="leaderboard-value">${formatValue(
+                    guild[valueKey]
+                  )}</span>
+                </div>
+              </div>
+            </div>
+          `;
           })
           .join("");
       }
@@ -2119,36 +2210,20 @@
 
       function getChartOptions(hours, isCurrency, useDaily = false) {
         const timeUnit = useDaily ? "day" : hours <= 72 ? "hour" : "day";
-        const displayFormat = useDaily
-          ? "MMM dd"
-          : hours <= 72
-          ? "MMM dd HH:mm"
-          : "MMM dd";
 
         return {
           responsive: true,
           maintainAspectRatio: false,
-          interaction: {
-            intersect: false,
-            mode: "index",
-          },
+          interaction: { intersect: false, mode: "index" },
           scales: {
             x: {
               type: "time",
               time: {
                 unit: timeUnit,
-                displayFormats: {
-                  hour: "MMM dd HH:mm",
-                  day: "MMM dd",
-                },
+                displayFormats: { hour: "MMM dd HH:mm", day: "MMM dd" },
               },
-              ticks: {
-                color: "#b3b3b3",
-                maxTicksLimit: useDaily ? 15 : 10,
-              },
-              grid: {
-                color: "rgba(255,255,255,0.1)",
-              },
+              ticks: { color: "#b3b3b3", maxTicksLimit: useDaily ? 15 : 10 },
+              grid: { color: "rgba(255,255,255,0.1)" },
             },
             y: {
               ticks: {
@@ -2157,18 +2232,12 @@
                   return isCurrency ? formatCurrency(value) : Math.round(value);
                 },
               },
-              grid: {
-                color: "rgba(255,255,255,0.1)",
-              },
+              grid: { color: "rgba(255,255,255,0.1)" },
             },
           },
           plugins: {
             legend: {
-              labels: {
-                color: "#f8f9fa",
-                padding: 20,
-                usePointStyle: true,
-              },
+              labels: { color: "#f8f9fa", padding: 20, usePointStyle: true },
             },
             tooltip: {
               backgroundColor: "rgba(42, 42, 43, 0.9)",
