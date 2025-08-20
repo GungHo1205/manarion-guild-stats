@@ -36,20 +36,20 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 423,
-      "StudyLevel": 356,
-      "TotalUpgrades": 1451,
+      "StudyLevel": 358,
+      "TotalUpgrades": 1453,
       "GuildLevel": 108,
       "GuildID": 25,
       "NexusProgress": 0,
-      "StudyProgress": 15,
-      "TotalCodexCost": 5235
+      "StudyProgress": 17,
+      "TotalCodexCost": 5950
     },
     {
       "GuildName": "Phoenix",
       "NexusLevel": 397,
       "StudyLevel": 253,
       "TotalUpgrades": 1210,
-      "GuildLevel": 94,
+      "GuildLevel": 95,
       "GuildID": 8,
       "NexusProgress": 4,
       "StudyProgress": 2,
@@ -58,13 +58,13 @@
     {
       "GuildName": "EZ ",
       "NexusLevel": 279,
-      "StudyLevel": 216,
-      "TotalUpgrades": 878,
+      "StudyLevel": 219,
+      "TotalUpgrades": 879,
       "GuildLevel": 81,
       "GuildID": 2,
       "NexusProgress": 2,
-      "StudyProgress": 1,
-      "TotalCodexCost": 773
+      "StudyProgress": 4,
+      "TotalCodexCost": 1427
     },
     {
       "GuildName": "Codex",
@@ -79,21 +79,21 @@
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 260,
+      "NexusLevel": 262,
       "StudyLevel": 175,
-      "TotalUpgrades": 869,
-      "GuildLevel": 83,
+      "TotalUpgrades": 873,
+      "GuildLevel": 84,
       "GuildID": 112,
-      "NexusProgress": 1,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 260
+      "TotalCodexCost": 783
     },
     {
       "GuildName": "Test Guild Please Ignore",
       "NexusLevel": 251,
       "StudyLevel": 273,
       "TotalUpgrades": 980,
-      "GuildLevel": 55,
+      "GuildLevel": 56,
       "GuildID": 14,
       "NexusProgress": 6,
       "StudyProgress": 1,
@@ -102,13 +102,13 @@
     {
       "GuildName": "Doomed",
       "NexusLevel": 240,
-      "StudyLevel": 196,
-      "TotalUpgrades": 793,
-      "GuildLevel": 73,
+      "StudyLevel": 201,
+      "TotalUpgrades": 798,
+      "GuildLevel": 74,
       "GuildID": 183,
       "NexusProgress": 0,
-      "StudyProgress": 11,
-      "TotalCodexCost": 2101
+      "StudyProgress": 16,
+      "TotalCodexCost": 3096
     },
     {
       "GuildName": "Fight Club",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 28882,
-    "formatted_dust": "483.30T",
-    "formatted_price": "16.73B"
+    "total_codex": 31769,
+    "formatted_dust": "533.31T",
+    "formatted_price": "16.79B"
   },
-  "lastUpdated": "2025-08-20T12:29:16.331254+00:00",
+  "lastUpdated": "2025-08-20T13:26:46.478628+00:00",
   "baselineDate": "2025-08-20",
   "baselineCreatedAt": "2025-08-20T00:56:46.320553+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 19,
-    "total_codex_used": 28882,
+    "total_codex_used": 31769,
     "baseline_date": "2025-08-20"
   }
 }
