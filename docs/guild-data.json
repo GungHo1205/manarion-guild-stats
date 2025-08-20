@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 475,
-      "StudyLevel": 357,
-      "TotalUpgrades": 1473,
+      "StudyLevel": 358,
+      "TotalUpgrades": 1474,
       "GuildLevel": 105,
       "GuildID": 5,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 358
     },
     {
       "GuildName": "Sanctuary",
@@ -90,14 +90,14 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 245,
+      "NexusLevel": 247,
       "StudyLevel": 272,
-      "TotalUpgrades": 971,
+      "TotalUpgrades": 974,
       "GuildLevel": 55,
       "GuildID": 14,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 493
     },
     {
       "GuildName": "Doomed",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 0,
-    "formatted_dust": "0.00",
-    "formatted_price": "16.35B"
+    "total_codex": 851,
+    "formatted_dust": "13.93T",
+    "formatted_price": "16.37B"
   },
-  "lastUpdated": "2025-08-20T00:56:46.320553+00:00",
+  "lastUpdated": "2025-08-20T01:07:31.710631+00:00",
   "baselineDate": "2025-08-20",
   "baselineCreatedAt": "2025-08-20T00:56:46.320553+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 0,
-    "total_codex_used": 0,
+    "guilds_with_progress": 2,
+    "total_codex_used": 851,
     "baseline_date": "2025-08-20"
   }
 }
