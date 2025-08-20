@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 477,
-      "StudyLevel": 376,
-      "TotalUpgrades": 1494,
+      "StudyLevel": 377,
+      "TotalUpgrades": 1495,
       "GuildLevel": 107,
       "GuildID": 5,
       "NexusProgress": 2,
-      "StudyProgress": 19,
-      "TotalCodexCost": 7926
+      "StudyProgress": 20,
+      "TotalCodexCost": 8303
     },
     {
       "GuildName": "Sanctuary",
@@ -37,7 +37,7 @@
       "GuildName": "Divinity",
       "NexusLevel": 423,
       "StudyLevel": 366,
-      "TotalUpgrades": 1462,
+      "TotalUpgrades": 1464,
       "GuildLevel": 110,
       "GuildID": 25,
       "NexusProgress": 0,
@@ -46,20 +46,20 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 399,
+      "NexusLevel": 400,
       "StudyLevel": 261,
-      "TotalUpgrades": 1214,
+      "TotalUpgrades": 1216,
       "GuildLevel": 95,
       "GuildID": 8,
-      "NexusProgress": 6,
+      "NexusProgress": 7,
       "StudyProgress": 10,
-      "TotalCodexCost": 4944
+      "TotalCodexCost": 5344
     },
     {
       "GuildName": "EZ ",
       "NexusLevel": 281,
       "StudyLevel": 218,
-      "TotalUpgrades": 887,
+      "TotalUpgrades": 890,
       "GuildLevel": 82,
       "GuildID": 2,
       "NexusProgress": 4,
@@ -79,14 +79,14 @@
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 262,
+      "NexusLevel": 263,
       "StudyLevel": 175,
-      "TotalUpgrades": 874,
+      "TotalUpgrades": 876,
       "GuildLevel": 84,
       "GuildID": 112,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 783
+      "TotalCodexCost": 1046
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -123,14 +123,14 @@
     },
     {
       "GuildName": "Minimal Effort",
-      "NexusLevel": 220,
+      "NexusLevel": 222,
       "StudyLevel": 160,
-      "TotalUpgrades": 739,
+      "TotalUpgrades": 741,
       "GuildLevel": 58,
       "GuildID": 172,
-      "NexusProgress": 7,
+      "NexusProgress": 9,
       "StudyProgress": 0,
-      "TotalCodexCost": 1519
+      "TotalCodexCost": 1962
     },
     {
       "GuildName": "Imperium",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 50290,
-    "formatted_dust": "863.22T",
-    "formatted_price": "17.16B"
+    "total_codex": 51773,
+    "formatted_dust": "889.36T",
+    "formatted_price": "17.18B"
   },
-  "lastUpdated": "2025-08-20T20:16:20.721438+00:00",
+  "lastUpdated": "2025-08-20T21:13:20.192496+00:00",
   "baselineDate": "2025-08-20",
   "baselineCreatedAt": "2025-08-20T00:56:46.320553+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 25,
-    "total_codex_used": 50290,
+    "total_codex_used": 51773,
     "baseline_date": "2025-08-20"
   }
 }
