@@ -13,36 +13,36 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 435,
+      "NexusLevel": 436,
       "StudyLevel": 300,
-      "TotalUpgrades": 1438,
+      "TotalUpgrades": 1439,
       "GuildLevel": 122,
       "GuildID": 19,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1734
+      "TotalCodexCost": 2170
     },
     {
       "GuildName": "RNG",
       "NexusLevel": 431,
-      "StudyLevel": 309,
-      "TotalUpgrades": 1385,
+      "StudyLevel": 310,
+      "TotalUpgrades": 1386,
       "GuildLevel": 104,
       "GuildID": 17,
       "NexusProgress": 1,
-      "StudyProgress": 4,
-      "TotalCodexCost": 1661
+      "StudyProgress": 5,
+      "TotalCodexCost": 1971
     },
     {
       "GuildName": "Divinity",
       "NexusLevel": 423,
-      "StudyLevel": 353,
-      "TotalUpgrades": 1447,
+      "StudyLevel": 355,
+      "TotalUpgrades": 1450,
       "GuildLevel": 108,
       "GuildID": 25,
       "NexusProgress": 0,
-      "StudyProgress": 12,
-      "TotalCodexCost": 4170
+      "StudyProgress": 14,
+      "TotalCodexCost": 4879
     },
     {
       "GuildName": "Phoenix",
@@ -123,14 +123,14 @@
     },
     {
       "GuildName": "Minimal Effort",
-      "NexusLevel": 217,
+      "NexusLevel": 219,
       "StudyLevel": 160,
-      "TotalUpgrades": 736,
+      "TotalUpgrades": 738,
       "GuildLevel": 57,
       "GuildID": 172,
-      "NexusProgress": 4,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 862
+      "TotalCodexCost": 1299
     },
     {
       "GuildName": "Imperium",
@@ -211,14 +211,14 @@
     },
     {
       "GuildName": "Dino Nuggies",
-      "NexusLevel": 181,
+      "NexusLevel": 182,
       "StudyLevel": 140,
-      "TotalUpgrades": 616,
+      "TotalUpgrades": 617,
       "GuildLevel": 64,
       "GuildID": 122,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 181
+      "TotalCodexCost": 363
     },
     {
       "GuildName": "Bureau of Feline Investigators",
@@ -279,7 +279,7 @@
       "GuildName": "asylum",
       "NexusLevel": 107,
       "StudyLevel": 67,
-      "TotalUpgrades": 435,
+      "TotalUpgrades": 436,
       "GuildLevel": 50,
       "GuildID": 130,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 24528,
-    "formatted_dust": "407.43T",
-    "formatted_price": "16.61B"
+    "total_codex": 26602,
+    "formatted_dust": "443.75T",
+    "formatted_price": "16.68B"
   },
-  "lastUpdated": "2025-08-20T10:15:34.767381+00:00",
+  "lastUpdated": "2025-08-20T11:12:20.323676+00:00",
   "baselineDate": "2025-08-20",
   "baselineCreatedAt": "2025-08-20T00:56:46.320553+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 19,
-    "total_codex_used": 24528,
+    "total_codex_used": 26602,
     "baseline_date": "2025-08-20"
   }
 }
