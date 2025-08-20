@@ -37,7 +37,7 @@
       "GuildName": "Divinity",
       "NexusLevel": 423,
       "StudyLevel": 350,
-      "TotalUpgrades": 1443,
+      "TotalUpgrades": 1444,
       "GuildLevel": 107,
       "GuildID": 25,
       "NexusProgress": 0,
@@ -60,7 +60,7 @@
       "NexusLevel": 278,
       "StudyLevel": 216,
       "TotalUpgrades": 876,
-      "GuildLevel": 80,
+      "GuildLevel": 81,
       "GuildID": 2,
       "NexusProgress": 1,
       "StudyProgress": 1,
@@ -90,14 +90,14 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 250,
-      "StudyLevel": 272,
-      "TotalUpgrades": 977,
+      "NexusLevel": 251,
+      "StudyLevel": 273,
+      "TotalUpgrades": 980,
       "GuildLevel": 55,
       "GuildID": 14,
-      "NexusProgress": 5,
-      "StudyProgress": 0,
-      "TotalCodexCost": 1240
+      "NexusProgress": 6,
+      "StudyProgress": 1,
+      "TotalCodexCost": 1764
     },
     {
       "GuildName": "Doomed",
@@ -190,13 +190,13 @@
     {
       "GuildName": "BASED",
       "NexusLevel": 189,
-      "StudyLevel": 126,
-      "TotalUpgrades": 455,
+      "StudyLevel": 141,
+      "TotalUpgrades": 460,
       "GuildLevel": 47,
       "GuildID": 27,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 15,
+      "TotalCodexCost": 2010
     },
     {
       "GuildName": "Osmanthus",
@@ -210,23 +210,23 @@
       "TotalCodexCost": 0
     },
     {
+      "GuildName": "Dino Nuggies",
+      "NexusLevel": 181,
+      "StudyLevel": 140,
+      "TotalUpgrades": 616,
+      "GuildLevel": 64,
+      "GuildID": 122,
+      "NexusProgress": 1,
+      "StudyProgress": 0,
+      "TotalCodexCost": 181
+    },
+    {
       "GuildName": "Bureau of Feline Investigators",
       "NexusLevel": 180,
       "StudyLevel": 178,
       "TotalUpgrades": 576,
       "GuildLevel": 55,
       "GuildID": 18,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Dino Nuggies",
-      "NexusLevel": 180,
-      "StudyLevel": 140,
-      "TotalUpgrades": 615,
-      "GuildLevel": 64,
-      "GuildID": 122,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 16138,
-    "formatted_dust": "265.43T",
-    "formatted_price": "16.45B"
+    "total_codex": 18853,
+    "formatted_dust": "310.92T",
+    "formatted_price": "16.49B"
   },
-  "lastUpdated": "2025-08-20T07:14:27.039476+00:00",
+  "lastUpdated": "2025-08-20T08:19:36.312089+00:00",
   "baselineDate": "2025-08-20",
   "baselineCreatedAt": "2025-08-20T00:56:46.320553+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 16,
-    "total_codex_used": 16138,
+    "guilds_with_progress": 18,
+    "total_codex_used": 18853,
     "baseline_date": "2025-08-20"
   }
 }
