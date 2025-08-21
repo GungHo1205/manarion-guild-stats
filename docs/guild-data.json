@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 478,
-      "StudyLevel": 383,
-      "TotalUpgrades": 1502,
+      "StudyLevel": 384,
+      "TotalUpgrades": 1503,
       "GuildLevel": 108,
       "GuildID": 5,
       "NexusProgress": 0,
-      "StudyProgress": 5,
-      "TotalCodexCost": 1905
+      "StudyProgress": 6,
+      "TotalCodexCost": 2289
     },
     {
       "GuildName": "Sanctuary",
@@ -37,7 +37,7 @@
       "GuildName": "Divinity",
       "NexusLevel": 423,
       "StudyLevel": 374,
-      "TotalUpgrades": 1472,
+      "TotalUpgrades": 1475,
       "GuildLevel": 111,
       "GuildID": 25,
       "NexusProgress": 0,
@@ -47,13 +47,13 @@
     {
       "GuildName": "Phoenix",
       "NexusLevel": 400,
-      "StudyLevel": 268,
-      "TotalUpgrades": 1223,
+      "StudyLevel": 269,
+      "TotalUpgrades": 1224,
       "GuildLevel": 96,
       "GuildID": 8,
       "NexusProgress": 0,
-      "StudyProgress": 3,
-      "TotalCodexCost": 801
+      "StudyProgress": 4,
+      "TotalCodexCost": 1070
     },
     {
       "GuildName": "EZ ",
@@ -90,20 +90,20 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 259,
+      "NexusLevel": 260,
       "StudyLevel": 273,
-      "TotalUpgrades": 991,
+      "TotalUpgrades": 992,
       "GuildLevel": 56,
       "GuildID": 14,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 260
     },
     {
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 210,
-      "TotalUpgrades": 808,
+      "TotalUpgrades": 809,
       "GuildLevel": 75,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -146,13 +146,13 @@
     {
       "GuildName": "Gatherers Guild",
       "NexusLevel": 206,
-      "StudyLevel": 143,
-      "TotalUpgrades": 647,
+      "StudyLevel": 145,
+      "TotalUpgrades": 650,
       "GuildLevel": 58,
       "GuildID": 1,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 2,
+      "TotalCodexCost": 289
     },
     {
       "GuildName": "Caliburnus",
@@ -245,13 +245,13 @@
     {
       "GuildName": "Manarion Adventures",
       "NexusLevel": 146,
-      "StudyLevel": 154,
-      "TotalUpgrades": 695,
-      "GuildLevel": 62,
+      "StudyLevel": 155,
+      "TotalUpgrades": 697,
+      "GuildLevel": 63,
       "GuildID": 54,
       "NexusProgress": 2,
-      "StudyProgress": 0,
-      "TotalCodexCost": 291
+      "StudyProgress": 1,
+      "TotalCodexCost": 446
     },
     {
       "GuildName": "Cats",
@@ -310,14 +310,14 @@
     },
     {
       "GuildName": "Rainbow",
-      "NexusLevel": 94,
+      "NexusLevel": 95,
       "StudyLevel": 80,
-      "TotalUpgrades": 356,
+      "TotalUpgrades": 357,
       "GuildLevel": 41,
       "GuildID": 105,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 95
     },
     {
       "GuildName": "A Growing Threat",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 8246,
-    "formatted_dust": "141.12T",
-    "formatted_price": "17.11B"
+    "total_codex": 9698,
+    "formatted_dust": "165.80T",
+    "formatted_price": "17.10B"
   },
-  "lastUpdated": "2025-08-21T04:17:24.666341+00:00",
+  "lastUpdated": "2025-08-21T05:15:00.631154+00:00",
   "baselineDate": "2025-08-21",
   "baselineCreatedAt": "2025-08-21T00:55:49.678446+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 11,
-    "total_codex_used": 8246,
+    "guilds_with_progress": 14,
+    "total_codex_used": 9698,
     "baseline_date": "2025-08-21"
   }
 }
