@@ -3,24 +3,24 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 478,
-      "StudyLevel": 384,
-      "TotalUpgrades": 1503,
+      "StudyLevel": 385,
+      "TotalUpgrades": 1504,
       "GuildLevel": 108,
       "GuildID": 5,
       "NexusProgress": 0,
-      "StudyProgress": 6,
-      "TotalCodexCost": 2289
+      "StudyProgress": 7,
+      "TotalCodexCost": 2674
     },
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 440,
-      "StudyLevel": 312,
-      "TotalUpgrades": 1455,
+      "StudyLevel": 313,
+      "TotalUpgrades": 1456,
       "GuildLevel": 124,
       "GuildID": 19,
       "NexusProgress": 0,
-      "StudyProgress": 6,
-      "TotalCodexCost": 1857
+      "StudyProgress": 7,
+      "TotalCodexCost": 2170
     },
     {
       "GuildName": "RNG",
@@ -35,32 +35,32 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 423,
+      "NexusLevel": 424,
       "StudyLevel": 374,
-      "TotalUpgrades": 1475,
-      "GuildLevel": 111,
+      "TotalUpgrades": 1476,
+      "GuildLevel": 112,
       "GuildID": 25,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 4,
-      "TotalCodexCost": 1490
+      "TotalCodexCost": 1914
     },
     {
       "GuildName": "Phoenix",
       "NexusLevel": 400,
-      "StudyLevel": 269,
-      "TotalUpgrades": 1224,
+      "StudyLevel": 271,
+      "TotalUpgrades": 1226,
       "GuildLevel": 96,
       "GuildID": 8,
       "NexusProgress": 0,
-      "StudyProgress": 4,
-      "TotalCodexCost": 1070
+      "StudyProgress": 6,
+      "TotalCodexCost": 1611
     },
     {
       "GuildName": "EZ ",
       "NexusLevel": 282,
       "StudyLevel": 220,
-      "TotalUpgrades": 895,
-      "GuildLevel": 82,
+      "TotalUpgrades": 897,
+      "GuildLevel": 83,
       "GuildID": 2,
       "NexusProgress": 1,
       "StudyProgress": 1,
@@ -69,13 +69,13 @@
     {
       "GuildName": "Codex",
       "NexusLevel": 275,
-      "StudyLevel": 257,
-      "TotalUpgrades": 921,
+      "StudyLevel": 263,
+      "TotalUpgrades": 927,
       "GuildLevel": 83,
       "GuildID": 59,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 6,
+      "TotalCodexCost": 1563
     },
     {
       "GuildName": "The First Ones",
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 210,
-      "TotalUpgrades": 809,
+      "TotalUpgrades": 810,
       "GuildLevel": 75,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -114,7 +114,7 @@
       "GuildName": "Fight Club",
       "NexusLevel": 240,
       "StudyLevel": 160,
-      "TotalUpgrades": 796,
+      "TotalUpgrades": 797,
       "GuildLevel": 69,
       "GuildID": 10,
       "NexusProgress": 0,
@@ -145,14 +145,14 @@
     },
     {
       "GuildName": "Gatherers Guild",
-      "NexusLevel": 206,
+      "NexusLevel": 207,
       "StudyLevel": 145,
-      "TotalUpgrades": 650,
+      "TotalUpgrades": 651,
       "GuildLevel": 58,
       "GuildID": 1,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 2,
-      "TotalCodexCost": 289
+      "TotalCodexCost": 496
     },
     {
       "GuildName": "Caliburnus",
@@ -181,7 +181,7 @@
       "NexusLevel": 200,
       "StudyLevel": 200,
       "TotalUpgrades": 873,
-      "GuildLevel": 68,
+      "GuildLevel": 69,
       "GuildID": 9,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 9698,
-    "formatted_dust": "165.80T",
-    "formatted_price": "17.10B"
+    "total_codex": 13131,
+    "formatted_dust": "224.33T",
+    "formatted_price": "17.08B"
   },
-  "lastUpdated": "2025-08-21T05:15:00.631154+00:00",
+  "lastUpdated": "2025-08-21T06:31:40.088277+00:00",
   "baselineDate": "2025-08-21",
   "baselineCreatedAt": "2025-08-21T00:55:49.678446+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 14,
-    "total_codex_used": 9698,
+    "guilds_with_progress": 15,
+    "total_codex_used": 13131,
     "baseline_date": "2025-08-21"
   }
 }
