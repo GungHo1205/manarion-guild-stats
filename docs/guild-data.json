@@ -3,24 +3,24 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 478,
-      "StudyLevel": 388,
-      "TotalUpgrades": 1507,
-      "GuildLevel": 108,
+      "StudyLevel": 389,
+      "TotalUpgrades": 1508,
+      "GuildLevel": 109,
       "GuildID": 5,
       "NexusProgress": 0,
-      "StudyProgress": 10,
-      "TotalCodexCost": 3835
+      "StudyProgress": 11,
+      "TotalCodexCost": 4224
     },
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 440,
-      "StudyLevel": 313,
-      "TotalUpgrades": 1456,
-      "GuildLevel": 124,
+      "StudyLevel": 314,
+      "TotalUpgrades": 1457,
+      "GuildLevel": 125,
       "GuildID": 19,
       "NexusProgress": 0,
-      "StudyProgress": 7,
-      "TotalCodexCost": 2170
+      "StudyProgress": 8,
+      "TotalCodexCost": 2484
     },
     {
       "GuildName": "RNG",
@@ -35,14 +35,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 425,
+      "NexusLevel": 427,
       "StudyLevel": 375,
-      "TotalUpgrades": 1479,
-      "GuildLevel": 112,
+      "TotalUpgrades": 1482,
+      "GuildLevel": 113,
       "GuildID": 25,
-      "NexusProgress": 2,
+      "NexusProgress": 4,
       "StudyProgress": 5,
-      "TotalCodexCost": 2714
+      "TotalCodexCost": 3567
     },
     {
       "GuildName": "Phoenix",
@@ -59,7 +59,7 @@
       "GuildName": "EZ ",
       "NexusLevel": 283,
       "StudyLevel": 221,
-      "TotalUpgrades": 899,
+      "TotalUpgrades": 900,
       "GuildLevel": 83,
       "GuildID": 2,
       "NexusProgress": 2,
@@ -103,8 +103,8 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 210,
-      "TotalUpgrades": 810,
-      "GuildLevel": 75,
+      "TotalUpgrades": 816,
+      "GuildLevel": 76,
       "GuildID": 183,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -246,7 +246,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 146,
       "StudyLevel": 156,
-      "TotalUpgrades": 700,
+      "TotalUpgrades": 701,
       "GuildLevel": 63,
       "GuildID": 54,
       "NexusProgress": 2,
@@ -279,7 +279,7 @@
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 110,
       "StudyLevel": 129,
-      "TotalUpgrades": 522,
+      "TotalUpgrades": 525,
       "GuildLevel": 52,
       "GuildID": 65,
       "NexusProgress": 4,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 17763,
-    "formatted_dust": "301.73T",
-    "formatted_price": "16.99B"
+    "total_codex": 19319,
+    "formatted_dust": "327.30T",
+    "formatted_price": "16.94B"
   },
-  "lastUpdated": "2025-08-21T09:15:31.154474+00:00",
+  "lastUpdated": "2025-08-21T10:15:19.125772+00:00",
   "baselineDate": "2025-08-21",
   "baselineCreatedAt": "2025-08-21T00:55:49.678446+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 16,
-    "total_codex_used": 17763,
+    "total_codex_used": 19319,
     "baseline_date": "2025-08-21"
   }
 }
