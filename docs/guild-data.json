@@ -35,25 +35,25 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 427,
+      "NexusLevel": 428,
       "StudyLevel": 375,
-      "TotalUpgrades": 1484,
+      "TotalUpgrades": 1485,
       "GuildLevel": 113,
       "GuildID": 25,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 5,
-      "TotalCodexCost": 3567
+      "TotalCodexCost": 3995
     },
     {
       "GuildName": "Phoenix",
       "NexusLevel": 400,
-      "StudyLevel": 276,
-      "TotalUpgrades": 1231,
+      "StudyLevel": 277,
+      "TotalUpgrades": 1232,
       "GuildLevel": 97,
       "GuildID": 8,
       "NexusProgress": 0,
-      "StudyProgress": 11,
-      "TotalCodexCost": 2981
+      "StudyProgress": 12,
+      "TotalCodexCost": 3258
     },
     {
       "GuildName": "EZ ",
@@ -278,13 +278,13 @@
     {
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 110,
-      "StudyLevel": 129,
-      "TotalUpgrades": 525,
+      "StudyLevel": 130,
+      "TotalUpgrades": 527,
       "GuildLevel": 52,
       "GuildID": 65,
       "NexusProgress": 4,
-      "StudyProgress": 0,
-      "TotalCodexCost": 434
+      "StudyProgress": 1,
+      "TotalCodexCost": 564
     },
     {
       "GuildName": "asylum",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 27033,
-    "formatted_dust": "456.23T",
-    "formatted_price": "16.88B"
+    "total_codex": 27868,
+    "formatted_dust": "469.44T",
+    "formatted_price": "16.85B"
   },
-  "lastUpdated": "2025-08-21T12:28:52.888529+00:00",
+  "lastUpdated": "2025-08-21T13:26:03.517087+00:00",
   "baselineDate": "2025-08-21",
   "baselineCreatedAt": "2025-08-21T00:55:49.678446+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 18,
-    "total_codex_used": 27033,
+    "total_codex_used": 27868,
     "baseline_date": "2025-08-21"
   }
 }
