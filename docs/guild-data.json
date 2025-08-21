@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 478,
-      "StudyLevel": 401,
-      "TotalUpgrades": 1520,
+      "StudyLevel": 402,
+      "TotalUpgrades": 1521,
       "GuildLevel": 110,
       "GuildID": 5,
       "NexusProgress": 0,
-      "StudyProgress": 23,
-      "TotalCodexCost": 8970
+      "StudyProgress": 24,
+      "TotalCodexCost": 9372
     },
     {
       "GuildName": "Sanctuary",
@@ -36,13 +36,13 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 430,
-      "StudyLevel": 380,
-      "TotalUpgrades": 1499,
+      "StudyLevel": 382,
+      "TotalUpgrades": 1501,
       "GuildLevel": 115,
       "GuildID": 25,
       "NexusProgress": 7,
-      "StudyProgress": 10,
-      "TotalCodexCost": 6744
+      "StudyProgress": 12,
+      "TotalCodexCost": 7507
     },
     {
       "GuildName": "Phoenix",
@@ -79,20 +79,20 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 266,
+      "NexusLevel": 268,
       "StudyLevel": 273,
-      "TotalUpgrades": 1000,
+      "TotalUpgrades": 1002,
       "GuildLevel": 57,
       "GuildID": 14,
-      "NexusProgress": 7,
+      "NexusProgress": 9,
       "StudyProgress": 0,
-      "TotalCodexCost": 1841
+      "TotalCodexCost": 2376
     },
     {
       "GuildName": "The First Ones",
       "NexusLevel": 265,
       "StudyLevel": 176,
-      "TotalUpgrades": 894,
+      "TotalUpgrades": 896,
       "GuildLevel": 86,
       "GuildID": 112,
       "NexusProgress": 2,
@@ -135,13 +135,13 @@
     {
       "GuildName": "Imperium",
       "NexusLevel": 213,
-      "StudyLevel": 210,
-      "TotalUpgrades": 788,
-      "GuildLevel": 79,
+      "StudyLevel": 213,
+      "TotalUpgrades": 791,
+      "GuildLevel": 80,
       "GuildID": 15,
       "NexusProgress": 0,
-      "StudyProgress": 5,
-      "TotalCodexCost": 1040
+      "StudyProgress": 8,
+      "TotalCodexCost": 1676
     },
     {
       "GuildName": "Gatherers Guild",
@@ -223,13 +223,13 @@
     {
       "GuildName": "Bureau of Feline Investigators",
       "NexusLevel": 180,
-      "StudyLevel": 180,
-      "TotalUpgrades": 589,
+      "StudyLevel": 184,
+      "TotalUpgrades": 593,
       "GuildLevel": 56,
       "GuildID": 18,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 4,
+      "TotalCodexCost": 730
     },
     {
       "GuildName": "Ewbies",
@@ -246,7 +246,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 146,
       "StudyLevel": 156,
-      "TotalUpgrades": 701,
+      "TotalUpgrades": 702,
       "GuildLevel": 63,
       "GuildID": 54,
       "NexusProgress": 2,
@@ -277,14 +277,14 @@
     },
     {
       "GuildName": "asylum",
-      "NexusLevel": 114,
+      "NexusLevel": 115,
       "StudyLevel": 67,
-      "TotalUpgrades": 443,
+      "TotalUpgrades": 444,
       "GuildLevel": 51,
       "GuildID": 130,
-      "NexusProgress": 7,
+      "NexusProgress": 8,
       "StudyProgress": 0,
-      "TotalCodexCost": 777
+      "TotalCodexCost": 892
     },
     {
       "GuildName": "Lighthouse Reborn",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 52263,
-    "formatted_dust": "857.76T",
-    "formatted_price": "16.41B"
+    "total_codex": 55444,
+    "formatted_dust": "908.56T",
+    "formatted_price": "16.39B"
   },
-  "lastUpdated": "2025-08-21T22:14:09.946658+00:00",
+  "lastUpdated": "2025-08-21T23:13:29.776041+00:00",
   "baselineDate": "2025-08-21",
   "baselineCreatedAt": "2025-08-21T00:55:49.678446+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 25,
-    "total_codex_used": 52263,
+    "guilds_with_progress": 26,
+    "total_codex_used": 55444,
     "baseline_date": "2025-08-21"
   }
 }
