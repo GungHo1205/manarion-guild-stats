@@ -14,13 +14,13 @@
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 442,
-      "StudyLevel": 329,
-      "TotalUpgrades": 1474,
+      "StudyLevel": 331,
+      "TotalUpgrades": 1476,
       "GuildLevel": 126,
       "GuildID": 19,
       "NexusProgress": 2,
-      "StudyProgress": 23,
-      "TotalCodexCost": 8197
+      "StudyProgress": 25,
+      "TotalCodexCost": 8858
     },
     {
       "GuildName": "RNG",
@@ -36,35 +36,35 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 430,
-      "StudyLevel": 379,
-      "TotalUpgrades": 1497,
+      "StudyLevel": 380,
+      "TotalUpgrades": 1499,
       "GuildLevel": 115,
       "GuildID": 25,
       "NexusProgress": 7,
-      "StudyProgress": 9,
-      "TotalCodexCost": 6364
+      "StudyProgress": 10,
+      "TotalCodexCost": 6744
     },
     {
       "GuildName": "Phoenix",
       "NexusLevel": 400,
-      "StudyLevel": 285,
-      "TotalUpgrades": 1240,
-      "GuildLevel": 97,
+      "StudyLevel": 286,
+      "TotalUpgrades": 1241,
+      "GuildLevel": 98,
       "GuildID": 8,
       "NexusProgress": 0,
-      "StudyProgress": 20,
-      "TotalCodexCost": 5510
+      "StudyProgress": 21,
+      "TotalCodexCost": 5796
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 285,
+      "NexusLevel": 286,
       "StudyLevel": 223,
-      "TotalUpgrades": 904,
+      "TotalUpgrades": 906,
       "GuildLevel": 84,
       "GuildID": 2,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 4,
-      "TotalCodexCost": 2020
+      "TotalCodexCost": 2306
     },
     {
       "GuildName": "Codex",
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 210,
-      "TotalUpgrades": 821,
+      "TotalUpgrades": 827,
       "GuildLevel": 77,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -123,14 +123,14 @@
     },
     {
       "GuildName": "Minimal Effort",
-      "NexusLevel": 225,
+      "NexusLevel": 226,
       "StudyLevel": 160,
-      "TotalUpgrades": 744,
+      "TotalUpgrades": 745,
       "GuildLevel": 58,
       "GuildID": 172,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 449
+      "TotalCodexCost": 675
     },
     {
       "GuildName": "Imperium",
@@ -169,7 +169,7 @@
       "GuildName": "Caliburnus",
       "NexusLevel": 205,
       "StudyLevel": 153,
-      "TotalUpgrades": 697,
+      "TotalUpgrades": 698,
       "GuildLevel": 59,
       "GuildID": 42,
       "NexusProgress": 1,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 49596,
-    "formatted_dust": "817.25T",
-    "formatted_price": "16.48B"
+    "total_codex": 51435,
+    "formatted_dust": "845.76T",
+    "formatted_price": "16.44B"
   },
-  "lastUpdated": "2025-08-21T20:15:38.833370+00:00",
+  "lastUpdated": "2025-08-21T21:13:01.684254+00:00",
   "baselineDate": "2025-08-21",
   "baselineCreatedAt": "2025-08-21T00:55:49.678446+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 25,
-    "total_codex_used": 49596,
+    "total_codex_used": 51435,
     "baseline_date": "2025-08-21"
   }
 }
