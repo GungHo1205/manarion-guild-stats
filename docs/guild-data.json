@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 478,
-      "StudyLevel": 400,
-      "TotalUpgrades": 1519,
+      "StudyLevel": 401,
+      "TotalUpgrades": 1520,
       "GuildLevel": 110,
       "GuildID": 5,
       "NexusProgress": 0,
-      "StudyProgress": 22,
-      "TotalCodexCost": 8569
+      "StudyProgress": 23,
+      "TotalCodexCost": 8970
     },
     {
       "GuildName": "Sanctuary",
@@ -47,24 +47,24 @@
     {
       "GuildName": "Phoenix",
       "NexusLevel": 400,
-      "StudyLevel": 286,
+      "StudyLevel": 284,
       "TotalUpgrades": 1241,
       "GuildLevel": 98,
       "GuildID": 8,
       "NexusProgress": 0,
-      "StudyProgress": 21,
-      "TotalCodexCost": 5796
+      "StudyProgress": 19,
+      "TotalCodexCost": 5225
     },
     {
       "GuildName": "EZ ",
       "NexusLevel": 286,
-      "StudyLevel": 223,
-      "TotalUpgrades": 906,
+      "StudyLevel": 224,
+      "TotalUpgrades": 907,
       "GuildLevel": 84,
       "GuildID": 2,
       "NexusProgress": 5,
-      "StudyProgress": 4,
-      "TotalCodexCost": 2306
+      "StudyProgress": 5,
+      "TotalCodexCost": 2530
     },
     {
       "GuildName": "Codex",
@@ -156,31 +156,31 @@
     },
     {
       "GuildName": "Hack n Slash",
-      "NexusLevel": 206,
+      "NexusLevel": 207,
       "StudyLevel": 175,
-      "TotalUpgrades": 783,
+      "TotalUpgrades": 784,
       "GuildLevel": 70,
       "GuildID": 86,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 3,
-      "TotalCodexCost": 1542
+      "TotalCodexCost": 1749
     },
     {
       "GuildName": "Caliburnus",
-      "NexusLevel": 205,
-      "StudyLevel": 153,
-      "TotalUpgrades": 698,
-      "GuildLevel": 59,
+      "NexusLevel": 207,
+      "StudyLevel": 154,
+      "TotalUpgrades": 703,
+      "GuildLevel": 60,
       "GuildID": 42,
-      "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 205
+      "NexusProgress": 3,
+      "StudyProgress": 1,
+      "TotalCodexCost": 772
     },
     {
       "GuildName": "Racc City",
       "NexusLevel": 200,
       "StudyLevel": 200,
-      "TotalUpgrades": 883,
+      "TotalUpgrades": 885,
       "GuildLevel": 69,
       "GuildID": 9,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 51435,
-    "formatted_dust": "845.76T",
-    "formatted_price": "16.44B"
+    "total_codex": 52263,
+    "formatted_dust": "857.76T",
+    "formatted_price": "16.41B"
   },
-  "lastUpdated": "2025-08-21T21:13:01.684254+00:00",
+  "lastUpdated": "2025-08-21T22:14:09.946658+00:00",
   "baselineDate": "2025-08-21",
   "baselineCreatedAt": "2025-08-21T00:55:49.678446+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 25,
-    "total_codex_used": 51435,
+    "total_codex_used": 52263,
     "baseline_date": "2025-08-21"
   }
 }
