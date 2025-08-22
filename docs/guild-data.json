@@ -5,7 +5,7 @@
       "NexusLevel": 483,
       "StudyLevel": 412,
       "TotalUpgrades": 1545,
-      "GuildLevel": 112,
+      "GuildLevel": 113,
       "GuildID": 5,
       "NexusProgress": 5,
       "StudyProgress": 9,
@@ -13,14 +13,14 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 442,
+      "NexusLevel": 443,
       "StudyLevel": 350,
-      "TotalUpgrades": 1495,
+      "TotalUpgrades": 1496,
       "GuildLevel": 129,
       "GuildID": 19,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 18,
-      "TotalCodexCost": 6147
+      "TotalCodexCost": 6590
     },
     {
       "GuildName": "Divinity",
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 210,
-      "TotalUpgrades": 850,
+      "TotalUpgrades": 851,
       "GuildLevel": 79,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -156,14 +156,14 @@
     },
     {
       "GuildName": "Hack n Slash",
-      "NexusLevel": 208,
-      "StudyLevel": 175,
-      "TotalUpgrades": 785,
+      "NexusLevel": 210,
+      "StudyLevel": 178,
+      "TotalUpgrades": 796,
       "GuildLevel": 71,
       "GuildID": 86,
-      "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 208
+      "NexusProgress": 3,
+      "StudyProgress": 3,
+      "TotalCodexCost": 1158
     },
     {
       "GuildName": "Caliburnus",
@@ -223,13 +223,13 @@
     {
       "GuildName": "Bureau of Feline Investigators",
       "NexusLevel": 180,
-      "StudyLevel": 187,
-      "TotalUpgrades": 596,
+      "StudyLevel": 188,
+      "TotalUpgrades": 597,
       "GuildLevel": 57,
       "GuildID": 18,
       "NexusProgress": 0,
-      "StudyProgress": 2,
-      "TotalCodexCost": 373
+      "StudyProgress": 3,
+      "TotalCodexCost": 561
     },
     {
       "GuildName": "Ewbies",
@@ -311,13 +311,13 @@
     {
       "GuildName": "Rainbow",
       "NexusLevel": 100,
-      "StudyLevel": 85,
-      "TotalUpgrades": 372,
+      "StudyLevel": 86,
+      "TotalUpgrades": 373,
       "GuildLevel": 43,
       "GuildID": 105,
       "NexusProgress": 1,
-      "StudyProgress": 3,
-      "TotalCodexCost": 352
+      "StudyProgress": 4,
+      "TotalCodexCost": 438
     },
     {
       "GuildName": "A Growing Threat",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 44330,
-    "formatted_dust": "714.07T",
-    "formatted_price": "16.11B"
+    "total_codex": 45997,
+    "formatted_dust": "741.44T",
+    "formatted_price": "16.12B"
   },
-  "lastUpdated": "2025-08-22T22:12:59.142666+00:00",
+  "lastUpdated": "2025-08-22T23:13:08.712858+00:00",
   "baselineDate": "2025-08-22",
   "baselineCreatedAt": "2025-08-22T00:56:50.133016+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 25,
-    "total_codex_used": 44330,
+    "total_codex_used": 45997,
     "baseline_date": "2025-08-22"
   }
 }
