@@ -25,13 +25,13 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 437,
-      "StudyLevel": 388,
-      "TotalUpgrades": 1519,
+      "StudyLevel": 389,
+      "TotalUpgrades": 1520,
       "GuildLevel": 118,
       "GuildID": 25,
       "NexusProgress": 7,
-      "StudyProgress": 5,
-      "TotalCodexCost": 4968
+      "StudyProgress": 6,
+      "TotalCodexCost": 5357
     },
     {
       "GuildName": "RNG",
@@ -79,14 +79,14 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 273,
+      "NexusLevel": 274,
       "StudyLevel": 273,
-      "TotalUpgrades": 1008,
+      "TotalUpgrades": 1009,
       "GuildLevel": 57,
       "GuildID": 14,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 1355
+      "TotalCodexCost": 1629
     },
     {
       "GuildName": "The First Ones",
@@ -189,14 +189,14 @@
     },
     {
       "GuildName": "Dino Nuggies",
-      "NexusLevel": 197,
+      "NexusLevel": 198,
       "StudyLevel": 140,
-      "TotalUpgrades": 632,
+      "TotalUpgrades": 633,
       "GuildLevel": 65,
       "GuildID": 122,
-      "NexusProgress": 10,
+      "NexusProgress": 11,
       "StudyProgress": 0,
-      "TotalCodexCost": 1925
+      "TotalCodexCost": 2123
     },
     {
       "GuildName": "BASED",
@@ -256,13 +256,13 @@
     {
       "GuildName": "Cats",
       "NexusLevel": 139,
-      "StudyLevel": 102,
-      "TotalUpgrades": 384,
+      "StudyLevel": 103,
+      "TotalUpgrades": 385,
       "GuildLevel": 39,
       "GuildID": 55,
       "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 139
+      "StudyProgress": 1,
+      "TotalCodexCost": 242
     },
     {
       "GuildName": "MooseKnuckles",
@@ -301,8 +301,8 @@
       "GuildName": "Hydra",
       "NexusLevel": 100,
       "StudyLevel": 110,
-      "TotalUpgrades": 445,
-      "GuildLevel": 39,
+      "TotalUpgrades": 456,
+      "GuildLevel": 40,
       "GuildID": 79,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -310,14 +310,14 @@
     },
     {
       "GuildName": "Rainbow",
-      "NexusLevel": 99,
-      "StudyLevel": 82,
-      "TotalUpgrades": 364,
+      "NexusLevel": 100,
+      "StudyLevel": 85,
+      "TotalUpgrades": 372,
       "GuildLevel": 43,
       "GuildID": 105,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusProgress": 1,
+      "StudyProgress": 3,
+      "TotalCodexCost": 352
     },
     {
       "GuildName": "A Growing Threat",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 29588,
-    "formatted_dust": "474.24T",
-    "formatted_price": "16.03B"
+    "total_codex": 30904,
+    "formatted_dust": "494.70T",
+    "formatted_price": "16.01B"
   },
-  "lastUpdated": "2025-08-22T15:14:37.148403+00:00",
+  "lastUpdated": "2025-08-22T16:17:17.213591+00:00",
   "baselineDate": "2025-08-22",
   "baselineCreatedAt": "2025-08-22T00:56:50.133016+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 24,
-    "total_codex_used": 29588,
+    "guilds_with_progress": 25,
+    "total_codex_used": 30904,
     "baseline_date": "2025-08-22"
   }
 }
