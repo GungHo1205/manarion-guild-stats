@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 438,
-      "StudyLevel": 392,
-      "TotalUpgrades": 1526,
+      "NexusLevel": 439,
+      "StudyLevel": 393,
+      "TotalUpgrades": 1528,
       "GuildLevel": 119,
       "GuildID": 25,
-      "NexusProgress": 8,
-      "StudyProgress": 9,
-      "TotalCodexCost": 6968
+      "NexusProgress": 9,
+      "StudyProgress": 10,
+      "TotalCodexCost": 7800
     },
     {
       "GuildName": "RNG",
@@ -103,8 +103,8 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 210,
-      "TotalUpgrades": 844,
-      "GuildLevel": 78,
+      "TotalUpgrades": 850,
+      "GuildLevel": 79,
       "GuildID": 183,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -202,7 +202,7 @@
       "GuildName": "BASED",
       "NexusLevel": 194,
       "StudyLevel": 150,
-      "TotalUpgrades": 479,
+      "TotalUpgrades": 494,
       "GuildLevel": 49,
       "GuildID": 27,
       "NexusProgress": 5,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 43498,
-    "formatted_dust": "699.93T",
-    "formatted_price": "16.09B"
+    "total_codex": 44330,
+    "formatted_dust": "714.07T",
+    "formatted_price": "16.11B"
   },
-  "lastUpdated": "2025-08-22T21:12:43.957503+00:00",
+  "lastUpdated": "2025-08-22T22:12:59.142666+00:00",
   "baselineDate": "2025-08-22",
   "baselineCreatedAt": "2025-08-22T00:56:50.133016+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 25,
-    "total_codex_used": 43498,
+    "total_codex_used": 44330,
     "baseline_date": "2025-08-22"
   }
 }
