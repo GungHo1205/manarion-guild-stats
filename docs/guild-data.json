@@ -23,6 +23,17 @@
       "TotalCodexCost": 2013
     },
     {
+      "GuildName": "Divinity",
+      "NexusLevel": 435,
+      "StudyLevel": 384,
+      "TotalUpgrades": 1511,
+      "GuildLevel": 117,
+      "GuildID": 25,
+      "NexusProgress": 5,
+      "StudyProgress": 1,
+      "TotalCodexCost": 2549
+    },
+    {
       "GuildName": "RNG",
       "NexusLevel": 435,
       "StudyLevel": 315,
@@ -34,22 +45,11 @@
       "TotalCodexCost": 0
     },
     {
-      "GuildName": "Divinity",
-      "NexusLevel": 433,
-      "StudyLevel": 383,
-      "TotalUpgrades": 1507,
-      "GuildLevel": 116,
-      "GuildID": 25,
-      "NexusProgress": 3,
-      "StudyProgress": 0,
-      "TotalCodexCost": 1296
-    },
-    {
       "GuildName": "Phoenix",
       "NexusLevel": 401,
       "StudyLevel": 286,
-      "TotalUpgrades": 1249,
-      "GuildLevel": 98,
+      "TotalUpgrades": 1255,
+      "GuildLevel": 99,
       "GuildID": 8,
       "NexusProgress": 1,
       "StudyProgress": 2,
@@ -58,13 +58,13 @@
     {
       "GuildName": "EZ ",
       "NexusLevel": 288,
-      "StudyLevel": 225,
-      "TotalUpgrades": 912,
+      "StudyLevel": 226,
+      "TotalUpgrades": 913,
       "GuildLevel": 85,
       "GuildID": 2,
       "NexusProgress": 2,
-      "StudyProgress": 1,
-      "TotalCodexCost": 800
+      "StudyProgress": 2,
+      "TotalCodexCost": 1026
     },
     {
       "GuildName": "Codex",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 10174,
-    "formatted_dust": "165.66T",
+    "total_codex": 11653,
+    "formatted_dust": "189.73T",
     "formatted_price": "16.28B"
   },
-  "lastUpdated": "2025-08-22T07:13:26.885367+00:00",
+  "lastUpdated": "2025-08-22T08:19:33.789372+00:00",
   "baselineDate": "2025-08-22",
   "baselineCreatedAt": "2025-08-22T00:56:50.133016+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 15,
-    "total_codex_used": 10174,
+    "total_codex_used": 11653,
     "baseline_date": "2025-08-22"
   }
 }
