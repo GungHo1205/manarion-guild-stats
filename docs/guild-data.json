@@ -2,25 +2,25 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 480,
+      "NexusLevel": 481,
       "StudyLevel": 412,
-      "TotalUpgrades": 1542,
+      "TotalUpgrades": 1543,
       "GuildLevel": 112,
       "GuildID": 5,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 9,
-      "TotalCodexCost": 4631
+      "TotalCodexCost": 5112
     },
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 442,
-      "StudyLevel": 347,
-      "TotalUpgrades": 1492,
+      "StudyLevel": 349,
+      "TotalUpgrades": 1494,
       "GuildLevel": 128,
       "GuildID": 19,
       "NexusProgress": 0,
-      "StudyProgress": 15,
-      "TotalCodexCost": 5100
+      "StudyProgress": 17,
+      "TotalCodexCost": 5797
     },
     {
       "GuildName": "Divinity",
@@ -90,14 +90,14 @@
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 267,
+      "NexusLevel": 268,
       "StudyLevel": 177,
-      "TotalUpgrades": 905,
+      "TotalUpgrades": 906,
       "GuildLevel": 87,
       "GuildID": 112,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 1,
-      "TotalCodexCost": 710
+      "TotalCodexCost": 978
     },
     {
       "GuildName": "Doomed",
@@ -202,7 +202,7 @@
       "GuildName": "BASED",
       "NexusLevel": 194,
       "StudyLevel": 150,
-      "TotalUpgrades": 474,
+      "TotalUpgrades": 479,
       "GuildLevel": 48,
       "GuildID": 27,
       "NexusProgress": 5,
@@ -214,7 +214,7 @@
       "NexusLevel": 187,
       "StudyLevel": 163,
       "TotalUpgrades": 706,
-      "GuildLevel": 75,
+      "GuildLevel": 76,
       "GuildID": 21,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -246,7 +246,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 150,
       "StudyLevel": 160,
-      "TotalUpgrades": 712,
+      "TotalUpgrades": 714,
       "GuildLevel": 64,
       "GuildID": 54,
       "NexusProgress": 4,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 30904,
-    "formatted_dust": "494.70T",
+    "total_codex": 32350,
+    "formatted_dust": "518.04T",
     "formatted_price": "16.01B"
   },
-  "lastUpdated": "2025-08-22T16:17:17.213591+00:00",
+  "lastUpdated": "2025-08-22T17:12:47.198091+00:00",
   "baselineDate": "2025-08-22",
   "baselineCreatedAt": "2025-08-22T00:56:50.133016+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 25,
-    "total_codex_used": 30904,
+    "total_codex_used": 32350,
     "baseline_date": "2025-08-22"
   }
 }
