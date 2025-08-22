@@ -1,46 +1,46 @@
 {
-  "date": "2025-08-21",
-  "created_at": "2025-08-21T00:55:49.678446+00:00",
+  "date": "2025-08-22",
+  "created_at": "2025-08-22T00:56:50.133016+00:00",
   "guilds": {
     "Spaghetti and Meatballs": {
       "NexusLevel": 478,
-      "StudyLevel": 378
+      "StudyLevel": 403
     },
     "Divinity": {
-      "NexusLevel": 423,
-      "StudyLevel": 370
+      "NexusLevel": 430,
+      "StudyLevel": 383
     },
     "Sanctuary": {
-      "NexusLevel": 440,
-      "StudyLevel": 306
+      "NexusLevel": 442,
+      "StudyLevel": 332
     },
     "RNG": {
-      "NexusLevel": 431,
+      "NexusLevel": 435,
       "StudyLevel": 315
     },
     "Phoenix": {
       "NexusLevel": 400,
-      "StudyLevel": 265
+      "StudyLevel": 284
     },
     "Test Guild Please Ignore": {
-      "NexusLevel": 259,
+      "NexusLevel": 268,
       "StudyLevel": 273
     },
     "Codex": {
       "NexusLevel": 275,
-      "StudyLevel": 257
+      "StudyLevel": 268
     },
     "EZ ": {
-      "NexusLevel": 281,
-      "StudyLevel": 219
-    },
-    "The First Ones": {
-      "NexusLevel": 263,
-      "StudyLevel": 175
+      "NexusLevel": 286,
+      "StudyLevel": 224
     },
     "Racc City": {
       "NexusLevel": 200,
       "StudyLevel": 200
+    },
+    "The First Ones": {
+      "NexusLevel": 265,
+      "StudyLevel": 176
     },
     "Doomed": {
       "NexusLevel": 240,
@@ -52,75 +52,75 @@
     },
     "Imperium": {
       "NexusLevel": 213,
-      "StudyLevel": 205
+      "StudyLevel": 213
     },
     "Hack n Slash": {
-      "NexusLevel": 201,
-      "StudyLevel": 172
+      "NexusLevel": 207,
+      "StudyLevel": 175
     },
     "Minimal Effort": {
-      "NexusLevel": 223,
+      "NexusLevel": 226,
       "StudyLevel": 160
     },
     "Osmanthus": {
-      "NexusLevel": 182,
-      "StudyLevel": 160
+      "NexusLevel": 187,
+      "StudyLevel": 163
     },
     "Caliburnus": {
-      "NexusLevel": 204,
-      "StudyLevel": 153
-    },
-    "Manarion Adventures": {
-      "NexusLevel": 144,
+      "NexusLevel": 207,
       "StudyLevel": 154
     },
+    "Manarion Adventures": {
+      "NexusLevel": 146,
+      "StudyLevel": 156
+    },
     "Ewbies": {
-      "NexusLevel": 169,
-      "StudyLevel": 179
+      "NexusLevel": 172,
+      "StudyLevel": 182
     },
     "Gatherers Guild": {
-      "NexusLevel": 206,
-      "StudyLevel": 143
+      "NexusLevel": 209,
+      "StudyLevel": 146
     },
     "Dino Nuggies": {
-      "NexusLevel": 183,
+      "NexusLevel": 187,
       "StudyLevel": 140
     },
     "MooseKnuckles": {
-      "NexusLevel": 115,
-      "StudyLevel": 115
+      "NexusLevel": 118,
+      "StudyLevel": 120
     },
     "Bureau of Feline Investigators": {
       "NexusLevel": 180,
-      "StudyLevel": 180
+      "StudyLevel": 185
     },
     "Lighthouse Reborn": {
-      "NexusLevel": 106,
-      "StudyLevel": 129
+      "NexusLevel": 112,
+      "StudyLevel": 133
     },
     "BASED": {
       "NexusLevel": 189,
-      "StudyLevel": 142
+      "StudyLevel": 149
+    },
+    "asylum": {
+      "NexusLevel": 115,
+      "StudyLevel": 67
     },
     "Hydra": {
       "NexusLevel": 100,
-      "StudyLevel": 109
+      "StudyLevel": 110
     },
-    "asylum": {
-      "NexusLevel": 107,
-      "StudyLevel": 67
+    "Cats": {
+      "NexusLevel": 138,
+      "StudyLevel": 102
     },
     "A Growing Threat": {
       "NexusLevel": 67,
       "StudyLevel": 68
     },
-    "Cats": {
-      "NexusLevel": 136,
-      "StudyLevel": 102
-    },
     "Rainbow": {
-      "NexusLevel": 94,
-      "StudyLevel": 80
+      "NexusLevel": 99,
+      "StudyLevel": 82
     }
   }
 }
