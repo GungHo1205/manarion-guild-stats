@@ -3,42 +3,42 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 480,
-      "StudyLevel": 410,
-      "TotalUpgrades": 1540,
-      "GuildLevel": 111,
+      "StudyLevel": 411,
+      "TotalUpgrades": 1541,
+      "GuildLevel": 112,
       "GuildID": 5,
       "NexusProgress": 2,
-      "StudyProgress": 7,
-      "TotalCodexCost": 3808
+      "StudyProgress": 8,
+      "TotalCodexCost": 4219
     },
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 442,
-      "StudyLevel": 343,
-      "TotalUpgrades": 1488,
+      "StudyLevel": 345,
+      "TotalUpgrades": 1490,
       "GuildLevel": 128,
       "GuildID": 19,
       "NexusProgress": 0,
-      "StudyProgress": 11,
-      "TotalCodexCost": 3718
+      "StudyProgress": 13,
+      "TotalCodexCost": 4407
     },
     {
       "GuildName": "Divinity",
       "NexusLevel": 436,
-      "StudyLevel": 387,
-      "TotalUpgrades": 1515,
+      "StudyLevel": 388,
+      "TotalUpgrades": 1516,
       "GuildLevel": 117,
       "GuildID": 25,
       "NexusProgress": 6,
-      "StudyProgress": 4,
-      "TotalCodexCost": 4143
+      "StudyProgress": 5,
+      "TotalCodexCost": 4531
     },
     {
       "GuildName": "RNG",
       "NexusLevel": 435,
       "StudyLevel": 316,
       "TotalUpgrades": 1414,
-      "GuildLevel": 107,
+      "GuildLevel": 108,
       "GuildID": 17,
       "NexusProgress": 0,
       "StudyProgress": 1,
@@ -79,25 +79,25 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 272,
+      "NexusLevel": 273,
       "StudyLevel": 273,
-      "TotalUpgrades": 1007,
+      "TotalUpgrades": 1008,
       "GuildLevel": 57,
       "GuildID": 14,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1082
+      "TotalCodexCost": 1355
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 265,
-      "StudyLevel": 176,
-      "TotalUpgrades": 900,
+      "NexusLevel": 267,
+      "StudyLevel": 177,
+      "TotalUpgrades": 905,
       "GuildLevel": 87,
       "GuildID": 112,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusProgress": 2,
+      "StudyProgress": 1,
+      "TotalCodexCost": 710
     },
     {
       "GuildName": "Doomed",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 23395,
-    "formatted_dust": "379.00T",
-    "formatted_price": "16.20B"
+    "total_codex": 25866,
+    "formatted_dust": "416.59T",
+    "formatted_price": "16.11B"
   },
-  "lastUpdated": "2025-08-22T12:27:59.558630+00:00",
+  "lastUpdated": "2025-08-22T13:24:52.323114+00:00",
   "baselineDate": "2025-08-22",
   "baselineCreatedAt": "2025-08-22T00:56:50.133016+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 21,
-    "total_codex_used": 23395,
+    "guilds_with_progress": 22,
+    "total_codex_used": 25866,
     "baseline_date": "2025-08-22"
   }
 }
