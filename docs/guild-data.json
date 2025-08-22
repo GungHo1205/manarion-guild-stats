@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 436,
+      "NexusLevel": 437,
       "StudyLevel": 388,
-      "TotalUpgrades": 1516,
+      "TotalUpgrades": 1519,
       "GuildLevel": 118,
       "GuildID": 25,
-      "NexusProgress": 6,
+      "NexusProgress": 7,
       "StudyProgress": 5,
-      "TotalCodexCost": 4531
+      "TotalCodexCost": 4968
     },
     {
       "GuildName": "RNG",
@@ -58,13 +58,13 @@
     {
       "GuildName": "EZ ",
       "NexusLevel": 289,
-      "StudyLevel": 226,
-      "TotalUpgrades": 916,
+      "StudyLevel": 227,
+      "TotalUpgrades": 917,
       "GuildLevel": 85,
       "GuildID": 2,
       "NexusProgress": 3,
-      "StudyProgress": 2,
-      "TotalCodexCost": 1315
+      "StudyProgress": 3,
+      "TotalCodexCost": 1542
     },
     {
       "GuildName": "Codex",
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 210,
-      "TotalUpgrades": 842,
+      "TotalUpgrades": 843,
       "GuildLevel": 78,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -168,13 +168,13 @@
     {
       "GuildName": "Caliburnus",
       "NexusLevel": 208,
-      "StudyLevel": 154,
-      "TotalUpgrades": 706,
+      "StudyLevel": 155,
+      "TotalUpgrades": 708,
       "GuildLevel": 60,
       "GuildID": 42,
       "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 208
+      "StudyProgress": 1,
+      "TotalCodexCost": 363
     },
     {
       "GuildName": "Racc City",
@@ -200,14 +200,14 @@
     },
     {
       "GuildName": "BASED",
-      "NexusLevel": 193,
+      "NexusLevel": 194,
       "StudyLevel": 150,
-      "TotalUpgrades": 473,
+      "TotalUpgrades": 474,
       "GuildLevel": 48,
       "GuildID": 27,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 1,
-      "TotalCodexCost": 916
+      "TotalCodexCost": 1110
     },
     {
       "GuildName": "Osmanthus",
@@ -244,14 +244,14 @@
     },
     {
       "GuildName": "Manarion Adventures",
-      "NexusLevel": 149,
+      "NexusLevel": 150,
       "StudyLevel": 160,
-      "TotalUpgrades": 711,
-      "GuildLevel": 63,
+      "TotalUpgrades": 712,
+      "GuildLevel": 64,
       "GuildID": 54,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 4,
-      "TotalCodexCost": 1078
+      "TotalCodexCost": 1228
     },
     {
       "GuildName": "Cats",
@@ -289,13 +289,13 @@
     {
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 113,
-      "StudyLevel": 134,
-      "TotalUpgrades": 540,
+      "StudyLevel": 135,
+      "TotalUpgrades": 547,
       "GuildLevel": 55,
       "GuildID": 65,
       "NexusProgress": 1,
-      "StudyProgress": 1,
-      "TotalCodexCost": 247
+      "StudyProgress": 2,
+      "TotalCodexCost": 382
     },
     {
       "GuildName": "Hydra",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 28290,
-    "formatted_dust": "454.23T",
-    "formatted_price": "16.06B"
+    "total_codex": 29588,
+    "formatted_dust": "474.24T",
+    "formatted_price": "16.03B"
   },
-  "lastUpdated": "2025-08-22T14:14:02.014494+00:00",
+  "lastUpdated": "2025-08-22T15:14:37.148403+00:00",
   "baselineDate": "2025-08-22",
   "baselineCreatedAt": "2025-08-22T00:56:50.133016+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 24,
-    "total_codex_used": 28290,
+    "total_codex_used": 29588,
     "baseline_date": "2025-08-22"
   }
 }
