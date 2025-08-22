@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 480,
-      "StudyLevel": 406,
-      "TotalUpgrades": 1538,
+      "StudyLevel": 409,
+      "TotalUpgrades": 1539,
       "GuildLevel": 111,
       "GuildID": 5,
       "NexusProgress": 2,
-      "StudyProgress": 3,
-      "TotalCodexCost": 2174
+      "StudyProgress": 6,
+      "TotalCodexCost": 3398
     },
     {
       "GuildName": "Sanctuary",
@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 435,
+      "NexusLevel": 436,
       "StudyLevel": 385,
-      "TotalUpgrades": 1512,
+      "TotalUpgrades": 1513,
       "GuildLevel": 117,
       "GuildID": 25,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 2,
-      "TotalCodexCost": 2934
+      "TotalCodexCost": 3370
     },
     {
       "GuildName": "RNG",
@@ -57,14 +57,14 @@
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 288,
+      "NexusLevel": 289,
       "StudyLevel": 226,
-      "TotalUpgrades": 913,
+      "TotalUpgrades": 914,
       "GuildLevel": 85,
       "GuildID": 2,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 2,
-      "TotalCodexCost": 1026
+      "TotalCodexCost": 1315
     },
     {
       "GuildName": "Codex",
@@ -93,7 +93,7 @@
       "NexusLevel": 265,
       "StudyLevel": 176,
       "TotalUpgrades": 900,
-      "GuildLevel": 86,
+      "GuildLevel": 87,
       "GuildID": 112,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -115,7 +115,7 @@
       "NexusLevel": 240,
       "StudyLevel": 160,
       "TotalUpgrades": 804,
-      "GuildLevel": 70,
+      "GuildLevel": 71,
       "GuildID": 10,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 14811,
-    "formatted_dust": "240.65T",
-    "formatted_price": "16.25B"
+    "total_codex": 16760,
+    "formatted_dust": "271.99T",
+    "formatted_price": "16.23B"
   },
-  "lastUpdated": "2025-08-22T10:15:09.480690+00:00",
+  "lastUpdated": "2025-08-22T11:12:03.493116+00:00",
   "baselineDate": "2025-08-22",
   "baselineCreatedAt": "2025-08-22T00:56:50.133016+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 18,
-    "total_codex_used": 14811,
+    "total_codex_used": 16760,
     "baseline_date": "2025-08-22"
   }
 }
