@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 488,
+      "NexusLevel": 489,
       "StudyLevel": 412,
-      "TotalUpgrades": 1556,
+      "TotalUpgrades": 1557,
       "GuildLevel": 114,
       "GuildID": 5,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1946
+      "TotalCodexCost": 2435
     },
     {
       "GuildName": "Sanctuary",
@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 444,
+      "NexusLevel": 445,
       "StudyLevel": 400,
-      "TotalUpgrades": 1546,
-      "GuildLevel": 121,
+      "TotalUpgrades": 1547,
+      "GuildLevel": 122,
       "GuildID": 25,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 7,
-      "TotalCodexCost": 4108
+      "TotalCodexCost": 4553
     },
     {
       "GuildName": "RNG",
@@ -47,24 +47,24 @@
     {
       "GuildName": "Phoenix",
       "NexusLevel": 409,
-      "StudyLevel": 288,
-      "TotalUpgrades": 1269,
+      "StudyLevel": 289,
+      "TotalUpgrades": 1270,
       "GuildLevel": 101,
       "GuildID": 8,
       "NexusProgress": 3,
-      "StudyProgress": 3,
-      "TotalCodexCost": 2085
+      "StudyProgress": 4,
+      "TotalCodexCost": 2374
     },
     {
       "GuildName": "EZ ",
       "NexusLevel": 294,
-      "StudyLevel": 231,
-      "TotalUpgrades": 927,
+      "StudyLevel": 232,
+      "TotalUpgrades": 928,
       "GuildLevel": 87,
       "GuildID": 2,
       "NexusProgress": 4,
-      "StudyProgress": 2,
-      "TotalCodexCost": 1631
+      "StudyProgress": 3,
+      "TotalCodexCost": 1863
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -190,13 +190,13 @@
     {
       "GuildName": "Dino Nuggies",
       "NexusLevel": 200,
-      "StudyLevel": 142,
-      "TotalUpgrades": 664,
+      "StudyLevel": 143,
+      "TotalUpgrades": 667,
       "GuildLevel": 65,
       "GuildID": 122,
       "NexusProgress": 1,
-      "StudyProgress": 2,
-      "TotalCodexCost": 483
+      "StudyProgress": 3,
+      "TotalCodexCost": 626
     },
     {
       "GuildName": "BASED",
@@ -234,13 +234,13 @@
     {
       "GuildName": "Ewbies",
       "NexusLevel": 179,
-      "StudyLevel": 188,
-      "TotalUpgrades": 707,
+      "StudyLevel": 189,
+      "TotalUpgrades": 708,
       "GuildLevel": 61,
       "GuildID": 4,
       "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 179
+      "StudyProgress": 1,
+      "TotalCodexCost": 368
     },
     {
       "GuildName": "Manarion Adventures",
@@ -298,23 +298,23 @@
       "TotalCodexCost": 117
     },
     {
+      "GuildName": "Rainbow",
+      "NexusLevel": 101,
+      "StudyLevel": 89,
+      "TotalUpgrades": 380,
+      "GuildLevel": 44,
+      "GuildID": 105,
+      "NexusProgress": 1,
+      "StudyProgress": 3,
+      "TotalCodexCost": 365
+    },
+    {
       "GuildName": "Hydra",
       "NexusLevel": 100,
       "StudyLevel": 110,
       "TotalUpgrades": 460,
       "GuildLevel": 40,
       "GuildID": 79,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Rainbow",
-      "NexusLevel": 100,
-      "StudyLevel": 86,
-      "TotalUpgrades": 373,
-      "GuildLevel": 44,
-      "GuildID": 105,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 23596,
-    "formatted_dust": "390.04T",
-    "formatted_price": "16.53B"
+    "total_codex": 25748,
+    "formatted_dust": "426.22T",
+    "formatted_price": "16.55B"
   },
-  "lastUpdated": "2025-08-23T12:25:49.016711+00:00",
+  "lastUpdated": "2025-08-23T13:20:58.632207+00:00",
   "baselineDate": "2025-08-23",
   "baselineCreatedAt": "2025-08-23T00:54:43.853598+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 20,
-    "total_codex_used": 23596,
+    "guilds_with_progress": 21,
+    "total_codex_used": 25748,
     "baseline_date": "2025-08-23"
   }
 }
