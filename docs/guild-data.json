@@ -25,13 +25,13 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 442,
-      "StudyLevel": 395,
-      "TotalUpgrades": 1534,
+      "StudyLevel": 396,
+      "TotalUpgrades": 1535,
       "GuildLevel": 120,
       "GuildID": 25,
       "NexusProgress": 1,
-      "StudyProgress": 2,
-      "TotalCodexCost": 1231
+      "StudyProgress": 3,
+      "TotalCodexCost": 1627
     },
     {
       "GuildName": "RNG",
@@ -80,19 +80,19 @@
     {
       "GuildName": "Codex",
       "NexusLevel": 275,
-      "StudyLevel": 277,
-      "TotalUpgrades": 941,
+      "StudyLevel": 280,
+      "TotalUpgrades": 944,
       "GuildLevel": 86,
       "GuildID": 59,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 3,
+      "TotalCodexCost": 837
     },
     {
       "GuildName": "The First Ones",
       "NexusLevel": 269,
       "StudyLevel": 177,
-      "TotalUpgrades": 915,
+      "TotalUpgrades": 917,
       "GuildLevel": 88,
       "GuildID": 112,
       "NexusProgress": 0,
@@ -114,7 +114,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 210,
-      "TotalUpgrades": 853,
+      "TotalUpgrades": 854,
       "GuildLevel": 79,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -155,23 +155,23 @@
       "TotalCodexCost": 212
     },
     {
+      "GuildName": "Caliburnus",
+      "NexusLevel": 211,
+      "StudyLevel": 157,
+      "TotalUpgrades": 717,
+      "GuildLevel": 61,
+      "GuildID": 42,
+      "NexusProgress": 1,
+      "StudyProgress": 0,
+      "TotalCodexCost": 211
+    },
+    {
       "GuildName": "Hack n Slash",
       "NexusLevel": 210,
       "StudyLevel": 180,
       "TotalUpgrades": 802,
       "GuildLevel": 72,
       "GuildID": 86,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Caliburnus",
-      "NexusLevel": 210,
-      "StudyLevel": 157,
-      "TotalUpgrades": 715,
-      "GuildLevel": 61,
-      "GuildID": 42,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 10612,
-    "formatted_dust": "172.45T",
-    "formatted_price": "16.25B"
+    "total_codex": 12056,
+    "formatted_dust": "196.34T",
+    "formatted_price": "16.29B"
   },
-  "lastUpdated": "2025-08-23T05:13:08.488517+00:00",
+  "lastUpdated": "2025-08-23T06:19:23.903814+00:00",
   "baselineDate": "2025-08-23",
   "baselineCreatedAt": "2025-08-23T00:54:43.853598+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 13,
-    "total_codex_used": 10612,
+    "guilds_with_progress": 15,
+    "total_codex_used": 12056,
     "baseline_date": "2025-08-23"
   }
 }
