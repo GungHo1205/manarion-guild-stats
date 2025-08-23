@@ -3,13 +3,24 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 490,
-      "StudyLevel": 412,
-      "TotalUpgrades": 1563,
+      "StudyLevel": 413,
+      "TotalUpgrades": 1564,
       "GuildLevel": 115,
       "GuildID": 5,
       "NexusProgress": 6,
-      "StudyProgress": 0,
-      "TotalCodexCost": 2925
+      "StudyProgress": 1,
+      "TotalCodexCost": 3338
+    },
+    {
+      "GuildName": "Divinity",
+      "NexusLevel": 449,
+      "StudyLevel": 400,
+      "TotalUpgrades": 1553,
+      "GuildLevel": 123,
+      "GuildID": 25,
+      "NexusProgress": 8,
+      "StudyProgress": 7,
+      "TotalCodexCost": 6343
     },
     {
       "GuildName": "Sanctuary",
@@ -23,22 +34,11 @@
       "TotalCodexCost": 2235
     },
     {
-      "GuildName": "Divinity",
-      "NexusLevel": 448,
-      "StudyLevel": 400,
-      "TotalUpgrades": 1551,
-      "GuildLevel": 122,
-      "GuildID": 25,
-      "NexusProgress": 7,
-      "StudyProgress": 7,
-      "TotalCodexCost": 5894
-    },
-    {
       "GuildName": "RNG",
       "NexusLevel": 441,
       "StudyLevel": 330,
       "TotalUpgrades": 1450,
-      "GuildLevel": 110,
+      "GuildLevel": 111,
       "GuildID": 17,
       "NexusProgress": 4,
       "StudyProgress": 10,
@@ -68,25 +68,25 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 278,
+      "NexusLevel": 279,
       "StudyLevel": 279,
-      "TotalUpgrades": 1019,
-      "GuildLevel": 60,
+      "TotalUpgrades": 1020,
+      "GuildLevel": 61,
       "GuildID": 14,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 4,
-      "TotalCodexCost": 1665
+      "TotalCodexCost": 1944
     },
     {
       "GuildName": "Codex",
-      "NexusLevel": 275,
+      "NexusLevel": 277,
       "StudyLevel": 280,
-      "TotalUpgrades": 950,
+      "TotalUpgrades": 952,
       "GuildLevel": 86,
       "GuildID": 59,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyProgress": 3,
-      "TotalCodexCost": 837
+      "TotalCodexCost": 1390
     },
     {
       "GuildName": "The First Ones",
@@ -124,8 +124,8 @@
     {
       "GuildName": "Minimal Effort",
       "NexusLevel": 230,
-      "StudyLevel": 160,
-      "TotalUpgrades": 750,
+      "StudyLevel": 153,
+      "TotalUpgrades": 753,
       "GuildLevel": 58,
       "GuildID": 172,
       "NexusProgress": 1,
@@ -159,7 +159,7 @@
       "NexusLevel": 212,
       "StudyLevel": 146,
       "TotalUpgrades": 657,
-      "GuildLevel": 58,
+      "GuildLevel": 59,
       "GuildID": 1,
       "NexusProgress": 1,
       "StudyProgress": 0,
@@ -223,20 +223,20 @@
     {
       "GuildName": "Ewbies",
       "NexusLevel": 186,
-      "StudyLevel": 195,
-      "TotalUpgrades": 721,
+      "StudyLevel": 196,
+      "TotalUpgrades": 722,
       "GuildLevel": 62,
       "GuildID": 4,
       "NexusProgress": 8,
-      "StudyProgress": 7,
-      "TotalCodexCost": 2804
+      "StudyProgress": 8,
+      "TotalCodexCost": 3000
     },
     {
       "GuildName": "Bureau of Feline Investigators",
       "NexusLevel": 180,
       "StudyLevel": 189,
       "TotalUpgrades": 598,
-      "GuildLevel": 57,
+      "GuildLevel": 58,
       "GuildID": 18,
       "NexusProgress": 0,
       "StudyProgress": 1,
@@ -268,7 +268,7 @@
       "GuildName": "MooseKnuckles",
       "NexusLevel": 120,
       "StudyLevel": 120,
-      "TotalUpgrades": 628,
+      "TotalUpgrades": 629,
       "GuildLevel": 51,
       "GuildID": 64,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 35665,
-    "formatted_dust": "597.52T",
-    "formatted_price": "16.75B"
+    "total_codex": 37555,
+    "formatted_dust": "628.81T",
+    "formatted_price": "16.74B"
   },
-  "lastUpdated": "2025-08-23T18:17:45.329034+00:00",
+  "lastUpdated": "2025-08-23T19:10:19.395621+00:00",
   "baselineDate": "2025-08-23",
   "baselineCreatedAt": "2025-08-23T00:54:43.853598+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 21,
-    "total_codex_used": 35665,
+    "total_codex_used": 37555,
     "baseline_date": "2025-08-23"
   }
 }
