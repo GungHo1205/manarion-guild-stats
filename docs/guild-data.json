@@ -5,7 +5,7 @@
       "NexusLevel": 489,
       "StudyLevel": 412,
       "TotalUpgrades": 1557,
-      "GuildLevel": 114,
+      "GuildLevel": 115,
       "GuildID": 5,
       "NexusProgress": 5,
       "StudyProgress": 0,
@@ -13,14 +13,14 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 447,
+      "NexusLevel": 448,
       "StudyLevel": 350,
-      "TotalUpgrades": 1501,
+      "TotalUpgrades": 1502,
       "GuildLevel": 131,
       "GuildID": 19,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 1338
+      "TotalCodexCost": 1786
     },
     {
       "GuildName": "Divinity",
@@ -37,8 +37,8 @@
       "GuildName": "RNG",
       "NexusLevel": 441,
       "StudyLevel": 330,
-      "TotalUpgrades": 1444,
-      "GuildLevel": 109,
+      "TotalUpgrades": 1450,
+      "GuildLevel": 110,
       "GuildID": 17,
       "NexusProgress": 4,
       "StudyProgress": 10,
@@ -92,7 +92,7 @@
       "GuildName": "The First Ones",
       "NexusLevel": 269,
       "StudyLevel": 177,
-      "TotalUpgrades": 925,
+      "TotalUpgrades": 927,
       "GuildLevel": 88,
       "GuildID": 112,
       "NexusProgress": 0,
@@ -114,7 +114,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 210,
-      "TotalUpgrades": 864,
+      "TotalUpgrades": 865,
       "GuildLevel": 80,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -279,7 +279,7 @@
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 117,
       "StudyLevel": 139,
-      "TotalUpgrades": 558,
+      "TotalUpgrades": 559,
       "GuildLevel": 57,
       "GuildID": 65,
       "NexusProgress": 2,
@@ -312,7 +312,7 @@
       "GuildName": "Hydra",
       "NexusLevel": 100,
       "StudyLevel": 110,
-      "TotalUpgrades": 460,
+      "TotalUpgrades": 462,
       "GuildLevel": 40,
       "GuildID": 79,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 25748,
-    "formatted_dust": "426.22T",
-    "formatted_price": "16.55B"
+    "total_codex": 26196,
+    "formatted_dust": "435.75T",
+    "formatted_price": "16.63B"
   },
-  "lastUpdated": "2025-08-23T13:20:58.632207+00:00",
+  "lastUpdated": "2025-08-23T14:11:46.183778+00:00",
   "baselineDate": "2025-08-23",
   "baselineCreatedAt": "2025-08-23T00:54:43.853598+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 21,
-    "total_codex_used": 25748,
+    "total_codex_used": 26196,
     "baseline_date": "2025-08-23"
   }
 }
