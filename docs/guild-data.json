@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 495,
-      "StudyLevel": 422,
-      "TotalUpgrades": 1593,
-      "GuildLevel": 127,
+      "StudyLevel": 423,
+      "TotalUpgrades": 1594,
+      "GuildLevel": 128,
       "GuildID": 5,
       "NexusProgress": 5,
-      "StudyProgress": 5,
-      "TotalCodexCost": 4565
+      "StudyProgress": 6,
+      "TotalCodexCost": 4988
     },
     {
       "GuildName": "Divinity",
@@ -90,14 +90,14 @@
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 276,
+      "NexusLevel": 277,
       "StudyLevel": 177,
-      "TotalUpgrades": 941,
+      "TotalUpgrades": 942,
       "GuildLevel": 90,
       "GuildID": 112,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 1370
+      "TotalCodexCost": 1647
     },
     {
       "GuildName": "Fight Club",
@@ -169,7 +169,7 @@
       "GuildName": "Hack n Slash",
       "NexusLevel": 216,
       "StudyLevel": 185,
-      "TotalUpgrades": 820,
+      "TotalUpgrades": 822,
       "GuildLevel": 73,
       "GuildID": 86,
       "NexusProgress": 6,
@@ -222,14 +222,14 @@
     },
     {
       "GuildName": "Ewbies",
-      "NexusLevel": 190,
+      "NexusLevel": 191,
       "StudyLevel": 201,
-      "TotalUpgrades": 731,
+      "TotalUpgrades": 732,
       "GuildLevel": 63,
       "GuildID": 4,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 3,
-      "TotalCodexCost": 979
+      "TotalCodexCost": 1170
     },
     {
       "GuildName": "Bureau of Feline Investigators",
@@ -256,8 +256,8 @@
     {
       "GuildName": "Cats",
       "NexusLevel": 145,
-      "StudyLevel": 114,
-      "TotalUpgrades": 394,
+      "StudyLevel": 105,
+      "TotalUpgrades": 395,
       "GuildLevel": 40,
       "GuildID": 55,
       "NexusProgress": 1,
@@ -266,14 +266,14 @@
     },
     {
       "GuildName": "Lighthouse Reborn",
-      "NexusLevel": 120,
+      "NexusLevel": 121,
       "StudyLevel": 141,
-      "TotalUpgrades": 577,
+      "TotalUpgrades": 578,
       "GuildLevel": 59,
       "GuildID": 65,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 239
+      "TotalCodexCost": 360
     },
     {
       "GuildName": "MooseKnuckles",
@@ -320,23 +320,23 @@
       "TotalCodexCost": 324
     },
     {
-      "GuildName": "RevivaL",
-      "NexusLevel": 100,
-      "StudyLevel": 79,
-      "TotalUpgrades": 382,
-      "GuildLevel": 42,
-      "GuildID": 91,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "GuildName": "A Growing Threat",
+      "NexusLevel": 70,
+      "StudyLevel": 69,
+      "TotalUpgrades": 390,
+      "GuildLevel": 32,
+      "GuildID": 70,
+      "NexusProgress": 3,
+      "StudyProgress": 1,
+      "TotalCodexCost": 276
     }
   ],
   "dustSpending": {
-    "total_codex": 37102,
-    "formatted_dust": "602.60T",
+    "total_codex": 38390,
+    "formatted_dust": "623.48T",
     "formatted_price": "16.24B"
   },
-  "lastUpdated": "2025-08-24T15:12:51.863259+00:00",
+  "lastUpdated": "2025-08-24T16:15:48.312032+00:00",
   "baselineDate": "2025-08-24",
   "baselineCreatedAt": "2025-08-24T01:03:09.266057+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 24,
-    "total_codex_used": 37102,
+    "guilds_with_progress": 25,
+    "total_codex_used": 38390,
     "baseline_date": "2025-08-24"
   }
 }
