@@ -3,19 +3,19 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 495,
-      "StudyLevel": 417,
-      "TotalUpgrades": 1588,
-      "GuildLevel": 124,
+      "StudyLevel": 419,
+      "TotalUpgrades": 1590,
+      "GuildLevel": 125,
       "GuildID": 5,
       "NexusProgress": 5,
-      "StudyProgress": 0,
-      "TotalCodexCost": 2465
+      "StudyProgress": 2,
+      "TotalCodexCost": 3302
     },
     {
       "GuildName": "Divinity",
       "NexusLevel": 457,
       "StudyLevel": 401,
-      "TotalUpgrades": 1574,
+      "TotalUpgrades": 1579,
       "GuildLevel": 126,
       "GuildID": 25,
       "NexusProgress": 7,
@@ -25,13 +25,13 @@
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 450,
-      "StudyLevel": 364,
-      "TotalUpgrades": 1534,
+      "StudyLevel": 365,
+      "TotalUpgrades": 1535,
       "GuildLevel": 134,
       "GuildID": 19,
       "NexusProgress": 0,
-      "StudyProgress": 4,
-      "TotalCodexCost": 1450
+      "StudyProgress": 5,
+      "TotalCodexCost": 1815
     },
     {
       "GuildName": "RNG",
@@ -155,6 +155,17 @@
       "TotalCodexCost": 0
     },
     {
+      "GuildName": "Gatherers Guild",
+      "NexusLevel": 217,
+      "StudyLevel": 146,
+      "TotalUpgrades": 662,
+      "GuildLevel": 59,
+      "GuildID": 1,
+      "NexusProgress": 4,
+      "StudyProgress": 0,
+      "TotalCodexCost": 862
+    },
+    {
       "GuildName": "Hack n Slash",
       "NexusLevel": 216,
       "StudyLevel": 185,
@@ -164,17 +175,6 @@
       "NexusProgress": 6,
       "StudyProgress": 0,
       "TotalCodexCost": 1281
-    },
-    {
-      "GuildName": "Gatherers Guild",
-      "NexusLevel": 216,
-      "StudyLevel": 146,
-      "TotalUpgrades": 661,
-      "GuildLevel": 59,
-      "GuildID": 1,
-      "NexusProgress": 3,
-      "StudyProgress": 0,
-      "TotalCodexCost": 645
     },
     {
       "GuildName": "Caliburnus",
@@ -190,20 +190,20 @@
     {
       "GuildName": "Dino Nuggies",
       "NexusLevel": 200,
-      "StudyLevel": 154,
-      "TotalUpgrades": 689,
+      "StudyLevel": 159,
+      "TotalUpgrades": 698,
       "GuildLevel": 66,
       "GuildID": 122,
       "NexusProgress": 0,
-      "StudyProgress": 1,
-      "TotalCodexCost": 154
+      "StudyProgress": 6,
+      "TotalCodexCost": 939
     },
     {
       "GuildName": "Osmanthus",
       "NexusLevel": 194,
       "StudyLevel": 168,
       "TotalUpgrades": 723,
-      "GuildLevel": 77,
+      "GuildLevel": 78,
       "GuildID": 21,
       "NexusProgress": 1,
       "StudyProgress": 0,
@@ -222,14 +222,14 @@
     },
     {
       "GuildName": "Ewbies",
-      "NexusLevel": 188,
-      "StudyLevel": 199,
-      "TotalUpgrades": 727,
-      "GuildLevel": 62,
+      "NexusLevel": 190,
+      "StudyLevel": 201,
+      "TotalUpgrades": 731,
+      "GuildLevel": 63,
       "GuildID": 4,
-      "NexusProgress": 0,
-      "StudyProgress": 1,
-      "TotalCodexCost": 199
+      "NexusProgress": 2,
+      "StudyProgress": 3,
+      "TotalCodexCost": 979
     },
     {
       "GuildName": "Bureau of Feline Investigators",
@@ -280,7 +280,7 @@
       "NexusLevel": 120,
       "StudyLevel": 120,
       "TotalUpgrades": 630,
-      "GuildLevel": 51,
+      "GuildLevel": 52,
       "GuildID": 64,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -310,14 +310,14 @@
     },
     {
       "GuildName": "Hydra",
-      "NexusLevel": 100,
+      "NexusLevel": 101,
       "StudyLevel": 110,
-      "TotalUpgrades": 469,
+      "TotalUpgrades": 471,
       "GuildLevel": 41,
       "GuildID": 79,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 101
     },
     {
       "GuildName": "RevivaL",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 30215,
-    "formatted_dust": "489.30T",
-    "formatted_price": "16.19B"
+    "total_codex": 33300,
+    "formatted_dust": "539.81T",
+    "formatted_price": "16.21B"
   },
-  "lastUpdated": "2025-08-24T11:10:51.990139+00:00",
+  "lastUpdated": "2025-08-24T12:26:15.698918+00:00",
   "baselineDate": "2025-08-24",
   "baselineCreatedAt": "2025-08-24T01:03:09.266057+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 23,
-    "total_codex_used": 30215,
+    "guilds_with_progress": 24,
+    "total_codex_used": 33300,
     "baseline_date": "2025-08-24"
   }
 }
