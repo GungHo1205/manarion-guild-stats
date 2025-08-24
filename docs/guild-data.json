@@ -2,25 +2,25 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 493,
+      "NexusLevel": 494,
       "StudyLevel": 417,
-      "TotalUpgrades": 1581,
-      "GuildLevel": 120,
+      "TotalUpgrades": 1582,
+      "GuildLevel": 121,
       "GuildID": 5,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 1476
+      "TotalCodexCost": 1970
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 454,
+      "NexusLevel": 455,
       "StudyLevel": 401,
-      "TotalUpgrades": 1569,
+      "TotalUpgrades": 1572,
       "GuildLevel": 125,
       "GuildID": 25,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 1,
-      "TotalCodexCost": 2211
+      "TotalCodexCost": 2666
     },
     {
       "GuildName": "Sanctuary",
@@ -57,21 +57,21 @@
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 297,
-      "StudyLevel": 234,
-      "TotalUpgrades": 934,
+      "NexusLevel": 298,
+      "StudyLevel": 235,
+      "TotalUpgrades": 936,
       "GuildLevel": 88,
       "GuildID": 2,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusProgress": 1,
+      "StudyProgress": 1,
+      "TotalCodexCost": 533
     },
     {
       "GuildName": "Test Guild Please Ignore",
       "NexusLevel": 280,
       "StudyLevel": 279,
       "TotalUpgrades": 1021,
-      "GuildLevel": 61,
+      "GuildLevel": 62,
       "GuildID": 14,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -234,13 +234,13 @@
     {
       "GuildName": "Bureau of Feline Investigators",
       "NexusLevel": 180,
-      "StudyLevel": 190,
-      "TotalUpgrades": 599,
+      "StudyLevel": 193,
+      "TotalUpgrades": 602,
       "GuildLevel": 58,
       "GuildID": 18,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 3,
+      "TotalCodexCost": 576
     },
     {
       "GuildName": "Manarion Adventures",
@@ -290,7 +290,7 @@
       "GuildName": "asylum",
       "NexusLevel": 118,
       "StudyLevel": 67,
-      "TotalUpgrades": 455,
+      "TotalUpgrades": 456,
       "GuildLevel": 52,
       "GuildID": 130,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 18179,
-    "formatted_dust": "297.90T",
-    "formatted_price": "16.39B"
+    "total_codex": 20237,
+    "formatted_dust": "330.54T",
+    "formatted_price": "16.33B"
   },
-  "lastUpdated": "2025-08-24T07:13:05.255563+00:00",
+  "lastUpdated": "2025-08-24T08:16:39.364588+00:00",
   "baselineDate": "2025-08-24",
   "baselineCreatedAt": "2025-08-24T01:03:09.266057+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 17,
-    "total_codex_used": 18179,
+    "guilds_with_progress": 19,
+    "total_codex_used": 20237,
     "baseline_date": "2025-08-24"
   }
 }
