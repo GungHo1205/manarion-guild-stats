@@ -2,31 +2,31 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 494,
+      "NexusLevel": 495,
       "StudyLevel": 417,
-      "TotalUpgrades": 1582,
-      "GuildLevel": 122,
+      "TotalUpgrades": 1583,
+      "GuildLevel": 123,
       "GuildID": 5,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1970
+      "TotalCodexCost": 2465
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 455,
+      "NexusLevel": 456,
       "StudyLevel": 401,
-      "TotalUpgrades": 1572,
+      "TotalUpgrades": 1573,
       "GuildLevel": 125,
       "GuildID": 25,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 1,
-      "TotalCodexCost": 2666
+      "TotalCodexCost": 3122
     },
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 450,
       "StudyLevel": 360,
-      "TotalUpgrades": 1526,
+      "TotalUpgrades": 1529,
       "GuildLevel": 133,
       "GuildID": 19,
       "NexusProgress": 0,
@@ -36,13 +36,13 @@
     {
       "GuildName": "RNG",
       "NexusLevel": 445,
-      "StudyLevel": 348,
-      "TotalUpgrades": 1488,
-      "GuildLevel": 114,
+      "StudyLevel": 350,
+      "TotalUpgrades": 1493,
+      "GuildLevel": 115,
       "GuildID": 17,
       "NexusProgress": 4,
-      "StudyProgress": 18,
-      "TotalCodexCost": 7885
+      "StudyProgress": 20,
+      "TotalCodexCost": 8584
     },
     {
       "GuildName": "Phoenix",
@@ -60,7 +60,7 @@
       "NexusLevel": 299,
       "StudyLevel": 235,
       "TotalUpgrades": 937,
-      "GuildLevel": 88,
+      "GuildLevel": 89,
       "GuildID": 2,
       "NexusProgress": 2,
       "StudyProgress": 1,
@@ -68,14 +68,14 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 281,
+      "NexusLevel": 283,
       "StudyLevel": 281,
-      "TotalUpgrades": 1024,
+      "TotalUpgrades": 1026,
       "GuildLevel": 62,
       "GuildID": 14,
-      "NexusProgress": 1,
+      "NexusProgress": 3,
       "StudyProgress": 2,
-      "TotalCodexCost": 842
+      "TotalCodexCost": 1407
     },
     {
       "GuildName": "Codex",
@@ -265,23 +265,23 @@
       "TotalCodexCost": 145
     },
     {
+      "GuildName": "Lighthouse Reborn",
+      "NexusLevel": 120,
+      "StudyLevel": 141,
+      "TotalUpgrades": 576,
+      "GuildLevel": 59,
+      "GuildID": 65,
+      "NexusProgress": 2,
+      "StudyProgress": 0,
+      "TotalCodexCost": 239
+    },
+    {
       "GuildName": "MooseKnuckles",
       "NexusLevel": 120,
       "StudyLevel": 120,
       "TotalUpgrades": 630,
       "GuildLevel": 51,
       "GuildID": 64,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Lighthouse Reborn",
-      "NexusLevel": 118,
-      "StudyLevel": 141,
-      "TotalUpgrades": 570,
-      "GuildLevel": 59,
-      "GuildID": 65,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -320,23 +320,23 @@
       "TotalCodexCost": 0
     },
     {
-      "GuildName": "A Growing Threat",
-      "NexusLevel": 67,
-      "StudyLevel": 68,
-      "TotalUpgrades": 381,
-      "GuildLevel": 31,
-      "GuildID": 70,
+      "GuildName": "RevivaL",
+      "NexusLevel": 100,
+      "StudyLevel": 79,
+      "TotalUpgrades": 382,
+      "GuildLevel": 42,
+      "GuildID": 91,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
     }
   ],
   "dustSpending": {
-    "total_codex": 22356,
-    "formatted_dust": "364.03T",
-    "formatted_price": "16.28B"
+    "total_codex": 24810,
+    "formatted_dust": "402.79T",
+    "formatted_price": "16.23B"
   },
-  "lastUpdated": "2025-08-24T09:13:20.217487+00:00",
+  "lastUpdated": "2025-08-24T10:13:45.330513+00:00",
   "baselineDate": "2025-08-24",
   "baselineCreatedAt": "2025-08-24T01:03:09.266057+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 20,
-    "total_codex_used": 22356,
+    "guilds_with_progress": 21,
+    "total_codex_used": 24810,
     "baseline_date": "2025-08-24"
   }
 }
