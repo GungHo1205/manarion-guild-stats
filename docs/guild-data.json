@@ -5,7 +5,7 @@
       "NexusLevel": 494,
       "StudyLevel": 417,
       "TotalUpgrades": 1582,
-      "GuildLevel": 121,
+      "GuildLevel": 122,
       "GuildID": 5,
       "NexusProgress": 4,
       "StudyProgress": 0,
@@ -36,46 +36,46 @@
     {
       "GuildName": "RNG",
       "NexusLevel": 445,
-      "StudyLevel": 347,
-      "TotalUpgrades": 1487,
+      "StudyLevel": 348,
+      "TotalUpgrades": 1488,
       "GuildLevel": 114,
       "GuildID": 17,
       "NexusProgress": 4,
-      "StudyProgress": 17,
-      "TotalCodexCost": 7537
+      "StudyProgress": 18,
+      "TotalCodexCost": 7885
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 414,
+      "NexusLevel": 415,
       "StudyLevel": 294,
-      "TotalUpgrades": 1286,
+      "TotalUpgrades": 1287,
       "GuildLevel": 103,
       "GuildID": 8,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 1,
-      "TotalCodexCost": 1121
+      "TotalCodexCost": 1536
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 298,
+      "NexusLevel": 299,
       "StudyLevel": 235,
-      "TotalUpgrades": 936,
+      "TotalUpgrades": 937,
       "GuildLevel": 88,
       "GuildID": 2,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 1,
-      "TotalCodexCost": 533
+      "TotalCodexCost": 832
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 280,
-      "StudyLevel": 279,
-      "TotalUpgrades": 1021,
+      "NexusLevel": 281,
+      "StudyLevel": 281,
+      "TotalUpgrades": 1024,
       "GuildLevel": 62,
       "GuildID": 14,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusProgress": 1,
+      "StudyProgress": 2,
+      "TotalCodexCost": 842
     },
     {
       "GuildName": "Codex",
@@ -114,8 +114,8 @@
       "GuildName": "Doomed",
       "NexusLevel": 242,
       "StudyLevel": 210,
-      "TotalUpgrades": 914,
-      "GuildLevel": 81,
+      "TotalUpgrades": 915,
+      "GuildLevel": 82,
       "GuildID": 183,
       "NexusProgress": 2,
       "StudyProgress": 0,
@@ -178,14 +178,14 @@
     },
     {
       "GuildName": "Gatherers Guild",
-      "NexusLevel": 214,
+      "NexusLevel": 215,
       "StudyLevel": 146,
-      "TotalUpgrades": 659,
+      "TotalUpgrades": 660,
       "GuildLevel": 59,
       "GuildID": 1,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 214
+      "TotalCodexCost": 429
     },
     {
       "GuildName": "Dino Nuggies",
@@ -280,7 +280,7 @@
       "NexusLevel": 118,
       "StudyLevel": 141,
       "TotalUpgrades": 570,
-      "GuildLevel": 58,
+      "GuildLevel": 59,
       "GuildID": 65,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 20237,
-    "formatted_dust": "330.54T",
-    "formatted_price": "16.33B"
+    "total_codex": 22356,
+    "formatted_dust": "364.03T",
+    "formatted_price": "16.28B"
   },
-  "lastUpdated": "2025-08-24T08:16:39.364588+00:00",
+  "lastUpdated": "2025-08-24T09:13:20.217487+00:00",
   "baselineDate": "2025-08-24",
   "baselineCreatedAt": "2025-08-24T01:03:09.266057+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 19,
-    "total_codex_used": 20237,
+    "guilds_with_progress": 20,
+    "total_codex_used": 22356,
     "baseline_date": "2025-08-24"
   }
 }
