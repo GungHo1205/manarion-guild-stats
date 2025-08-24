@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 492,
+      "NexusLevel": 493,
       "StudyLevel": 417,
-      "TotalUpgrades": 1580,
-      "GuildLevel": 118,
+      "TotalUpgrades": 1581,
+      "GuildLevel": 119,
       "GuildID": 5,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 983
+      "TotalCodexCost": 1476
     },
     {
       "GuildName": "Divinity",
@@ -35,14 +35,14 @@
     },
     {
       "GuildName": "RNG",
-      "NexusLevel": 443,
-      "StudyLevel": 345,
-      "TotalUpgrades": 1483,
-      "GuildLevel": 113,
+      "NexusLevel": 445,
+      "StudyLevel": 347,
+      "TotalUpgrades": 1487,
+      "GuildLevel": 114,
       "GuildID": 17,
-      "NexusProgress": 2,
-      "StudyProgress": 15,
-      "TotalCodexCost": 5955
+      "NexusProgress": 4,
+      "StudyProgress": 17,
+      "TotalCodexCost": 7537
     },
     {
       "GuildName": "Phoenix",
@@ -79,25 +79,25 @@
     },
     {
       "GuildName": "Codex",
-      "NexusLevel": 278,
+      "NexusLevel": 279,
       "StudyLevel": 280,
-      "TotalUpgrades": 953,
+      "TotalUpgrades": 959,
       "GuildLevel": 87,
       "GuildID": 59,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 279
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 271,
+      "NexusLevel": 274,
       "StudyLevel": 177,
-      "TotalUpgrades": 936,
-      "GuildLevel": 89,
+      "TotalUpgrades": 939,
+      "GuildLevel": 90,
       "GuildID": 112,
-      "NexusProgress": 0,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 819
     },
     {
       "GuildName": "Fight Club",
@@ -112,25 +112,25 @@
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 240,
+      "NexusLevel": 241,
       "StudyLevel": 210,
-      "TotalUpgrades": 912,
+      "TotalUpgrades": 913,
       "GuildLevel": 81,
       "GuildID": 183,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 241
     },
     {
       "GuildName": "Minimal Effort",
       "NexusLevel": 230,
-      "StudyLevel": 169,
-      "TotalUpgrades": 757,
+      "StudyLevel": 171,
+      "TotalUpgrades": 759,
       "GuildLevel": 58,
       "GuildID": 172,
       "NexusProgress": 0,
-      "StudyProgress": 3,
-      "TotalCodexCost": 504
+      "StudyProgress": 5,
+      "TotalCodexCost": 845
     },
     {
       "GuildName": "Racc City",
@@ -178,14 +178,14 @@
     },
     {
       "GuildName": "Gatherers Guild",
-      "NexusLevel": 213,
+      "NexusLevel": 214,
       "StudyLevel": 146,
-      "TotalUpgrades": 658,
+      "TotalUpgrades": 659,
       "GuildLevel": 59,
       "GuildID": 1,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 214
     },
     {
       "GuildName": "Dino Nuggies",
@@ -199,23 +199,23 @@
       "TotalCodexCost": 154
     },
     {
+      "GuildName": "Osmanthus",
+      "NexusLevel": 194,
+      "StudyLevel": 168,
+      "TotalUpgrades": 723,
+      "GuildLevel": 77,
+      "GuildID": 21,
+      "NexusProgress": 1,
+      "StudyProgress": 0,
+      "TotalCodexCost": 194
+    },
+    {
       "GuildName": "BASED",
       "NexusLevel": 194,
       "StudyLevel": 150,
       "TotalUpgrades": 496,
       "GuildLevel": 49,
       "GuildID": 27,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
-    },
-    {
-      "GuildName": "Osmanthus",
-      "NexusLevel": 193,
-      "StudyLevel": 168,
-      "TotalUpgrades": 722,
-      "GuildLevel": 77,
-      "GuildID": 21,
       "NexusProgress": 0,
       "StudyProgress": 0,
       "TotalCodexCost": 0
@@ -255,14 +255,14 @@
     },
     {
       "GuildName": "Cats",
-      "NexusLevel": 144,
+      "NexusLevel": 145,
       "StudyLevel": 114,
-      "TotalUpgrades": 391,
+      "TotalUpgrades": 394,
       "GuildLevel": 40,
       "GuildID": 55,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 145
     },
     {
       "GuildName": "MooseKnuckles",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 11915,
-    "formatted_dust": "196.49T",
-    "formatted_price": "16.49B"
+    "total_codex": 16223,
+    "formatted_dust": "266.83T",
+    "formatted_price": "16.45B"
   },
-  "lastUpdated": "2025-08-24T05:13:49.414830+00:00",
+  "lastUpdated": "2025-08-24T06:20:11.702644+00:00",
   "baselineDate": "2025-08-24",
   "baselineCreatedAt": "2025-08-24T01:03:09.266057+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 10,
-    "total_codex_used": 11915,
+    "guilds_with_progress": 16,
+    "total_codex_used": 16223,
     "baseline_date": "2025-08-24"
   }
 }
