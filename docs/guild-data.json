@@ -3,24 +3,24 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 495,
-      "StudyLevel": 426,
-      "TotalUpgrades": 1598,
-      "GuildLevel": 130,
+      "StudyLevel": 427,
+      "TotalUpgrades": 1599,
+      "GuildLevel": 131,
       "GuildID": 5,
       "NexusProgress": 5,
-      "StudyProgress": 9,
-      "TotalCodexCost": 6263
+      "StudyProgress": 10,
+      "TotalCodexCost": 6690
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 460,
+      "NexusLevel": 461,
       "StudyLevel": 401,
-      "TotalUpgrades": 1584,
+      "TotalUpgrades": 1587,
       "GuildLevel": 127,
       "GuildID": 25,
-      "NexusProgress": 10,
+      "NexusProgress": 11,
       "StudyProgress": 1,
-      "TotalCodexCost": 4956
+      "TotalCodexCost": 5417
     },
     {
       "GuildName": "Sanctuary",
@@ -46,14 +46,14 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 417,
+      "NexusLevel": 418,
       "StudyLevel": 297,
-      "TotalUpgrades": 1293,
+      "TotalUpgrades": 1294,
       "GuildLevel": 104,
       "GuildID": 8,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 4,
-      "TotalCodexCost": 3257
+      "TotalCodexCost": 3675
     },
     {
       "GuildName": "EZ ",
@@ -93,7 +93,7 @@
       "NexusLevel": 277,
       "StudyLevel": 177,
       "TotalUpgrades": 942,
-      "GuildLevel": 90,
+      "GuildLevel": 91,
       "GuildID": 112,
       "NexusProgress": 6,
       "StudyProgress": 0,
@@ -124,20 +124,20 @@
     {
       "GuildName": "Minimal Effort",
       "NexusLevel": 230,
-      "StudyLevel": 176,
-      "TotalUpgrades": 764,
+      "StudyLevel": 177,
+      "TotalUpgrades": 765,
       "GuildLevel": 58,
       "GuildID": 172,
       "NexusProgress": 0,
-      "StudyProgress": 10,
-      "TotalCodexCost": 1715
+      "StudyProgress": 11,
+      "TotalCodexCost": 1892
     },
     {
       "GuildName": "Racc City",
       "NexusLevel": 222,
       "StudyLevel": 200,
       "TotalUpgrades": 929,
-      "GuildLevel": 72,
+      "GuildLevel": 73,
       "GuildID": 9,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -180,7 +180,7 @@
       "GuildName": "Caliburnus",
       "NexusLevel": 215,
       "StudyLevel": 164,
-      "TotalUpgrades": 731,
+      "TotalUpgrades": 732,
       "GuildLevel": 62,
       "GuildID": 42,
       "NexusProgress": 3,
@@ -278,13 +278,13 @@
     {
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 121,
-      "StudyLevel": 141,
-      "TotalUpgrades": 578,
+      "StudyLevel": 142,
+      "TotalUpgrades": 585,
       "GuildLevel": 60,
       "GuildID": 65,
       "NexusProgress": 3,
-      "StudyProgress": 0,
-      "TotalCodexCost": 360
+      "StudyProgress": 1,
+      "TotalCodexCost": 502
     },
     {
       "GuildName": "asylum",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 46633,
-    "formatted_dust": "760.03T",
-    "formatted_price": "16.30B"
+    "total_codex": 48258,
+    "formatted_dust": "787.59T",
+    "formatted_price": "16.32B"
   },
-  "lastUpdated": "2025-08-24T18:18:24.412537+00:00",
+  "lastUpdated": "2025-08-24T19:10:54.032077+00:00",
   "baselineDate": "2025-08-24",
   "baselineCreatedAt": "2025-08-24T01:03:09.266057+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 26,
-    "total_codex_used": 46633,
+    "total_codex_used": 48258,
     "baseline_date": "2025-08-24"
   }
 }
