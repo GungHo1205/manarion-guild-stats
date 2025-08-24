@@ -26,7 +26,7 @@
       "GuildName": "Sanctuary",
       "NexusLevel": 450,
       "StudyLevel": 360,
-      "TotalUpgrades": 1504,
+      "TotalUpgrades": 1509,
       "GuildLevel": 132,
       "GuildID": 19,
       "NexusProgress": 0,
@@ -114,7 +114,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 240,
       "StudyLevel": 210,
-      "TotalUpgrades": 874,
+      "TotalUpgrades": 876,
       "GuildLevel": 81,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -246,7 +246,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 153,
       "StudyLevel": 165,
-      "TotalUpgrades": 730,
+      "TotalUpgrades": 734,
       "GuildLevel": 65,
       "GuildID": 54,
       "NexusProgress": 0,
@@ -334,9 +334,9 @@
   "dustSpending": {
     "total_codex": 0,
     "formatted_dust": "0.00",
-    "formatted_price": "16.71B"
+    "formatted_price": "16.67B"
   },
-  "lastUpdated": "2025-08-24T01:03:09.266057+00:00",
+  "lastUpdated": "2025-08-24T01:15:03.444247+00:00",
   "baselineDate": "2025-08-24",
   "baselineCreatedAt": "2025-08-24T01:03:09.266057+00:00",
   "dataFreshness": {
