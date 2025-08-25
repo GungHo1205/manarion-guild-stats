@@ -2,21 +2,21 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 500,
+      "NexusLevel": 501,
       "StudyLevel": 432,
-      "TotalUpgrades": 1619,
+      "TotalUpgrades": 1620,
       "GuildLevel": 138,
       "GuildID": 5,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 5,
-      "TotalCodexCost": 2150
+      "TotalCodexCost": 2651
     },
     {
       "GuildName": "Divinity",
       "NexusLevel": 467,
       "StudyLevel": 406,
       "TotalUpgrades": 1602,
-      "GuildLevel": 129,
+      "GuildLevel": 130,
       "GuildID": 25,
       "NexusProgress": 3,
       "StudyProgress": 5,
@@ -38,7 +38,7 @@
       "NexusLevel": 450,
       "StudyLevel": 355,
       "TotalUpgrades": 1509,
-      "GuildLevel": 118,
+      "GuildLevel": 119,
       "GuildID": 17,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -81,7 +81,7 @@
       "GuildName": "Codex",
       "NexusLevel": 280,
       "StudyLevel": 284,
-      "TotalUpgrades": 981,
+      "TotalUpgrades": 982,
       "GuildLevel": 88,
       "GuildID": 59,
       "NexusProgress": 0,
@@ -93,7 +93,7 @@
       "NexusLevel": 280,
       "StudyLevel": 187,
       "TotalUpgrades": 956,
-      "GuildLevel": 91,
+      "GuildLevel": 92,
       "GuildID": 112,
       "NexusProgress": 0,
       "StudyProgress": 5,
@@ -113,13 +113,13 @@
     {
       "GuildName": "Fight Club",
       "NexusLevel": 255,
-      "StudyLevel": 173,
-      "TotalUpgrades": 837,
+      "StudyLevel": 179,
+      "TotalUpgrades": 843,
       "GuildLevel": 75,
       "GuildID": 10,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 6,
+      "TotalCodexCost": 1059
     },
     {
       "GuildName": "Minimal Effort",
@@ -145,14 +145,14 @@
     },
     {
       "GuildName": "Imperium",
-      "NexusLevel": 220,
+      "NexusLevel": 222,
       "StudyLevel": 223,
-      "TotalUpgrades": 820,
+      "TotalUpgrades": 827,
       "GuildLevel": 84,
       "GuildID": 15,
-      "NexusProgress": 1,
+      "NexusProgress": 3,
       "StudyProgress": 1,
-      "TotalCodexCost": 443
+      "TotalCodexCost": 886
     },
     {
       "GuildName": "Gatherers Guild",
@@ -225,7 +225,7 @@
       "NexusLevel": 193,
       "StudyLevel": 203,
       "TotalUpgrades": 736,
-      "GuildLevel": 63,
+      "GuildLevel": 64,
       "GuildID": 4,
       "NexusProgress": 1,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 16921,
-    "formatted_dust": "281.99T",
-    "formatted_price": "16.67B"
+    "total_codex": 18924,
+    "formatted_dust": "316.29T",
+    "formatted_price": "16.71B"
   },
-  "lastUpdated": "2025-08-25T08:21:06.137812+00:00",
+  "lastUpdated": "2025-08-25T09:17:11.734173+00:00",
   "baselineDate": "2025-08-25",
   "baselineCreatedAt": "2025-08-25T00:59:03.569356+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 19,
-    "total_codex_used": 16921,
+    "guilds_with_progress": 20,
+    "total_codex_used": 18924,
     "baseline_date": "2025-08-25"
   }
 }
