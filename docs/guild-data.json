@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 502,
+      "NexusLevel": 503,
       "StudyLevel": 432,
-      "TotalUpgrades": 1621,
+      "TotalUpgrades": 1622,
       "GuildLevel": 138,
       "GuildID": 5,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 5,
-      "TotalCodexCost": 3153
+      "TotalCodexCost": 3656
     },
     {
       "GuildName": "Divinity",
@@ -47,13 +47,13 @@
     {
       "GuildName": "Phoenix",
       "NexusLevel": 419,
-      "StudyLevel": 299,
-      "TotalUpgrades": 1306,
+      "StudyLevel": 300,
+      "TotalUpgrades": 1309,
       "GuildLevel": 105,
       "GuildID": 8,
       "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 419
+      "StudyProgress": 1,
+      "TotalCodexCost": 719
     },
     {
       "GuildName": "EZ ",
@@ -80,13 +80,13 @@
     {
       "GuildName": "Codex",
       "NexusLevel": 280,
-      "StudyLevel": 284,
-      "TotalUpgrades": 983,
+      "StudyLevel": 285,
+      "TotalUpgrades": 985,
       "GuildLevel": 89,
       "GuildID": 59,
       "NexusProgress": 0,
-      "StudyProgress": 4,
-      "TotalCodexCost": 1130
+      "StudyProgress": 5,
+      "TotalCodexCost": 1415
     },
     {
       "GuildName": "The First Ones",
@@ -189,14 +189,14 @@
     },
     {
       "GuildName": "Dino Nuggies",
-      "NexusLevel": 207,
-      "StudyLevel": 160,
-      "TotalUpgrades": 717,
+      "NexusLevel": 208,
+      "StudyLevel": 162,
+      "TotalUpgrades": 728,
       "GuildLevel": 67,
       "GuildID": 122,
-      "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 207
+      "NexusProgress": 2,
+      "StudyProgress": 2,
+      "TotalCodexCost": 738
     },
     {
       "GuildName": "Osmanthus",
@@ -211,14 +211,14 @@
     },
     {
       "GuildName": "BASED",
-      "NexusLevel": 194,
+      "NexusLevel": 196,
       "StudyLevel": 150,
-      "TotalUpgrades": 512,
+      "TotalUpgrades": 515,
       "GuildLevel": 50,
       "GuildID": 27,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyProgress": 10,
-      "TotalCodexCost": 1455
+      "TotalCodexCost": 1846
     },
     {
       "GuildName": "Ewbies",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 25380,
-    "formatted_dust": "424.59T",
-    "formatted_price": "16.73B"
+    "total_codex": 27390,
+    "formatted_dust": "458.95T",
+    "formatted_price": "16.76B"
   },
-  "lastUpdated": "2025-08-25T11:13:07.402917+00:00",
+  "lastUpdated": "2025-08-25T12:29:38.420839+00:00",
   "baselineDate": "2025-08-25",
   "baselineCreatedAt": "2025-08-25T00:59:03.569356+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 23,
-    "total_codex_used": 25380,
+    "total_codex_used": 27390,
     "baseline_date": "2025-08-25"
   }
 }
