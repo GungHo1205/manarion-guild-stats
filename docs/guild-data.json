@@ -4,7 +4,7 @@
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 500,
       "StudyLevel": 427,
-      "TotalUpgrades": 1604,
+      "TotalUpgrades": 1605,
       "GuildLevel": 135,
       "GuildID": 5,
       "NexusProgress": 0,
@@ -279,7 +279,7 @@
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 121,
       "StudyLevel": 142,
-      "TotalUpgrades": 585,
+      "TotalUpgrades": 586,
       "GuildLevel": 60,
       "GuildID": 65,
       "NexusProgress": 0,
@@ -334,9 +334,9 @@
   "dustSpending": {
     "total_codex": 0,
     "formatted_dust": "0.00",
-    "formatted_price": "16.34B"
+    "formatted_price": "16.35B"
   },
-  "lastUpdated": "2025-08-25T00:59:03.569356+00:00",
+  "lastUpdated": "2025-08-25T01:10:40.460958+00:00",
   "baselineDate": "2025-08-25",
   "baselineCreatedAt": "2025-08-25T00:59:03.569356+00:00",
   "dataFreshness": {
