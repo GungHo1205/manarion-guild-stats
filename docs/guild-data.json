@@ -15,7 +15,7 @@
       "GuildName": "Divinity",
       "NexusLevel": 468,
       "StudyLevel": 406,
-      "TotalUpgrades": 1603,
+      "TotalUpgrades": 1605,
       "GuildLevel": 130,
       "GuildID": 25,
       "NexusProgress": 4,
@@ -91,24 +91,24 @@
     {
       "GuildName": "The First Ones",
       "NexusLevel": 280,
-      "StudyLevel": 187,
-      "TotalUpgrades": 956,
+      "StudyLevel": 194,
+      "TotalUpgrades": 963,
       "GuildLevel": 92,
       "GuildID": 112,
       "NexusProgress": 0,
-      "StudyProgress": 5,
-      "TotalCodexCost": 925
+      "StudyProgress": 12,
+      "TotalCodexCost": 2262
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 267,
+      "NexusLevel": 268,
       "StudyLevel": 210,
-      "TotalUpgrades": 942,
+      "TotalUpgrades": 943,
       "GuildLevel": 84,
       "GuildID": 183,
-      "NexusProgress": 7,
+      "NexusProgress": 8,
       "StudyProgress": 0,
-      "TotalCodexCost": 1848
+      "TotalCodexCost": 2116
     },
     {
       "GuildName": "Fight Club",
@@ -280,7 +280,7 @@
       "NexusLevel": 121,
       "StudyLevel": 142,
       "TotalUpgrades": 594,
-      "GuildLevel": 61,
+      "GuildLevel": 62,
       "GuildID": 65,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 23775,
-    "formatted_dust": "397.58T",
-    "formatted_price": "16.72B"
+    "total_codex": 25380,
+    "formatted_dust": "424.59T",
+    "formatted_price": "16.73B"
   },
-  "lastUpdated": "2025-08-25T10:16:39.743955+00:00",
+  "lastUpdated": "2025-08-25T11:13:07.402917+00:00",
   "baselineDate": "2025-08-25",
   "baselineCreatedAt": "2025-08-25T00:59:03.569356+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 23,
-    "total_codex_used": 23775,
+    "total_codex_used": 25380,
     "baseline_date": "2025-08-25"
   }
 }
