@@ -13,25 +13,25 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 474,
-      "StudyLevel": 408,
-      "TotalUpgrades": 1620,
+      "NexusLevel": 475,
+      "StudyLevel": 409,
+      "TotalUpgrades": 1622,
       "GuildLevel": 132,
       "GuildID": 25,
-      "NexusProgress": 10,
-      "StudyProgress": 7,
-      "TotalCodexCost": 7530
+      "NexusProgress": 11,
+      "StudyProgress": 8,
+      "TotalCodexCost": 8414
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 454,
+      "NexusLevel": 455,
       "StudyLevel": 375,
-      "TotalUpgrades": 1560,
+      "TotalUpgrades": 1561,
       "GuildLevel": 137,
       "GuildID": 19,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 11,
-      "TotalCodexCost": 5880
+      "TotalCodexCost": 6335
     },
     {
       "GuildName": "RNG",
@@ -59,7 +59,7 @@
       "GuildName": "EZ ",
       "NexusLevel": 307,
       "StudyLevel": 243,
-      "TotalUpgrades": 960,
+      "TotalUpgrades": 961,
       "GuildLevel": 91,
       "GuildID": 2,
       "NexusProgress": 5,
@@ -68,14 +68,14 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 294,
+      "NexusLevel": 296,
       "StudyLevel": 282,
-      "TotalUpgrades": 1038,
+      "TotalUpgrades": 1040,
       "GuildLevel": 64,
       "GuildID": 14,
-      "NexusProgress": 6,
+      "NexusProgress": 8,
       "StudyProgress": 1,
-      "TotalCodexCost": 2031
+      "TotalCodexCost": 2622
     },
     {
       "GuildName": "Codex",
@@ -147,7 +147,7 @@
       "GuildName": "Imperium",
       "NexusLevel": 224,
       "StudyLevel": 223,
-      "TotalUpgrades": 833,
+      "TotalUpgrades": 836,
       "GuildLevel": 85,
       "GuildID": 15,
       "NexusProgress": 5,
@@ -277,14 +277,14 @@
     },
     {
       "GuildName": "Lighthouse Reborn",
-      "NexusLevel": 121,
-      "StudyLevel": 145,
-      "TotalUpgrades": 601,
+      "NexusLevel": 123,
+      "StudyLevel": 147,
+      "TotalUpgrades": 606,
       "GuildLevel": 63,
       "GuildID": 65,
-      "NexusProgress": 0,
-      "StudyProgress": 3,
-      "TotalCodexCost": 432
+      "NexusProgress": 2,
+      "StudyProgress": 5,
+      "TotalCodexCost": 970
     },
     {
       "GuildName": "asylum",
@@ -301,7 +301,7 @@
       "GuildName": "Rainbow",
       "NexusLevel": 105,
       "StudyLevel": 94,
-      "TotalUpgrades": 402,
+      "TotalUpgrades": 404,
       "GuildLevel": 46,
       "GuildID": 105,
       "NexusProgress": 2,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 53888,
-    "formatted_dust": "903.17T",
-    "formatted_price": "16.76B"
+    "total_codex": 56356,
+    "formatted_dust": "947.11T",
+    "formatted_price": "16.81B"
   },
-  "lastUpdated": "2025-08-25T22:14:04.737466+00:00",
+  "lastUpdated": "2025-08-25T23:13:22.324216+00:00",
   "baselineDate": "2025-08-25",
   "baselineCreatedAt": "2025-08-25T00:59:03.569356+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 27,
-    "total_codex_used": 53888,
+    "total_codex_used": 56356,
     "baseline_date": "2025-08-25"
   }
 }
