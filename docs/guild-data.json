@@ -13,25 +13,25 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 472,
+      "NexusLevel": 473,
       "StudyLevel": 406,
-      "TotalUpgrades": 1610,
+      "TotalUpgrades": 1613,
       "GuildLevel": 131,
       "GuildID": 25,
-      "NexusProgress": 8,
+      "NexusProgress": 9,
       "StudyProgress": 5,
-      "TotalCodexCost": 5768
+      "TotalCodexCost": 6241
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 450,
-      "StudyLevel": 373,
-      "TotalUpgrades": 1554,
-      "GuildLevel": 136,
+      "NexusLevel": 452,
+      "StudyLevel": 375,
+      "TotalUpgrades": 1558,
+      "GuildLevel": 137,
       "GuildID": 19,
-      "NexusProgress": 0,
-      "StudyProgress": 9,
-      "TotalCodexCost": 3321
+      "NexusProgress": 2,
+      "StudyProgress": 11,
+      "TotalCodexCost": 4973
     },
     {
       "GuildName": "RNG",
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 270,
       "StudyLevel": 212,
-      "TotalUpgrades": 945,
+      "TotalUpgrades": 954,
       "GuildLevel": 84,
       "GuildID": 183,
       "NexusProgress": 10,
@@ -113,24 +113,24 @@
     {
       "GuildName": "Fight Club",
       "NexusLevel": 255,
-      "StudyLevel": 182,
-      "TotalUpgrades": 846,
-      "GuildLevel": 75,
+      "StudyLevel": 187,
+      "TotalUpgrades": 851,
+      "GuildLevel": 76,
       "GuildID": 10,
       "NexusProgress": 0,
-      "StudyProgress": 9,
-      "TotalCodexCost": 1602
+      "StudyProgress": 14,
+      "TotalCodexCost": 2527
     },
     {
       "GuildName": "Minimal Effort",
-      "NexusLevel": 230,
+      "NexusLevel": 234,
       "StudyLevel": 186,
-      "TotalUpgrades": 774,
+      "TotalUpgrades": 778,
       "GuildLevel": 59,
       "GuildID": 172,
-      "NexusProgress": 0,
+      "NexusProgress": 4,
       "StudyProgress": 3,
-      "TotalCodexCost": 555
+      "TotalCodexCost": 1485
     },
     {
       "GuildName": "Racc City",
@@ -179,19 +179,19 @@
     {
       "GuildName": "Hack n Slash",
       "NexusLevel": 216,
-      "StudyLevel": 186,
-      "TotalUpgrades": 833,
-      "GuildLevel": 74,
+      "StudyLevel": 189,
+      "TotalUpgrades": 841,
+      "GuildLevel": 75,
       "GuildID": 86,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 3,
+      "TotalCodexCost": 564
     },
     {
       "GuildName": "Dino Nuggies",
       "NexusLevel": 208,
       "StudyLevel": 162,
-      "TotalUpgrades": 735,
+      "TotalUpgrades": 740,
       "GuildLevel": 67,
       "GuildID": 122,
       "NexusProgress": 2,
@@ -288,14 +288,14 @@
     },
     {
       "GuildName": "asylum",
-      "NexusLevel": 120,
+      "NexusLevel": 121,
       "StudyLevel": 68,
-      "TotalUpgrades": 465,
+      "TotalUpgrades": 466,
       "GuildLevel": 53,
       "GuildID": 130,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 120
+      "TotalCodexCost": 241
     },
     {
       "GuildName": "Rainbow",
@@ -312,7 +312,7 @@
       "GuildName": "Hydra",
       "NexusLevel": 103,
       "StudyLevel": 114,
-      "TotalUpgrades": 479,
+      "TotalUpgrades": 480,
       "GuildLevel": 42,
       "GuildID": 79,
       "NexusProgress": 2,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 39108,
-    "formatted_dust": "653.60T",
+    "total_codex": 43773,
+    "formatted_dust": "731.58T",
     "formatted_price": "16.71B"
   },
-  "lastUpdated": "2025-08-25T17:11:32.565487+00:00",
+  "lastUpdated": "2025-08-25T18:21:00.539122+00:00",
   "baselineDate": "2025-08-25",
   "baselineCreatedAt": "2025-08-25T00:59:03.569356+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 27,
-    "total_codex_used": 39108,
+    "guilds_with_progress": 28,
+    "total_codex_used": 43773,
     "baseline_date": "2025-08-25"
   }
 }
