@@ -14,13 +14,13 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 474,
-      "StudyLevel": 407,
-      "TotalUpgrades": 1618,
+      "StudyLevel": 408,
+      "TotalUpgrades": 1620,
       "GuildLevel": 132,
       "GuildID": 25,
       "NexusProgress": 10,
-      "StudyProgress": 6,
-      "TotalCodexCost": 7122
+      "StudyProgress": 7,
+      "TotalCodexCost": 7530
     },
     {
       "GuildName": "Sanctuary",
@@ -57,21 +57,21 @@
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 306,
+      "NexusLevel": 307,
       "StudyLevel": 243,
-      "TotalUpgrades": 959,
+      "TotalUpgrades": 960,
       "GuildLevel": 91,
       "GuildID": 2,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 4,
-      "TotalCodexCost": 2184
+      "TotalCodexCost": 2491
     },
     {
       "GuildName": "Test Guild Please Ignore",
       "NexusLevel": 294,
       "StudyLevel": 282,
       "TotalUpgrades": 1038,
-      "GuildLevel": 63,
+      "GuildLevel": 64,
       "GuildID": 14,
       "NexusProgress": 6,
       "StudyProgress": 1,
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 270,
       "StudyLevel": 212,
-      "TotalUpgrades": 957,
+      "TotalUpgrades": 958,
       "GuildLevel": 85,
       "GuildID": 183,
       "NexusProgress": 10,
@@ -201,13 +201,13 @@
     {
       "GuildName": "Osmanthus",
       "NexusLevel": 200,
-      "StudyLevel": 173,
+      "StudyLevel": 165,
       "TotalUpgrades": 744,
       "GuildLevel": 79,
       "GuildID": 21,
       "NexusProgress": 0,
-      "StudyProgress": 3,
-      "TotalCodexCost": 516
+      "StudyProgress": 0,
+      "TotalCodexCost": 0
     },
     {
       "GuildName": "BASED",
@@ -224,7 +224,7 @@
       "GuildName": "Ewbies",
       "NexusLevel": 196,
       "StudyLevel": 206,
-      "TotalUpgrades": 741,
+      "TotalUpgrades": 742,
       "GuildLevel": 64,
       "GuildID": 4,
       "NexusProgress": 4,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 53689,
-    "formatted_dust": "899.72T",
+    "total_codex": 53888,
+    "formatted_dust": "903.17T",
     "formatted_price": "16.76B"
   },
-  "lastUpdated": "2025-08-25T21:13:05.247987+00:00",
+  "lastUpdated": "2025-08-25T22:14:04.737466+00:00",
   "baselineDate": "2025-08-25",
   "baselineCreatedAt": "2025-08-25T00:59:03.569356+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 28,
-    "total_codex_used": 53689,
+    "guilds_with_progress": 27,
+    "total_codex_used": 53888,
     "baseline_date": "2025-08-25"
   }
 }
