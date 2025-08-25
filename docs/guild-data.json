@@ -3,24 +3,24 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 500,
-      "StudyLevel": 430,
-      "TotalUpgrades": 1612,
+      "StudyLevel": 431,
+      "TotalUpgrades": 1613,
       "GuildLevel": 138,
       "GuildID": 5,
       "NexusProgress": 0,
-      "StudyProgress": 3,
-      "TotalCodexCost": 1287
+      "StudyProgress": 4,
+      "TotalCodexCost": 1718
     },
     {
       "GuildName": "Divinity",
       "NexusLevel": 466,
-      "StudyLevel": 404,
-      "TotalUpgrades": 1597,
+      "StudyLevel": 406,
+      "TotalUpgrades": 1599,
       "GuildLevel": 129,
       "GuildID": 25,
       "NexusProgress": 2,
-      "StudyProgress": 3,
-      "TotalCodexCost": 2140
+      "StudyProgress": 5,
+      "TotalCodexCost": 2951
     },
     {
       "GuildName": "Sanctuary",
@@ -48,8 +48,8 @@
       "GuildName": "Phoenix",
       "NexusLevel": 419,
       "StudyLevel": 299,
-      "TotalUpgrades": 1297,
-      "GuildLevel": 104,
+      "TotalUpgrades": 1304,
+      "GuildLevel": 105,
       "GuildID": 8,
       "NexusProgress": 1,
       "StudyProgress": 0,
@@ -58,13 +58,13 @@
     {
       "GuildName": "EZ ",
       "NexusLevel": 303,
-      "StudyLevel": 240,
-      "TotalUpgrades": 949,
+      "StudyLevel": 241,
+      "TotalUpgrades": 950,
       "GuildLevel": 90,
       "GuildID": 2,
       "NexusProgress": 1,
-      "StudyProgress": 1,
-      "TotalCodexCost": 543
+      "StudyProgress": 2,
+      "TotalCodexCost": 784
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -101,14 +101,14 @@
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 263,
+      "NexusLevel": 266,
       "StudyLevel": 210,
-      "TotalUpgrades": 938,
+      "TotalUpgrades": 941,
       "GuildLevel": 83,
       "GuildID": 183,
-      "NexusProgress": 3,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 786
+      "TotalCodexCost": 1581
     },
     {
       "GuildName": "Fight Club",
@@ -124,13 +124,13 @@
     {
       "GuildName": "Minimal Effort",
       "NexusLevel": 230,
-      "StudyLevel": 183,
-      "TotalUpgrades": 771,
+      "StudyLevel": 185,
+      "TotalUpgrades": 773,
       "GuildLevel": 59,
       "GuildID": 172,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 2,
+      "TotalCodexCost": 369
     },
     {
       "GuildName": "Racc City",
@@ -148,11 +148,22 @@
       "NexusLevel": 219,
       "StudyLevel": 223,
       "TotalUpgrades": 819,
-      "GuildLevel": 83,
+      "GuildLevel": 84,
       "GuildID": 15,
       "NexusProgress": 0,
       "StudyProgress": 1,
       "TotalCodexCost": 223
+    },
+    {
+      "GuildName": "Gatherers Guild",
+      "NexusLevel": 218,
+      "StudyLevel": 146,
+      "TotalUpgrades": 663,
+      "GuildLevel": 59,
+      "GuildID": 1,
+      "NexusProgress": 1,
+      "StudyProgress": 0,
+      "TotalCodexCost": 218
     },
     {
       "GuildName": "Caliburnus",
@@ -164,17 +175,6 @@
       "NexusProgress": 2,
       "StudyProgress": 1,
       "TotalCodexCost": 600
-    },
-    {
-      "GuildName": "Gatherers Guild",
-      "NexusLevel": 217,
-      "StudyLevel": 146,
-      "TotalUpgrades": 662,
-      "GuildLevel": 59,
-      "GuildID": 1,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
     },
     {
       "GuildName": "Hack n Slash",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 9821,
-    "formatted_dust": "162.38T",
-    "formatted_price": "16.53B"
+    "total_codex": 12686,
+    "formatted_dust": "210.16T",
+    "formatted_price": "16.57B"
   },
-  "lastUpdated": "2025-08-25T05:15:33.816040+00:00",
+  "lastUpdated": "2025-08-25T06:23:49.017253+00:00",
   "baselineDate": "2025-08-25",
   "baselineCreatedAt": "2025-08-25T00:59:03.569356+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 15,
-    "total_codex_used": 9821,
+    "guilds_with_progress": 17,
+    "total_codex_used": 12686,
     "baseline_date": "2025-08-25"
   }
 }
