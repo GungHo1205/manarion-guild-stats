@@ -3,24 +3,24 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 511,
-      "StudyLevel": 437,
-      "TotalUpgrades": 1651,
+      "StudyLevel": 438,
+      "TotalUpgrades": 1652,
       "GuildLevel": 139,
       "GuildID": 5,
       "NexusProgress": 2,
-      "StudyProgress": 5,
-      "TotalCodexCost": 3196
+      "StudyProgress": 6,
+      "TotalCodexCost": 3634
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 483,
+      "NexusLevel": 484,
       "StudyLevel": 410,
-      "TotalUpgrades": 1635,
+      "TotalUpgrades": 1637,
       "GuildLevel": 134,
       "GuildID": 25,
-      "NexusProgress": 8,
+      "NexusProgress": 9,
       "StudyProgress": 1,
-      "TotalCodexCost": 4246
+      "TotalCodexCost": 4730
     },
     {
       "GuildName": "Sanctuary",
@@ -69,13 +69,13 @@
     {
       "GuildName": "Test Guild Please Ignore",
       "NexusLevel": 300,
-      "StudyLevel": 283,
-      "TotalUpgrades": 1045,
-      "GuildLevel": 64,
+      "StudyLevel": 284,
+      "TotalUpgrades": 1046,
+      "GuildLevel": 65,
       "GuildID": 14,
       "NexusProgress": 4,
-      "StudyProgress": 1,
-      "TotalCodexCost": 1477
+      "StudyProgress": 2,
+      "TotalCodexCost": 1761
     },
     {
       "GuildName": "The First Ones",
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 270,
       "StudyLevel": 212,
-      "TotalUpgrades": 970,
+      "TotalUpgrades": 971,
       "GuildLevel": 86,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -178,14 +178,14 @@
     },
     {
       "GuildName": "Hack n Slash",
-      "NexusLevel": 216,
+      "NexusLevel": 217,
       "StudyLevel": 190,
-      "TotalUpgrades": 845,
+      "TotalUpgrades": 852,
       "GuildLevel": 75,
       "GuildID": 86,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 217
     },
     {
       "GuildName": "Dino Nuggies",
@@ -201,13 +201,13 @@
     {
       "GuildName": "Osmanthus",
       "NexusLevel": 202,
-      "StudyLevel": 165,
-      "TotalUpgrades": 750,
+      "StudyLevel": 169,
+      "TotalUpgrades": 754,
       "GuildLevel": 80,
       "GuildID": 21,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 4,
+      "TotalCodexCost": 670
     },
     {
       "GuildName": "BASED",
@@ -279,8 +279,8 @@
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 124,
       "StudyLevel": 156,
-      "TotalUpgrades": 613,
-      "GuildLevel": 64,
+      "TotalUpgrades": 614,
+      "GuildLevel": 65,
       "GuildID": 65,
       "NexusProgress": 1,
       "StudyProgress": 1,
@@ -290,7 +290,7 @@
       "GuildName": "asylum",
       "NexusLevel": 123,
       "StudyLevel": 70,
-      "TotalUpgrades": 476,
+      "TotalUpgrades": 477,
       "GuildLevel": 54,
       "GuildID": 130,
       "NexusProgress": 2,
@@ -299,14 +299,14 @@
     },
     {
       "GuildName": "Rainbow",
-      "NexusLevel": 105,
-      "StudyLevel": 94,
-      "TotalUpgrades": 404,
+      "NexusLevel": 107,
+      "StudyLevel": 96,
+      "TotalUpgrades": 411,
       "GuildLevel": 47,
       "GuildID": 105,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusProgress": 2,
+      "StudyProgress": 2,
+      "TotalCodexCost": 404
     },
     {
       "GuildName": "Hydra",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 28281,
-    "formatted_dust": "505.92T",
-    "formatted_price": "17.89B"
+    "total_codex": 30778,
+    "formatted_dust": "556.00T",
+    "formatted_price": "18.06B"
   },
-  "lastUpdated": "2025-08-26T13:28:43.241074+00:00",
+  "lastUpdated": "2025-08-26T14:13:38.586422+00:00",
   "baselineDate": "2025-08-26",
   "baselineCreatedAt": "2025-08-26T00:57:48.248664+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 21,
-    "total_codex_used": 28281,
+    "guilds_with_progress": 24,
+    "total_codex_used": 30778,
     "baseline_date": "2025-08-26"
   }
 }
