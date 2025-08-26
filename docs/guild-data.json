@@ -46,25 +46,25 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 428,
-      "StudyLevel": 308,
-      "TotalUpgrades": 1327,
-      "GuildLevel": 107,
+      "NexusLevel": 429,
+      "StudyLevel": 310,
+      "TotalUpgrades": 1330,
+      "GuildLevel": 108,
       "GuildID": 8,
-      "NexusProgress": 5,
-      "StudyProgress": 6,
-      "TotalCodexCost": 3963
+      "NexusProgress": 6,
+      "StudyProgress": 8,
+      "TotalCodexCost": 5011
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 311,
+      "NexusLevel": 312,
       "StudyLevel": 248,
-      "TotalUpgrades": 974,
+      "TotalUpgrades": 975,
       "GuildLevel": 92,
       "GuildID": 2,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 4,
-      "TotalCodexCost": 2224
+      "TotalCodexCost": 2536
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 270,
       "StudyLevel": 212,
-      "TotalUpgrades": 976,
+      "TotalUpgrades": 980,
       "GuildLevel": 86,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -180,7 +180,7 @@
       "GuildName": "Hack n Slash",
       "NexusLevel": 217,
       "StudyLevel": 190,
-      "TotalUpgrades": 861,
+      "TotalUpgrades": 863,
       "GuildLevel": 76,
       "GuildID": 86,
       "NexusProgress": 1,
@@ -191,7 +191,7 @@
       "GuildName": "Dino Nuggies",
       "NexusLevel": 209,
       "StudyLevel": 162,
-      "TotalUpgrades": 794,
+      "TotalUpgrades": 797,
       "GuildLevel": 68,
       "GuildID": 122,
       "NexusProgress": 1,
@@ -310,14 +310,14 @@
     },
     {
       "GuildName": "Hydra",
-      "NexusLevel": 104,
-      "StudyLevel": 115,
-      "TotalUpgrades": 485,
-      "GuildLevel": 42,
+      "NexusLevel": 105,
+      "StudyLevel": 116,
+      "TotalUpgrades": 489,
+      "GuildLevel": 43,
       "GuildID": 79,
-      "NexusProgress": 1,
-      "StudyProgress": 1,
-      "TotalCodexCost": 219
+      "NexusProgress": 2,
+      "StudyProgress": 2,
+      "TotalCodexCost": 440
     },
     {
       "GuildName": "RevivaL",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 51689,
-    "formatted_dust": "983.50T",
-    "formatted_price": "19.03B"
+    "total_codex": 53270,
+    "formatted_dust": "1017.66T",
+    "formatted_price": "19.10B"
   },
-  "lastUpdated": "2025-08-26T22:13:20.847136+00:00",
+  "lastUpdated": "2025-08-26T23:12:47.177693+00:00",
   "baselineDate": "2025-08-26",
   "baselineCreatedAt": "2025-08-26T00:57:48.248664+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 28,
-    "total_codex_used": 51689,
+    "total_codex_used": 53270,
     "baseline_date": "2025-08-26"
   }
 }
