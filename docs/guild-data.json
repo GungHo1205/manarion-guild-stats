@@ -13,14 +13,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 479,
+      "NexusLevel": 480,
       "StudyLevel": 409,
-      "TotalUpgrades": 1626,
+      "TotalUpgrades": 1627,
       "GuildLevel": 133,
       "GuildID": 25,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1910
+      "TotalCodexCost": 2390
     },
     {
       "GuildName": "Sanctuary",
@@ -92,7 +92,7 @@
       "GuildName": "Codex",
       "NexusLevel": 281,
       "StudyLevel": 290,
-      "TotalUpgrades": 998,
+      "TotalUpgrades": 1000,
       "GuildLevel": 90,
       "GuildID": 59,
       "NexusProgress": 1,
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 270,
       "StudyLevel": 212,
-      "TotalUpgrades": 965,
+      "TotalUpgrades": 966,
       "GuildLevel": 85,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -123,14 +123,14 @@
     },
     {
       "GuildName": "Minimal Effort",
-      "NexusLevel": 237,
+      "NexusLevel": 238,
       "StudyLevel": 174,
-      "TotalUpgrades": 782,
+      "TotalUpgrades": 783,
       "GuildLevel": 60,
       "GuildID": 172,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 238
     },
     {
       "GuildName": "Racc City",
@@ -191,7 +191,7 @@
       "GuildName": "Dino Nuggies",
       "NexusLevel": 208,
       "StudyLevel": 162,
-      "TotalUpgrades": 757,
+      "TotalUpgrades": 777,
       "GuildLevel": 67,
       "GuildID": 122,
       "NexusProgress": 0,
@@ -246,7 +246,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 158,
       "StudyLevel": 170,
-      "TotalUpgrades": 760,
+      "TotalUpgrades": 764,
       "GuildLevel": 67,
       "GuildID": 54,
       "NexusProgress": 1,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 12715,
-    "formatted_dust": "216.34T",
-    "formatted_price": "17.01B"
+    "total_codex": 13433,
+    "formatted_dust": "229.15T",
+    "formatted_price": "17.06B"
   },
-  "lastUpdated": "2025-08-26T06:22:15.039517+00:00",
+  "lastUpdated": "2025-08-26T07:14:40.725084+00:00",
   "baselineDate": "2025-08-26",
   "baselineCreatedAt": "2025-08-26T00:57:48.248664+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 16,
-    "total_codex_used": 12715,
+    "guilds_with_progress": 17,
+    "total_codex_used": 13433,
     "baseline_date": "2025-08-26"
   }
 }
