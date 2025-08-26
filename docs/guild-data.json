@@ -245,13 +245,13 @@
     {
       "GuildName": "Manarion Adventures",
       "NexusLevel": 157,
-      "StudyLevel": 168,
-      "TotalUpgrades": 752,
+      "StudyLevel": 169,
+      "TotalUpgrades": 754,
       "GuildLevel": 66,
       "GuildID": 54,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 169
     },
     {
       "GuildName": "Cats",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 0,
-    "formatted_dust": "0.00",
-    "formatted_price": "16.82B"
+    "total_codex": 169,
+    "formatted_dust": "2.85T",
+    "formatted_price": "16.86B"
   },
-  "lastUpdated": "2025-08-26T00:57:48.248664+00:00",
+  "lastUpdated": "2025-08-26T01:08:45.035346+00:00",
   "baselineDate": "2025-08-26",
   "baselineCreatedAt": "2025-08-26T00:57:48.248664+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 0,
-    "total_codex_used": 0,
+    "guilds_with_progress": 1,
+    "total_codex_used": 169,
     "baseline_date": "2025-08-26"
   }
 }
