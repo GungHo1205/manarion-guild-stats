@@ -13,14 +13,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 481,
+      "NexusLevel": 482,
       "StudyLevel": 410,
-      "TotalUpgrades": 1629,
+      "TotalUpgrades": 1630,
       "GuildLevel": 134,
       "GuildID": 25,
-      "NexusProgress": 6,
+      "NexusProgress": 7,
       "StudyProgress": 1,
-      "TotalCodexCost": 3281
+      "TotalCodexCost": 3763
     },
     {
       "GuildName": "Sanctuary",
@@ -79,14 +79,14 @@
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 282,
+      "NexusLevel": 283,
       "StudyLevel": 200,
-      "TotalUpgrades": 972,
+      "TotalUpgrades": 973,
       "GuildLevel": 93,
       "GuildID": 112,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 2,
-      "TotalCodexCost": 962
+      "TotalCodexCost": 1245
     },
     {
       "GuildName": "Codex",
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 270,
       "StudyLevel": 212,
-      "TotalUpgrades": 967,
+      "TotalUpgrades": 969,
       "GuildLevel": 86,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -236,7 +236,7 @@
       "NexusLevel": 183,
       "StudyLevel": 200,
       "TotalUpgrades": 612,
-      "GuildLevel": 59,
+      "GuildLevel": 60,
       "GuildID": 18,
       "NexusProgress": 1,
       "StudyProgress": 0,
@@ -246,7 +246,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 158,
       "StudyLevel": 170,
-      "TotalUpgrades": 764,
+      "TotalUpgrades": 765,
       "GuildLevel": 67,
       "GuildID": 54,
       "NexusProgress": 1,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 22810,
-    "formatted_dust": "394.50T",
-    "formatted_price": "17.30B"
+    "total_codex": 23575,
+    "formatted_dust": "412.36T",
+    "formatted_price": "17.49B"
   },
-  "lastUpdated": "2025-08-26T10:15:33.925898+00:00",
+  "lastUpdated": "2025-08-26T11:13:16.913513+00:00",
   "baselineDate": "2025-08-26",
   "baselineCreatedAt": "2025-08-26T00:57:48.248664+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 20,
-    "total_codex_used": 22810,
+    "total_codex_used": 23575,
     "baseline_date": "2025-08-26"
   }
 }
