@@ -1,126 +1,126 @@
 {
-  "date": "2025-08-26",
-  "created_at": "2025-08-26T00:57:48.248664+00:00",
+  "date": "2025-08-27",
+  "created_at": "2025-08-27T00:55:59.271817+00:00",
   "guilds": {
     "Spaghetti and Meatballs": {
-      "NexusLevel": 509,
-      "StudyLevel": 432
+      "NexusLevel": 514,
+      "StudyLevel": 442
     },
     "Divinity": {
-      "NexusLevel": 475,
-      "StudyLevel": 409
+      "NexusLevel": 488,
+      "StudyLevel": 410
     },
     "Sanctuary": {
-      "NexusLevel": 455,
+      "NexusLevel": 465,
       "StudyLevel": 375
     },
     "RNG": {
-      "NexusLevel": 450,
-      "StudyLevel": 359
+      "NexusLevel": 460,
+      "StudyLevel": 375
     },
     "Phoenix": {
-      "NexusLevel": 423,
-      "StudyLevel": 302
+      "NexusLevel": 429,
+      "StudyLevel": 310
     },
     "Test Guild Please Ignore": {
-      "NexusLevel": 296,
-      "StudyLevel": 282
-    },
-    "Codex": {
-      "NexusLevel": 280,
+      "NexusLevel": 300,
       "StudyLevel": 288
     },
-    "The First Ones": {
-      "NexusLevel": 280,
-      "StudyLevel": 198
+    "Codex": {
+      "NexusLevel": 282,
+      "StudyLevel": 290
     },
-    "EZ ": {
-      "NexusLevel": 307,
-      "StudyLevel": 244
+    "The First Ones": {
+      "NexusLevel": 288,
+      "StudyLevel": 210
     },
     "Doomed": {
       "NexusLevel": 270,
       "StudyLevel": 212
     },
+    "EZ ": {
+      "NexusLevel": 312,
+      "StudyLevel": 249
+    },
     "Racc City": {
       "NexusLevel": 225,
       "StudyLevel": 200
     },
-    "Fight Club": {
-      "NexusLevel": 255,
-      "StudyLevel": 187
-    },
     "Hack n Slash": {
-      "NexusLevel": 216,
+      "NexusLevel": 217,
       "StudyLevel": 190
     },
+    "Fight Club": {
+      "NexusLevel": 255,
+      "StudyLevel": 197
+    },
     "Imperium": {
-      "NexusLevel": 224,
-      "StudyLevel": 223
-    },
-    "Minimal Effort": {
-      "NexusLevel": 237,
-      "StudyLevel": 186
-    },
-    "Manarion Adventures": {
-      "NexusLevel": 157,
-      "StudyLevel": 168
+      "NexusLevel": 228,
+      "StudyLevel": 227
     },
     "Dino Nuggies": {
-      "NexusLevel": 208,
+      "NexusLevel": 209,
       "StudyLevel": 162
     },
-    "Osmanthus": {
-      "NexusLevel": 202,
-      "StudyLevel": 165
+    "Minimal Effort": {
+      "NexusLevel": 246,
+      "StudyLevel": 187
     },
-    "Ewbies": {
-      "NexusLevel": 196,
-      "StudyLevel": 206
+    "Manarion Adventures": {
+      "NexusLevel": 159,
+      "StudyLevel": 172
+    },
+    "Osmanthus": {
+      "NexusLevel": 207,
+      "StudyLevel": 170
     },
     "Caliburnus": {
-      "NexusLevel": 219,
-      "StudyLevel": 168
+      "NexusLevel": 222,
+      "StudyLevel": 172
+    },
+    "Ewbies": {
+      "NexusLevel": 200,
+      "StudyLevel": 210
     },
     "Gatherers Guild": {
-      "NexusLevel": 221,
+      "NexusLevel": 223,
       "StudyLevel": 146
     },
     "MooseKnuckles": {
       "NexusLevel": 125,
-      "StudyLevel": 120
-    },
-    "Bureau of Feline Investigators": {
-      "NexusLevel": 182,
-      "StudyLevel": 200
+      "StudyLevel": 122
     },
     "Lighthouse Reborn": {
-      "NexusLevel": 123,
-      "StudyLevel": 155
+      "NexusLevel": 127,
+      "StudyLevel": 157
+    },
+    "Bureau of Feline Investigators": {
+      "NexusLevel": 187,
+      "StudyLevel": 200
     },
     "BASED": {
-      "NexusLevel": 200,
+      "NexusLevel": 201,
       "StudyLevel": 152
     },
     "Hydra": {
-      "NexusLevel": 103,
-      "StudyLevel": 114
+      "NexusLevel": 105,
+      "StudyLevel": 116
     },
     "asylum": {
-      "NexusLevel": 121,
-      "StudyLevel": 68
-    },
-    "Rainbow": {
-      "NexusLevel": 105,
-      "StudyLevel": 94
-    },
-    "Cats": {
-      "NexusLevel": 151,
-      "StudyLevel": 116
+      "NexusLevel": 123,
+      "StudyLevel": 70
     },
     "RevivaL": {
       "NexusLevel": 100,
-      "StudyLevel": 90
+      "StudyLevel": 95
+    },
+    "Rainbow": {
+      "NexusLevel": 108,
+      "StudyLevel": 96
+    },
+    "Cats": {
+      "NexusLevel": 153,
+      "StudyLevel": 117
     }
   }
 }
