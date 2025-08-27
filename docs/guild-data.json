@@ -79,36 +79,36 @@
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 288,
+      "NexusLevel": 291,
       "StudyLevel": 210,
-      "TotalUpgrades": 993,
+      "TotalUpgrades": 1002,
       "GuildLevel": 95,
       "GuildID": 112,
-      "NexusProgress": 0,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 870
     },
     {
       "GuildName": "Codex",
-      "NexusLevel": 282,
+      "NexusLevel": 286,
       "StudyLevel": 290,
-      "TotalUpgrades": 1001,
+      "TotalUpgrades": 1005,
       "GuildLevel": 91,
       "GuildID": 59,
-      "NexusProgress": 0,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 1138
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 270,
+      "NexusLevel": 272,
       "StudyLevel": 212,
-      "TotalUpgrades": 986,
+      "TotalUpgrades": 988,
       "GuildLevel": 87,
       "GuildID": 183,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 543
     },
     {
       "GuildName": "Fight Club",
@@ -136,7 +136,7 @@
       "GuildName": "Minimal Effort",
       "NexusLevel": 247,
       "StudyLevel": 187,
-      "TotalUpgrades": 802,
+      "TotalUpgrades": 804,
       "GuildLevel": 62,
       "GuildID": 172,
       "NexusProgress": 1,
@@ -291,7 +291,7 @@
       "NexusLevel": 123,
       "StudyLevel": 70,
       "TotalUpgrades": 481,
-      "GuildLevel": 54,
+      "GuildLevel": 55,
       "GuildID": 130,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 19762,
-    "formatted_dust": "391.20T",
-    "formatted_price": "19.80B"
+    "total_codex": 22313,
+    "formatted_dust": "443.81T",
+    "formatted_price": "19.89B"
   },
-  "lastUpdated": "2025-08-27T07:13:39.860878+00:00",
+  "lastUpdated": "2025-08-27T08:18:56.814307+00:00",
   "baselineDate": "2025-08-27",
   "baselineCreatedAt": "2025-08-27T00:55:59.271817+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 17,
-    "total_codex_used": 19762,
+    "guilds_with_progress": 20,
+    "total_codex_used": 22313,
     "baseline_date": "2025-08-27"
   }
 }
