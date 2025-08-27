@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 523,
+      "NexusLevel": 524,
       "StudyLevel": 447,
-      "TotalUpgrades": 1680,
+      "TotalUpgrades": 1681,
       "GuildLevel": 142,
       "GuildID": 5,
-      "NexusProgress": 9,
+      "NexusProgress": 10,
       "StudyProgress": 5,
-      "TotalCodexCost": 6896
+      "TotalCodexCost": 7420
     },
     {
       "GuildName": "Divinity",
@@ -69,30 +69,30 @@
     {
       "GuildName": "Test Guild Please Ignore",
       "NexusLevel": 300,
-      "StudyLevel": 296,
-      "TotalUpgrades": 1058,
+      "StudyLevel": 297,
+      "TotalUpgrades": 1059,
       "GuildLevel": 66,
       "GuildID": 14,
       "NexusProgress": 0,
-      "StudyProgress": 8,
-      "TotalCodexCost": 2340
+      "StudyProgress": 9,
+      "TotalCodexCost": 2637
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 292,
+      "NexusLevel": 293,
       "StudyLevel": 210,
-      "TotalUpgrades": 1003,
-      "GuildLevel": 95,
+      "TotalUpgrades": 1004,
+      "GuildLevel": 96,
       "GuildID": 112,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1162
+      "TotalCodexCost": 1455
     },
     {
       "GuildName": "Codex",
       "NexusLevel": 290,
       "StudyLevel": 290,
-      "TotalUpgrades": 1023,
+      "TotalUpgrades": 1025,
       "GuildLevel": 92,
       "GuildID": 59,
       "NexusProgress": 8,
@@ -103,7 +103,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 280,
       "StudyLevel": 212,
-      "TotalUpgrades": 995,
+      "TotalUpgrades": 996,
       "GuildLevel": 88,
       "GuildID": 183,
       "NexusProgress": 10,
@@ -256,20 +256,20 @@
     {
       "GuildName": "Cats",
       "NexusLevel": 156,
-      "StudyLevel": 121,
-      "TotalUpgrades": 416,
+      "StudyLevel": 123,
+      "TotalUpgrades": 418,
       "GuildLevel": 42,
       "GuildID": 55,
       "NexusProgress": 3,
-      "StudyProgress": 4,
-      "TotalCodexCost": 943
+      "StudyProgress": 6,
+      "TotalCodexCost": 1188
     },
     {
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 128,
       "StudyLevel": 160,
       "TotalUpgrades": 630,
-      "GuildLevel": 68,
+      "GuildLevel": 69,
       "GuildID": 65,
       "NexusProgress": 1,
       "StudyProgress": 3,
@@ -312,7 +312,7 @@
       "GuildName": "Hydra",
       "NexusLevel": 107,
       "StudyLevel": 118,
-      "TotalUpgrades": 496,
+      "TotalUpgrades": 497,
       "GuildLevel": 44,
       "GuildID": 79,
       "NexusProgress": 2,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 62352,
-    "formatted_dust": "1240.04T",
-    "formatted_price": "19.89B"
+    "total_codex": 63711,
+    "formatted_dust": "1273.40T",
+    "formatted_price": "19.99B"
   },
-  "lastUpdated": "2025-08-27T22:13:04.631107+00:00",
+  "lastUpdated": "2025-08-27T23:13:12.467432+00:00",
   "baselineDate": "2025-08-27",
   "baselineCreatedAt": "2025-08-27T00:55:59.271817+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 29,
-    "total_codex_used": 62352,
+    "total_codex_used": 63711,
     "baseline_date": "2025-08-27"
   }
 }
