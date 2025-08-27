@@ -2,36 +2,36 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 519,
+      "NexusLevel": 520,
       "StudyLevel": 442,
-      "TotalUpgrades": 1665,
+      "TotalUpgrades": 1666,
       "GuildLevel": 140,
       "GuildID": 5,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 2585
+      "TotalCodexCost": 3105
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 493,
+      "NexusLevel": 494,
       "StudyLevel": 413,
-      "TotalUpgrades": 1663,
+      "TotalUpgrades": 1665,
       "GuildLevel": 138,
       "GuildID": 25,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 3,
-      "TotalCodexCost": 3691
+      "TotalCodexCost": 4185
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 468,
+      "NexusLevel": 470,
       "StudyLevel": 375,
-      "TotalUpgrades": 1576,
+      "TotalUpgrades": 1578,
       "GuildLevel": 141,
       "GuildID": 19,
-      "NexusProgress": 3,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 1401
+      "TotalCodexCost": 2340
     },
     {
       "GuildName": "RNG",
@@ -48,7 +48,7 @@
       "GuildName": "Phoenix",
       "NexusLevel": 431,
       "StudyLevel": 313,
-      "TotalUpgrades": 1335,
+      "TotalUpgrades": 1336,
       "GuildLevel": 109,
       "GuildID": 8,
       "NexusProgress": 2,
@@ -69,13 +69,13 @@
     {
       "GuildName": "Test Guild Please Ignore",
       "NexusLevel": 300,
-      "StudyLevel": 288,
-      "TotalUpgrades": 1050,
+      "StudyLevel": 293,
+      "TotalUpgrades": 1055,
       "GuildLevel": 66,
       "GuildID": 14,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 5,
+      "TotalCodexCost": 1455
     },
     {
       "GuildName": "The First Ones",
@@ -101,14 +101,14 @@
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 272,
+      "NexusLevel": 273,
       "StudyLevel": 212,
-      "TotalUpgrades": 988,
+      "TotalUpgrades": 989,
       "GuildLevel": 87,
       "GuildID": 183,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 543
+      "TotalCodexCost": 816
     },
     {
       "GuildName": "Fight Club",
@@ -224,7 +224,7 @@
       "GuildName": "Ewbies",
       "NexusLevel": 200,
       "StudyLevel": 210,
-      "TotalUpgrades": 758,
+      "TotalUpgrades": 759,
       "GuildLevel": 66,
       "GuildID": 4,
       "NexusProgress": 0,
@@ -324,7 +324,7 @@
       "NexusLevel": 100,
       "StudyLevel": 96,
       "TotalUpgrades": 419,
-      "GuildLevel": 46,
+      "GuildLevel": 47,
       "GuildID": 91,
       "NexusProgress": 0,
       "StudyProgress": 1,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 27119,
-    "formatted_dust": "542.28T",
-    "formatted_price": "20.00B"
+    "total_codex": 30800,
+    "formatted_dust": "615.26T",
+    "formatted_price": "19.98B"
   },
-  "lastUpdated": "2025-08-27T10:14:35.742813+00:00",
+  "lastUpdated": "2025-08-27T11:12:22.014610+00:00",
   "baselineDate": "2025-08-27",
   "baselineCreatedAt": "2025-08-27T00:55:59.271817+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 24,
-    "total_codex_used": 27119,
+    "guilds_with_progress": 25,
+    "total_codex_used": 30800,
     "baseline_date": "2025-08-27"
   }
 }
