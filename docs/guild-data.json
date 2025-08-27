@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 518,
+      "NexusLevel": 519,
       "StudyLevel": 442,
-      "TotalUpgrades": 1664,
+      "TotalUpgrades": 1665,
       "GuildLevel": 140,
       "GuildID": 5,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 2066
+      "TotalCodexCost": 2585
     },
     {
       "GuildName": "Divinity",
@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 467,
+      "NexusLevel": 468,
       "StudyLevel": 375,
-      "TotalUpgrades": 1574,
-      "GuildLevel": 140,
+      "TotalUpgrades": 1576,
+      "GuildLevel": 141,
       "GuildID": 19,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 933
+      "TotalCodexCost": 1401
     },
     {
       "GuildName": "RNG",
@@ -57,14 +57,14 @@
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 313,
+      "NexusLevel": 314,
       "StudyLevel": 250,
-      "TotalUpgrades": 981,
+      "TotalUpgrades": 982,
       "GuildLevel": 93,
       "GuildID": 2,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 1,
-      "TotalCodexCost": 563
+      "TotalCodexCost": 877
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -146,13 +146,13 @@
     {
       "GuildName": "Imperium",
       "NexusLevel": 228,
-      "StudyLevel": 227,
-      "TotalUpgrades": 855,
+      "StudyLevel": 230,
+      "TotalUpgrades": 858,
       "GuildLevel": 89,
       "GuildID": 15,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 3,
+      "TotalCodexCost": 687
     },
     {
       "GuildName": "Caliburnus",
@@ -192,7 +192,7 @@
       "NexusLevel": 210,
       "StudyLevel": 171,
       "TotalUpgrades": 766,
-      "GuildLevel": 81,
+      "GuildLevel": 82,
       "GuildID": 21,
       "NexusProgress": 3,
       "StudyProgress": 1,
@@ -266,14 +266,14 @@
     },
     {
       "GuildName": "Lighthouse Reborn",
-      "NexusLevel": 127,
+      "NexusLevel": 128,
       "StudyLevel": 157,
-      "TotalUpgrades": 624,
+      "TotalUpgrades": 626,
       "GuildLevel": 67,
       "GuildID": 65,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 128
     },
     {
       "GuildName": "MooseKnuckles",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 25003,
-    "formatted_dust": "500.12T",
+    "total_codex": 27119,
+    "formatted_dust": "542.28T",
     "formatted_price": "20.00B"
   },
-  "lastUpdated": "2025-08-27T09:15:13.470889+00:00",
+  "lastUpdated": "2025-08-27T10:14:35.742813+00:00",
   "baselineDate": "2025-08-27",
   "baselineCreatedAt": "2025-08-27T00:55:59.271817+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 22,
-    "total_codex_used": 25003,
+    "guilds_with_progress": 24,
+    "total_codex_used": 27119,
     "baseline_date": "2025-08-27"
   }
 }
