@@ -136,7 +136,7 @@
       "GuildName": "Minimal Effort",
       "NexusLevel": 250,
       "StudyLevel": 187,
-      "TotalUpgrades": 833,
+      "TotalUpgrades": 834,
       "GuildLevel": 65,
       "GuildID": 172,
       "NexusProgress": 2,
@@ -201,30 +201,30 @@
     {
       "GuildName": "Osmanthus",
       "NexusLevel": 212,
-      "StudyLevel": 175,
-      "TotalUpgrades": 783,
+      "StudyLevel": 178,
+      "TotalUpgrades": 793,
       "GuildLevel": 84,
       "GuildID": 21,
       "NexusProgress": 0,
-      "StudyProgress": 2,
-      "TotalCodexCost": 349
+      "StudyProgress": 5,
+      "TotalCodexCost": 880
     },
     {
       "GuildName": "BASED",
       "NexusLevel": 205,
-      "StudyLevel": 156,
-      "TotalUpgrades": 530,
+      "StudyLevel": 162,
+      "TotalUpgrades": 536,
       "GuildLevel": 53,
       "GuildID": 27,
       "NexusProgress": 0,
-      "StudyProgress": 4,
-      "TotalCodexCost": 618
+      "StudyProgress": 10,
+      "TotalCodexCost": 1575
     },
     {
       "GuildName": "Ewbies",
       "NexusLevel": 200,
       "StudyLevel": 210,
-      "TotalUpgrades": 781,
+      "TotalUpgrades": 797,
       "GuildLevel": 68,
       "GuildID": 4,
       "NexusProgress": 0,
@@ -279,7 +279,7 @@
       "GuildName": "MooseKnuckles",
       "NexusLevel": 125,
       "StudyLevel": 125,
-      "TotalUpgrades": 665,
+      "TotalUpgrades": 667,
       "GuildLevel": 55,
       "GuildID": 64,
       "NexusProgress": 0,
@@ -299,14 +299,14 @@
     },
     {
       "GuildName": "Rainbow",
-      "NexusLevel": 113,
+      "NexusLevel": 114,
       "StudyLevel": 100,
-      "TotalUpgrades": 431,
+      "TotalUpgrades": 432,
       "GuildLevel": 49,
       "GuildID": 105,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 1,
-      "TotalCodexCost": 436
+      "TotalCodexCost": 550
     },
     {
       "GuildName": "Hydra",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 55024,
-    "formatted_dust": "1222.82T",
-    "formatted_price": "22.22B"
+    "total_codex": 56626,
+    "formatted_dust": "1269.43T",
+    "formatted_price": "22.42B"
   },
-  "lastUpdated": "2025-08-28T22:13:20.920072+00:00",
+  "lastUpdated": "2025-08-28T23:13:14.034305+00:00",
   "baselineDate": "2025-08-28",
   "baselineCreatedAt": "2025-08-28T00:55:18.383131+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 25,
-    "total_codex_used": 55024,
+    "total_codex_used": 56626,
     "baseline_date": "2025-08-28"
   }
 }
