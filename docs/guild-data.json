@@ -147,7 +147,7 @@
       "GuildName": "Imperium",
       "NexusLevel": 228,
       "StudyLevel": 237,
-      "TotalUpgrades": 868,
+      "TotalUpgrades": 870,
       "GuildLevel": 91,
       "GuildID": 15,
       "NexusProgress": 0,
@@ -334,9 +334,9 @@
   "dustSpending": {
     "total_codex": 0,
     "formatted_dust": "0.00",
-    "formatted_price": "20.06B"
+    "formatted_price": "20.14B"
   },
-  "lastUpdated": "2025-08-28T00:55:18.383131+00:00",
+  "lastUpdated": "2025-08-28T01:05:33.639406+00:00",
   "baselineDate": "2025-08-28",
   "baselineCreatedAt": "2025-08-28T00:55:18.383131+00:00",
   "dataFreshness": {
