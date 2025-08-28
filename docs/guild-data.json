@@ -2,36 +2,36 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 526,
+      "NexusLevel": 527,
       "StudyLevel": 452,
-      "TotalUpgrades": 1688,
+      "TotalUpgrades": 1689,
       "GuildLevel": 143,
       "GuildID": 5,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 5,
-      "TotalCodexCost": 2776
+      "TotalCodexCost": 3303
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 506,
+      "NexusLevel": 507,
       "StudyLevel": 416,
-      "TotalUpgrades": 1697,
+      "TotalUpgrades": 1698,
       "GuildLevel": 142,
       "GuildID": 25,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 0,
-      "TotalCodexCost": 2018
+      "TotalCodexCost": 2525
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 481,
+      "NexusLevel": 482,
       "StudyLevel": 375,
-      "TotalUpgrades": 1589,
+      "TotalUpgrades": 1590,
       "GuildLevel": 141,
       "GuildID": 19,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 2395
+      "TotalCodexCost": 2877
     },
     {
       "GuildName": "RNG",
@@ -57,25 +57,25 @@
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 318,
+      "NexusLevel": 319,
       "StudyLevel": 254,
-      "TotalUpgrades": 995,
+      "TotalUpgrades": 996,
       "GuildLevel": 94,
       "GuildID": 2,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 2,
-      "TotalCodexCost": 1142
+      "TotalCodexCost": 1461
     },
     {
       "GuildName": "Test Guild Please Ignore",
       "NexusLevel": 300,
-      "StudyLevel": 298,
-      "TotalUpgrades": 1060,
+      "StudyLevel": 301,
+      "TotalUpgrades": 1063,
       "GuildLevel": 67,
       "GuildID": 14,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 3,
+      "TotalCodexCost": 900
     },
     {
       "GuildName": "The First Ones",
@@ -148,7 +148,7 @@
       "NexusLevel": 228,
       "StudyLevel": 237,
       "TotalUpgrades": 871,
-      "GuildLevel": 91,
+      "GuildLevel": 92,
       "GuildID": 15,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -167,14 +167,14 @@
     },
     {
       "GuildName": "Gatherers Guild",
-      "NexusLevel": 226,
+      "NexusLevel": 227,
       "StudyLevel": 146,
-      "TotalUpgrades": 685,
+      "TotalUpgrades": 686,
       "GuildLevel": 61,
       "GuildID": 1,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 226
+      "TotalCodexCost": 453
     },
     {
       "GuildName": "Caliburnus",
@@ -266,14 +266,14 @@
     },
     {
       "GuildName": "Lighthouse Reborn",
-      "NexusLevel": 131,
+      "NexusLevel": 133,
       "StudyLevel": 164,
-      "TotalUpgrades": 646,
+      "TotalUpgrades": 651,
       "GuildLevel": 70,
       "GuildID": 65,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyProgress": 1,
-      "TotalCodexCost": 164
+      "TotalCodexCost": 429
     },
     {
       "GuildName": "MooseKnuckles",
@@ -291,7 +291,7 @@
       "NexusLevel": 124,
       "StudyLevel": 73,
       "TotalUpgrades": 495,
-      "GuildLevel": 55,
+      "GuildLevel": 56,
       "GuildID": 130,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 18866,
-    "formatted_dust": "389.80T",
-    "formatted_price": "20.66B"
+    "total_codex": 22093,
+    "formatted_dust": "458.53T",
+    "formatted_price": "20.75B"
   },
-  "lastUpdated": "2025-08-28T09:15:04.012423+00:00",
+  "lastUpdated": "2025-08-28T10:15:05.234367+00:00",
   "baselineDate": "2025-08-28",
   "baselineCreatedAt": "2025-08-28T00:55:18.383131+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 19,
-    "total_codex_used": 18866,
+    "guilds_with_progress": 20,
+    "total_codex_used": 22093,
     "baseline_date": "2025-08-28"
   }
 }
