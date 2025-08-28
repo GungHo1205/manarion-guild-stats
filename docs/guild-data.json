@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 528,
+      "NexusLevel": 529,
       "StudyLevel": 452,
-      "TotalUpgrades": 1690,
+      "TotalUpgrades": 1691,
       "GuildLevel": 144,
       "GuildID": 5,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 5,
-      "TotalCodexCost": 3831
+      "TotalCodexCost": 4360
     },
     {
       "GuildName": "Divinity",
@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 482,
+      "NexusLevel": 484,
       "StudyLevel": 375,
-      "TotalUpgrades": 1590,
+      "TotalUpgrades": 1592,
       "GuildLevel": 142,
       "GuildID": 19,
-      "NexusProgress": 6,
+      "NexusProgress": 8,
       "StudyProgress": 0,
-      "TotalCodexCost": 2877
+      "TotalCodexCost": 3844
     },
     {
       "GuildName": "RNG",
@@ -81,7 +81,7 @@
       "GuildName": "The First Ones",
       "NexusLevel": 296,
       "StudyLevel": 210,
-      "TotalUpgrades": 1011,
+      "TotalUpgrades": 1015,
       "GuildLevel": 97,
       "GuildID": 112,
       "NexusProgress": 1,
@@ -101,14 +101,14 @@
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 286,
+      "NexusLevel": 287,
       "StudyLevel": 212,
-      "TotalUpgrades": 1002,
+      "TotalUpgrades": 1003,
       "GuildLevel": 89,
       "GuildID": 183,
-      "NexusProgress": 6,
+      "NexusProgress": 7,
       "StudyProgress": 0,
-      "TotalCodexCost": 1701
+      "TotalCodexCost": 1988
     },
     {
       "GuildName": "Fight Club",
@@ -224,7 +224,7 @@
       "GuildName": "Ewbies",
       "NexusLevel": 200,
       "StudyLevel": 210,
-      "TotalUpgrades": 780,
+      "TotalUpgrades": 781,
       "GuildLevel": 68,
       "GuildID": 4,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 28304,
-    "formatted_dust": "593.86T",
-    "formatted_price": "20.98B"
+    "total_codex": 30087,
+    "formatted_dust": "633.50T",
+    "formatted_price": "21.06B"
   },
-  "lastUpdated": "2025-08-28T12:28:31.267571+00:00",
+  "lastUpdated": "2025-08-28T13:25:13.933764+00:00",
   "baselineDate": "2025-08-28",
   "baselineCreatedAt": "2025-08-28T00:55:18.383131+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 22,
-    "total_codex_used": 28304,
+    "total_codex_used": 30087,
     "baseline_date": "2025-08-28"
   }
 }
