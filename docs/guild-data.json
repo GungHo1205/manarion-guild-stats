@@ -15,8 +15,8 @@
       "GuildName": "Divinity",
       "NexusLevel": 506,
       "StudyLevel": 416,
-      "TotalUpgrades": 1696,
-      "GuildLevel": 141,
+      "TotalUpgrades": 1697,
+      "GuildLevel": 142,
       "GuildID": 25,
       "NexusProgress": 4,
       "StudyProgress": 0,
@@ -47,13 +47,13 @@
     {
       "GuildName": "Phoenix",
       "NexusLevel": 437,
-      "StudyLevel": 317,
-      "TotalUpgrades": 1346,
+      "StudyLevel": 318,
+      "TotalUpgrades": 1347,
       "GuildLevel": 111,
       "GuildID": 8,
       "NexusProgress": 2,
-      "StudyProgress": 2,
-      "TotalCodexCost": 1506
+      "StudyProgress": 3,
+      "TotalCodexCost": 1824
     },
     {
       "GuildName": "EZ ",
@@ -136,7 +136,7 @@
       "GuildName": "Minimal Effort",
       "NexusLevel": 248,
       "StudyLevel": 187,
-      "TotalUpgrades": 817,
+      "TotalUpgrades": 818,
       "GuildLevel": 64,
       "GuildID": 172,
       "NexusProgress": 0,
@@ -212,13 +212,13 @@
     {
       "GuildName": "BASED",
       "NexusLevel": 205,
-      "StudyLevel": 152,
-      "TotalUpgrades": 526,
+      "StudyLevel": 156,
+      "TotalUpgrades": 530,
       "GuildLevel": 52,
       "GuildID": 27,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 4,
+      "TotalCodexCost": 618
     },
     {
       "GuildName": "Ewbies",
@@ -246,7 +246,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 164,
       "StudyLevel": 176,
-      "TotalUpgrades": 788,
+      "TotalUpgrades": 789,
       "GuildLevel": 69,
       "GuildID": 54,
       "NexusProgress": 2,
@@ -255,14 +255,14 @@
     },
     {
       "GuildName": "Cats",
-      "NexusLevel": 156,
+      "NexusLevel": 157,
       "StudyLevel": 123,
-      "TotalUpgrades": 419,
+      "TotalUpgrades": 420,
       "GuildLevel": 42,
       "GuildID": 55,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 157
     },
     {
       "GuildName": "Lighthouse Reborn",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 17773,
-    "formatted_dust": "365.60T",
-    "formatted_price": "20.57B"
+    "total_codex": 18866,
+    "formatted_dust": "389.80T",
+    "formatted_price": "20.66B"
   },
-  "lastUpdated": "2025-08-28T08:18:54.851613+00:00",
+  "lastUpdated": "2025-08-28T09:15:04.012423+00:00",
   "baselineDate": "2025-08-28",
   "baselineCreatedAt": "2025-08-28T00:55:18.383131+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 17,
-    "total_codex_used": 17773,
+    "guilds_with_progress": 19,
+    "total_codex_used": 18866,
     "baseline_date": "2025-08-28"
   }
 }
