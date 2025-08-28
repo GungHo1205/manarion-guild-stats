@@ -13,14 +13,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 508,
-      "StudyLevel": 416,
-      "TotalUpgrades": 1699,
+      "NexusLevel": 509,
+      "StudyLevel": 418,
+      "TotalUpgrades": 1703,
       "GuildLevel": 142,
       "GuildID": 25,
-      "NexusProgress": 6,
-      "StudyProgress": 0,
-      "TotalCodexCost": 3033
+      "NexusProgress": 7,
+      "StudyProgress": 2,
+      "TotalCodexCost": 4377
     },
     {
       "GuildName": "Sanctuary",
@@ -35,14 +35,14 @@
     },
     {
       "GuildName": "RNG",
-      "NexusLevel": 465,
-      "StudyLevel": 390,
-      "TotalUpgrades": 1584,
+      "NexusLevel": 466,
+      "StudyLevel": 395,
+      "TotalUpgrades": 1594,
       "GuildLevel": 125,
       "GuildID": 17,
-      "NexusProgress": 3,
-      "StudyProgress": 5,
-      "TotalCodexCost": 3332
+      "NexusProgress": 4,
+      "StudyProgress": 10,
+      "TotalCodexCost": 5763
     },
     {
       "GuildName": "Phoenix",
@@ -57,14 +57,14 @@
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 319,
+      "NexusLevel": 320,
       "StudyLevel": 255,
-      "TotalUpgrades": 997,
+      "TotalUpgrades": 998,
       "GuildLevel": 94,
       "GuildID": 2,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 3,
-      "TotalCodexCost": 1716
+      "TotalCodexCost": 2036
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -81,7 +81,7 @@
       "GuildName": "The First Ones",
       "NexusLevel": 296,
       "StudyLevel": 210,
-      "TotalUpgrades": 1015,
+      "TotalUpgrades": 1017,
       "GuildLevel": 97,
       "GuildID": 112,
       "NexusProgress": 1,
@@ -113,13 +113,13 @@
     {
       "GuildName": "Fight Club",
       "NexusLevel": 255,
-      "StudyLevel": 213,
-      "TotalUpgrades": 879,
+      "StudyLevel": 215,
+      "TotalUpgrades": 881,
       "GuildLevel": 79,
       "GuildID": 10,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 2,
+      "TotalCodexCost": 429
     },
     {
       "GuildName": "Racc City",
@@ -134,14 +134,14 @@
     },
     {
       "GuildName": "Minimal Effort",
-      "NexusLevel": 248,
+      "NexusLevel": 250,
       "StudyLevel": 187,
-      "TotalUpgrades": 818,
+      "TotalUpgrades": 820,
       "GuildLevel": 64,
       "GuildID": 172,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 499
     },
     {
       "GuildName": "Dino Nuggies",
@@ -167,14 +167,14 @@
     },
     {
       "GuildName": "Gatherers Guild",
-      "NexusLevel": 227,
+      "NexusLevel": 228,
       "StudyLevel": 146,
-      "TotalUpgrades": 686,
-      "GuildLevel": 61,
+      "TotalUpgrades": 692,
+      "GuildLevel": 62,
       "GuildID": 1,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 453
+      "TotalCodexCost": 681
     },
     {
       "GuildName": "Caliburnus",
@@ -236,7 +236,7 @@
       "NexusLevel": 195,
       "StudyLevel": 200,
       "TotalUpgrades": 625,
-      "GuildLevel": 61,
+      "GuildLevel": 62,
       "GuildID": 18,
       "NexusProgress": 2,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 30087,
-    "formatted_dust": "633.50T",
-    "formatted_price": "21.06B"
+    "total_codex": 35338,
+    "formatted_dust": "746.94T",
+    "formatted_price": "21.14B"
   },
-  "lastUpdated": "2025-08-28T13:25:13.933764+00:00",
+  "lastUpdated": "2025-08-28T14:14:15.446972+00:00",
   "baselineDate": "2025-08-28",
   "baselineCreatedAt": "2025-08-28T00:55:18.383131+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 22,
-    "total_codex_used": 30087,
+    "guilds_with_progress": 24,
+    "total_codex_used": 35338,
     "baseline_date": "2025-08-28"
   }
 }
