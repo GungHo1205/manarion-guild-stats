@@ -14,24 +14,24 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 509,
-      "StudyLevel": 419,
-      "TotalUpgrades": 1705,
+      "StudyLevel": 420,
+      "TotalUpgrades": 1707,
       "GuildLevel": 143,
       "GuildID": 25,
       "NexusProgress": 7,
-      "StudyProgress": 3,
-      "TotalCodexCost": 4796
+      "StudyProgress": 4,
+      "TotalCodexCost": 5216
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 484,
+      "NexusLevel": 485,
       "StudyLevel": 375,
-      "TotalUpgrades": 1592,
+      "TotalUpgrades": 1593,
       "GuildLevel": 142,
       "GuildID": 19,
-      "NexusProgress": 8,
+      "NexusProgress": 9,
       "StudyProgress": 0,
-      "TotalCodexCost": 3844
+      "TotalCodexCost": 4329
     },
     {
       "GuildName": "RNG",
@@ -101,14 +101,14 @@
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 287,
+      "NexusLevel": 288,
       "StudyLevel": 212,
-      "TotalUpgrades": 1003,
+      "TotalUpgrades": 1004,
       "GuildLevel": 89,
       "GuildID": 183,
-      "NexusProgress": 7,
+      "NexusProgress": 8,
       "StudyProgress": 0,
-      "TotalCodexCost": 1988
+      "TotalCodexCost": 2276
     },
     {
       "GuildName": "Fight Club",
@@ -146,13 +146,13 @@
     {
       "GuildName": "Dino Nuggies",
       "NexusLevel": 232,
-      "StudyLevel": 173,
-      "TotalUpgrades": 859,
+      "StudyLevel": 174,
+      "TotalUpgrades": 860,
       "GuildLevel": 69,
       "GuildID": 122,
       "NexusProgress": 7,
-      "StudyProgress": 11,
-      "TotalCodexCost": 3451
+      "StudyProgress": 12,
+      "TotalCodexCost": 3625
     },
     {
       "GuildName": "Imperium",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 38991,
-    "formatted_dust": "828.18T",
-    "formatted_price": "21.24B"
+    "total_codex": 40358,
+    "formatted_dust": "861.65T",
+    "formatted_price": "21.35B"
   },
-  "lastUpdated": "2025-08-28T15:14:43.174582+00:00",
+  "lastUpdated": "2025-08-28T16:18:02.304337+00:00",
   "baselineDate": "2025-08-28",
   "baselineCreatedAt": "2025-08-28T00:55:18.383131+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 25,
-    "total_codex_used": 38991,
+    "total_codex_used": 40358,
     "baseline_date": "2025-08-28"
   }
 }
