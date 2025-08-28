@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 479,
+      "NexusLevel": 480,
       "StudyLevel": 375,
-      "TotalUpgrades": 1587,
+      "TotalUpgrades": 1588,
       "GuildLevel": 141,
       "GuildID": 19,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 1434
+      "TotalCodexCost": 1914
     },
     {
       "GuildName": "RNG",
@@ -58,13 +58,13 @@
     {
       "GuildName": "EZ ",
       "NexusLevel": 318,
-      "StudyLevel": 253,
-      "TotalUpgrades": 994,
+      "StudyLevel": 254,
+      "TotalUpgrades": 995,
       "GuildLevel": 94,
       "GuildID": 2,
       "NexusProgress": 2,
-      "StudyProgress": 1,
-      "TotalCodexCost": 888
+      "StudyProgress": 2,
+      "TotalCodexCost": 1142
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -91,13 +91,13 @@
     {
       "GuildName": "Codex",
       "NexusLevel": 290,
-      "StudyLevel": 290,
-      "TotalUpgrades": 1029,
+      "StudyLevel": 291,
+      "TotalUpgrades": 1030,
       "GuildLevel": 93,
       "GuildID": 59,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 291
     },
     {
       "GuildName": "Doomed",
@@ -245,13 +245,13 @@
     {
       "GuildName": "Manarion Adventures",
       "NexusLevel": 163,
-      "StudyLevel": 175,
-      "TotalUpgrades": 785,
+      "StudyLevel": 176,
+      "TotalUpgrades": 787,
       "GuildLevel": 69,
       "GuildID": 54,
       "NexusProgress": 1,
-      "StudyProgress": 1,
-      "TotalCodexCost": 338
+      "StudyProgress": 2,
+      "TotalCodexCost": 514
     },
     {
       "GuildName": "Cats",
@@ -269,7 +269,7 @@
       "NexusLevel": 131,
       "StudyLevel": 164,
       "TotalUpgrades": 646,
-      "GuildLevel": 69,
+      "GuildLevel": 70,
       "GuildID": 65,
       "NexusProgress": 0,
       "StudyProgress": 1,
@@ -290,7 +290,7 @@
       "GuildName": "asylum",
       "NexusLevel": 124,
       "StudyLevel": 73,
-      "TotalUpgrades": 493,
+      "TotalUpgrades": 495,
       "GuildLevel": 55,
       "GuildID": 130,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 13088,
-    "formatted_dust": "267.83T",
-    "formatted_price": "20.46B"
+    "total_codex": 14289,
+    "formatted_dust": "292.93T",
+    "formatted_price": "20.50B"
   },
-  "lastUpdated": "2025-08-28T06:21:25.440220+00:00",
+  "lastUpdated": "2025-08-28T07:14:06.326903+00:00",
   "baselineDate": "2025-08-28",
   "baselineCreatedAt": "2025-08-28T00:55:18.383131+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 15,
-    "total_codex_used": 13088,
+    "guilds_with_progress": 16,
+    "total_codex_used": 14289,
     "baseline_date": "2025-08-28"
   }
 }
