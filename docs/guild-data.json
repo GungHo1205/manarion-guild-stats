@@ -47,13 +47,13 @@
     {
       "GuildName": "Phoenix",
       "NexusLevel": 445,
-      "StudyLevel": 325,
-      "TotalUpgrades": 1383,
+      "StudyLevel": 326,
+      "TotalUpgrades": 1384,
       "GuildLevel": 114,
       "GuildID": 8,
       "NexusProgress": 4,
-      "StudyProgress": 4,
-      "TotalCodexCost": 3068
+      "StudyProgress": 5,
+      "TotalCodexCost": 3394
     },
     {
       "GuildName": "EZ ",
@@ -90,25 +90,25 @@
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 298,
+      "NexusLevel": 299,
       "StudyLevel": 212,
-      "TotalUpgrades": 1015,
+      "TotalUpgrades": 1016,
       "GuildLevel": 92,
       "GuildID": 183,
-      "NexusProgress": 7,
+      "NexusProgress": 8,
       "StudyProgress": 0,
-      "TotalCodexCost": 2065
+      "TotalCodexCost": 2364
     },
     {
       "GuildName": "Codex",
       "NexusLevel": 290,
-      "StudyLevel": 297,
-      "TotalUpgrades": 1053,
+      "StudyLevel": 298,
+      "TotalUpgrades": 1056,
       "GuildLevel": 95,
       "GuildID": 59,
       "NexusProgress": 0,
-      "StudyProgress": 1,
-      "TotalCodexCost": 297
+      "StudyProgress": 2,
+      "TotalCodexCost": 595
     },
     {
       "GuildName": "Fight Club",
@@ -155,6 +155,17 @@
       "TotalCodexCost": 3830
     },
     {
+      "GuildName": "Second Wind",
+      "NexusLevel": 231,
+      "StudyLevel": 147,
+      "TotalUpgrades": 700,
+      "GuildLevel": 63,
+      "GuildID": 1,
+      "NexusProgress": 3,
+      "StudyProgress": 0,
+      "TotalCodexCost": 690
+    },
+    {
       "GuildName": "Caliburnus",
       "NexusLevel": 230,
       "StudyLevel": 181,
@@ -164,17 +175,6 @@
       "NexusProgress": 2,
       "StudyProgress": 4,
       "TotalCodexCost": 1177
-    },
-    {
-      "GuildName": "Second Wind",
-      "NexusLevel": 229,
-      "StudyLevel": 147,
-      "TotalUpgrades": 695,
-      "GuildLevel": 62,
-      "GuildID": 1,
-      "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 229
     },
     {
       "GuildName": "Imperium",
@@ -224,7 +224,7 @@
       "GuildName": "Ewbies",
       "NexusLevel": 200,
       "StudyLevel": 212,
-      "TotalUpgrades": 808,
+      "TotalUpgrades": 817,
       "GuildLevel": 70,
       "GuildID": 4,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 52275,
-    "formatted_dust": "1335.33T",
-    "formatted_price": "25.54B"
+    "total_codex": 53659,
+    "formatted_dust": "1367.40T",
+    "formatted_price": "25.48B"
   },
-  "lastUpdated": "2025-08-29T20:14:55.229961+00:00",
+  "lastUpdated": "2025-08-29T21:12:22.208787+00:00",
   "baselineDate": "2025-08-29",
   "baselineCreatedAt": "2025-08-29T00:55:16.044544+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 26,
-    "total_codex_used": 52275,
+    "total_codex_used": 53659,
     "baseline_date": "2025-08-29"
   }
 }
