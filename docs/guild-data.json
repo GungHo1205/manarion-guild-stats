@@ -2,36 +2,36 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 540,
+      "NexusLevel": 541,
       "StudyLevel": 457,
-      "TotalUpgrades": 1712,
+      "TotalUpgrades": 1713,
       "GuildLevel": 147,
       "GuildID": 5,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 5,
-      "TotalCodexCost": 4965
+      "TotalCodexCost": 5506
     },
     {
       "GuildName": "Divinity",
       "NexusLevel": 522,
-      "StudyLevel": 428,
-      "TotalUpgrades": 1735,
+      "StudyLevel": 431,
+      "TotalUpgrades": 1738,
       "GuildLevel": 146,
       "GuildID": 25,
       "NexusProgress": 10,
-      "StudyProgress": 6,
-      "TotalCodexCost": 7728
+      "StudyProgress": 9,
+      "TotalCodexCost": 9018
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 498,
+      "NexusLevel": 499,
       "StudyLevel": 375,
-      "TotalUpgrades": 1606,
+      "TotalUpgrades": 1607,
       "GuildLevel": 143,
       "GuildID": 19,
-      "NexusProgress": 8,
+      "NexusProgress": 9,
       "StudyProgress": 0,
-      "TotalCodexCost": 3956
+      "TotalCodexCost": 4455
     },
     {
       "GuildName": "RNG",
@@ -57,14 +57,14 @@
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 324,
-      "StudyLevel": 260,
-      "TotalUpgrades": 1011,
+      "NexusLevel": 325,
+      "StudyLevel": 261,
+      "TotalUpgrades": 1013,
       "GuildLevel": 96,
       "GuildID": 2,
-      "NexusProgress": 3,
-      "StudyProgress": 3,
-      "TotalCodexCost": 1746
+      "NexusProgress": 4,
+      "StudyProgress": 4,
+      "TotalCodexCost": 2332
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -146,13 +146,24 @@
     {
       "GuildName": "Dino Nuggies",
       "NexusLevel": 232,
-      "StudyLevel": 188,
-      "TotalUpgrades": 889,
+      "StudyLevel": 189,
+      "TotalUpgrades": 891,
       "GuildLevel": 70,
       "GuildID": 122,
       "NexusProgress": 0,
-      "StudyProgress": 13,
-      "TotalCodexCost": 2366
+      "StudyProgress": 14,
+      "TotalCodexCost": 2555
+    },
+    {
+      "GuildName": "Caliburnus",
+      "NexusLevel": 229,
+      "StudyLevel": 178,
+      "TotalUpgrades": 781,
+      "GuildLevel": 66,
+      "GuildID": 42,
+      "NexusProgress": 1,
+      "StudyProgress": 1,
+      "TotalCodexCost": 407
     },
     {
       "GuildName": "Second Wind",
@@ -177,26 +188,15 @@
       "TotalCodexCost": 723
     },
     {
-      "GuildName": "Caliburnus",
-      "NexusLevel": 228,
-      "StudyLevel": 178,
-      "TotalUpgrades": 779,
-      "GuildLevel": 66,
-      "GuildID": 42,
-      "NexusProgress": 0,
-      "StudyProgress": 1,
-      "TotalCodexCost": 178
-    },
-    {
       "GuildName": "Hack n Slash",
-      "NexusLevel": 222,
+      "NexusLevel": 223,
       "StudyLevel": 200,
-      "TotalUpgrades": 893,
+      "TotalUpgrades": 894,
       "GuildLevel": 79,
       "GuildID": 86,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 3,
-      "TotalCodexCost": 1040
+      "TotalCodexCost": 1263
     },
     {
       "GuildName": "Osmanthus",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 38639,
-    "formatted_dust": "977.08T",
-    "formatted_price": "25.29B"
+    "total_codex": 42196,
+    "formatted_dust": "1077.63T",
+    "formatted_price": "25.54B"
   },
-  "lastUpdated": "2025-08-29T15:12:30.730681+00:00",
+  "lastUpdated": "2025-08-29T16:17:20.869284+00:00",
   "baselineDate": "2025-08-29",
   "baselineCreatedAt": "2025-08-29T00:55:16.044544+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 24,
-    "total_codex_used": 38639,
+    "total_codex_used": 42196,
     "baseline_date": "2025-08-29"
   }
 }
