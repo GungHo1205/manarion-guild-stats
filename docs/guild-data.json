@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 493,
+      "NexusLevel": 494,
       "StudyLevel": 375,
-      "TotalUpgrades": 1601,
+      "TotalUpgrades": 1602,
       "GuildLevel": 142,
       "GuildID": 19,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 1476
+      "TotalCodexCost": 1970
     },
     {
       "GuildName": "RNG",
@@ -168,13 +168,13 @@
     {
       "GuildName": "Imperium",
       "NexusLevel": 228,
-      "StudyLevel": 239,
-      "TotalUpgrades": 889,
+      "StudyLevel": 242,
+      "TotalUpgrades": 892,
       "GuildLevel": 94,
       "GuildID": 15,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 3,
+      "TotalCodexCost": 723
     },
     {
       "GuildName": "Caliburnus",
@@ -246,7 +246,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 166,
       "StudyLevel": 179,
-      "TotalUpgrades": 797,
+      "TotalUpgrades": 800,
       "GuildLevel": 70,
       "GuildID": 54,
       "NexusProgress": 1,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 19051,
-    "formatted_dust": "465.93T",
-    "formatted_price": "24.46B"
+    "total_codex": 20268,
+    "formatted_dust": "498.80T",
+    "formatted_price": "24.61B"
   },
-  "lastUpdated": "2025-08-29T08:18:26.122944+00:00",
+  "lastUpdated": "2025-08-29T09:14:58.646705+00:00",
   "baselineDate": "2025-08-29",
   "baselineCreatedAt": "2025-08-29T00:55:16.044544+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 17,
-    "total_codex_used": 19051,
+    "guilds_with_progress": 18,
+    "total_codex_used": 20268,
     "baseline_date": "2025-08-29"
   }
 }
