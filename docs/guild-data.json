@@ -14,13 +14,13 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 522,
-      "StudyLevel": 431,
-      "TotalUpgrades": 1738,
+      "StudyLevel": 432,
+      "TotalUpgrades": 1739,
       "GuildLevel": 146,
       "GuildID": 25,
       "NexusProgress": 10,
-      "StudyProgress": 9,
-      "TotalCodexCost": 9018
+      "StudyProgress": 10,
+      "TotalCodexCost": 9450
     },
     {
       "GuildName": "Sanctuary",
@@ -80,13 +80,13 @@
     {
       "GuildName": "The First Ones",
       "NexusLevel": 299,
-      "StudyLevel": 219,
-      "TotalUpgrades": 1030,
+      "StudyLevel": 220,
+      "TotalUpgrades": 1033,
       "GuildLevel": 98,
       "GuildID": 112,
       "NexusProgress": 2,
-      "StudyProgress": 7,
-      "TotalCodexCost": 2109
+      "StudyProgress": 8,
+      "TotalCodexCost": 2329
     },
     {
       "GuildName": "Doomed",
@@ -157,13 +157,13 @@
     {
       "GuildName": "Caliburnus",
       "NexusLevel": 229,
-      "StudyLevel": 178,
-      "TotalUpgrades": 781,
-      "GuildLevel": 66,
+      "StudyLevel": 179,
+      "TotalUpgrades": 782,
+      "GuildLevel": 67,
       "GuildID": 42,
       "NexusProgress": 1,
-      "StudyProgress": 1,
-      "TotalCodexCost": 407
+      "StudyProgress": 2,
+      "TotalCodexCost": 586
     },
     {
       "GuildName": "Second Wind",
@@ -203,7 +203,7 @@
       "NexusLevel": 212,
       "StudyLevel": 180,
       "TotalUpgrades": 795,
-      "GuildLevel": 84,
+      "GuildLevel": 85,
       "GuildID": 21,
       "NexusProgress": 0,
       "StudyProgress": 2,
@@ -224,7 +224,7 @@
       "GuildName": "Ewbies",
       "NexusLevel": 200,
       "StudyLevel": 212,
-      "TotalUpgrades": 805,
+      "TotalUpgrades": 808,
       "GuildLevel": 69,
       "GuildID": 4,
       "NexusProgress": 0,
@@ -266,14 +266,14 @@
     },
     {
       "GuildName": "Lighthouse Reborn",
-      "NexusLevel": 136,
+      "NexusLevel": 137,
       "StudyLevel": 166,
-      "TotalUpgrades": 670,
+      "TotalUpgrades": 674,
       "GuildLevel": 73,
       "GuildID": 65,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 271
+      "TotalCodexCost": 408
     },
     {
       "GuildName": "MooseKnuckles",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 42196,
-    "formatted_dust": "1077.63T",
-    "formatted_price": "25.54B"
+    "total_codex": 43164,
+    "formatted_dust": "1105.04T",
+    "formatted_price": "25.60B"
   },
-  "lastUpdated": "2025-08-29T16:17:20.869284+00:00",
+  "lastUpdated": "2025-08-29T17:12:04.263581+00:00",
   "baselineDate": "2025-08-29",
   "baselineCreatedAt": "2025-08-29T00:55:16.044544+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 24,
-    "total_codex_used": 42196,
+    "total_codex_used": 43164,
     "baseline_date": "2025-08-29"
   }
 }
