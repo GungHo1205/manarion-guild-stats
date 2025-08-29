@@ -26,7 +26,7 @@
       "GuildName": "Sanctuary",
       "NexusLevel": 500,
       "StudyLevel": 375,
-      "TotalUpgrades": 1613,
+      "TotalUpgrades": 1615,
       "GuildLevel": 143,
       "GuildID": 19,
       "NexusProgress": 10,
@@ -46,14 +46,14 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 445,
+      "NexusLevel": 446,
       "StudyLevel": 326,
-      "TotalUpgrades": 1384,
+      "TotalUpgrades": 1385,
       "GuildLevel": 114,
       "GuildID": 8,
-      "NexusProgress": 4,
+      "NexusProgress": 5,
       "StudyProgress": 5,
-      "TotalCodexCost": 3394
+      "TotalCodexCost": 3840
     },
     {
       "GuildName": "EZ ",
@@ -79,14 +79,14 @@
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 299,
+      "NexusLevel": 300,
       "StudyLevel": 220,
-      "TotalUpgrades": 1033,
+      "TotalUpgrades": 1035,
       "GuildLevel": 99,
       "GuildID": 112,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 8,
-      "TotalCodexCost": 2329
+      "TotalCodexCost": 2629
     },
     {
       "GuildName": "Doomed",
@@ -158,7 +158,7 @@
       "GuildName": "Second Wind",
       "NexusLevel": 231,
       "StudyLevel": 147,
-      "TotalUpgrades": 701,
+      "TotalUpgrades": 702,
       "GuildLevel": 63,
       "GuildID": 1,
       "NexusProgress": 3,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 58338,
-    "formatted_dust": "1478.39T",
-    "formatted_price": "25.34B"
+    "total_codex": 59084,
+    "formatted_dust": "1489.39T",
+    "formatted_price": "25.21B"
   },
-  "lastUpdated": "2025-08-29T22:13:11.978738+00:00",
+  "lastUpdated": "2025-08-29T23:13:03.348767+00:00",
   "baselineDate": "2025-08-29",
   "baselineCreatedAt": "2025-08-29T00:55:16.044544+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 26,
-    "total_codex_used": 58338,
+    "total_codex_used": 59084,
     "baseline_date": "2025-08-29"
   }
 }
