@@ -4,7 +4,7 @@
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 535,
       "StudyLevel": 452,
-      "TotalUpgrades": 1697,
+      "TotalUpgrades": 1702,
       "GuildLevel": 145,
       "GuildID": 5,
       "NexusProgress": 0,
@@ -146,13 +146,13 @@
     {
       "GuildName": "Dino Nuggies",
       "NexusLevel": 232,
-      "StudyLevel": 175,
-      "TotalUpgrades": 862,
+      "StudyLevel": 177,
+      "TotalUpgrades": 864,
       "GuildLevel": 69,
       "GuildID": 122,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 2,
+      "TotalCodexCost": 353
     },
     {
       "GuildName": "Imperium",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 0,
-    "formatted_dust": "0.00",
-    "formatted_price": "22.77B"
+    "total_codex": 353,
+    "formatted_dust": "8.17T",
+    "formatted_price": "23.14B"
   },
-  "lastUpdated": "2025-08-29T00:55:16.044544+00:00",
+  "lastUpdated": "2025-08-29T01:05:49.449362+00:00",
   "baselineDate": "2025-08-29",
   "baselineCreatedAt": "2025-08-29T00:55:16.044544+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 0,
-    "total_codex_used": 0,
+    "guilds_with_progress": 1,
+    "total_codex_used": 353,
     "baseline_date": "2025-08-29"
   }
 }
