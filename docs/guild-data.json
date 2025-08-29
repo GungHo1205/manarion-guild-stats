@@ -14,13 +14,13 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 522,
-      "StudyLevel": 427,
-      "TotalUpgrades": 1734,
+      "StudyLevel": 428,
+      "TotalUpgrades": 1735,
       "GuildLevel": 146,
       "GuildID": 25,
       "NexusProgress": 10,
-      "StudyProgress": 5,
-      "TotalCodexCost": 7300
+      "StudyProgress": 6,
+      "TotalCodexCost": 7728
     },
     {
       "GuildName": "Sanctuary",
@@ -90,20 +90,20 @@
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 296,
+      "NexusLevel": 297,
       "StudyLevel": 212,
-      "TotalUpgrades": 1013,
+      "TotalUpgrades": 1014,
       "GuildLevel": 91,
       "GuildID": 183,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 1470
+      "TotalCodexCost": 1767
     },
     {
       "GuildName": "Codex",
       "NexusLevel": 290,
       "StudyLevel": 297,
-      "TotalUpgrades": 1052,
+      "TotalUpgrades": 1053,
       "GuildLevel": 95,
       "GuildID": 59,
       "NexusProgress": 0,
@@ -223,13 +223,13 @@
     {
       "GuildName": "Ewbies",
       "NexusLevel": 200,
-      "StudyLevel": 210,
-      "TotalUpgrades": 804,
+      "StudyLevel": 212,
+      "TotalUpgrades": 805,
       "GuildLevel": 69,
       "GuildID": 4,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 2,
+      "TotalCodexCost": 423
     },
     {
       "GuildName": "Bureau of Feline Investigators",
@@ -255,14 +255,14 @@
     },
     {
       "GuildName": "Cats",
-      "NexusLevel": 158,
+      "NexusLevel": 159,
       "StudyLevel": 127,
-      "TotalUpgrades": 425,
+      "TotalUpgrades": 427,
       "GuildLevel": 42,
       "GuildID": 55,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 2,
-      "TotalCodexCost": 411
+      "TotalCodexCost": 570
     },
     {
       "GuildName": "Lighthouse Reborn",
@@ -299,14 +299,14 @@
     },
     {
       "GuildName": "Rainbow",
-      "NexusLevel": 116,
+      "NexusLevel": 117,
       "StudyLevel": 102,
-      "TotalUpgrades": 438,
+      "TotalUpgrades": 439,
       "GuildLevel": 50,
       "GuildID": 105,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 117
     },
     {
       "GuildName": "Hydra",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 37215,
-    "formatted_dust": "943.94T",
-    "formatted_price": "25.36B"
+    "total_codex": 38639,
+    "formatted_dust": "977.08T",
+    "formatted_price": "25.29B"
   },
-  "lastUpdated": "2025-08-29T14:13:41.585459+00:00",
+  "lastUpdated": "2025-08-29T15:12:30.730681+00:00",
   "baselineDate": "2025-08-29",
   "baselineCreatedAt": "2025-08-29T00:55:16.044544+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 22,
-    "total_codex_used": 37215,
+    "guilds_with_progress": 24,
+    "total_codex_used": 38639,
     "baseline_date": "2025-08-29"
   }
 }
