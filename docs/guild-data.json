@@ -13,14 +13,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 517,
+      "NexusLevel": 518,
       "StudyLevel": 423,
-      "TotalUpgrades": 1723,
+      "TotalUpgrades": 1724,
       "GuildLevel": 145,
       "GuildID": 25,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 1,
-      "TotalCodexCost": 2998
+      "TotalCodexCost": 3516
     },
     {
       "GuildName": "Sanctuary",
@@ -38,7 +38,7 @@
       "NexusLevel": 471,
       "StudyLevel": 396,
       "TotalUpgrades": 1600,
-      "GuildLevel": 126,
+      "GuildLevel": 127,
       "GuildID": 17,
       "NexusProgress": 1,
       "StudyProgress": 0,
@@ -90,14 +90,14 @@
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 293,
+      "NexusLevel": 294,
       "StudyLevel": 212,
-      "TotalUpgrades": 1009,
-      "GuildLevel": 90,
+      "TotalUpgrades": 1011,
+      "GuildLevel": 91,
       "GuildID": 183,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 585
+      "TotalCodexCost": 879
     },
     {
       "GuildName": "Codex",
@@ -170,7 +170,7 @@
       "NexusLevel": 228,
       "StudyLevel": 239,
       "TotalUpgrades": 889,
-      "GuildLevel": 93,
+      "GuildLevel": 94,
       "GuildID": 15,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -268,7 +268,7 @@
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 135,
       "StudyLevel": 166,
-      "TotalUpgrades": 665,
+      "TotalUpgrades": 666,
       "GuildLevel": 72,
       "GuildID": 65,
       "NexusProgress": 1,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 15427,
-    "formatted_dust": "368.94T",
-    "formatted_price": "23.92B"
+    "total_codex": 16239,
+    "formatted_dust": "393.46T",
+    "formatted_price": "24.23B"
   },
-  "lastUpdated": "2025-08-29T06:21:01.199615+00:00",
+  "lastUpdated": "2025-08-29T07:13:50.882534+00:00",
   "baselineDate": "2025-08-29",
   "baselineCreatedAt": "2025-08-29T00:55:16.044544+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 17,
-    "total_codex_used": 15427,
+    "total_codex_used": 16239,
     "baseline_date": "2025-08-29"
   }
 }
