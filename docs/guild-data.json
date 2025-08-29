@@ -5,7 +5,7 @@
       "NexusLevel": 542,
       "StudyLevel": 457,
       "TotalUpgrades": 1714,
-      "GuildLevel": 147,
+      "GuildLevel": 148,
       "GuildID": 5,
       "NexusProgress": 7,
       "StudyProgress": 5,
@@ -14,13 +14,13 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 523,
-      "StudyLevel": 432,
-      "TotalUpgrades": 1740,
+      "StudyLevel": 433,
+      "TotalUpgrades": 1741,
       "GuildLevel": 146,
       "GuildID": 25,
       "NexusProgress": 11,
-      "StudyProgress": 10,
-      "TotalCodexCost": 9973
+      "StudyProgress": 11,
+      "TotalCodexCost": 10406
     },
     {
       "GuildName": "Sanctuary",
@@ -36,13 +36,13 @@
     {
       "GuildName": "RNG",
       "NexusLevel": 475,
-      "StudyLevel": 399,
-      "TotalUpgrades": 1615,
+      "StudyLevel": 401,
+      "TotalUpgrades": 1617,
       "GuildLevel": 127,
       "GuildID": 17,
       "NexusProgress": 5,
-      "StudyProgress": 3,
-      "TotalCodexCost": 3559
+      "StudyProgress": 5,
+      "TotalCodexCost": 4360
     },
     {
       "GuildName": "Phoenix",
@@ -58,13 +58,13 @@
     {
       "GuildName": "EZ ",
       "NexusLevel": 326,
-      "StudyLevel": 261,
-      "TotalUpgrades": 1014,
+      "StudyLevel": 262,
+      "TotalUpgrades": 1015,
       "GuildLevel": 96,
       "GuildID": 2,
       "NexusProgress": 5,
-      "StudyProgress": 4,
-      "TotalCodexCost": 2658
+      "StudyProgress": 5,
+      "TotalCodexCost": 2920
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -90,14 +90,14 @@
     },
     {
       "GuildName": "Doomed",
-      "NexusLevel": 297,
+      "NexusLevel": 298,
       "StudyLevel": 212,
-      "TotalUpgrades": 1014,
-      "GuildLevel": 91,
+      "TotalUpgrades": 1015,
+      "GuildLevel": 92,
       "GuildID": 183,
-      "NexusProgress": 6,
+      "NexusProgress": 7,
       "StudyProgress": 0,
-      "TotalCodexCost": 1767
+      "TotalCodexCost": 2065
     },
     {
       "GuildName": "Codex",
@@ -234,13 +234,13 @@
     {
       "GuildName": "Bureau of Feline Investigators",
       "NexusLevel": 200,
-      "StudyLevel": 200,
-      "TotalUpgrades": 638,
-      "GuildLevel": 62,
+      "StudyLevel": 202,
+      "TotalUpgrades": 640,
+      "GuildLevel": 63,
       "GuildID": 18,
       "NexusProgress": 1,
-      "StudyProgress": 0,
-      "TotalCodexCost": 200
+      "StudyProgress": 2,
+      "TotalCodexCost": 603
     },
     {
       "GuildName": "Manarion Adventures",
@@ -257,7 +257,7 @@
       "GuildName": "Cats",
       "NexusLevel": 159,
       "StudyLevel": 127,
-      "TotalUpgrades": 427,
+      "TotalUpgrades": 429,
       "GuildLevel": 42,
       "GuildID": 55,
       "NexusProgress": 2,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 46841,
-    "formatted_dust": "1201.37T",
-    "formatted_price": "25.65B"
+    "total_codex": 49038,
+    "formatted_dust": "1256.73T",
+    "formatted_price": "25.63B"
   },
-  "lastUpdated": "2025-08-29T18:19:09.097913+00:00",
+  "lastUpdated": "2025-08-29T19:10:47.620676+00:00",
   "baselineDate": "2025-08-29",
   "baselineCreatedAt": "2025-08-29T00:55:16.044544+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 24,
-    "total_codex_used": 46841,
+    "total_codex_used": 49038,
     "baseline_date": "2025-08-29"
   }
 }
