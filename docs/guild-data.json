@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 548,
+      "NexusLevel": 549,
       "StudyLevel": 450,
-      "TotalUpgrades": 1735,
+      "TotalUpgrades": 1736,
       "GuildLevel": 150,
       "GuildID": 5,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 1641
+      "TotalCodexCost": 2190
     },
     {
       "GuildName": "Divinity",
@@ -78,26 +78,26 @@
       "TotalCodexCost": 1226
     },
     {
+      "GuildName": "The First Ones",
+      "NexusLevel": 301,
+      "StudyLevel": 220,
+      "TotalUpgrades": 1049,
+      "GuildLevel": 100,
+      "GuildID": 112,
+      "NexusProgress": 1,
+      "StudyProgress": 0,
+      "TotalCodexCost": 301
+    },
+    {
       "GuildName": "Doomed",
       "NexusLevel": 300,
-      "StudyLevel": 233,
-      "TotalUpgrades": 1039,
+      "StudyLevel": 235,
+      "TotalUpgrades": 1041,
       "GuildLevel": 93,
       "GuildID": 183,
       "NexusProgress": 1,
-      "StudyProgress": 21,
-      "TotalCodexCost": 4983
-    },
-    {
-      "GuildName": "The First Ones",
-      "NexusLevel": 300,
-      "StudyLevel": 220,
-      "TotalUpgrades": 1046,
-      "GuildLevel": 99,
-      "GuildID": 112,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 23,
+      "TotalCodexCost": 5452
     },
     {
       "GuildName": "Codex",
@@ -179,13 +179,13 @@
     {
       "GuildName": "Imperium",
       "NexusLevel": 228,
-      "StudyLevel": 245,
-      "TotalUpgrades": 904,
+      "StudyLevel": 246,
+      "TotalUpgrades": 905,
       "GuildLevel": 95,
       "GuildID": 15,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 246
     },
     {
       "GuildName": "Hack n Slash",
@@ -201,13 +201,13 @@
     {
       "GuildName": "Osmanthus",
       "NexusLevel": 215,
-      "StudyLevel": 180,
-      "TotalUpgrades": 811,
+      "StudyLevel": 183,
+      "TotalUpgrades": 816,
       "GuildLevel": 86,
       "GuildID": 21,
       "NexusProgress": 2,
-      "StudyProgress": 0,
-      "TotalCodexCost": 429
+      "StudyProgress": 3,
+      "TotalCodexCost": 975
     },
     {
       "GuildName": "BASED",
@@ -224,7 +224,7 @@
       "GuildName": "Ewbies",
       "NexusLevel": 200,
       "StudyLevel": 212,
-      "TotalUpgrades": 820,
+      "TotalUpgrades": 822,
       "GuildLevel": 70,
       "GuildID": 4,
       "NexusProgress": 0,
@@ -244,14 +244,14 @@
     },
     {
       "GuildName": "Manarion Adventures",
-      "NexusLevel": 169,
+      "NexusLevel": 170,
       "StudyLevel": 182,
-      "TotalUpgrades": 812,
+      "TotalUpgrades": 813,
       "GuildLevel": 71,
       "GuildID": 54,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 2,
-      "TotalCodexCost": 532
+      "TotalCodexCost": 702
     },
     {
       "GuildName": "Cats",
@@ -300,13 +300,13 @@
     {
       "GuildName": "Rainbow",
       "NexusLevel": 120,
-      "StudyLevel": 104,
-      "TotalUpgrades": 446,
+      "StudyLevel": 105,
+      "TotalUpgrades": 448,
       "GuildLevel": 51,
       "GuildID": 105,
       "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "StudyProgress": 1,
+      "TotalCodexCost": 105
     },
     {
       "GuildName": "Hydra",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 27919,
-    "formatted_dust": "646.79T",
+    "total_codex": 30305,
+    "formatted_dust": "702.16T",
     "formatted_price": "23.17B"
   },
-  "lastUpdated": "2025-08-30T14:11:24.234365+00:00",
+  "lastUpdated": "2025-08-30T15:11:55.999101+00:00",
   "baselineDate": "2025-08-30",
   "baselineCreatedAt": "2025-08-30T00:52:51.472593+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 17,
-    "total_codex_used": 27919,
+    "guilds_with_progress": 20,
+    "total_codex_used": 30305,
     "baseline_date": "2025-08-30"
   }
 }
