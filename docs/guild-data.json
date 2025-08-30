@@ -81,7 +81,7 @@
       "GuildName": "The First Ones",
       "NexusLevel": 300,
       "StudyLevel": 220,
-      "TotalUpgrades": 1035,
+      "TotalUpgrades": 1040,
       "GuildLevel": 99,
       "GuildID": 112,
       "NexusProgress": 0,
@@ -334,9 +334,9 @@
   "dustSpending": {
     "total_codex": 0,
     "formatted_dust": "0.00",
-    "formatted_price": "25.11B"
+    "formatted_price": "24.82B"
   },
-  "lastUpdated": "2025-08-30T00:52:51.472593+00:00",
+  "lastUpdated": "2025-08-30T01:02:43.043400+00:00",
   "baselineDate": "2025-08-30",
   "baselineCreatedAt": "2025-08-30T00:52:51.472593+00:00",
   "dataFreshness": {
