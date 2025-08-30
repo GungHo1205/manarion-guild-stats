@@ -3,8 +3,8 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 545,
-      "StudyLevel": 448,
-      "TotalUpgrades": 1720,
+      "StudyLevel": 449,
+      "TotalUpgrades": 1721,
       "GuildLevel": 149,
       "GuildID": 5,
       "NexusProgress": 0,
@@ -26,7 +26,7 @@
       "GuildName": "Sanctuary",
       "NexusLevel": 500,
       "StudyLevel": 375,
-      "TotalUpgrades": 1621,
+      "TotalUpgrades": 1623,
       "GuildLevel": 144,
       "GuildID": 19,
       "NexusProgress": 0,
@@ -244,14 +244,14 @@
     },
     {
       "GuildName": "Manarion Adventures",
-      "NexusLevel": 168,
-      "StudyLevel": 180,
-      "TotalUpgrades": 805,
+      "NexusLevel": 169,
+      "StudyLevel": 181,
+      "TotalUpgrades": 810,
       "GuildLevel": 71,
       "GuildID": 54,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusProgress": 1,
+      "StudyProgress": 1,
+      "TotalCodexCost": 350
     },
     {
       "GuildName": "Cats",
@@ -268,7 +268,7 @@
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 137,
       "StudyLevel": 166,
-      "TotalUpgrades": 676,
+      "TotalUpgrades": 677,
       "GuildLevel": 75,
       "GuildID": 65,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 3171,
-    "formatted_dust": "77.68T",
-    "formatted_price": "24.50B"
+    "total_codex": 3521,
+    "formatted_dust": "85.78T",
+    "formatted_price": "24.36B"
   },
-  "lastUpdated": "2025-08-30T02:52:46.237682+00:00",
+  "lastUpdated": "2025-08-30T03:29:35.161315+00:00",
   "baselineDate": "2025-08-30",
   "baselineCreatedAt": "2025-08-30T00:52:51.472593+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 5,
-    "total_codex_used": 3171,
+    "guilds_with_progress": 6,
+    "total_codex_used": 3521,
     "baseline_date": "2025-08-30"
   }
 }
