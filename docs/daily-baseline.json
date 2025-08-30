@@ -1,46 +1,46 @@
 {
-  "date": "2025-08-29",
-  "created_at": "2025-08-29T00:55:16.044544+00:00",
+  "date": "2025-08-30",
+  "created_at": "2025-08-30T00:52:51.472593+00:00",
   "guilds": {
     "Divinity": {
-      "NexusLevel": 512,
-      "StudyLevel": 422
+      "NexusLevel": 523,
+      "StudyLevel": 433
     },
     "Spaghetti and Meatballs": {
-      "NexusLevel": 535,
-      "StudyLevel": 452
-    },
-    "RNG": {
-      "NexusLevel": 470,
-      "StudyLevel": 396
+      "NexusLevel": 545,
+      "StudyLevel": 457
     },
     "Sanctuary": {
-      "NexusLevel": 490,
+      "NexusLevel": 500,
       "StudyLevel": 375
     },
+    "RNG": {
+      "NexusLevel": 475,
+      "StudyLevel": 401
+    },
     "Phoenix": {
-      "NexusLevel": 441,
-      "StudyLevel": 321
+      "NexusLevel": 446,
+      "StudyLevel": 327
     },
     "Test Guild Please Ignore": {
-      "NexusLevel": 300,
-      "StudyLevel": 306
+      "NexusLevel": 304,
+      "StudyLevel": 309
     },
     "Codex": {
       "NexusLevel": 290,
-      "StudyLevel": 296
+      "StudyLevel": 298
     },
     "The First Ones": {
-      "NexusLevel": 297,
-      "StudyLevel": 212
-    },
-    "Doomed": {
-      "NexusLevel": 291,
-      "StudyLevel": 212
+      "NexusLevel": 300,
+      "StudyLevel": 220
     },
     "EZ ": {
-      "NexusLevel": 321,
-      "StudyLevel": 257
+      "NexusLevel": 328,
+      "StudyLevel": 264
+    },
+    "Doomed": {
+      "NexusLevel": 299,
+      "StudyLevel": 212
     },
     "Racc City": {
       "NexusLevel": 250,
@@ -48,19 +48,19 @@
     },
     "Imperium": {
       "NexusLevel": 228,
-      "StudyLevel": 239
-    },
-    "Fight Club": {
-      "NexusLevel": 256,
-      "StudyLevel": 222
+      "StudyLevel": 245
     },
     "Hack n Slash": {
-      "NexusLevel": 220,
-      "StudyLevel": 197
+      "NexusLevel": 223,
+      "StudyLevel": 200
     },
     "Dino Nuggies": {
-      "NexusLevel": 232,
-      "StudyLevel": 175
+      "NexusLevel": 236,
+      "StudyLevel": 192
+    },
+    "Fight Club": {
+      "NexusLevel": 264,
+      "StudyLevel": 222
     },
     "Minimal Effort": {
       "NexusLevel": 250,
@@ -68,59 +68,59 @@
     },
     "Ewbies": {
       "NexusLevel": 200,
-      "StudyLevel": 210
-    },
-    "Osmanthus": {
-      "NexusLevel": 212,
-      "StudyLevel": 178
+      "StudyLevel": 212
     },
     "Manarion Adventures": {
-      "NexusLevel": 165,
-      "StudyLevel": 177
+      "NexusLevel": 168,
+      "StudyLevel": 180
+    },
+    "Osmanthus": {
+      "NexusLevel": 213,
+      "StudyLevel": 180
     },
     "Caliburnus": {
-      "NexusLevel": 228,
-      "StudyLevel": 177
+      "NexusLevel": 231,
+      "StudyLevel": 192
     },
     "Second Wind": {
-      "NexusLevel": 228,
+      "NexusLevel": 231,
       "StudyLevel": 147
+    },
+    "Lighthouse Reborn": {
+      "NexusLevel": 137,
+      "StudyLevel": 166
     },
     "MooseKnuckles": {
       "NexusLevel": 125,
-      "StudyLevel": 125
-    },
-    "Lighthouse Reborn": {
-      "NexusLevel": 134,
-      "StudyLevel": 166
+      "StudyLevel": 130
     },
     "Bureau of Feline Investigators": {
-      "NexusLevel": 199,
-      "StudyLevel": 200
+      "NexusLevel": 200,
+      "StudyLevel": 202
     },
     "BASED": {
       "NexusLevel": 205,
       "StudyLevel": 162
     },
     "Hydra": {
-      "NexusLevel": 109,
-      "StudyLevel": 120
+      "NexusLevel": 110,
+      "StudyLevel": 122
     },
     "asylum": {
       "NexusLevel": 125,
-      "StudyLevel": 73
+      "StudyLevel": 74
     },
     "RevivaL": {
       "NexusLevel": 100,
       "StudyLevel": 100
     },
     "Rainbow": {
-      "NexusLevel": 116,
-      "StudyLevel": 102
+      "NexusLevel": 120,
+      "StudyLevel": 104
     },
     "Cats": {
-      "NexusLevel": 157,
-      "StudyLevel": 125
+      "NexusLevel": 160,
+      "StudyLevel": 130
     }
   }
 }
