@@ -4,7 +4,7 @@
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 545,
       "StudyLevel": 450,
-      "TotalUpgrades": 1731,
+      "TotalUpgrades": 1732,
       "GuildLevel": 149,
       "GuildID": 5,
       "NexusProgress": 0,
@@ -13,14 +13,14 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 527,
-      "StudyLevel": 439,
-      "TotalUpgrades": 1754,
+      "NexusLevel": 528,
+      "StudyLevel": 440,
+      "TotalUpgrades": 1756,
       "GuildLevel": 148,
       "GuildID": 25,
-      "NexusProgress": 4,
-      "StudyProgress": 6,
-      "TotalCodexCost": 4721
+      "NexusProgress": 5,
+      "StudyProgress": 7,
+      "TotalCodexCost": 5689
     },
     {
       "GuildName": "Sanctuary",
@@ -47,13 +47,13 @@
     {
       "GuildName": "Phoenix",
       "NexusLevel": 448,
-      "StudyLevel": 328,
-      "TotalUpgrades": 1389,
+      "StudyLevel": 329,
+      "TotalUpgrades": 1390,
       "GuildLevel": 115,
       "GuildID": 8,
       "NexusProgress": 2,
-      "StudyProgress": 1,
-      "TotalCodexCost": 1223
+      "StudyProgress": 2,
+      "TotalCodexCost": 1552
     },
     {
       "GuildName": "EZ ",
@@ -92,7 +92,7 @@
       "GuildName": "The First Ones",
       "NexusLevel": 300,
       "StudyLevel": 220,
-      "TotalUpgrades": 1040,
+      "TotalUpgrades": 1042,
       "GuildLevel": 99,
       "GuildID": 112,
       "NexusProgress": 0,
@@ -112,14 +112,14 @@
     },
     {
       "GuildName": "Fight Club",
-      "NexusLevel": 265,
+      "NexusLevel": 268,
       "StudyLevel": 222,
-      "TotalUpgrades": 898,
-      "GuildLevel": 81,
+      "TotalUpgrades": 901,
+      "GuildLevel": 82,
       "GuildID": 10,
-      "NexusProgress": 1,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 265
+      "TotalCodexCost": 1066
     },
     {
       "GuildName": "Racc City",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 12103,
-    "formatted_dust": "289.05T",
-    "formatted_price": "23.88B"
+    "total_codex": 14201,
+    "formatted_dust": "335.64T",
+    "formatted_price": "23.63B"
   },
-  "lastUpdated": "2025-08-30T06:18:17.269189+00:00",
+  "lastUpdated": "2025-08-30T07:11:48.371895+00:00",
   "baselineDate": "2025-08-30",
   "baselineCreatedAt": "2025-08-30T00:52:51.472593+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 12,
-    "total_codex_used": 12103,
+    "total_codex_used": 14201,
     "baseline_date": "2025-08-30"
   }
 }
