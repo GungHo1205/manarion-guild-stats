@@ -68,25 +68,25 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 304,
+      "NexusLevel": 307,
       "StudyLevel": 309,
-      "TotalUpgrades": 1083,
+      "TotalUpgrades": 1088,
       "GuildLevel": 68,
       "GuildID": 14,
-      "NexusProgress": 0,
+      "NexusProgress": 3,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 918
     },
     {
       "GuildName": "Doomed",
       "NexusLevel": 300,
-      "StudyLevel": 222,
-      "TotalUpgrades": 1028,
+      "StudyLevel": 227,
+      "TotalUpgrades": 1033,
       "GuildLevel": 93,
       "GuildID": 183,
       "NexusProgress": 1,
-      "StudyProgress": 10,
-      "TotalCodexCost": 2475
+      "StudyProgress": 15,
+      "TotalCodexCost": 3600
     },
     {
       "GuildName": "The First Ones",
@@ -268,8 +268,8 @@
       "GuildName": "Lighthouse Reborn",
       "NexusLevel": 137,
       "StudyLevel": 166,
-      "TotalUpgrades": 677,
-      "GuildLevel": 75,
+      "TotalUpgrades": 678,
+      "GuildLevel": 76,
       "GuildID": 65,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 14498,
-    "formatted_dust": "340.47T",
-    "formatted_price": "23.48B"
+    "total_codex": 16541,
+    "formatted_dust": "386.85T",
+    "formatted_price": "23.39B"
   },
-  "lastUpdated": "2025-08-30T08:16:37.120894+00:00",
+  "lastUpdated": "2025-08-30T09:12:55.441821+00:00",
   "baselineDate": "2025-08-30",
   "baselineCreatedAt": "2025-08-30T00:52:51.472593+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 13,
-    "total_codex_used": 14498,
+    "guilds_with_progress": 14,
+    "total_codex_used": 16541,
     "baseline_date": "2025-08-30"
   }
 }
