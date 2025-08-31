@@ -79,14 +79,14 @@
     },
     {
       "GuildName": "The First Ones",
-      "NexusLevel": 302,
+      "NexusLevel": 304,
       "StudyLevel": 220,
-      "TotalUpgrades": 1052,
+      "TotalUpgrades": 1057,
       "GuildLevel": 101,
       "GuildID": 112,
-      "NexusProgress": 0,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 607
     },
     {
       "GuildName": "Codex",
@@ -213,7 +213,7 @@
       "GuildName": "Ewbies",
       "NexusLevel": 200,
       "StudyLevel": 212,
-      "TotalUpgrades": 830,
+      "TotalUpgrades": 831,
       "GuildLevel": 71,
       "GuildID": 4,
       "NexusProgress": 0,
@@ -245,24 +245,24 @@
     {
       "GuildName": "Cats",
       "NexusLevel": 162,
-      "StudyLevel": 136,
-      "TotalUpgrades": 441,
-      "GuildLevel": 43,
+      "StudyLevel": 139,
+      "TotalUpgrades": 444,
+      "GuildLevel": 44,
       "GuildID": 55,
       "NexusProgress": 1,
-      "StudyProgress": 2,
-      "TotalCodexCost": 433
+      "StudyProgress": 5,
+      "TotalCodexCost": 847
     },
     {
       "GuildName": "Lighthouse Reborn",
-      "NexusLevel": 147,
+      "NexusLevel": 148,
       "StudyLevel": 169,
-      "TotalUpgrades": 696,
+      "TotalUpgrades": 697,
       "GuildLevel": 78,
       "GuildID": 65,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 0,
-      "TotalCodexCost": 147
+      "TotalCodexCost": 295
     },
     {
       "GuildName": "MooseKnuckles",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 32171,
-    "formatted_dust": "786.44T",
-    "formatted_price": "24.45B"
+    "total_codex": 33340,
+    "formatted_dust": "815.38T",
+    "formatted_price": "24.46B"
   },
-  "lastUpdated": "2025-08-31T10:13:00.946506+00:00",
+  "lastUpdated": "2025-08-31T11:10:38.058567+00:00",
   "baselineDate": "2025-08-31",
   "baselineCreatedAt": "2025-08-31T00:59:27.025560+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 25,
-    "total_codex_used": 32171,
+    "guilds_with_progress": 26,
+    "total_codex_used": 33340,
     "baseline_date": "2025-08-31"
   }
 }
