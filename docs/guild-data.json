@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 560,
-      "StudyLevel": 473,
-      "TotalUpgrades": 1774,
+      "StudyLevel": 462,
+      "TotalUpgrades": 1775,
       "GuildLevel": 154,
       "GuildID": 5,
       "NexusProgress": 7,
-      "StudyProgress": 18,
-      "TotalCodexCost": 12260
+      "StudyProgress": 7,
+      "TotalCodexCost": 7112
     },
     {
       "GuildName": "Divinity",
@@ -25,13 +25,13 @@
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 500,
-      "StudyLevel": 406,
-      "TotalUpgrades": 1665,
-      "GuildLevel": 147,
+      "StudyLevel": 408,
+      "TotalUpgrades": 1667,
+      "GuildLevel": 148,
       "GuildID": 19,
       "NexusProgress": 0,
-      "StudyProgress": 25,
-      "TotalCodexCost": 9850
+      "StudyProgress": 27,
+      "TotalCodexCost": 10665
     },
     {
       "GuildName": "RNG",
@@ -90,14 +90,14 @@
     },
     {
       "GuildName": "Codex",
-      "NexusLevel": 298,
+      "NexusLevel": 302,
       "StudyLevel": 302,
-      "TotalUpgrades": 1072,
+      "TotalUpgrades": 1077,
       "GuildLevel": 98,
       "GuildID": 59,
-      "NexusProgress": 4,
+      "NexusProgress": 8,
       "StudyProgress": 2,
-      "TotalCodexCost": 1789
+      "TotalCodexCost": 2991
     },
     {
       "GuildName": "Racc City",
@@ -124,13 +124,13 @@
     {
       "GuildName": "Dino Nuggies",
       "NexusLevel": 250,
-      "StudyLevel": 197,
-      "TotalUpgrades": 934,
+      "StudyLevel": 198,
+      "TotalUpgrades": 938,
       "GuildLevel": 71,
       "GuildID": 122,
       "NexusProgress": 3,
-      "StudyProgress": 5,
-      "TotalCodexCost": 1722
+      "StudyProgress": 6,
+      "TotalCodexCost": 1920
     },
     {
       "GuildName": "Minimal Effort",
@@ -323,7 +323,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 0,
       "StudyLevel": 252,
-      "TotalUpgrades": 1060,
+      "TotalUpgrades": 1062,
       "GuildLevel": 95,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 61697,
-    "formatted_dust": "1532.97T",
-    "formatted_price": "24.85B"
+    "total_codex": 58764,
+    "formatted_dust": "1463.18T",
+    "formatted_price": "24.90B"
   },
-  "lastUpdated": "2025-08-31T17:10:57.350412+00:00",
+  "lastUpdated": "2025-08-31T18:17:47.010564+00:00",
   "baselineDate": "2025-08-31",
   "baselineCreatedAt": "2025-08-31T00:59:27.025560+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 27,
-    "total_codex_used": 61697,
+    "total_codex_used": 58764,
     "baseline_date": "2025-08-31"
   }
 }
