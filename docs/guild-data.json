@@ -14,24 +14,24 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 548,
-      "StudyLevel": 453,
-      "TotalUpgrades": 1799,
+      "StudyLevel": 455,
+      "TotalUpgrades": 1801,
       "GuildLevel": 153,
       "GuildID": 25,
       "NexusProgress": 12,
-      "StudyProgress": 10,
-      "TotalCodexCost": 10995
+      "StudyProgress": 12,
+      "TotalCodexCost": 11904
     },
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 500,
-      "StudyLevel": 412,
-      "TotalUpgrades": 1671,
-      "GuildLevel": 148,
+      "StudyLevel": 417,
+      "TotalUpgrades": 1676,
+      "GuildLevel": 149,
       "GuildID": 19,
       "NexusProgress": 0,
-      "StudyProgress": 31,
-      "TotalCodexCost": 12307
+      "StudyProgress": 36,
+      "TotalCodexCost": 14382
     },
     {
       "GuildName": "RNG",
@@ -68,14 +68,14 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 313,
-      "StudyLevel": 313,
-      "TotalUpgrades": 1102,
+      "NexusLevel": 314,
+      "StudyLevel": 314,
+      "TotalUpgrades": 1104,
       "GuildLevel": 68,
       "GuildID": 14,
-      "NexusProgress": 3,
-      "StudyProgress": 2,
-      "TotalCodexCost": 1561
+      "NexusProgress": 4,
+      "StudyProgress": 3,
+      "TotalCodexCost": 2189
     },
     {
       "GuildName": "The First Ones",
@@ -90,14 +90,14 @@
     },
     {
       "GuildName": "Codex",
-      "NexusLevel": 302,
+      "NexusLevel": 303,
       "StudyLevel": 302,
-      "TotalUpgrades": 1077,
+      "TotalUpgrades": 1082,
       "GuildLevel": 98,
       "GuildID": 59,
-      "NexusProgress": 8,
+      "NexusProgress": 9,
       "StudyProgress": 2,
-      "TotalCodexCost": 2991
+      "TotalCodexCost": 3294
     },
     {
       "GuildName": "Racc City",
@@ -113,24 +113,24 @@
     {
       "GuildName": "Fight Club",
       "NexusLevel": 275,
-      "StudyLevel": 230,
-      "TotalUpgrades": 916,
-      "GuildLevel": 83,
+      "StudyLevel": 234,
+      "TotalUpgrades": 920,
+      "GuildLevel": 84,
       "GuildID": 10,
       "NexusProgress": 4,
-      "StudyProgress": 8,
-      "TotalCodexCost": 2906
+      "StudyProgress": 12,
+      "TotalCodexCost": 3836
     },
     {
       "GuildName": "Dino Nuggies",
       "NexusLevel": 250,
-      "StudyLevel": 203,
-      "TotalUpgrades": 947,
+      "StudyLevel": 205,
+      "TotalUpgrades": 952,
       "GuildLevel": 71,
       "GuildID": 122,
       "NexusProgress": 3,
-      "StudyProgress": 11,
-      "TotalCodexCost": 2925
+      "StudyProgress": 13,
+      "TotalCodexCost": 3334
     },
     {
       "GuildName": "Minimal Effort",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 68101,
-    "formatted_dust": "1700.88T",
-    "formatted_price": "24.98B"
+    "total_codex": 73355,
+    "formatted_dust": "1837.68T",
+    "formatted_price": "25.05B"
   },
-  "lastUpdated": "2025-08-31T20:14:05.148213+00:00",
+  "lastUpdated": "2025-08-31T21:11:49.455436+00:00",
   "baselineDate": "2025-08-31",
   "baselineCreatedAt": "2025-08-31T00:59:27.025560+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 27,
-    "total_codex_used": 68101,
+    "total_codex_used": 73355,
     "baseline_date": "2025-08-31"
   }
 }
