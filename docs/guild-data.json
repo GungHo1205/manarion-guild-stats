@@ -3,13 +3,13 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 560,
-      "StudyLevel": 462,
-      "TotalUpgrades": 1775,
+      "StudyLevel": 463,
+      "TotalUpgrades": 1776,
       "GuildLevel": 154,
       "GuildID": 5,
       "NexusProgress": 7,
-      "StudyProgress": 7,
-      "TotalCodexCost": 7112
+      "StudyProgress": 8,
+      "TotalCodexCost": 7575
     },
     {
       "GuildName": "Divinity",
@@ -25,13 +25,13 @@
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 500,
-      "StudyLevel": 408,
-      "TotalUpgrades": 1667,
+      "StudyLevel": 411,
+      "TotalUpgrades": 1670,
       "GuildLevel": 148,
       "GuildID": 19,
       "NexusProgress": 0,
-      "StudyProgress": 27,
-      "TotalCodexCost": 10665
+      "StudyProgress": 30,
+      "TotalCodexCost": 11895
     },
     {
       "GuildName": "RNG",
@@ -101,14 +101,14 @@
     },
     {
       "GuildName": "Racc City",
-      "NexusLevel": 278,
+      "NexusLevel": 280,
       "StudyLevel": 200,
-      "TotalUpgrades": 992,
+      "TotalUpgrades": 994,
       "GuildLevel": 79,
       "GuildID": 9,
-      "NexusProgress": 2,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 555
+      "TotalCodexCost": 1114
     },
     {
       "GuildName": "Fight Club",
@@ -124,13 +124,13 @@
     {
       "GuildName": "Dino Nuggies",
       "NexusLevel": 250,
-      "StudyLevel": 198,
-      "TotalUpgrades": 938,
+      "StudyLevel": 202,
+      "TotalUpgrades": 946,
       "GuildLevel": 71,
       "GuildID": 122,
       "NexusProgress": 3,
-      "StudyProgress": 6,
-      "TotalCodexCost": 1920
+      "StudyProgress": 10,
+      "TotalCodexCost": 2722
     },
     {
       "GuildName": "Minimal Effort",
@@ -245,13 +245,13 @@
     {
       "GuildName": "Cats",
       "NexusLevel": 162,
-      "StudyLevel": 140,
-      "TotalUpgrades": 445,
+      "StudyLevel": 141,
+      "TotalUpgrades": 446,
       "GuildLevel": 44,
       "GuildID": 55,
       "NexusProgress": 1,
-      "StudyProgress": 6,
-      "TotalCodexCost": 987
+      "StudyProgress": 7,
+      "TotalCodexCost": 1128
     },
     {
       "GuildName": "Lighthouse Reborn",
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 58764,
-    "formatted_dust": "1463.18T",
-    "formatted_price": "24.90B"
+    "total_codex": 61959,
+    "formatted_dust": "1544.84T",
+    "formatted_price": "24.93B"
   },
-  "lastUpdated": "2025-08-31T18:17:47.010564+00:00",
+  "lastUpdated": "2025-08-31T19:10:17.241708+00:00",
   "baselineDate": "2025-08-31",
   "baselineCreatedAt": "2025-08-31T00:59:27.025560+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 27,
-    "total_codex_used": 58764,
+    "total_codex_used": 61959,
     "baseline_date": "2025-08-31"
   }
 }
