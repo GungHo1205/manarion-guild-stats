@@ -3,24 +3,24 @@
     {
       "GuildName": "Spaghetti and Meatballs",
       "NexusLevel": 555,
-      "StudyLevel": 456,
-      "TotalUpgrades": 1758,
+      "StudyLevel": 459,
+      "TotalUpgrades": 1761,
       "GuildLevel": 152,
       "GuildID": 5,
       "NexusProgress": 2,
-      "StudyProgress": 1,
-      "TotalCodexCost": 1565
+      "StudyProgress": 4,
+      "TotalCodexCost": 2939
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 536,
+      "NexusLevel": 542,
       "StudyLevel": 443,
-      "TotalUpgrades": 1770,
+      "TotalUpgrades": 1777,
       "GuildLevel": 151,
       "GuildID": 25,
-      "NexusProgress": 0,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "TotalCodexCost": 3237
     },
     {
       "GuildName": "Sanctuary",
@@ -82,7 +82,7 @@
       "NexusLevel": 302,
       "StudyLevel": 220,
       "TotalUpgrades": 1052,
-      "GuildLevel": 100,
+      "GuildLevel": 101,
       "GuildID": 112,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -235,7 +235,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 174,
       "StudyLevel": 184,
-      "TotalUpgrades": 820,
+      "TotalUpgrades": 821,
       "GuildLevel": 72,
       "GuildID": 54,
       "NexusProgress": 2,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 10868,
-    "formatted_dust": "264.22T",
-    "formatted_price": "24.31B"
+    "total_codex": 15479,
+    "formatted_dust": "377.30T",
+    "formatted_price": "24.37B"
   },
-  "lastUpdated": "2025-08-31T04:16:20.745575+00:00",
+  "lastUpdated": "2025-08-31T05:12:59.349987+00:00",
   "baselineDate": "2025-08-31",
   "baselineCreatedAt": "2025-08-31T00:59:27.025560+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 15,
-    "total_codex_used": 10868,
+    "guilds_with_progress": 16,
+    "total_codex_used": 15479,
     "baseline_date": "2025-08-31"
   }
 }
