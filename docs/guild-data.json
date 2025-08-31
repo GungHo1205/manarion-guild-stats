@@ -14,13 +14,13 @@
     {
       "GuildName": "Divinity",
       "NexusLevel": 543,
-      "StudyLevel": 446,
-      "TotalUpgrades": 1787,
+      "StudyLevel": 447,
+      "TotalUpgrades": 1788,
       "GuildLevel": 151,
       "GuildID": 25,
       "NexusProgress": 7,
-      "StudyProgress": 3,
-      "TotalCodexCost": 5115
+      "StudyProgress": 4,
+      "TotalCodexCost": 5562
     },
     {
       "GuildName": "Sanctuary",
@@ -46,14 +46,14 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 452,
-      "StudyLevel": 333,
-      "TotalUpgrades": 1399,
+      "NexusLevel": 454,
+      "StudyLevel": 335,
+      "TotalUpgrades": 1413,
       "GuildLevel": 118,
       "GuildID": 8,
-      "NexusProgress": 0,
-      "StudyProgress": 0,
-      "TotalCodexCost": 0
+      "NexusProgress": 2,
+      "StudyProgress": 2,
+      "TotalCodexCost": 1576
     },
     {
       "GuildName": "EZ ",
@@ -90,14 +90,14 @@
     },
     {
       "GuildName": "Codex",
-      "NexusLevel": 297,
+      "NexusLevel": 298,
       "StudyLevel": 302,
-      "TotalUpgrades": 1071,
+      "TotalUpgrades": 1072,
       "GuildLevel": 97,
       "GuildID": 59,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 2,
-      "TotalCodexCost": 1491
+      "TotalCodexCost": 1789
     },
     {
       "GuildName": "Racc City",
@@ -179,13 +179,13 @@
     {
       "GuildName": "Imperium",
       "NexusLevel": 228,
-      "StudyLevel": 250,
-      "TotalUpgrades": 911,
+      "StudyLevel": 253,
+      "TotalUpgrades": 915,
       "GuildLevel": 97,
       "GuildID": 15,
       "NexusProgress": 0,
-      "StudyProgress": 1,
-      "TotalCodexCost": 250
+      "StudyProgress": 4,
+      "TotalCodexCost": 1006
     },
     {
       "GuildName": "Osmanthus",
@@ -277,14 +277,14 @@
     },
     {
       "GuildName": "asylum",
-      "NexusLevel": 126,
+      "NexusLevel": 127,
       "StudyLevel": 80,
-      "TotalUpgrades": 536,
+      "TotalUpgrades": 543,
       "GuildLevel": 60,
       "GuildID": 130,
-      "NexusProgress": 0,
+      "NexusProgress": 1,
       "StudyProgress": 1,
-      "TotalCodexCost": 80
+      "TotalCodexCost": 207
     },
     {
       "GuildName": "Rainbow",
@@ -322,21 +322,21 @@
     {
       "GuildName": "Doomed",
       "NexusLevel": 0,
-      "StudyLevel": 248,
-      "TotalUpgrades": 1054,
+      "StudyLevel": 250,
+      "TotalUpgrades": 1056,
       "GuildLevel": 94,
       "GuildID": 183,
       "NexusProgress": 0,
-      "StudyProgress": 3,
-      "TotalCodexCost": 741
+      "StudyProgress": 5,
+      "TotalCodexCost": 1240
     }
   ],
   "dustSpending": {
-    "total_codex": 28468,
-    "formatted_dust": "696.06T",
+    "total_codex": 32171,
+    "formatted_dust": "786.44T",
     "formatted_price": "24.45B"
   },
-  "lastUpdated": "2025-08-31T09:12:36.736151+00:00",
+  "lastUpdated": "2025-08-31T10:13:00.946506+00:00",
   "baselineDate": "2025-08-31",
   "baselineCreatedAt": "2025-08-31T00:59:27.025560+00:00",
   "dataFreshness": {
@@ -345,8 +345,8 @@
   },
   "levelTrackingStats": {
     "guilds_tracked": 30,
-    "guilds_with_progress": 24,
-    "total_codex_used": 28468,
+    "guilds_with_progress": 25,
+    "total_codex_used": 32171,
     "baseline_date": "2025-08-31"
   }
 }
