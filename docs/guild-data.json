@@ -13,25 +13,25 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 543,
-      "StudyLevel": 452,
-      "TotalUpgrades": 1793,
+      "NexusLevel": 544,
+      "StudyLevel": 453,
+      "TotalUpgrades": 1795,
       "GuildLevel": 152,
       "GuildID": 25,
-      "NexusProgress": 7,
-      "StudyProgress": 9,
-      "TotalCodexCost": 7812
+      "NexusProgress": 8,
+      "StudyProgress": 10,
+      "TotalCodexCost": 8809
     },
     {
       "GuildName": "Sanctuary",
       "NexusLevel": 500,
-      "StudyLevel": 402,
-      "TotalUpgrades": 1661,
+      "StudyLevel": 405,
+      "TotalUpgrades": 1664,
       "GuildLevel": 147,
       "GuildID": 19,
       "NexusProgress": 0,
-      "StudyProgress": 21,
-      "TotalCodexCost": 8232
+      "StudyProgress": 24,
+      "TotalCodexCost": 9444
     },
     {
       "GuildName": "RNG",
@@ -46,25 +46,25 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 455,
+      "NexusLevel": 456,
       "StudyLevel": 336,
-      "TotalUpgrades": 1415,
+      "TotalUpgrades": 1416,
       "GuildLevel": 118,
       "GuildID": 8,
-      "NexusProgress": 3,
+      "NexusProgress": 4,
       "StudyProgress": 3,
-      "TotalCodexCost": 2367
+      "TotalCodexCost": 2823
     },
     {
       "GuildName": "EZ ",
-      "NexusLevel": 334,
+      "NexusLevel": 335,
       "StudyLevel": 271,
-      "TotalUpgrades": 1050,
-      "GuildLevel": 99,
+      "TotalUpgrades": 1051,
+      "GuildLevel": 100,
       "GuildID": 2,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 3,
-      "TotalCodexCost": 1477
+      "TotalCodexCost": 1812
     },
     {
       "GuildName": "Test Guild Please Ignore",
@@ -81,7 +81,7 @@
       "GuildName": "The First Ones",
       "NexusLevel": 305,
       "StudyLevel": 220,
-      "TotalUpgrades": 1059,
+      "TotalUpgrades": 1062,
       "GuildLevel": 101,
       "GuildID": 112,
       "NexusProgress": 3,
@@ -146,13 +146,13 @@
     {
       "GuildName": "Caliburnus",
       "NexusLevel": 234,
-      "StudyLevel": 197,
-      "TotalUpgrades": 802,
+      "StudyLevel": 198,
+      "TotalUpgrades": 803,
       "GuildLevel": 68,
       "GuildID": 42,
       "NexusProgress": 0,
-      "StudyProgress": 2,
-      "TotalCodexCost": 393
+      "StudyProgress": 3,
+      "TotalCodexCost": 591
     },
     {
       "GuildName": "Second Wind",
@@ -213,7 +213,7 @@
       "GuildName": "Ewbies",
       "NexusLevel": 200,
       "StudyLevel": 212,
-      "TotalUpgrades": 831,
+      "TotalUpgrades": 840,
       "GuildLevel": 72,
       "GuildID": 4,
       "NexusProgress": 0,
@@ -279,7 +279,7 @@
       "GuildName": "asylum",
       "NexusLevel": 127,
       "StudyLevel": 80,
-      "TotalUpgrades": 543,
+      "TotalUpgrades": 544,
       "GuildLevel": 60,
       "GuildID": 130,
       "NexusProgress": 1,
@@ -323,7 +323,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 0,
       "StudyLevel": 252,
-      "TotalUpgrades": 1059,
+      "TotalUpgrades": 1060,
       "GuildLevel": 95,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 49015,
-    "formatted_dust": "1209.14T",
-    "formatted_price": "24.67B"
+    "total_codex": 52213,
+    "formatted_dust": "1292.30T",
+    "formatted_price": "24.75B"
   },
-  "lastUpdated": "2025-08-31T14:11:40.360343+00:00",
+  "lastUpdated": "2025-08-31T15:12:35.229278+00:00",
   "baselineDate": "2025-08-31",
   "baselineCreatedAt": "2025-08-31T00:59:27.025560+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 27,
-    "total_codex_used": 49015,
+    "total_codex_used": 52213,
     "baseline_date": "2025-08-31"
   }
 }
