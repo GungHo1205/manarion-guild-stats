@@ -2,14 +2,14 @@
   "guilds": [
     {
       "GuildName": "Spaghetti and Meatballs",
-      "NexusLevel": 565,
+      "NexusLevel": 566,
       "StudyLevel": 482,
-      "TotalUpgrades": 1798,
+      "TotalUpgrades": 1799,
       "GuildLevel": 156,
       "GuildID": 5,
-      "NexusProgress": 2,
+      "NexusProgress": 3,
       "StudyProgress": 5,
-      "TotalCodexCost": 3529
+      "TotalCodexCost": 4095
     },
     {
       "GuildName": "Divinity",
@@ -24,14 +24,14 @@
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 513,
+      "NexusLevel": 514,
       "StudyLevel": 425,
-      "TotalUpgrades": 1701,
-      "GuildLevel": 154,
+      "TotalUpgrades": 1702,
+      "GuildLevel": 155,
       "GuildID": 19,
-      "NexusProgress": 13,
+      "NexusProgress": 14,
       "StudyProgress": 3,
-      "TotalCodexCost": 7863
+      "TotalCodexCost": 8377
     },
     {
       "GuildName": "RNG",
@@ -46,14 +46,14 @@
     },
     {
       "GuildName": "Phoenix",
-      "NexusLevel": 459,
+      "NexusLevel": 460,
       "StudyLevel": 340,
-      "TotalUpgrades": 1439,
+      "TotalUpgrades": 1440,
       "GuildLevel": 120,
       "GuildID": 8,
-      "NexusProgress": 1,
+      "NexusProgress": 2,
       "StudyProgress": 1,
-      "TotalCodexCost": 799
+      "TotalCodexCost": 1259
     },
     {
       "GuildName": "EZ ",
@@ -255,14 +255,14 @@
     },
     {
       "GuildName": "Lighthouse Reborn",
-      "NexusLevel": 153,
+      "NexusLevel": 155,
       "StudyLevel": 169,
-      "TotalUpgrades": 702,
+      "TotalUpgrades": 704,
       "GuildLevel": 79,
       "GuildID": 65,
-      "NexusProgress": 2,
+      "NexusProgress": 4,
       "StudyProgress": 0,
-      "TotalCodexCost": 305
+      "TotalCodexCost": 614
     },
     {
       "GuildName": "MooseKnuckles",
@@ -324,7 +324,7 @@
       "NexusLevel": 0,
       "StudyLevel": 252,
       "TotalUpgrades": 1072,
-      "GuildLevel": 96,
+      "GuildLevel": 97,
       "GuildID": 183,
       "NexusProgress": 0,
       "StudyProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 30722,
-    "formatted_dust": "782.39T",
-    "formatted_price": "25.47B"
+    "total_codex": 32571,
+    "formatted_dust": "829.19T",
+    "formatted_price": "25.46B"
   },
-  "lastUpdated": "2025-09-01T13:24:56.781396+00:00",
+  "lastUpdated": "2025-09-01T14:13:40.580410+00:00",
   "baselineDate": "2025-09-01",
   "baselineCreatedAt": "2025-09-01T01:05:44.179711+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 23,
-    "total_codex_used": 30722,
+    "total_codex_used": 32571,
     "baseline_date": "2025-09-01"
   }
 }
