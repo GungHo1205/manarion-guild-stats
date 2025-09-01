@@ -35,27 +35,18 @@ jobs:
         run: python guild-stats.py
 
       - name: Commit and push changes
+- name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git pull origin ${{ github.ref_name }}
 
-          # Add all relevant data files
-          git add docs/guild-data.json
-
-          # Add historical data file (combines guild history and market prices)
-          if [ -f "docs/historical-data.json" ]; then
-            git add docs/historical-data.json
-          fi
-
-          # Only add baseline file if it exists
-          if [ -f "docs/daily-baseline.json" ]; then
-            git add docs/daily-baseline.json
-          fi
+          # Add the database file
+          git add docs/guild-stats.db
 
           # Check if there are any changes to commit
           if ! git diff --staged --quiet; then
-            git commit -m "Update guild stats data - $(date)"
+            git commit -m "Update guild stats database - $(date)"
             
             # Push with retry logic
             for i in {1..3}; do
