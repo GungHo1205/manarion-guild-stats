@@ -13,25 +13,25 @@
     },
     {
       "GuildName": "Divinity",
-      "NexusLevel": 559,
+      "NexusLevel": 560,
       "StudyLevel": 455,
-      "TotalUpgrades": 1817,
+      "TotalUpgrades": 1818,
       "GuildLevel": 155,
       "GuildID": 25,
-      "NexusProgress": 11,
+      "NexusProgress": 12,
       "StudyProgress": 0,
-      "TotalCodexCost": 6094
+      "TotalCodexCost": 6654
     },
     {
       "GuildName": "Sanctuary",
-      "NexusLevel": 514,
+      "NexusLevel": 516,
       "StudyLevel": 425,
-      "TotalUpgrades": 1702,
+      "TotalUpgrades": 1704,
       "GuildLevel": 155,
       "GuildID": 19,
-      "NexusProgress": 14,
+      "NexusProgress": 16,
       "StudyProgress": 3,
-      "TotalCodexCost": 8377
+      "TotalCodexCost": 9408
     },
     {
       "GuildName": "RNG",
@@ -59,7 +59,7 @@
       "GuildName": "EZ ",
       "NexusLevel": 339,
       "StudyLevel": 277,
-      "TotalUpgrades": 1070,
+      "TotalUpgrades": 1071,
       "GuildLevel": 101,
       "GuildID": 2,
       "NexusProgress": 3,
@@ -68,14 +68,14 @@
     },
     {
       "GuildName": "Test Guild Please Ignore",
-      "NexusLevel": 316,
-      "StudyLevel": 317,
-      "TotalUpgrades": 1111,
+      "NexusLevel": 317,
+      "StudyLevel": 318,
+      "TotalUpgrades": 1113,
       "GuildLevel": 68,
       "GuildID": 14,
-      "NexusProgress": 1,
-      "StudyProgress": 3,
-      "TotalCodexCost": 1264
+      "NexusProgress": 2,
+      "StudyProgress": 4,
+      "TotalCodexCost": 1899
     },
     {
       "GuildName": "The First Ones",
@@ -124,13 +124,13 @@
     {
       "GuildName": "Dino Nuggies",
       "NexusLevel": 250,
-      "StudyLevel": 210,
-      "TotalUpgrades": 961,
+      "StudyLevel": 212,
+      "TotalUpgrades": 980,
       "GuildLevel": 72,
       "GuildID": 122,
       "NexusProgress": 0,
-      "StudyProgress": 3,
-      "TotalCodexCost": 627
+      "StudyProgress": 5,
+      "TotalCodexCost": 1050
     },
     {
       "GuildName": "Minimal Effort",
@@ -179,24 +179,24 @@
     {
       "GuildName": "Imperium",
       "NexusLevel": 229,
-      "StudyLevel": 256,
-      "TotalUpgrades": 925,
+      "StudyLevel": 258,
+      "TotalUpgrades": 929,
       "GuildLevel": 98,
       "GuildID": 15,
       "NexusProgress": 0,
-      "StudyProgress": 2,
-      "TotalCodexCost": 511
+      "StudyProgress": 4,
+      "TotalCodexCost": 1026
     },
     {
       "GuildName": "Osmanthus",
-      "NexusLevel": 220,
+      "NexusLevel": 221,
       "StudyLevel": 185,
-      "TotalUpgrades": 833,
+      "TotalUpgrades": 835,
       "GuildLevel": 88,
       "GuildID": 21,
-      "NexusProgress": 5,
+      "NexusProgress": 6,
       "StudyProgress": 0,
-      "TotalCodexCost": 1090
+      "TotalCodexCost": 1311
     },
     {
       "GuildName": "BASED",
@@ -224,7 +224,7 @@
       "GuildName": "Ewbies",
       "NexusLevel": 200,
       "StudyLevel": 212,
-      "TotalUpgrades": 848,
+      "TotalUpgrades": 851,
       "GuildLevel": 73,
       "GuildID": 4,
       "NexusProgress": 0,
@@ -235,7 +235,7 @@
       "GuildName": "Manarion Adventures",
       "NexusLevel": 177,
       "StudyLevel": 177,
-      "TotalUpgrades": 834,
+      "TotalUpgrades": 835,
       "GuildLevel": 73,
       "GuildID": 54,
       "NexusProgress": 3,
@@ -323,7 +323,7 @@
       "GuildName": "Doomed",
       "NexusLevel": 0,
       "StudyLevel": 252,
-      "TotalUpgrades": 1072,
+      "TotalUpgrades": 1073,
       "GuildLevel": 97,
       "GuildID": 183,
       "NexusProgress": 0,
@@ -332,11 +332,11 @@
     }
   ],
   "dustSpending": {
-    "total_codex": 32571,
-    "formatted_dust": "829.19T",
-    "formatted_price": "25.46B"
+    "total_codex": 35956,
+    "formatted_dust": "912.55T",
+    "formatted_price": "25.38B"
   },
-  "lastUpdated": "2025-09-01T14:13:40.580410+00:00",
+  "lastUpdated": "2025-09-01T15:13:54.525105+00:00",
   "baselineDate": "2025-09-01",
   "baselineCreatedAt": "2025-09-01T01:05:44.179711+00:00",
   "dataFreshness": {
@@ -346,7 +346,7 @@
   "levelTrackingStats": {
     "guilds_tracked": 30,
     "guilds_with_progress": 23,
-    "total_codex_used": 32571,
+    "total_codex_used": 35956,
     "baseline_date": "2025-09-01"
   }
 }
