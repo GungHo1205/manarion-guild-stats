@@ -6,6 +6,16 @@
     <title>Guild Stats Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    \
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+    <script>
+      // Required to find the wasm file
+      const config = {
+        locateFile: (filename) =>
+          `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/${filename}`,
+      };
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -1117,14 +1127,12 @@
     <script>
       // Global State
       let allGuildsData = [];
-      let historicalData = {};
+      let db; // The in-browser database instance
       let guildNexusChart, guildStudyChart, marketPriceChart, predictionChart;
       let dataLoaded = false;
       let favoriteGuilds = JSON.parse(
         localStorage.getItem("favoriteGuilds") || "[]"
       );
-
-      // API Configuration
       const API_BASE_URL = "http://localhost:8000/api";
       let apiAvailable = false;
 
@@ -1141,77 +1149,69 @@
         "#c084fc",
       ];
 
-      // Check if API is available
-      async function checkApiAvailability() {
+      // --- NEW: Database Initialization ---
+      async function initializeDatabase() {
         try {
-          const response = await fetch(`${API_BASE_URL}/guild-data`);
-          apiAvailable = response.ok;
-          if (!apiAvailable) {
-            document.getElementById("apiNotice").style.display = "block";
-          }
-          return apiAvailable;
+          const SQL = await initSqlJs(config);
+          const dbFile = await fetch(
+            `./guild-stats.db?v=${new Date().getTime()}`
+          );
+          const dbBuffer = await dbFile.arrayBuffer();
+          db = new SQL.Database(new Uint8Array(dbBuffer));
+          console.log("Database loaded successfully.");
+          return true;
         } catch (error) {
-          console.log("API not available, will try JSON fallback");
-          document.getElementById("apiNotice").style.display = "block";
+          console.error("Failed to initialize database:", error);
+          document.getElementById("loading").textContent =
+            "Failed to load database. Please refresh.";
+          document.getElementById("error").style.display = "block";
           return false;
         }
       }
 
-      // API or JSON fetch wrapper
-      async function fetchData(endpoint, fallbackFile = null) {
-        if (apiAvailable) {
-          try {
-            const response = await fetch(`${API_BASE_URL}/${endpoint}`);
-            if (response.ok) {
-              return await response.json();
-            }
-          } catch (error) {
-            console.error(`API fetch failed for ${endpoint}:`, error);
-          }
-        }
-
-        // Fallback to JSON files
-        if (fallbackFile) {
-          try {
-            const response = await fetch(
-              `${fallbackFile}?v=${new Date().getTime()}`
-            );
-            if (response.ok) {
-              return await response.json();
-            }
-          } catch (error) {
-            console.error(`JSON fallback failed for ${fallbackFile}:`, error);
-          }
-        }
-
-        throw new Error(`Failed to fetch data from both API and JSON fallback`);
-      }
-
       // Initialization
       document.addEventListener("DOMContentLoaded", async () => {
-        await checkApiAvailability();
-        loadAllData();
-        setupEventListeners();
+        document.getElementById("apiNotice").style.display = "none"; // Hide API notice
+        const dbReady = await initializeDatabase();
+        if (dbReady) {
+          loadAllData();
+          setupEventListeners();
+        }
       });
 
       async function loadAllData() {
         try {
-          const [dailyBaseline, guildData, historicalDataRes] =
-            await Promise.all([
-              fetchData("daily-baseline", "./daily-baseline.json"),
-              fetchData("guild-data", "./guild-data.json"),
-              fetchData("historical-data?hours=720", "./historical-data.json"),
-            ]);
+          // --- MODIFIED: Fetch latest data using SQL ---
+          const latestSnapshotQuery = `
+            SELECT * FROM (
+                SELECT *, ROW_NUMBER() OVER(PARTITION BY guild_name ORDER BY timestamp DESC) as rn
+                FROM guild_snapshots
+            ) WHERE rn = 1;
+          `;
+          const latestGuildsResult = db.exec(latestSnapshotQuery);
 
-          allGuildsData = guildData.guilds || [];
-          updateDashboard(dailyBaseline, guildData);
+          if (!latestGuildsResult || latestGuildsResult.length === 0) {
+            throw new Error("No guild data found in the database.");
+          }
+
+          const columns = latestGuildsResult[0].columns;
+          allGuildsData = latestGuildsResult[0].values.map((row) => {
+            let guild = {};
+            columns.forEach((col, i) => {
+              guild[col] = row[i];
+            });
+            // Match original JSON structure for compatibility
+            guild.GuildName = guild.guild_name;
+            guild.NexusLevel = guild.nexus_level;
+            guild.StudyLevel = guild.study_level;
+            guild.NexusProgress = guild.nexus_progress;
+            guild.StudyProgress = guild.study_progress;
+            guild.TotalCodexCost = guild.codex_cost;
+            return guild;
+          });
+
+          updateDashboard();
           renderGuilds();
-
-          historicalData = historicalDataRes || {
-            guild_history: {},
-            item_prices: {},
-            item_categories: {},
-          };
           populateGuildSelectors();
           populateItemSelector();
           populatePredictorItemSelector();
@@ -1229,9 +1229,12 @@
           // Load leaderboard data
           updateLeaderboard("codex");
         } catch (error) {
-          console.error("Error loading data:", error);
+          console.error("Error loading data from DB:", error);
           document.getElementById("loading").style.display = "none";
           document.getElementById("error").style.display = "block";
+          document.getElementById(
+            "error"
+          ).textContent = `Error loading data: ${error.message}`;
         }
       }
 
@@ -1242,75 +1245,52 @@
         document
           .getElementById("searchInput")
           .addEventListener("input", renderGuilds);
-
-        // Chart timespan buttons
-        document.querySelectorAll(".chart-timespan-btn").forEach((btn) => {
+        document.querySelectorAll(".chart-timespan-btn").forEach((btn) =>
           btn.addEventListener("click", (e) => {
             const chartType = e.target.dataset.chart;
-            const section = e.target.closest(".page-section").id;
-
             document
-              .querySelectorAll(`#${section} .chart-timespan-btn`)
+              .querySelectorAll(`#${chartType}-charts .chart-timespan-btn`)
               .forEach((b) => b.classList.remove("active"));
             e.target.classList.add("active");
-
-            if (chartType) {
-              updateGuildChart(chartType);
-            }
-          });
-        });
-
-        // Market timespan buttons
-        document.querySelectorAll(".market-timespan-btn").forEach((btn) => {
+            updateGuildChart(chartType);
+          })
+        );
+        document.querySelectorAll(".market-timespan-btn").forEach((btn) =>
           btn.addEventListener("click", (e) => {
             document
               .querySelectorAll(".market-timespan-btn")
               .forEach((b) => b.classList.remove("active"));
             e.target.classList.add("active");
             updateMarketChart();
-          });
-        });
-
-        // Predictor period buttons
-        document.querySelectorAll(".predictor-period-btn").forEach((btn) => {
+          })
+        );
+        document.querySelectorAll(".predictor-period-btn").forEach((btn) =>
           btn.addEventListener("click", (e) => {
             document
               .querySelectorAll(".predictor-period-btn")
               .forEach((b) => b.classList.remove("active"));
             e.target.classList.add("active");
             updatePrediction();
-          });
-        });
-
-        // Leaderboard buttons
-        document.querySelectorAll(".leaderboard-btn").forEach((btn) => {
+          })
+        );
+        document.querySelectorAll(".leaderboard-btn").forEach((btn) =>
           btn.addEventListener("click", (e) => {
             document
               .querySelectorAll(".leaderboard-btn")
               .forEach((b) => b.classList.remove("active"));
             e.target.classList.add("active");
             updateLeaderboard(e.target.dataset.type);
-          });
-        });
-
-        // Aggregation controls
+          })
+        );
         document
           .getElementById("nexusAggregation")
-          .addEventListener("change", () => {
-            updateGuildChart("nexus");
-          });
+          .addEventListener("change", () => updateGuildChart("nexus"));
         document
           .getElementById("studyAggregation")
-          .addEventListener("change", () => {
-            updateGuildChart("study");
-          });
+          .addEventListener("change", () => updateGuildChart("study"));
         document
           .getElementById("marketAggregation")
-          .addEventListener("change", () => {
-            updateMarketChart();
-          });
-
-        // Setup dropdowns
+          .addEventListener("change", () => updateMarketChart());
         setupDropdown("nexusGuildSelectorBtn", "nexusGuildSelectorList", () =>
           updateGuildChart("nexus")
         );
@@ -1319,7 +1299,6 @@
         );
         setupDropdown("itemSelectBtn", "itemSelectDropdown");
         setupDropdown("predictorItemSelectBtn", "predictorItemSelectDropdown");
-
         document
           .getElementById("itemSearchInput")
           .addEventListener("input", filterItems);
@@ -1333,7 +1312,6 @@
         const list = document.getElementById(listId);
         btn.addEventListener("click", () => {
           const isVisible = list.style.display === "block";
-          // Close all dropdowns first
           document
             .querySelectorAll(
               ".multiselect-dropdown-list, .item-select-dropdown"
@@ -1352,45 +1330,31 @@
       function handleNavigation(e) {
         e.preventDefault();
         const targetId = e.target.getAttribute("data-section");
-
-        // Update nav links
         document
           .querySelectorAll(".nav-link")
           .forEach((l) => l.classList.remove("active"));
         e.target.classList.add("active");
-
-        // Show target page, hide others
         document
           .querySelectorAll(".page-section")
           .forEach((s) => s.classList.remove("active"));
         document.getElementById(targetId).classList.add("active");
-
-        // Load charts when navigating to chart pages
         if (dataLoaded) {
-          if (targetId === "nexus-charts" && !guildNexusChart) {
+          if (targetId === "nexus-charts" && !guildNexusChart)
             setTimeout(() => updateGuildChart("nexus"), 100);
-          }
-          if (targetId === "study-charts" && !guildStudyChart) {
+          if (targetId === "study-charts" && !guildStudyChart)
             setTimeout(() => updateGuildChart("study"), 100);
-          }
-          if (targetId === "item-prices" && !marketPriceChart) {
+          if (targetId === "item-prices" && !marketPriceChart)
             setTimeout(() => updateMarketChart(), 100);
-          }
-          if (targetId === "leaderboards") {
+          if (targetId === "leaderboards")
             document.getElementById("leaderboardContent").style.display =
               "grid";
-          }
         }
       }
 
-      // Favorite Guilds Functions
       function toggleFavorite(guildName) {
         const index = favoriteGuilds.indexOf(guildName);
-        if (index > -1) {
-          favoriteGuilds.splice(index, 1);
-        } else {
-          favoriteGuilds.push(guildName);
-        }
+        if (index > -1) favoriteGuilds.splice(index, 1);
+        else favoriteGuilds.push(guildName);
         localStorage.setItem("favoriteGuilds", JSON.stringify(favoriteGuilds));
         renderGuilds();
         populateGuildSelectors();
@@ -1404,21 +1368,27 @@
         return guilds.sort((a, b) => {
           const aFav = isFavorite(a.GuildName);
           const bFav = isFavorite(b.GuildName);
-
           if (aFav && !bFav) return -1;
           if (!aFav && bFav) return 1;
-
           return (b.NexusLevel || 0) - (a.NexusLevel || 0);
         });
       }
 
-      function updateDashboard(dailyBaseline, data) {
-        const { guilds, dustSpending, lastUpdated, baselineCreatedAt } = data;
-        if (!guilds || guilds.length === 0) return;
-
+      // --- MODIFIED: Get dashboard data via SQL ---
+      function updateDashboard() {
+        if (!allGuildsData || allGuildsData.length === 0) return;
         const avg = (key) =>
-          guilds.reduce((sum, g) => sum + (g[key] || 0), 0) / guilds.length;
-        const sum = (key) => guilds.reduce((sum, g) => sum + (g[key] || 0), 0);
+          allGuildsData.reduce((sum, g) => sum + (g[key] || 0), 0) /
+          allGuildsData.length;
+        const sum = (key) =>
+          allGuildsData.reduce((sum, g) => sum + (g[key] || 0), 0);
+        const totalCodexUsed = sum("TotalCodexCost");
+
+        const codexPriceResult = db.exec(
+          "SELECT AVG(average_price) FROM market_prices WHERE item_name = 'Codex'"
+        );
+        const avgCodexPrice =
+          codexPriceResult[0]?.values[0]?.[0] || 10000000000;
 
         document.getElementById("stat-avg-nexus").textContent =
           avg("NexusLevel").toFixed(1);
@@ -1427,7 +1397,6 @@
         ).innerHTML = `<span class="daily-change positive">+${avg(
           "NexusProgress"
         ).toFixed(1)} Today</span>`;
-
         document.getElementById("stat-avg-study").textContent =
           avg("StudyLevel").toFixed(1);
         document.getElementById(
@@ -1435,49 +1404,49 @@
         ).innerHTML = `<span class="daily-change positive">+${avg(
           "StudyProgress"
         ).toFixed(1)} Today</span>`;
-
         document.getElementById("stat-levels-gained").textContent =
           sum("NexusProgress") + sum("StudyProgress");
-        document.getElementById("stat-codex-used").textContent = (
-          dustSpending.total_codex || 0
-        ).toLocaleString();
+        document.getElementById("stat-codex-used").textContent =
+          totalCodexUsed.toLocaleString();
         document.getElementById("stat-dust-spent").textContent =
-          dustSpending.formatted_dust || "0.00";
-        document.getElementById("stat-dust-spent-price").textContent = `@ ${
-          dustSpending.formatted_price || "N/A"
-        } per Codex`;
+          ((totalCodexUsed * avgCodexPrice) / 1e12).toFixed(2) + "T";
+        document.getElementById("stat-dust-spent-price").textContent = `@ ${(
+          avgCodexPrice / 1e9
+        ).toFixed(2)}B per Codex`;
 
-        const lastUpdateTime =
-          new Date(lastUpdated).toLocaleDateString("en-US", {
+        const lastUpdateResult = db.exec(
+          "SELECT timestamp FROM processing_logs ORDER BY timestamp DESC LIMIT 1"
+        );
+        const baselineResult = db.exec(
+          "SELECT created_at FROM daily_baselines ORDER BY date DESC LIMIT 1"
+        );
+        const lastUpdated = lastUpdateResult[0]?.values[0]?.[0];
+        const baselineCreatedAt = baselineResult[0]?.values[0]?.[0];
+
+        if (lastUpdated && baselineCreatedAt) {
+          const lastUpdateTime = new Date(lastUpdated).toLocaleString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric",
-          }) +
-          " at " +
-          new Date(lastUpdated).toLocaleTimeString("en-US", {
             hour: "numeric",
             minute: "2-digit",
             hour12: true,
           });
-
-        const dailyBaselineDate = baselineCreatedAt
-          ? new Date(baselineCreatedAt).toLocaleDateString("en-US", {
+          const dailyBaselineDate = new Date(baselineCreatedAt).toLocaleString(
+            "en-US",
+            {
               year: "numeric",
               month: "long",
               day: "numeric",
-            }) +
-            " at " +
-            new Date(baselineCreatedAt).toLocaleTimeString("en-US", {
               hour: "numeric",
               minute: "2-digit",
               hour12: true,
-            })
-          : "Not set";
-
-        document.getElementById("lastUpdate").innerHTML = `
-          <div>Last updated: ${lastUpdateTime}</div>
-          <div class="data-freshness">Daily baseline date: ${dailyBaselineDate}</div>
-        `;
+            }
+          );
+          document.getElementById(
+            "lastUpdate"
+          ).innerHTML = `<div>Last updated: ${lastUpdateTime}</div><div class="data-freshness">Daily baseline date: ${dailyBaselineDate}</div>`;
+        }
       }
 
       function renderGuilds() {
@@ -1488,15 +1457,12 @@
           g.GuildName.toLowerCase().includes(searchTerm)
         );
         filtered = sortGuildsByFavorite(filtered);
-
         const grid = document.getElementById("guildGrid");
-
         if (filtered.length === 0) {
           grid.innerHTML =
             "<p style='text-align: center; color: var(--text-secondary); grid-column: 1/-1;'>No guilds found.</p>";
           return;
         }
-
         grid.innerHTML = filtered
           .map(
             (g) => `
@@ -1505,31 +1471,25 @@
               <span>${g.GuildName}</span>
               <button class="favorite-btn ${
                 isFavorite(g.GuildName) ? "favorited" : ""
-              }"
-                      onclick="toggleFavorite('${g.GuildName}')"
-                      title="${
-                        isFavorite(g.GuildName)
-                          ? "Remove from favorites"
-                          : "Add to favorites"
-                      }">
+              }" onclick="toggleFavorite('${g.GuildName}')" title="${
+              isFavorite(g.GuildName)
+                ? "Remove from favorites"
+                : "Add to favorites"
+            }">
                 ${isFavorite(g.GuildName) ? "★" : "☆"}
               </button>
             </div>
             <div class="level-info">
-              <div class="level-item">
-                <div class="level-label">Nexus</div>
-                <div class="level-value">${g.NexusLevel || 0}</div>
-                <div class="daily-change positive">+${
-                  g.NexusProgress || 0
-                }</div>
-              </div>
-              <div class="level-item">
-                <div class="level-label">Study</div>
-                <div class="level-value">${g.StudyLevel || 0}</div>
-                <div class="daily-change positive">+${
-                  g.StudyProgress || 0
-                }</div>
-              </div>
+              <div class="level-item"><div class="level-label">Nexus</div><div class="level-value">${
+                g.NexusLevel || 0
+              }</div><div class="daily-change positive">+${
+              g.NexusProgress || 0
+            }</div></div>
+              <div class="level-item"><div class="level-label">Study</div><div class="level-value">${
+                g.StudyLevel || 0
+              }</div><div class="daily-change positive">+${
+              g.StudyProgress || 0
+            }</div></div>
             </div>
           </div>
         `
@@ -1537,22 +1497,22 @@
           .join("");
       }
 
+      // --- MODIFIED: Populate selectors from DB ---
       function populateGuildSelectors() {
-        const guildNames = Object.keys(historicalData.guild_history || {});
-        if (guildNames.length === 0) return;
+        const result = db.exec(
+          "SELECT DISTINCT guild_name FROM guild_snapshots ORDER BY guild_name"
+        );
+        if (!result || result.length === 0) return;
+        const guildNames = result[0].values.flat();
 
         const sortedGuildNames = guildNames.sort((a, b) => {
           const aFav = isFavorite(a);
           const bFav = isFavorite(b);
-
           if (aFav && !bFav) return -1;
           if (!aFav && bFav) return 1;
-
           const guildA = allGuildsData.find((g) => g.GuildName === a);
           const guildB = allGuildsData.find((g) => g.GuildName === b);
-          const nexusA = guildA ? guildA.NexusLevel : 0;
-          const nexusB = guildB ? guildB.NexusLevel : 0;
-          return nexusB - nexusA;
+          return (guildB?.NexusLevel || 0) - (guildA?.NexusLevel || 0);
         });
 
         let autoSelectGuilds =
@@ -1568,18 +1528,16 @@
                 "Codex",
                 "EZ",
               ];
-
         ["nexus", "study"].forEach((type) => {
           const list = document.getElementById(`${type}GuildSelectorList`);
           list.innerHTML = sortedGuildNames
             .map(
               (name) =>
-                `<label class="${isFavorite(name) ? "favorite-guild" : ""}">
-              <input type="checkbox" value="${name}" ${
+                `<label class="${
+                  isFavorite(name) ? "favorite-guild" : ""
+                }"><input type="checkbox" value="${name}" ${
                   autoSelectGuilds.includes(name) ? "checked" : ""
-                }> 
-              ${isFavorite(name) ? "★ " : ""}${name}
-            </label>`
+                }> ${isFavorite(name) ? "★ " : ""}${name}</label>`
             )
             .join("");
           updateSelectedGuildCount(type);
@@ -1593,39 +1551,22 @@
         btn.textContent = `${count} Guild${count !== 1 ? "s" : ""} Selected`;
       }
 
-      async function updateGuildChart(chartType) {
-        if (!historicalData.guild_history) return;
-
+      // --- MODIFIED: Charting functions use SQL ---
+      function updateGuildChart(chartType) {
         updateSelectedGuildCount(chartType);
         const selectedGuilds = Array.from(
           document.querySelectorAll(
             `#${chartType}GuildSelectorList input:checked`
           )
         ).map((cb) => cb.value);
+        if (selectedGuilds.length === 0) return;
 
-        const activeBtn = document.querySelector(
-          `#${chartType}-charts .chart-timespan-btn.active`
+        const hours = parseInt(
+          document.querySelector(
+            `#${chartType}-charts .chart-timespan-btn.active`
+          ).dataset.hours
         );
-        const hours = parseInt(activeBtn.dataset.hours);
-
-        // If API is available, fetch fresh data for selected guilds
-        if (apiAvailable && selectedGuilds.length > 0) {
-          try {
-            const guildHistoryData = await fetchData(
-              `guild-history?guilds=${selectedGuilds.join(",")}&hours=${hours}`
-            );
-            if (guildHistoryData) {
-              historicalData.guild_history = {
-                ...historicalData.guild_history,
-                ...guildHistoryData,
-              };
-            }
-          } catch (error) {
-            console.error("Failed to fetch fresh guild history:", error);
-          }
-        }
-
-        const cutoff = new Date(Date.now() - hours * 3600 * 1000);
+        const cutoff = new Date(Date.now() - hours * 3600 * 1000).toISOString();
         const aggregation = document.getElementById(
           `${chartType}Aggregation`
         ).value;
@@ -1633,21 +1574,26 @@
           aggregation === "daily" || (aggregation === "auto" && hours >= 168);
 
         const datasets = selectedGuilds.map((name, i) => {
-          const guildData = historicalData.guild_history[name] || [];
-          let filteredData = guildData
-            .filter((d) => new Date(d.timestamp) >= cutoff)
-            .map((d) => ({ x: d.timestamp, y: d[chartType] }));
+          const query = `SELECT timestamp, ${chartType}_level FROM guild_snapshots WHERE guild_name = :guildName AND timestamp >= :cutoff ORDER BY timestamp`;
+          const stmt = db.prepare(query);
+          stmt.bind({ ":guildName": name, ":cutoff": cutoff });
+          let guildData = [];
+          while (stmt.step()) guildData.push(stmt.getAsObject());
+          stmt.free();
 
-          if (useDaily && filteredData.length > 0) {
+          let filteredData = guildData.map((d) => ({
+            x: d.timestamp,
+            y: d[`${chartType}_level`],
+          }));
+          if (useDaily && filteredData.length > 0)
             filteredData = aggregateDataByDay(filteredData);
-          }
 
           return {
             label: name,
             data: filteredData,
             borderColor: chartColors[i % chartColors.length],
-            backgroundColor: chartColors[i % chartColors.length] + "20",
             tension: 0.1,
+            backgroundColor: chartColors[i % chartColors.length] + "20",
             pointRadius: useDaily ? 3 : 2,
             pointHoverRadius: useDaily ? 5 : 4,
           };
@@ -1655,60 +1601,45 @@
 
         const canvasId =
           chartType === "nexus" ? "guildNexusChart" : "guildStudyChart";
-        const containerSelector = `#${chartType}-charts .chart-canvas-container`;
-        document.querySelector(containerSelector).style.display = "block";
-
-        let chartInstance =
+        const chartInstance =
           chartType === "nexus" ? guildNexusChart : guildStudyChart;
         if (chartInstance) chartInstance.destroy();
-
-        const ctx = document.getElementById(canvasId).getContext("2d");
-        chartInstance = new Chart(ctx, {
-          type: "line",
-          data: { datasets },
-          options: getChartOptions(hours, false, useDaily),
-        });
-
-        if (chartType === "nexus") guildNexusChart = chartInstance;
-        else guildStudyChart = chartInstance;
+        const newChart = new Chart(
+          document.getElementById(canvasId).getContext("2d"),
+          {
+            type: "line",
+            data: { datasets },
+            options: getChartOptions(hours, false, useDaily),
+          }
+        );
+        if (chartType === "nexus") guildNexusChart = newChart;
+        else guildStudyChart = newChart;
+        document.querySelector(
+          `#${chartType}-charts .chart-canvas-container`
+        ).style.display = "block";
       }
 
+      // --- MODIFIED: Populate item selectors from DB ---
       function populateItemSelector() {
-        const itemCategories = historicalData.item_categories || {};
-        const items = historicalData.item_prices || {};
-
-        if (Object.keys(items).length === 0) return;
-
+        const result = db.exec(
+          "SELECT DISTINCT item_name FROM market_prices ORDER BY item_name"
+        );
+        if (!result || result.length === 0) {
+          document.getElementById("itemSelectBtn").textContent =
+            "No items found";
+          return;
+        }
+        const items = result[0].values.flat();
         const itemList = document.getElementById("itemList");
-        const categoryOrder = [
-          "Essentials",
-          "Resources",
-          "Spell Tomes",
-          "Orbs/Upgrades",
-          "Herbs",
-          "Enchanting Reagents",
-          "Enchanting Formulas",
-          "Special",
-        ];
+        // Simplified: No categories, just a list
+        itemList.innerHTML = items
+          .map(
+            (itemName) =>
+              `<div class="item-option" data-item="${itemName}">${itemName}</div>`
+          )
+          .join("");
 
-        let html = "";
-        categoryOrder.forEach((categoryName) => {
-          const categoryItems = itemCategories[categoryName] || [];
-          const availableItems = categoryItems.filter((item) => items[item]);
-
-          if (availableItems.length > 0) {
-            html += `<div class="item-category">
-              <div class="category-header">${categoryName}</div>`;
-            availableItems.forEach((itemName) => {
-              html += `<div class="item-option" data-item="${itemName}">${itemName}</div>`;
-            });
-            html += `</div>`;
-          }
-        });
-
-        itemList.innerHTML = html;
-
-        document.querySelectorAll(".item-option").forEach((option) => {
+        document.querySelectorAll("#itemList .item-option").forEach((option) =>
           option.addEventListener("click", () => {
             document.getElementById("itemSelectBtn").textContent =
               option.textContent;
@@ -1717,10 +1648,9 @@
             document.getElementById("itemSelectDropdown").style.display =
               "none";
             updateMarketChart();
-          });
-        });
+          })
+        );
 
-        // Select Codex by default
         const defaultOption =
           document.querySelector('.item-option[data-item="Codex"]') ||
           document.querySelector(".item-option");
@@ -1732,41 +1662,30 @@
         }
       }
 
-      function populatePredictorItemSelector() {
-        // Same logic as populateItemSelector but for predictor
-        const itemCategories = historicalData.item_categories || {};
-        const items = historicalData.item_prices || {};
-
-        if (Object.keys(items).length === 0) return;
-
-        const itemList = document.getElementById("predictorItemList");
-        const categoryOrder = [
-          "Essentials",
-          "Resources",
-          "Spell Tomes",
-          "Orbs/Upgrades",
-          "Herbs",
-          "Enchanting Reagents",
-          "Enchanting Formulas",
-          "Special",
-        ];
-
-        let html = "";
-        categoryOrder.forEach((categoryName) => {
-          const categoryItems = itemCategories[categoryName] || [];
-          const availableItems = categoryItems.filter((item) => items[item]);
-
-          if (availableItems.length > 0) {
-            html += `<div class="item-category">
-              <div class="category-header">${categoryName}</div>`;
-            availableItems.forEach((itemName) => {
-              html += `<div class="item-option" data-item="${itemName}">${itemName}</div>`;
-            });
-            html += `</div>`;
-          }
+      // --- NOTE: This function is simplified as categories are not in the DB ---
+      function filterItems() {
+        const term = document
+          .getElementById("itemSearchInput")
+          .value.toLowerCase();
+        document.querySelectorAll("#itemList .item-option").forEach((opt) => {
+          const matches = opt.textContent.toLowerCase().includes(term);
+          opt.style.display = matches ? "block" : "none";
         });
+      }
 
-        itemList.innerHTML = html;
+      function populatePredictorItemSelector() {
+        const result = db.exec(
+          "SELECT DISTINCT item_name FROM market_prices ORDER BY item_name"
+        );
+        if (!result || result.length === 0) return;
+        const items = result[0].values.flat();
+        const itemList = document.getElementById("predictorItemList");
+        itemList.innerHTML = items
+          .map(
+            (itemName) =>
+              `<div class="item-option" data-item="${itemName}">${itemName}</div>`
+          )
+          .join("");
 
         document
           .querySelectorAll("#predictorItemList .item-option")
@@ -1784,7 +1703,6 @@
             });
           });
 
-        // Select Codex by default
         const defaultOption =
           document.querySelector(
             '#predictorItemList .item-option[data-item="Codex"]'
@@ -1797,25 +1715,6 @@
         }
       }
 
-      function filterItems() {
-        const term = document
-          .getElementById("itemSearchInput")
-          .value.toLowerCase();
-        document.querySelectorAll("#itemList .item-option").forEach((opt) => {
-          const matches = opt.textContent.toLowerCase().includes(term);
-          opt.style.display = matches ? "block" : "none";
-        });
-
-        document
-          .querySelectorAll("#itemList .item-category")
-          .forEach((category) => {
-            const visibleItems = category.querySelectorAll(
-              '.item-option[style="display: block;"], .item-option:not([style*="display: none"])'
-            );
-            category.style.display = visibleItems.length > 0 ? "block" : "none";
-          });
-      }
-
       function filterPredictorItems() {
         const term = document
           .getElementById("predictorItemSearchInput")
@@ -1823,21 +1722,13 @@
         document
           .querySelectorAll("#predictorItemList .item-option")
           .forEach((opt) => {
-            const matches = opt.textContent.toLowerCase().includes(term);
-            opt.style.display = matches ? "block" : "none";
-          });
-
-        document
-          .querySelectorAll("#predictorItemList .item-category")
-          .forEach((category) => {
-            const visibleItems = category.querySelectorAll(
-              '.item-option[style="display: block;"], .item-option:not([style*="display: none"])'
-            );
-            category.style.display = visibleItems.length > 0 ? "block" : "none";
+            opt.style.display = opt.textContent.toLowerCase().includes(term)
+              ? "block"
+              : "none";
           });
       }
 
-      async function updateMarketChart() {
+      function updateMarketChart() {
         const selectedItem =
           document.getElementById("itemSelectBtn").dataset.selected;
         if (!selectedItem) return;
@@ -1846,83 +1737,140 @@
           document.querySelector("#item-prices .market-timespan-btn.active")
             .dataset.hours
         );
+        const cutoff = new Date(Date.now() - hours * 3600 * 1000).toISOString();
 
-        // Fetch fresh market data if API is available
-        if (apiAvailable) {
-          try {
-            const marketPrices = await fetchData(
-              `market-prices?hours=${hours}`
-            );
-            if (marketPrices) {
-              historicalData.item_prices = {
-                ...historicalData.item_prices,
-                ...marketPrices,
-              };
-            }
-          } catch (error) {
-            console.error("Failed to fetch fresh market data:", error);
-          }
-        }
-
-        if (!historicalData.item_prices?.[selectedItem]) return;
-
-        const cutoff = new Date(Date.now() - hours * 3600 * 1000);
-        let prices = historicalData.item_prices[selectedItem].prices.filter(
-          (p) => new Date(p.timestamp) >= cutoff
-        );
+        const query =
+          "SELECT timestamp, buy_price, sell_price FROM market_prices WHERE item_name = :itemName AND timestamp >= :cutoff ORDER BY timestamp";
+        const stmt = db.prepare(query);
+        stmt.bind({ ":itemName": selectedItem, ":cutoff": cutoff });
+        let prices = [];
+        while (stmt.step()) prices.push(stmt.getAsObject());
+        stmt.free();
 
         if (prices.length === 0) return;
 
         const aggregation = document.getElementById("marketAggregation").value;
         const useDaily =
           aggregation === "daily" || (aggregation === "auto" && hours >= 168);
-
-        if (useDaily && prices.length > 0) {
-          prices = aggregateMarketDataByDay(prices);
-        }
+        if (useDaily) prices = aggregateMarketDataByDay(prices);
 
         const datasets = [
           {
             label: "Buy Price",
-            data: prices.map((p) => ({ x: p.timestamp, y: p.buy })),
+            data: prices.map((p) => ({ x: p.timestamp, y: p.buy_price })),
             borderColor: "#4ade80",
             backgroundColor: "#4ade8020",
             tension: 0.1,
-            pointRadius: useDaily ? 3 : 2,
-            pointHoverRadius: useDaily ? 5 : 4,
           },
           {
             label: "Sell Price",
-            data: prices.map((p) => ({ x: p.timestamp, y: p.sell })),
+            data: prices.map((p) => ({ x: p.timestamp, y: p.sell_price })),
             borderColor: "#f87171",
             backgroundColor: "#f8717120",
             tension: 0.1,
-            pointRadius: useDaily ? 3 : 2,
-            pointHoverRadius: useDaily ? 5 : 4,
           },
         ];
+        datasets.forEach((ds) => {
+          ds.pointRadius = useDaily ? 3 : 2;
+          ds.pointHoverRadius = useDaily ? 5 : 4;
+        });
 
+        if (marketPriceChart) marketPriceChart.destroy();
+        marketPriceChart = new Chart(
+          document.getElementById("marketPriceChart").getContext("2d"),
+          {
+            type: "line",
+            data: { datasets },
+            options: getChartOptions(hours, true, useDaily),
+          }
+        );
         document.querySelector(
           "#item-prices .chart-canvas-container"
         ).style.display = "block";
-
-        if (marketPriceChart) marketPriceChart.destroy();
-
-        const ctx = document
-          .getElementById("marketPriceChart")
-          .getContext("2d");
-        marketPriceChart = new Chart(ctx, {
-          type: "line",
-          data: { datasets },
-          options: getChartOptions(hours, true, useDaily),
-        });
       }
 
-      // Price Prediction Functions
+      // --- MODIFIED: Leaderboard function now uses SQL ---
+      function updateLeaderboard(type) {
+        document.getElementById("leaderboardContent").style.display = "grid";
+        let valueKey = "";
+        let formatValue = (val) => val;
+
+        switch (type) {
+          case "codex":
+            valueKey = "codex_cost";
+            formatValue = (val) => (val || 0).toLocaleString() + " Codex";
+            break;
+          case "nexus":
+            valueKey = "nexus_progress";
+            formatValue = (val) => "+" + (val || 0) + " Levels";
+            break;
+          case "study":
+            valueKey = "study_progress";
+            formatValue = (val) => "+" + (val || 0) + " Levels";
+            break;
+        }
+
+        const query = `
+            SELECT guild_name, ${valueKey} FROM (
+                SELECT *, ROW_NUMBER() OVER(PARTITION BY guild_name ORDER BY timestamp DESC) as rn
+                FROM guild_snapshots
+            ) WHERE rn = 1 AND ${valueKey} > 0 ORDER BY ${valueKey} DESC;
+        `;
+        const result = db.exec(query);
+        if (!result || result.length === 0) {
+          document.getElementById(
+            "leaderboardContent"
+          ).innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-secondary);">No progress data available for this category today.</p>`;
+          return;
+        }
+
+        const columns = result[0].columns;
+        const sortedGuilds = result[0].values.map((row) => {
+          let guild = {};
+          columns.forEach((col, i) => (guild[col] = row[i]));
+          return guild;
+        });
+
+        document.getElementById("leaderboardContent").innerHTML = sortedGuilds
+          .map((guild, index) => {
+            const rank = index + 1;
+            let rankClass = "",
+              rankDisplay = rank;
+            if (rank === 1) {
+              rankClass = "gold";
+              rankDisplay = "1st";
+            } else if (rank === 2) {
+              rankClass = "silver";
+              rankDisplay = "2nd";
+            } else if (rank === 3) {
+              rankClass = "bronze";
+              rankDisplay = "3rd";
+            }
+
+            const guildName = guild.guild_name;
+            return `
+            <div class="leaderboard-item ${
+              isFavorite(guildName) ? "favorite" : ""
+            }">
+              <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
+              <div class="leaderboard-info">
+                <div class="leaderboard-guild">${
+                  isFavorite(guildName) ? "★ " : ""
+                }${guildName}</div>
+                <div class="leaderboard-stat"><span class="leaderboard-value">${formatValue(
+                  guild[valueKey]
+                )}</span></div>
+              </div>
+            </div>`;
+          })
+          .join("");
+      }
+
+      // --- Prediction functions remain mostly the same, but get data from DB ---
       function updatePrediction() {
         const selectedItem = document.getElementById("predictorItemSelectBtn")
           .dataset.selected;
-        if (!selectedItem || !historicalData.item_prices?.[selectedItem]) {
+        if (!selectedItem) {
           document.getElementById("predictionLoading").style.display = "block";
           document.getElementById("predictionResults").style.display = "none";
           return;
@@ -1931,25 +1879,36 @@
         const days = parseInt(
           document.querySelector(".predictor-period-btn.active").dataset.days
         );
-        const cutoff = new Date(Date.now() - days * 24 * 3600 * 1000);
-        const prices = historicalData.item_prices[selectedItem].prices.filter(
-          (p) => new Date(p.timestamp) >= cutoff
-        );
+        const cutoff = new Date(
+          Date.now() - days * 24 * 3600 * 1000
+        ).toISOString();
+
+        const query =
+          "SELECT buy_price, sell_price, timestamp FROM market_prices WHERE item_name = :itemName AND timestamp >= :cutoff ORDER BY timestamp";
+        const stmt = db.prepare(query);
+        stmt.bind({ ":itemName": selectedItem, ":cutoff": cutoff });
+        let prices = [];
+        while (stmt.step()) prices.push(stmt.getAsObject());
+        stmt.free();
 
         if (prices.length < 2) return;
 
-        const prediction = calculatePrediction(prices);
-        displayPrediction(selectedItem, prediction, prices);
+        // Remap keys for compatibility with original function
+        const remappedPrices = prices.map((p) => ({
+          buy: p.buy_price,
+          sell: p.sell_price,
+          timestamp: p.timestamp,
+        }));
+
+        const prediction = calculatePrediction(remappedPrices);
+        displayPrediction(selectedItem, prediction, remappedPrices);
       }
 
       function calculatePrediction(prices) {
-        // Calculate current and historical averages
-        const recent = prices.slice(-24); // Last 24 hours
+        const recent = prices.slice(-24);
         const currentAvg =
           recent.reduce((sum, p) => sum + (p.buy + p.sell) / 2, 0) /
           recent.length;
-
-        // Calculate trend using linear regression
         const values = prices.map((p, i) => ({
           x: i,
           y: (p.buy + p.sell) / 2,
@@ -1959,20 +1918,12 @@
         const sumY = values.reduce((sum, v) => sum + v.y, 0);
         const sumXY = values.reduce((sum, v) => sum + v.x * v.y, 0);
         const sumX2 = values.reduce((sum, v) => sum + v.x * v.x, 0);
-
         const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
         const intercept = (sumY - slope * sumX) / n;
-
-        // Predict next price point
         const predictedPrice = slope * n + intercept;
         const priceChange = ((predictedPrice - currentAvg) / currentAvg) * 100;
-
-        // Determine trend direction
         let trend = "stable";
-        if (Math.abs(priceChange) > 5) {
-          trend = priceChange > 0 ? "up" : "down";
-        }
-
+        if (Math.abs(priceChange) > 5) trend = priceChange > 0 ? "up" : "down";
         return {
           currentPrice: currentAvg,
           predictedPrice: predictedPrice,
@@ -1984,20 +1935,17 @@
       function displayPrediction(itemName, prediction, prices) {
         document.getElementById("predictionLoading").style.display = "none";
         document.getElementById("predictionResults").style.display = "block";
-
         document.getElementById("currentPrice").textContent = formatCurrency(
           prediction.currentPrice
         );
         document.getElementById("predictedPrice").textContent = formatCurrency(
           prediction.predictedPrice
         );
-
         const changeElement = document.getElementById("priceChange");
         changeElement.textContent = `${
           prediction.priceChange >= 0 ? "+" : ""
         }${prediction.priceChange.toFixed(1)}%`;
         changeElement.className = `trend-${prediction.trend}`;
-
         updatePredictionChart(itemName, prices, prediction);
       }
 
@@ -2010,7 +1958,6 @@
           Date.now() + 24 * 3600 * 1000
         ).toISOString();
         const predictionPoint = { x: futureTime, y: prediction.predictedPrice };
-
         const datasets = [
           {
             label: "Historical Average Price",
@@ -2032,185 +1979,72 @@
             pointHoverRadius: 6,
           },
         ];
-
         if (predictionChart) predictionChart.destroy();
-
-        const ctx = document.getElementById("predictionChart").getContext("2d");
-        predictionChart = new Chart(ctx, {
-          type: "line",
-          data: { datasets },
-          options: {
-            ...getChartOptions(
-              24 *
-                parseInt(
-                  document.querySelector(".predictor-period-btn.active").dataset
-                    .days
-                ),
-              true,
-              false
-            ),
-            plugins: {
-              ...getChartOptions(24, true, false).plugins,
-              title: {
-                display: true,
-                text: `${itemName} Price Prediction`,
-                color: "#f8f9fa",
-                font: { size: 16, weight: "bold" },
+        predictionChart = new Chart(
+          document.getElementById("predictionChart").getContext("2d"),
+          {
+            type: "line",
+            data: { datasets },
+            options: {
+              ...getChartOptions(
+                24 *
+                  parseInt(
+                    document.querySelector(".predictor-period-btn.active")
+                      .dataset.days
+                  ),
+                true,
+                false
+              ),
+              plugins: {
+                ...getChartOptions(24, true, false).plugins,
+                title: {
+                  display: true,
+                  text: `${itemName} Price Prediction`,
+                  color: "#f8f9fa",
+                  font: { size: 16, weight: "bold" },
+                },
               },
             },
-          },
-        });
-      }
-
-      // Leaderboard Functions
-      async function updateLeaderboard(type) {
-        document.getElementById("leaderboardContent").style.display = "grid";
-
-        let sortedGuilds;
-        try {
-          if (apiAvailable) {
-            sortedGuilds = await fetchData(`leaderboard?type=${type}`);
-          } else {
-            sortedGuilds = [...allGuildsData];
           }
-        } catch (error) {
-          console.error("Failed to fetch leaderboard data:", error);
-          sortedGuilds = [...allGuildsData];
-        }
-
-        let title = "";
-        let valueKey = "";
-        let formatValue = (val) => val;
-
-        switch (type) {
-          case "codex":
-            if (!apiAvailable)
-              sortedGuilds.sort(
-                (a, b) => (b.TotalCodexCost || 0) - (a.TotalCodexCost || 0)
-              );
-            title = "Most Codex Spent Today";
-            valueKey = apiAvailable ? "codex_cost" : "TotalCodexCost";
-            formatValue = (val) => (val || 0).toLocaleString() + " Codex";
-            break;
-          case "nexus":
-            if (!apiAvailable)
-              sortedGuilds.sort(
-                (a, b) => (b.NexusProgress || 0) - (a.NexusProgress || 0)
-              );
-            title = "Top Nexus Upgrades Today";
-            valueKey = apiAvailable ? "nexus_progress" : "NexusProgress";
-            formatValue = (val) => "+" + (val || 0) + " Levels";
-            break;
-          case "study":
-            if (!apiAvailable)
-              sortedGuilds.sort(
-                (a, b) => (b.StudyProgress || 0) - (a.StudyProgress || 0)
-              );
-            title = "Top Study Upgrades Today";
-            valueKey = apiAvailable ? "study_progress" : "StudyProgress";
-            formatValue = (val) => "+" + (val || 0) + " Levels";
-            break;
-        }
-
-        const guildNameKey = apiAvailable ? "guild_name" : "GuildName";
-        const filteredGuilds = sortedGuilds.filter(
-          (g) => (g[valueKey] || 0) > 0
         );
-
-        const content = document.getElementById("leaderboardContent");
-
-        if (filteredGuilds.length === 0) {
-          content.innerHTML = `
-            <div style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 60px;">
-              No progress data available for ${title.toLowerCase()}
-            </div>
-          `;
-          return;
-        }
-
-        content.innerHTML = filteredGuilds
-          .map((guild, index) => {
-            const rank = index + 1;
-            let rankClass = "";
-            let rankDisplay = rank;
-
-            if (rank === 1) {
-              rankClass = "gold";
-              rankDisplay = "1st";
-            } else if (rank === 2) {
-              rankClass = "silver";
-              rankDisplay = "2nd";
-            } else if (rank === 3) {
-              rankClass = "bronze";
-              rankDisplay = "3rd";
-            }
-
-            const guildName = guild[guildNameKey];
-            return `
-            <div class="leaderboard-item ${
-              isFavorite(guildName) ? "favorite" : ""
-            }">
-              <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
-              <div class="leaderboard-info">
-                <div class="leaderboard-guild">
-                  ${isFavorite(guildName) ? "★ " : ""}${guildName}
-                </div>
-                <div class="leaderboard-stat">
-                  <span class="leaderboard-value">${formatValue(
-                    guild[valueKey]
-                  )}</span>
-                </div>
-              </div>
-            </div>
-          `;
-          })
-          .join("");
       }
 
-      // Aggregation functions
+      // --- UTILITY FUNCTIONS (Unchanged, but still needed) ---
       function aggregateDataByDay(data) {
         const dailyData = {};
-
         data.forEach((point) => {
           const date = new Date(point.x).toDateString();
-          if (!dailyData[date]) {
+          if (!dailyData[date])
             dailyData[date] = { values: [], timestamp: point.x };
-          }
           dailyData[date].values.push(point.y);
         });
-
         return Object.values(dailyData)
           .map((day) => ({
             x: day.timestamp,
-            y: Math.round(day.values[day.values.length - 1]), // Use last value of the day
+            y: Math.round(day.values[day.values.length - 1]),
           }))
           .sort((a, b) => new Date(a.x) - new Date(b.x));
       }
 
       function aggregateMarketDataByDay(prices) {
         const dailyData = {};
-
         prices.forEach((price) => {
           const date = new Date(price.timestamp).toDateString();
-          if (!dailyData[date]) {
+          if (!dailyData[date])
             dailyData[date] = { buy: [], sell: [], timestamp: price.timestamp };
-          }
-          dailyData[date].buy.push(price.buy);
-          dailyData[date].sell.push(price.sell);
+          dailyData[date].buy.push(price.buy_price);
+          dailyData[date].sell.push(price.sell_price);
         });
-
         return Object.values(dailyData)
           .map((day) => ({
             timestamp: day.timestamp,
-            buy: Math.round(day.buy[day.buy.length - 1]), // Use last value of the day
-            sell: Math.round(day.sell[day.sell.length - 1]),
+            buy_price: Math.round(day.buy[day.buy.length - 1]),
+            sell_price: Math.round(day.sell[day.sell.length - 1]),
           }))
           .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
       }
 
       function getChartOptions(hours, isCurrency, useDaily = false) {
-        const timeUnit = useDaily ? "day" : hours <= 72 ? "hour" : "day";
-
         return {
           responsive: true,
           maintainAspectRatio: false,
@@ -2219,7 +2053,7 @@
             x: {
               type: "time",
               time: {
-                unit: timeUnit,
+                unit: useDaily ? "day" : hours <= 72 ? "hour" : "day",
                 displayFormats: { hour: "MMM dd HH:mm", day: "MMM dd" },
               },
               ticks: { color: "#b3b3b3", maxTicksLimit: useDaily ? 15 : 10 },
@@ -2228,9 +2062,8 @@
             y: {
               ticks: {
                 color: "#b3b3b3",
-                callback: function (value) {
-                  return isCurrency ? formatCurrency(value) : Math.round(value);
-                },
+                callback: (value) =>
+                  isCurrency ? formatCurrency(value) : Math.round(value),
               },
               grid: { color: "rgba(255,255,255,0.1)" },
             },
@@ -2246,12 +2079,12 @@
               borderColor: "#3a3a3b",
               borderWidth: 1,
               callbacks: {
-                label: function (context) {
-                  const value = isCurrency
-                    ? formatCurrency(context.parsed.y)
-                    : context.parsed.y;
-                  return `${context.dataset.label}: ${value}`;
-                },
+                label: (context) =>
+                  `${context.dataset.label}: ${
+                    isCurrency
+                      ? formatCurrency(context.parsed.y)
+                      : context.parsed.y
+                  }`,
               },
             },
           },
@@ -2266,13 +2099,6 @@
         if (amount >= 1e3) return `${(amount / 1e3).toFixed(2)}K`;
         return amount.toFixed(2);
       }
-
-      // Auto-refresh data every 5 minutes
-      setInterval(() => {
-        if (document.visibilityState === "visible") {
-          loadAllData();
-        }
-      }, 5 * 60 * 1000);
     </script>
   </body>
 </html>
