@@ -337,40 +337,57 @@ class GuildStatsTracker:
         try:
             base_boosts = player_data.get("BaseBoosts", {})
             total_boosts = player_data.get("TotalBoosts", {})
-            
-            owner_upgrades = base_boosts.get("40", 0)
+
             codex_exp_boost = base_boosts.get("100", 0)
             total_exp_boost = total_boosts.get("100", 0)
-            total_damage_percent = total_boosts.get("40", 0) * 100
-            
-            # Process equipment
+
+            # Define boost priority order
+            boost_priority = [30, 31, 32, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+
+            # Try each boost in priority order until we find a non-zero result
+            base_damage_percent = 0
+            owner_upgrades = 0
+
+            for boost_id in boost_priority:
+                boost_id_str = str(boost_id)
+                owner_upgrades = base_boosts.get(boost_id_str, 0)
+                total_boost_percent = total_boosts.get(boost_id_str, 0) * 100
+                
+                # Process equipment for this boost type
+                equipments = player_data.get("Equipment", {})
+                totalEquipmentBoosts = 0
+                
+                for item in range(1, 9):
+                    try:
+                        item_key = str(item)
+                        equipment_item = equipments.get(item_key, {})
+                        
+                        infusions = equipment_item.get("Infusions", {})
+                        if isinstance(infusions, dict):
+                            infusions_count = sum(v for v in infusions.values() if isinstance(v, (int, float)))
+                        else:
+                            infusions_count = infusions if isinstance(infusions, (int, float)) else 0
+                        
+                        base_boost = equipment_item.get("Boosts", {}).get(boost_id_str, 0)
+                        equip_percent = (base_boost * (1 + 0.05 * infusions_count)) / 50
+                        totalEquipmentBoosts += equip_percent
+                        
+                    except Exception as e:
+                        print(f"      Error processing equipment item {item}: {e}")
+                        continue
+                
+                base_damage_percent = total_boost_percent - totalEquipmentBoosts - 100
+                
+                # If we found a non-zero result, use this boost
+                if base_damage_percent > 0:
+                    break
+
+            # Keep enchant boost calculation separate for study level
             equipments = player_data.get("Equipment", {})
-            totalEquipmentBoosts = 0
             enchant_boost = 0
-            
-            for item in range(1, 9):
-                try:
-                    item_key = str(item)
-                    equipment_item = equipments.get(item_key, {})
-                    
-                    if item == 5:
-                        enchant_boost = equipment_item.get("Boosts", {}).get("100", 0)
-                    
-                    infusions = equipment_item.get("Infusions", {})
-                    if isinstance(infusions, dict):
-                        infusions_count = sum(v for v in infusions.values() if isinstance(v, (int, float)))
-                    else:
-                        infusions_count = infusions if isinstance(infusions, (int, float)) else 0
-                    
-                    base_boost = equipment_item.get("Boosts", {}).get("40", 0)
-                    equip_percent = (base_boost * (1 + 0.05 * infusions_count)) / 50
-                    totalEquipmentBoosts += equip_percent
-                    
-                except Exception as e:
-                    print(f"      Error processing equipment item {item}: {e}")
-                    continue
-            
-            base_damage_percent = total_damage_percent - totalEquipmentBoosts - 100
+            item_5 = equipments.get("5", {})
+            if item_5:
+                enchant_boost = item_5.get("Boosts", {}).get("100", 0)
             
             # Calculate levels
             study_level = self.calculate_study_level(total_exp_boost, codex_exp_boost, enchant_boost)
