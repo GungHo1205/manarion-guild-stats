@@ -641,12 +641,13 @@ class GuildStatsTracker:
             self.db.conn.execute("""
                 INSERT INTO processing_logs 
                 (timestamp, execution_time_seconds, guilds_processed, api_calls_made, data_freshness, errors, baseline_created)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
             """, [
                 timestamp, execution_time, len(current_guilds), 
                 MAX_GUILDS + 1,
                 json.dumps({"guild_data_fresh": guild_data_fresh, "market_data_fresh": market_data_fresh}),
-                "; ".join(errors) if errors else None, baseline_created
+                "; ".join(errors) if errors else None, 
+                baseline_created
             ])
             self.db.conn.commit()
             
