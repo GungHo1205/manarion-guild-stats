@@ -2,6 +2,13 @@
 """
 Guild Stats Collection Script - Pure SQLite Version
 No JSON file generation, all data stored in SQLite database
+
+ADDITIONS:
+- player_dust_income table to store daily mana dust income for top-100 leaderboard players.
+- fetch_leaderboard_and_store_daily_dust: runs once per day and stores per-player/day daily_income.
+- Dust calculation uses the same pre-diminish formula:
+    final = baseDrop(x) * (1 + baseBoost/100) * (1 + totalBoost/100)
+  where x = enemy + 150 (with >150k adjustment matching existing logic).
 """
 
 import json
@@ -14,6 +21,7 @@ import concurrent.futures
 from collections import defaultdict
 import sqlite3
 import sys
+import math
 
 class GuildStatsDatabase:
     def __init__(self, db_path: str = "docs/guild-stats.db"):
@@ -103,6 +111,18 @@ class GuildStatsDatabase:
             baseline_created BOOLEAN DEFAULT 0
         );
 
+        CREATE TABLE IF NOT EXISTS player_dust_income (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            date TEXT NOT NULL,
+            timestamp TEXT NOT NULL,
+            player_name TEXT NOT NULL,
+            leaderboard_rank INTEGER,
+            daily_income REAL NOT NULL,
+            UNIQUE(date, player_name)
+        );
+
+        CREATE INDEX IF NOT EXISTS idx_player_dust_income_date ON player_dust_income(date);
+        CREATE INDEX IF NOT EXISTS idx_player_dust_income_player ON player_dust_income(player_name);
         CREATE INDEX IF NOT EXISTS idx_guild_snapshots_timestamp ON guild_snapshots(timestamp);
         CREATE INDEX IF NOT EXISTS idx_guild_snapshots_guild_name ON guild_snapshots(guild_name);
         CREATE INDEX IF NOT EXISTS idx_market_timestamp ON market_prices(timestamp);
@@ -111,6 +131,48 @@ class GuildStatsDatabase:
         
         self.conn.executescript(schema_sql)
         self.conn.commit()
+
+    def calculate_mana_dust_income(self, player_data: Dict) -> float:
+        """
+        Replicates the frontend's mana dust calculation logic.
+        Uses boost IDs:
+        - 101: Base mana dust boost (from total boosts as it includes sigils)
+        - 121: Total mana dust multiplier
+        """
+        try:
+            enemy_level = player_data.get("Enemy", 0)
+            if not enemy_level:
+                return 0.0
+
+            total_boosts = player_data.get("TotalBoosts", {})
+            
+            # Base multiplier from sigils, etc.
+            # ID 101 seems to be for base boosts, but using the total boost value is more accurate
+            base_mana_dust_raw = total_boosts.get('101', 0)
+            
+            # Total mana dust multiplier
+            mana_dust_raw = total_boosts.get('121', 0)
+
+            base_factor = 1 + (base_mana_dust_raw / 100) if isinstance(base_mana_dust_raw, (int, float)) else 1
+            total_factor = 1 + (mana_dust_raw / 100) if isinstance(mana_dust_raw, (int, float)) else 1
+
+            # Base drop formula from frontend logic
+            enemy_base_mana_drop = 0
+            if enemy_level > 150000:
+                base_at_150k = 0.0001 * (150150**2) + (150150**1.2) + (10 * 150150)
+                multiplier = (1.01 ** ((enemy_level - 150000) / 2000))
+                enemy_base_mana_drop = multiplier * base_at_150k
+            else:
+                x = enemy_level + 150
+                enemy_base_mana_drop = 0.0001 * (x**2) + (x**1.2) + (10 * x)
+            
+            mana_drop_after_base_boost = enemy_base_mana_drop * base_factor
+            final_drop_per_kill = mana_drop_after_base_boost * total_factor
+
+            return final_drop_per_kill
+        except (TypeError, KeyError, AttributeError) as e:
+            print(f"Error calculating dust for player {player_data.get('Name', 'N/A')}: {e}")
+            return 0.0
 
     def save_guild_snapshot(self, guilds: List[Dict], timestamp: str, baseline_date: str, data_fresh: bool = True) -> int:
         records = []
@@ -185,6 +247,23 @@ class GuildStatsDatabase:
         self.conn.commit()
         return len(records)
 
+    def save_player_dust_income(self, date: str, records: List[Dict]) -> int:
+        """
+        Save (or replace) player dust income rows for a given date.
+        records: list of dicts {player_name, rank, daily_income}
+        """
+        timestamp = datetime.now(timezone.utc).isoformat()
+        rows = []
+        for r in records:
+            rows.append((date, timestamp, r['player_name'], r.get('rank'), r['daily_income']))
+        self.conn.executemany("""
+            INSERT OR REPLACE INTO player_dust_income
+            (date, timestamp, player_name, leaderboard_rank, daily_income)
+            VALUES (?, ?, ?, ?, ?)
+        """, rows)
+        self.conn.commit()
+        return len(rows)
+
     def calculate_average_codex_price(self, hours: int = 24) -> float:
         cutoff = (datetime.now(timezone.utc) - timedelta(hours=hours)).isoformat()
         cursor = self.conn.execute("""
@@ -250,7 +329,7 @@ class APIClient:
             except requests.RequestException as e:
                 print(f"API Error on {url} (attempt {attempt + 1}/{retries}): {e}")
                 if attempt < retries - 1:
-                    time.sleep(5 * (attempt + 1))  # Exponential backoff
+                    time.sleep(5 * (attempt + 1))
                 else:
                     return None
 
@@ -265,17 +344,14 @@ class GuildStatsTracker:
         """Fetch guild data using the direct guild approach with SQLite caching."""
         print("Fetching guild data using direct guild approach...")
         
-        # Step 1: Load guilds from API
         print("Step 1: Loading guild list from API...")
         guilds_data = self.api.get("/guilds")
         if not guilds_data:
             print("Failed to fetch guild list")
             return [], False
         
-        # Update guild lookup
         self.guild_lookup = {g.get("ID", 0): g.get("Name", "Unknown") for g in guilds_data}
         
-        # Step 2: Process and sort guilds
         print("Step 2: Processing guild details...")
         guild_list = []
         for guild in guilds_data:
@@ -288,12 +364,10 @@ class GuildStatsTracker:
             }
             guild_list.append(guild_info)
         
-        # Sort by priority and take top guilds
         guild_list.sort(key=lambda g: (-g["TotalUpgrades"], -g["Level"], g["ID"]))
         top_guilds = guild_list[:MAX_GUILDS]
         print(f"Selected top {len(top_guilds)} guilds for processing")
         
-        # Step 3: Process guild owners
         print("Step 3: Processing guild owners...")
         guild_data = []
         players_processed = 0
@@ -305,7 +379,6 @@ class GuildStatsTracker:
             
             print(f"  Processing guild {i+1}/{len(top_guilds)}: {guild_name}")
             
-            # Fetch owner's player data
             player_data = self.api.get(f"/players/{owner_id}")
             
             if not player_data:
@@ -313,7 +386,6 @@ class GuildStatsTracker:
                 players_skipped += 1
                 continue
             
-            # Calculate guild levels
             result = self.process_guild_owner_data(guild_name, player_data, guild_info["TotalUpgrades"])
             
             if result:
@@ -341,10 +413,8 @@ class GuildStatsTracker:
             codex_exp_boost = base_boosts.get("100", 0)
             total_exp_boost = total_boosts.get("100", 0)
 
-            # Define boost priority order
             boost_priority = [30, 31, 32, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
 
-            # Try each boost in priority order until we find a non-zero result
             base_damage_percent = 0
             owner_upgrades = 0
 
@@ -353,7 +423,6 @@ class GuildStatsTracker:
                 owner_upgrades = base_boosts.get(boost_id_str, 0)
                 total_boost_percent = total_boosts.get(boost_id_str, 0) * 100
                 
-                # Process equipment for this boost type
                 equipments = player_data.get("Equipment", {})
                 totalEquipmentBoosts = 0
                 
@@ -378,18 +447,15 @@ class GuildStatsTracker:
                 
                 base_damage_percent = total_boost_percent - totalEquipmentBoosts - 100
                 
-                # If we found a non-zero result, use this boost
                 if base_damage_percent > 0:
                     break
 
-            # Keep enchant boost calculation separate for study level
             equipments = player_data.get("Equipment", {})
             enchant_boost = 0
             item_5 = equipments.get("5", {})
             if item_5:
                 enchant_boost = item_5.get("Boosts", {}).get("100", 0)
             
-            # Calculate levels
             study_level = self.calculate_study_level(total_exp_boost, codex_exp_boost, enchant_boost)
             nexus_level = self.calculate_nexus_level(base_damage_percent, owner_upgrades)
             
@@ -405,7 +471,6 @@ class GuildStatsTracker:
             return None
 
     def calculate_nexus_level(self, research_damage_percent, upgrades):
-        """Calculate nexus level using the correct formula."""
         if upgrades <= 0:
             return 0
         
@@ -418,13 +483,11 @@ class GuildStatsTracker:
         return max(0, total_exp - codex_exp - enchant_exp)
 
     def calculate_codex_cost(self, start_level: int, progress: int) -> int:
-        """Calculate codex cost for level progression."""
         if progress <= 0: 
             return 0
         return sum(range(start_level + 1, start_level + progress + 1))
 
     def fetch_market_prices(self) -> tuple[Dict, bool]:
-        """Fetch market prices with fallback to database cache."""
         print("Fetching market prices...")
         market_data = self.api.get("/market")
         
@@ -445,6 +508,80 @@ class GuildStatsTracker:
         print(f"Fetched fresh prices for {len(prices)} items.")
         return prices, True
 
+    def fetch_leaderboard_top100(self, page: int = 1, lb_type: str = "battle") -> Optional[List[Dict]]:
+        endpoint = f"/leaderboards/{lb_type}?page={page}"
+        data = self.api.get(endpoint)
+        if not data:
+            print(f"Failed to fetch leaderboard: {lb_type}")
+            return None
+        return data.get("Entries", [])
+
+    def compute_daily_dust_for_player(self, player_name: str) -> Optional[float]:
+        """
+        Fetch player data and compute potential daily mana dust income (pre-diminish).
+        Returns daily income (mana dust per 24 hours) or None on error.
+        """
+        try:
+            p_data = self.api.get(f"/players/{player_name}")
+            if not p_data:
+                print(f"  - Failed to fetch player data for {player_name}")
+                return None
+
+            per_kill_income = self.db.calculate_mana_dust_income(p_data)
+            
+            # Assuming 1 kill every 3 seconds
+            kills_per_day = (3600 / 3) * 24
+            return per_kill_income * kills_per_day
+        except Exception as e:
+            print(f"  - Error computing dust for {player_name}: {e}")
+            return None
+
+    def fetch_leaderboard_and_store_daily_dust(self, force: bool = False):
+        """
+        Fetches top 100 battle leaderboard, calculates daily dust income, and stores it.
+        This function is designed to run only once per UTC day unless forced.
+        """
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        
+        cursor = self.db.conn.execute("SELECT COUNT(*) as count FROM player_dust_income WHERE date = ?", [today_str])
+        if cursor.fetchone()['count'] > 0 and not force:
+            print(f"Daily dust income for {today_str} already exists. Skipping.")
+            return
+
+        print("Fetching top 100 'battle' leaderboard for daily dust calculation...")
+        leaderboard_entries = self.fetch_leaderboard_top100(lb_type="battle")
+        if not leaderboard_entries:
+            print("Could not fetch leaderboard. Aborting dust income job.")
+            return
+
+        players_to_process = [entry for entry in leaderboard_entries if not entry.get("Banned")]
+        print(f"Found {len(players_to_process)} non-banned players to process.")
+        
+        income_results = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+            future_to_player = {
+                executor.submit(self.compute_daily_dust_for_player, p['Name']): p 
+                for p in players_to_process
+            }
+            for i, future in enumerate(concurrent.futures.as_completed(future_to_player)):
+                player_entry = future_to_player[future]
+                player_name = player_entry['Name']
+                print(f"  ({i+1}/{len(players_to_process)}) Processing {player_name}...")
+                try:
+                    daily_income = future.result()
+                    if daily_income is not None:
+                        income_results.append({
+                            "player_name": player_name,
+                            "rank": player_entry['Rank'],
+                            "daily_income": daily_income,
+                        })
+                except Exception as exc:
+                    print(f"  - Generated an exception for {player_name}: {exc}")
+        
+        if income_results:
+            self.db.save_player_dust_income(today_str, income_results)
+            print(f"Successfully saved daily dust income for {len(income_results)} players.")
+
     def run_update(self):
         """Main execution method using SQLite database."""
         start_time = time.time()
@@ -452,104 +589,74 @@ class GuildStatsTracker:
         today_str = timestamp.split('T')[0]
         
         print(f"Starting SQLite guild tracking at {timestamp}")
-        print(f"Target: {MAX_GUILDS} guilds (performance optimized)")
         
         errors = []
         baseline_created = False
-        
+
+        self.db.connect()
         try:
-            with self.db:
-                # Fetch current guild and market data
-                current_guilds, guild_data_fresh = self.fetch_guild_data()
-                market_prices, market_data_fresh = self.fetch_market_prices()
-                
-                if not current_guilds:
-                    print("No guild data available, using cached data...")
-                    errors.append("No fresh guild data available")
-                    guild_data_fresh = False
-                
-                # Handle baseline creation/loading
-                if self.db.is_new_day_baseline_needed() and current_guilds:
-                    print(f"New day detected. Creating baseline for {today_str}")
-                    baseline_created_timestamp = self.db.create_daily_baseline(current_guilds, today_str)
-                    baseline_created = True
-                    print(f"Baseline created for {len(current_guilds)} guilds")
-                
-                # Load existing baseline
-                baseline = self.db.get_daily_baseline(today_str)
-                baseline_date = baseline.get('date')
-                
-                # Calculate progress against baseline
-                total_codex = 0
-                guilds_with_progress = 0
-                
-                for guild in current_guilds:
-                    base = baseline.get("guilds", {}).get(guild["GuildName"])
-                    if base:
-                        nexus_progress = max(0, guild["NexusLevel"] - base["NexusLevel"])
-                        study_progress = max(0, guild["StudyLevel"] - base["StudyLevel"])
-                        
-                        guild["NexusProgress"] = nexus_progress
-                        guild["StudyProgress"] = study_progress
-                        guild["TotalCodexCost"] = (
-                            self.calculate_codex_cost(base["NexusLevel"], nexus_progress) +
-                            self.calculate_codex_cost(base["StudyLevel"], study_progress)
-                        )
-                        total_codex += guild["TotalCodexCost"]
-                        
-                        if nexus_progress > 0 or study_progress > 0:
-                            guilds_with_progress += 1
-                    else:
-                        guild["NexusProgress"] = guild["StudyProgress"] = guild["TotalCodexCost"] = 0
-                
-                # Save guild snapshot to database
-                if current_guilds:
-                    records_saved = self.db.save_guild_snapshot(current_guilds, timestamp, baseline_date, guild_data_fresh)
-                    print(f"Saved {records_saved} guild records to database")
-                
-                # Save market prices to database
-                if market_prices and market_data_fresh:
-                    prices_saved = self.db.save_market_prices(market_prices, timestamp)
-                    print(f"Saved {prices_saved} market price records to database")
-                
-                # Update guild metadata table
-                if current_guilds:
-                    self.update_guild_metadata(current_guilds, timestamp)
-                
-                # Log this processing run
-                execution_time = time.time() - start_time
-                self.db.conn.execute("""
-                    INSERT INTO processing_logs 
-                    (timestamp, execution_time_seconds, guilds_processed, guilds_skipped, 
-                     api_calls_made, data_freshness, errors, baseline_created)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                """, [
-                    timestamp, execution_time, len(current_guilds), 
-                    MAX_GUILDS - len(current_guilds), MAX_GUILDS + 1,  # +1 for market API
-                    json.dumps({"guild_data_fresh": guild_data_fresh, "market_data_fresh": market_data_fresh}),
-                    "; ".join(errors) if errors else None, baseline_created
-                ])
-                self.db.conn.commit()
-                
-                # Performance summary
-                print(f"\n=== SQLite Update Complete ===")
-                print(f"Execution time: {execution_time:.2f} seconds")
-                print(f"Guilds tracked: {len(current_guilds)}")
-                print(f"Guilds with progress: {guilds_with_progress}")
-                print(f"Total Codex used today: {total_codex:,}")
-                print(f"Performance: {len(current_guilds)/execution_time:.1f} guilds/second")
-                print(f"Fresh data: guilds={guild_data_fresh}, market={market_data_fresh}")
-                print(f"Baseline date: {baseline_date}")
-                print(f"Baseline created this run: {baseline_created}")
-                
-                # Show database stats
-                stats = self.get_database_stats()
-                print(f"Database: {stats.get('database_size_mb', 0)} MB, {stats.get('guild_snapshots_count', 0):,} snapshots")
-                
+            current_guilds, guild_data_fresh = self.fetch_guild_data()
+            market_prices, market_data_fresh = self.fetch_market_prices()
+            
+            if not current_guilds:
+                errors.append("No fresh guild data available")
+            
+            if self.db.is_new_day_baseline_needed() and current_guilds:
+                print(f"New day detected. Creating baseline for {today_str}")
+                self.db.create_daily_baseline(current_guilds, today_str)
+                baseline_created = True
+                print(f"Baseline created for {len(current_guilds)} guilds")
+            
+            baseline = self.db.get_daily_baseline(today_str)
+            baseline_date = baseline.get('date')
+            
+            for guild in current_guilds:
+                base = baseline.get("guilds", {}).get(guild["GuildName"])
+                if base:
+                    nexus_progress = max(0, guild["NexusLevel"] - base["NexusLevel"])
+                    study_progress = max(0, guild["StudyLevel"] - base["StudyLevel"])
+                    
+                    guild["NexusProgress"] = nexus_progress
+                    guild["StudyProgress"] = study_progress
+                    guild["TotalCodexCost"] = (
+                        self.calculate_codex_cost(base["NexusLevel"], nexus_progress) +
+                        self.calculate_codex_cost(base["StudyLevel"], study_progress)
+                    )
+                else:
+                    guild["NexusProgress"] = guild["StudyProgress"] = guild["TotalCodexCost"] = 0
+            
+            if current_guilds:
+                self.db.save_guild_snapshot(current_guilds, timestamp, baseline_date, guild_data_fresh)
+            
+            if market_prices and market_data_fresh:
+                self.db.save_market_prices(market_prices, timestamp)
+            
+            if current_guilds:
+                self.update_guild_metadata(current_guilds, timestamp)
+
+            # --- Trigger Daily Player Dust Income Fetch ---
+            self.fetch_leaderboard_and_store_daily_dust()
+
+            execution_time = time.time() - start_time
+            self.db.conn.execute("""
+                INSERT INTO processing_logs 
+                (timestamp, execution_time_seconds, guilds_processed, api_calls_made, data_freshness, errors, baseline_created)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, [
+                timestamp, execution_time, len(current_guilds), 
+                MAX_GUILDS + 1,
+                json.dumps({"guild_data_fresh": guild_data_fresh, "market_data_fresh": market_data_fresh}),
+                "; ".join(errors) if errors else None, baseline_created
+            ])
+            self.db.conn.commit()
+            
+            print(f"\n=== SQLite Update Complete in {execution_time:.2f}s ===")
+        
         except Exception as e:
-            print(f"Error in run_update: {e}")
-            errors.append(str(e))
+            print(f"FATAL ERROR in run_update: {e}")
             raise
+        finally:
+            self.db.disconnect()
 
     def update_guild_metadata(self, current_guilds: List[Dict], timestamp: str):
         """Update the guild metadata table."""
@@ -558,9 +665,9 @@ class GuildStatsTracker:
             guild_records.append((
                 guild.get('GuildID'),
                 guild['GuildName'],
-                None,  # owner_id - could be filled later
-                timestamp,  # last_seen
-                1,     # is_active
+                None,
+                timestamp,
+                1,
                 guild.get('TotalUpgrades', 0),
                 guild.get('GuildLevel', 0)
             ))
@@ -576,7 +683,7 @@ class GuildStatsTracker:
         """Get database statistics."""
         with self.db:
             stats = {}
-            tables = ['guild_snapshots', 'daily_baselines', 'market_prices', 'guilds']
+            tables = ['guild_snapshots', 'daily_baselines', 'market_prices', 'guilds', 'player_dust_income']
             for table in tables:
                 cursor = self.db.conn.execute(f"SELECT COUNT(*) as count FROM {table}")
                 stats[f"{table}_count"] = cursor.fetchone()['count']
@@ -585,8 +692,6 @@ class GuildStatsTracker:
                 stats['database_size_mb'] = round(os.path.getsize(self.db.db_path) / (1024*1024), 2)
             
             return stats
-
-    # === Analytics Features ===
     
     def get_progress_velocity_report(self, hours: int = 72) -> Dict:
         """Generate progress velocity report for all guilds."""
@@ -633,7 +738,6 @@ class GuildStatsTracker:
         week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
         
         with self.db:
-            # Weekly totals
             cursor = self.db.conn.execute("""
                 SELECT 
                     COUNT(DISTINCT guild_name) as guilds_tracked,
@@ -648,10 +752,8 @@ class GuildStatsTracker:
             
             weekly_totals = dict(cursor.fetchone())
             
-            # Top performers
-            velocity_report = self.get_progress_velocity_report(hours=168)  # 7 days
+            velocity_report = self.get_progress_velocity_report(hours=168)
             
-            # Daily breakdown
             cursor = self.db.conn.execute("""
                 SELECT 
                     DATE(timestamp) as date,
@@ -677,6 +779,5 @@ class GuildStatsTracker:
 
 if __name__ == "__main__":
     print("=== Guild Stats Tracker - Pure SQLite Version ===")
-    print("No JSON files will be generated - all data stored in SQLite database")
     tracker = GuildStatsTracker()
     tracker.run_update()

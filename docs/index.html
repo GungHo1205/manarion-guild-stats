@@ -6,8 +6,6 @@
     <title>Guild Stats Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
-    \
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
     <script>
       // Required to find the wasm file
@@ -322,7 +320,8 @@
         flex-wrap: wrap;
         justify-content: center;
       }
-      .chart-controls button {
+      .chart-controls button,
+      .dust-timespan-btn {
         background: var(--bg-tertiary);
         color: var(--text-primary);
         border: 1px solid var(--border);
@@ -335,10 +334,12 @@
         white-space: nowrap;
         text-align: center;
       }
-      .chart-controls button:hover {
+      .chart-controls button:hover,
+      .dust-timespan-btn:hover {
         border-color: var(--accent);
       }
-      .chart-controls button.active {
+      .chart-controls button.active,
+      .dust-timespan-btn.active {
         background-color: var(--accent);
         border-color: var(--accent);
         color: #fff;
@@ -642,11 +643,9 @@
       .leaderboard-rank.gold {
         color: #ffd700;
       }
-
       .leaderboard-rank.silver {
         color: #c0c0c0;
       }
-
       .leaderboard-rank.bronze {
         color: #cd7f32;
       }
@@ -672,26 +671,46 @@
         color: var(--success);
       }
 
-      .api-notice {
+      /* New styles for Mana Calculator for consistency */
+      .calculator-form-card {
         background: var(--bg-secondary);
         border: 1px solid var(--border);
-        border-left: 4px solid var(--accent);
-        border-radius: 12px;
-        padding: 20px;
-        margin-bottom: 20px;
+        border-radius: 15px;
+        padding: 30px;
+        max-width: 700px;
+        margin: 0 auto 30px auto;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
       }
 
-      .api-notice-header {
+      .calculator-form-card .search-box {
+        flex: 1;
+        max-width: 400px;
+      }
+
+      .calculator-form-card .search-box input {
+        text-align: center;
+        font-size: 1.1rem;
+        padding: 14px 20px;
+      }
+
+      .calculator-form-card .calculate-btn {
+        background: var(--accent);
+        color: #fff;
+        border: 1px solid var(--accent);
+        border-radius: 12px;
+        padding: 14px 28px;
+        cursor: pointer;
         font-size: 1rem;
         font-weight: 600;
-        color: var(--accent);
-        margin-bottom: 8px;
+        transition: all 0.3s;
+        white-space: nowrap;
       }
 
-      .api-notice-content {
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-        line-height: 1.5;
+      .calculator-form-card .calculate-btn:hover {
+        opacity: 0.9;
       }
 
       @media (max-width: 768px) {
@@ -725,21 +744,15 @@
           flex-direction: column;
           text-align: center;
         }
+        .calculator-form-card {
+          flex-direction: column;
+          align-items: stretch;
+        }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-- API Notice -->
-      <div class="api-notice" id="apiNotice" style="display: none">
-        <div class="api-notice-header">API Server Required</div>
-        <div class="api-notice-content">
-          This version requires the API server to be running. Start it with:
-          <code>python api.py</code><br />
-          If the API is not available, some features may not work properly.
-        </div>
-      </div>
-
       <nav class="navbar">
         <a class="nav-link active" data-section="dashboard">Dashboard</a>
         <a class="nav-link" data-section="nexus-charts">Nexus Progress</a>
@@ -749,6 +762,9 @@
           >Item Price Predictor</a
         >
         <a class="nav-link" data-section="leaderboards">Leaderboards</a>
+        <a class="nav-link" data-section="mana-calculator"
+          >Mana Dust Calculator</a
+        >
       </nav>
 
       <!-- Dashboard Section -->
@@ -1111,6 +1127,24 @@
           <button class="leaderboard-btn" data-type="study">
             Top Study Upgrades
           </button>
+          <button class="leaderboard-btn" data-type="dust">
+            Daily Dust Income
+          </button>
+        </div>
+
+        <!-- Sub-controls for the dust leaderboard -->
+        <div
+          id="dustLeaderboardControls"
+          class="chart-controls"
+          style="display: none; justify-content: center; margin-bottom: 30px"
+        >
+          <div class="control-group">
+            <button class="dust-timespan-btn" data-days="1">1D</button>
+            <button class="dust-timespan-btn" data-days="3">3D</button>
+            <button class="dust-timespan-btn active" data-days="7">7D</button>
+            <button class="dust-timespan-btn" data-days="14">14D</button>
+            <button class="dust-timespan-btn" data-days="30">30D</button>
+          </div>
         </div>
 
         <div id="leaderboardLoading" class="loading">
@@ -1121,6 +1155,60 @@
           class="leaderboard-list"
           style="display: none"
         ></div>
+      </div>
+
+      <!-- Mana Dust Calculator Section -->
+      <div id="mana-calculator" class="page-section">
+        <header class="header">
+          <h1>Mana Dust Income Calculator</h1>
+          <p>
+            Estimate a player's mana dust income based on their current stats.
+          </p>
+        </header>
+
+        <div class="calculator-form-card">
+          <div class="search-box">
+            <input
+              type="text"
+              id="playerNameInput"
+              placeholder="Enter player name (e.g., matthi)"
+            />
+          </div>
+          <button id="calculateManaDustBtn" class="calculate-btn">
+            Calculate
+          </button>
+        </div>
+
+        <div
+          id="manaCalculatorNotice"
+          class="important-notice"
+          style="
+            display: none;
+            margin-top: 20px;
+            border-left-color: var(--accent);
+          "
+        >
+          <div
+            id="manaCalculatorNoticeContent"
+            class="notice-content"
+            style="color: var(--text-secondary)"
+          ></div>
+        </div>
+
+        <div id="manaCalculatorLoading" class="loading" style="display: none">
+          Fetching player data and calculating...
+        </div>
+        <div id="manaCalculatorError" class="error" style="display: none">
+          <!-- Error messages will appear here -->
+        </div>
+
+        <div
+          id="manaCalculatorResults"
+          class="stats-overview"
+          style="display: none; margin-top: 40px"
+        >
+          <!-- Results will be injected here by JavaScript -->
+        </div>
       </div>
     </div>
 
@@ -1133,8 +1221,6 @@
       let favoriteGuilds = JSON.parse(
         localStorage.getItem("favoriteGuilds") || "[]"
       );
-      const API_BASE_URL = "http://localhost:8000/api";
-      let apiAvailable = false;
 
       const chartColors = [
         "#ec4899",
@@ -1149,7 +1235,7 @@
         "#c084fc",
       ];
 
-      // --- NEW: Database Initialization ---
+      // --- Database Initialization ---
       async function initializeDatabase() {
         try {
           const SQL = await initSqlJs(config);
@@ -1171,7 +1257,6 @@
 
       // Initialization
       document.addEventListener("DOMContentLoaded", async () => {
-        document.getElementById("apiNotice").style.display = "none"; // Hide API notice
         const dbReady = await initializeDatabase();
         if (dbReady) {
           loadAllData();
@@ -1181,7 +1266,6 @@
 
       async function loadAllData() {
         try {
-          // --- MODIFIED: Fetch latest data using SQL ---
           const latestSnapshotQuery = `
             SELECT * FROM (
                 SELECT *, ROW_NUMBER() OVER(PARTITION BY guild_name ORDER BY timestamp DESC) as rn
@@ -1200,7 +1284,6 @@
             columns.forEach((col, i) => {
               guild[col] = row[i];
             });
-            // Match original JSON structure for compatibility
             guild.GuildName = guild.guild_name;
             guild.NexusLevel = guild.nexus_level;
             guild.StudyLevel = guild.study_level;
@@ -1220,13 +1303,10 @@
           document.getElementById("guildGrid").style.display = "grid";
           dataLoaded = true;
 
-          // Hide loading indicators
           document.getElementById("nexusChartLoading").style.display = "none";
           document.getElementById("studyChartLoading").style.display = "none";
           document.getElementById("marketChartLoading").style.display = "none";
-          document.getElementById("leaderboardLoading").style.display = "none";
 
-          // Load leaderboard data
           updateLeaderboard("codex");
         } catch (error) {
           console.error("Error loading data from DB:", error);
@@ -1245,6 +1325,7 @@
         document
           .getElementById("searchInput")
           .addEventListener("input", renderGuilds);
+
         document.querySelectorAll(".chart-timespan-btn").forEach((btn) =>
           btn.addEventListener("click", (e) => {
             const chartType = e.target.dataset.chart;
@@ -1255,6 +1336,7 @@
             updateGuildChart(chartType);
           })
         );
+
         document.querySelectorAll(".market-timespan-btn").forEach((btn) =>
           btn.addEventListener("click", (e) => {
             document
@@ -1264,6 +1346,7 @@
             updateMarketChart();
           })
         );
+
         document.querySelectorAll(".predictor-period-btn").forEach((btn) =>
           btn.addEventListener("click", (e) => {
             document
@@ -1273,15 +1356,42 @@
             updatePrediction();
           })
         );
-        document.querySelectorAll(".leaderboard-btn").forEach((btn) =>
+
+        // --- MODIFIED: Leaderboard Event Listeners ---
+        document.querySelectorAll(".leaderboard-btn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             document
               .querySelectorAll(".leaderboard-btn")
               .forEach((b) => b.classList.remove("active"));
             e.target.classList.add("active");
-            updateLeaderboard(e.target.dataset.type);
-          })
-        );
+            const type = e.target.dataset.type;
+
+            document.getElementById("dustLeaderboardControls").style.display =
+              type === "dust" ? "flex" : "none";
+            document.getElementById("leaderboardContent").style.display =
+              "none";
+            document.getElementById("leaderboardLoading").style.display =
+              "block";
+
+            if (type === "dust") {
+              updateDustLeaderboard();
+            } else {
+              updateLeaderboard(type);
+            }
+          });
+        });
+
+        document.querySelectorAll(".dust-timespan-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            document
+              .querySelectorAll(".dust-timespan-btn")
+              .forEach((b) => b.classList.remove("active"));
+            e.target.classList.add("active");
+            updateDustLeaderboard();
+          });
+        });
+        // --- End of Modified Listeners ---
+
         document
           .getElementById("nexusAggregation")
           .addEventListener("change", () => updateGuildChart("nexus"));
@@ -1291,6 +1401,7 @@
         document
           .getElementById("marketAggregation")
           .addEventListener("change", () => updateMarketChart());
+
         setupDropdown("nexusGuildSelectorBtn", "nexusGuildSelectorList", () =>
           updateGuildChart("nexus")
         );
@@ -1299,12 +1410,24 @@
         );
         setupDropdown("itemSelectBtn", "itemSelectDropdown");
         setupDropdown("predictorItemSelectBtn", "predictorItemSelectDropdown");
+
         document
           .getElementById("itemSearchInput")
           .addEventListener("input", filterItems);
         document
           .getElementById("predictorItemSearchInput")
           .addEventListener("input", filterPredictorItems);
+
+        document
+          .getElementById("calculateManaDustBtn")
+          .addEventListener("click", handleManaDustCalculation);
+        document
+          .getElementById("playerNameInput")
+          .addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+              handleManaDustCalculation();
+            }
+          });
       }
 
       function setupDropdown(btnId, listId, onChangeCallback) {
@@ -1338,6 +1461,7 @@
           .querySelectorAll(".page-section")
           .forEach((s) => s.classList.remove("active"));
         document.getElementById(targetId).classList.add("active");
+
         if (dataLoaded) {
           if (targetId === "nexus-charts" && !guildNexusChart)
             setTimeout(() => updateGuildChart("nexus"), 100);
@@ -1345,9 +1469,17 @@
             setTimeout(() => updateGuildChart("study"), 100);
           if (targetId === "item-prices" && !marketPriceChart)
             setTimeout(() => updateMarketChart(), 100);
-          if (targetId === "leaderboards")
-            document.getElementById("leaderboardContent").style.display =
-              "grid";
+          if (targetId === "leaderboards") {
+            const activeBtn = document.querySelector(".leaderboard-btn.active");
+            if (activeBtn) {
+              const type = activeBtn.dataset.type;
+              if (type === "dust") {
+                updateDustLeaderboard();
+              } else {
+                updateLeaderboard(type);
+              }
+            }
+          }
         }
       }
 
@@ -1374,7 +1506,6 @@
         });
       }
 
-      // --- MODIFIED: Get dashboard data via SQL ---
       function updateDashboard() {
         if (!allGuildsData || allGuildsData.length === 0) return;
         const avg = (key) =>
@@ -1497,7 +1628,6 @@
           .join("");
       }
 
-      // --- MODIFIED: Populate selectors from DB ---
       function populateGuildSelectors() {
         const result = db.exec(
           "SELECT DISTINCT guild_name FROM guild_snapshots ORDER BY guild_name"
@@ -1551,7 +1681,6 @@
         btn.textContent = `${count} Guild${count !== 1 ? "s" : ""} Selected`;
       }
 
-      // --- MODIFIED: Charting functions use SQL ---
       function updateGuildChart(chartType) {
         updateSelectedGuildCount(chartType);
         const selectedGuilds = Array.from(
@@ -1619,7 +1748,6 @@
         ).style.display = "block";
       }
 
-      // --- MODIFIED: Populate item selectors from DB ---
       function populateItemSelector() {
         const result = db.exec(
           "SELECT DISTINCT item_name FROM market_prices ORDER BY item_name"
@@ -1631,7 +1759,6 @@
         }
         const items = result[0].values.flat();
         const itemList = document.getElementById("itemList");
-        // Simplified: No categories, just a list
         itemList.innerHTML = items
           .map(
             (itemName) =>
@@ -1662,7 +1789,6 @@
         }
       }
 
-      // --- NOTE: This function is simplified as categories are not in the DB ---
       function filterItems() {
         const term = document
           .getElementById("itemSearchInput")
@@ -1789,11 +1915,15 @@
         ).style.display = "block";
       }
 
-      // --- MODIFIED: Leaderboard function now uses SQL ---
+      // --- MODIFIED: Leaderboard function uses SQL, now handles codex, nexus, study ---
       function updateLeaderboard(type) {
-        document.getElementById("leaderboardContent").style.display = "grid";
-        let valueKey = "";
-        let formatValue = (val) => val;
+        document.getElementById("leaderboardLoading").style.display = "block";
+        const contentDiv = document.getElementById("leaderboardContent");
+        contentDiv.style.display = "none";
+        contentDiv.innerHTML = "";
+
+        let valueKey = "",
+          formatValue = (val) => val;
 
         switch (type) {
           case "codex":
@@ -1810,6 +1940,12 @@
             break;
         }
 
+        if (!valueKey) {
+          console.error("updateLeaderboard called with invalid type:", type);
+          document.getElementById("leaderboardLoading").style.display = "none";
+          return;
+        }
+
         const query = `
             SELECT guild_name, ${valueKey} FROM (
                 SELECT *, ROW_NUMBER() OVER(PARTITION BY guild_name ORDER BY timestamp DESC) as rn
@@ -1817,56 +1953,152 @@
             ) WHERE rn = 1 AND ${valueKey} > 0 ORDER BY ${valueKey} DESC;
         `;
         const result = db.exec(query);
-        if (!result || result.length === 0) {
-          document.getElementById(
-            "leaderboardContent"
-          ).innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-secondary);">No progress data available for this category today.</p>`;
-          return;
+        if (!result || result.length === 0 || result[0].values.length === 0) {
+          contentDiv.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-secondary);">No progress data available for this category today.</p>`;
+        } else {
+          const columns = result[0].columns;
+          const sortedGuilds = result[0].values.map((row) => {
+            let guild = {};
+            columns.forEach((col, i) => (guild[col] = row[i]));
+            return guild;
+          });
+
+          contentDiv.innerHTML = sortedGuilds
+            .map((guild, index) => {
+              const rank = index + 1;
+              let rankClass = "",
+                rankDisplay = `${rank}th`;
+              if (rank === 1) {
+                rankClass = "gold";
+                rankDisplay = "1st";
+              } else if (rank === 2) {
+                rankClass = "silver";
+                rankDisplay = "2nd";
+              } else if (rank === 3) {
+                rankClass = "bronze";
+                rankDisplay = "3rd";
+              }
+
+              const guildName = guild.guild_name;
+              return `
+                <div class="leaderboard-item ${
+                  isFavorite(guildName) ? "favorite" : ""
+                }">
+                  <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
+                  <div class="leaderboard-info">
+                    <div class="leaderboard-guild">${
+                      isFavorite(guildName) ? "★ " : ""
+                    }${guildName}</div>
+                    <div class="leaderboard-stat"><span class="leaderboard-value">${formatValue(
+                      guild[valueKey]
+                    )}</span></div>
+                  </div>
+                </div>`;
+            })
+            .join("");
         }
 
-        const columns = result[0].columns;
-        const sortedGuilds = result[0].values.map((row) => {
-          let guild = {};
-          columns.forEach((col, i) => (guild[col] = row[i]));
-          return guild;
-        });
-
-        document.getElementById("leaderboardContent").innerHTML = sortedGuilds
-          .map((guild, index) => {
-            const rank = index + 1;
-            let rankClass = "",
-              rankDisplay = rank;
-            if (rank === 1) {
-              rankClass = "gold";
-              rankDisplay = "1st";
-            } else if (rank === 2) {
-              rankClass = "silver";
-              rankDisplay = "2nd";
-            } else if (rank === 3) {
-              rankClass = "bronze";
-              rankDisplay = "3rd";
-            }
-
-            const guildName = guild.guild_name;
-            return `
-            <div class="leaderboard-item ${
-              isFavorite(guildName) ? "favorite" : ""
-            }">
-              <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
-              <div class="leaderboard-info">
-                <div class="leaderboard-guild">${
-                  isFavorite(guildName) ? "★ " : ""
-                }${guildName}</div>
-                <div class="leaderboard-stat"><span class="leaderboard-value">${formatValue(
-                  guild[valueKey]
-                )}</span></div>
-              </div>
-            </div>`;
-          })
-          .join("");
+        document.getElementById("leaderboardLoading").style.display = "none";
+        contentDiv.style.display = "grid";
       }
 
-      // --- Prediction functions remain mostly the same, but get data from DB ---
+      // --- NEW: Function to load Daily Dust Income leaderboard ---
+      async function updateDustLeaderboard() {
+        const contentDiv = document.getElementById("leaderboardContent");
+        const loadingDiv = document.getElementById("leaderboardLoading");
+
+        loadingDiv.style.display = "block";
+        contentDiv.style.display = "none";
+        contentDiv.innerHTML = ""; // Clear previous results
+
+        try {
+          const days = document.querySelector(".dust-timespan-btn.active")
+            .dataset.days;
+          const startDate = new Date();
+          startDate.setDate(startDate.getDate() - parseInt(days));
+          const startDateString = startDate.toISOString().split("T")[0]; // YYYY-MM-DD
+
+          const query = `
+                SELECT
+                    player_name,
+                    AVG(daily_income) as avg_income
+                FROM
+                    player_dust_income
+                WHERE
+                    date >= :startDate
+                GROUP BY
+                    player_name
+                HAVING
+                    AVG(daily_income) > 0
+                ORDER BY
+                    avg_income DESC
+                LIMIT 100;
+            `;
+          const stmt = db.prepare(query);
+          stmt.bind({ ":startDate": startDateString });
+
+          let results = [];
+          while (stmt.step()) {
+            results.push(stmt.getAsObject());
+          }
+          stmt.free();
+
+          if (results.length === 0) {
+            contentDiv.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-secondary);">No dust income data found for the selected period.</p>`;
+          } else {
+            contentDiv.innerHTML = results
+              .map((player, index) => {
+                const rank = index + 1;
+                let rankClass = "",
+                  rankDisplay = `${rank}th`;
+                if (rank === 1) {
+                  rankClass = "gold";
+                  rankDisplay = "1st";
+                } else if (rank === 2) {
+                  rankClass = "silver";
+                  rankDisplay = "2nd";
+                } else if (rank === 3) {
+                  rankClass = "bronze";
+                  rankDisplay = "3rd";
+                }
+
+                return `
+                    <div class="leaderboard-item">
+                      <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
+                      <div class="leaderboard-info">
+                        <div class="leaderboard-guild">${
+                          player.player_name
+                        }</div>
+                        <div class="leaderboard-stat">
+                           <span class="leaderboard-value">${formatDustValue(
+                             player.avg_income
+                           )}</span> / day avg
+                        </div>
+                      </div>
+                    </div>`;
+              })
+              .join("");
+          }
+        } catch (e) {
+          console.error("Error loading dust leaderboard:", e);
+          contentDiv.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--error);">Failed to load dust leaderboard data.</p>`;
+        } finally {
+          loadingDiv.style.display = "none";
+          contentDiv.style.display = "grid";
+        }
+      }
+
+      function formatDustValue(amount) {
+        if (amount >= 1e12) return (amount / 1e12).toFixed(2) + "T";
+        if (amount >= 1e9) return (amount / 1e9).toFixed(2) + "B";
+        if (amount >= 1e6) return (amount / 1e6).toFixed(2) + "M";
+        if (amount >= 1e3) return (amount / 1e3).toFixed(2) + "K";
+        return amount.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        });
+      }
+
       function updatePrediction() {
         const selectedItem = document.getElementById("predictorItemSelectBtn")
           .dataset.selected;
@@ -1893,7 +2125,6 @@
 
         if (prices.length < 2) return;
 
-        // Remap keys for compatibility with original function
         const remappedPrices = prices.map((p) => ({
           buy: p.buy_price,
           sell: p.sell_price,
@@ -2009,7 +2240,198 @@
         );
       }
 
-      // --- UTILITY FUNCTIONS (Unchanged, but still needed) ---
+      async function handleManaDustCalculation() {
+        const playerName = document
+          .getElementById("playerNameInput")
+          .value.trim();
+        if (!playerName) {
+          showManaCalculatorError("Please enter a player name.");
+          return;
+        }
+
+        const loadingDiv = document.getElementById("manaCalculatorLoading");
+        const errorDiv = document.getElementById("manaCalculatorError");
+        const resultsDiv = document.getElementById("manaCalculatorResults");
+        const noticeDiv = document.getElementById("manaCalculatorNotice");
+
+        loadingDiv.style.display = "block";
+        errorDiv.style.display = "none";
+        resultsDiv.style.display = "none";
+        noticeDiv.style.display = "none";
+
+        try {
+          const playerNameLower = playerName.toLowerCase();
+          const apiUrl = `https://api.manarion.com/players/${playerNameLower}`;
+          const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(
+            apiUrl
+          )}`;
+          const response = await fetch(proxyUrl);
+
+          if (!response.ok) {
+            throw new Error(
+              `Failed to fetch data from the API proxy. Status: ${response.status}`
+            );
+          }
+
+          const responseText = await response.text();
+          let playerData;
+
+          try {
+            playerData = JSON.parse(responseText);
+          } catch (jsonError) {
+            console.error("Failed to parse player data as JSON.", jsonError);
+            throw new Error(`Player '${playerName}' not found.`);
+          }
+
+          let calculationNotice = "";
+
+          const totalBoostsObject = playerData.TotalBoosts || {};
+          const baseManaDustRaw = Number(totalBoostsObject["101"]);
+          if (!isFinite(baseManaDustRaw))
+            calculationNotice +=
+              "Could not find Base Mana Dust Boost (ID 101), defaulting to 0%. ";
+
+          const manaDustRaw = Number(totalBoostsObject["121"]);
+          if (!isFinite(manaDustRaw))
+            calculationNotice +=
+              "Could not find Mana Dust Boost (ID 121), defaulting to 0%. ";
+
+          const baseFactor =
+            1 + (isFinite(baseManaDustRaw) ? baseManaDustRaw : 0) / 100;
+          const totalFactor =
+            1 + (isFinite(manaDustRaw) ? manaDustRaw : 0) / 100;
+
+          const enemyLevel = playerData.Enemy;
+          let enemyBaseManaDrop;
+          if (enemyLevel > 150000) {
+            const baseAt150k =
+              0.0001 * Math.pow(150150, 2) +
+              Math.pow(150150, 1.2) +
+              10 * 150150;
+            const multiplier = Math.pow(1.01, (enemyLevel - 150000) / 2000);
+            enemyBaseManaDrop = multiplier * baseAt150k;
+          } else {
+            const x = enemyLevel + 150;
+            enemyBaseManaDrop =
+              0.0001 * Math.pow(x, 2) + Math.pow(x, 1.2) + 10 * x;
+          }
+
+          const finalDropPerKill = enemyBaseManaDrop * baseFactor * totalFactor;
+          const killsPerHour = 3600 / 3;
+          const incomePerHour = finalDropPerKill * killsPerHour;
+          const incomePerDay = incomePerHour * 24;
+
+          renderManaDustResults(
+            {
+              perKill: finalDropPerKill,
+              perHour: incomePerHour,
+              perDay: incomePerDay,
+              perWeek: incomePerDay * 7,
+              perMonth: incomePerDay * 30,
+            },
+            calculationNotice.trim()
+          );
+        } catch (error) {
+          console.error("Mana Dust Calculator Error:", error);
+          showManaCalculatorError(error.message);
+        } finally {
+          loadingDiv.style.display = "none";
+        }
+      }
+
+      function renderManaDustResults(income, notice = "") {
+        const resultsDiv = document.getElementById("manaCalculatorResults");
+        const noticeDiv = document.getElementById("manaCalculatorNotice");
+        const noticeContent = document.getElementById(
+          "manaCalculatorNoticeContent"
+        );
+
+        resultsDiv.innerHTML = `
+            <div class="stat-card"><h3>${formatManaDust(
+              income.perKill
+            )}</h3><p>Per Kill (3s)</p></div>
+            <div class="stat-card"><h3>${formatManaDust(
+              income.perHour
+            )}</h3><p>Per Hour</p></div>
+            <div class="stat-card"><h3>${formatManaDust(
+              income.perDay
+            )}</h3><p>Per Day</p></div>
+            <div class="stat-card"><h3>${formatManaDust(
+              income.perWeek
+            )}</h3><p>Per Week</p></div>
+            <div class="stat-card"><h3>${formatManaDust(
+              income.perMonth
+            )}</h3><p>Per Month (30d)</p></div>
+        `;
+
+        if (notice) {
+          noticeContent.textContent = `Note: ${notice} The calculation below reflects these defaults.`;
+          noticeDiv.style.display = "block";
+        } else {
+          noticeDiv.style.display = "none";
+        }
+        resultsDiv.style.display = "grid";
+      }
+
+      function showManaCalculatorError(message) {
+        const errorDiv = document.getElementById("manaCalculatorError");
+        errorDiv.textContent = message;
+        errorDiv.style.display = "block";
+        document.getElementById("manaCalculatorResults").style.display = "none";
+        document.getElementById("manaCalculatorNotice").style.display = "none";
+      }
+
+      function formatManaDust(amount) {
+        if (typeof amount !== "number" || !isFinite(amount)) return "0.00";
+        if (amount < 1000)
+          return amount.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        const tier = Math.floor(Math.log10(Math.abs(amount)) / 3);
+        const suffix = [
+          "",
+          "K",
+          "M",
+          "B",
+          "T",
+          "q",
+          "Q",
+          "s",
+          "S",
+          "O",
+          "N",
+          "D",
+          "UD",
+          "DD",
+          "TD",
+          "qD",
+          "QD",
+          "sD",
+          "SD",
+          "OD",
+          "ND",
+          "V",
+          "UV",
+          "DV",
+          "TV",
+          "qV",
+          "QV",
+          "sV",
+          "SV",
+          "OV",
+          "NV",
+          "t",
+          "ut",
+          "dt",
+          "tt",
+        ][tier];
+        if (!suffix) return amount.toExponential(2);
+        const scale = Math.pow(10, tier * 3);
+        return (amount / scale).toFixed(2) + suffix;
+      }
+
+      // --- UTILITY FUNCTIONS ---
       function aggregateDataByDay(data) {
         const dailyData = {};
         data.forEach((point) => {
