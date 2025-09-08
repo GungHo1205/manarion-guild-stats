@@ -321,7 +321,8 @@
         justify-content: center;
       }
       .chart-controls button,
-      .dust-timespan-btn {
+      .dust-timespan-btn,
+      .guild-timespan-btn {
         background: var(--bg-tertiary);
         color: var(--text-primary);
         border: 1px solid var(--border);
@@ -335,11 +336,13 @@
         text-align: center;
       }
       .chart-controls button:hover,
-      .dust-timespan-btn:hover {
+      .dust-timespan-btn:hover,
+      .guild-timespan-btn:hover {
         border-color: var(--accent);
       }
       .chart-controls button.active,
-      .dust-timespan-btn.active {
+      .dust-timespan-btn.active,
+      .guild-timespan-btn.active {
         background-color: var(--accent);
         border-color: var(--accent);
         color: #fff;
@@ -1132,6 +1135,21 @@
           </button>
         </div>
 
+        <!-- Sub-controls for Guild leaderboards -->
+        <div
+          id="guildLeaderboardControls"
+          class="chart-controls"
+          style="display: flex; justify-content: center; margin-bottom: 30px"
+        >
+          <div class="control-group">
+            <button class="guild-timespan-btn active" data-days="1">1D</button>
+            <button class="guild-timespan-btn" data-days="3">3D</button>
+            <button class="guild-timespan-btn" data-days="7">7D</button>
+            <button class="guild-timespan-btn" data-days="14">14D</button>
+            <button class="guild-timespan-btn" data-days="30">30D</button>
+          </div>
+        </div>
+
         <!-- Sub-controls for the dust leaderboard -->
         <div
           id="dustLeaderboardControls"
@@ -1357,7 +1375,7 @@
           })
         );
 
-        // --- MODIFIED: Leaderboard Event Listeners ---
+        // --- Leaderboard Event Listeners ---
         document.querySelectorAll(".leaderboard-btn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             document
@@ -1366,8 +1384,13 @@
             e.target.classList.add("active");
             const type = e.target.dataset.type;
 
+            const isGuildLeaderboard =
+              type === "codex" || type === "nexus" || type === "study";
+            document.getElementById("guildLeaderboardControls").style.display =
+              isGuildLeaderboard ? "flex" : "none";
             document.getElementById("dustLeaderboardControls").style.display =
               type === "dust" ? "flex" : "none";
+
             document.getElementById("leaderboardContent").style.display =
               "none";
             document.getElementById("leaderboardLoading").style.display =
@@ -1390,7 +1413,19 @@
             updateDustLeaderboard();
           });
         });
-        // --- End of Modified Listeners ---
+
+        document.querySelectorAll(".guild-timespan-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            document
+              .querySelectorAll(".guild-timespan-btn")
+              .forEach((b) => b.classList.remove("active"));
+            e.target.classList.add("active");
+            const activeType = document.querySelector(".leaderboard-btn.active")
+              .dataset.type;
+            updateLeaderboard(activeType);
+          });
+        });
+        // --- End of Leaderboard Listeners ---
 
         document
           .getElementById("nexusAggregation")
@@ -1915,28 +1950,35 @@
         ).style.display = "block";
       }
 
-      // --- MODIFIED: Leaderboard function uses SQL, now handles codex, nexus, study ---
-      function updateLeaderboard(type) {
+      async function updateLeaderboard(type) {
         document.getElementById("leaderboardLoading").style.display = "block";
         const contentDiv = document.getElementById("leaderboardContent");
         contentDiv.style.display = "none";
         contentDiv.innerHTML = "";
 
         let valueKey = "",
-          formatValue = (val) => val;
+          formatValue = (val) => val,
+          statLabel = "",
+          queryType = "sum";
 
         switch (type) {
           case "codex":
             valueKey = "codex_cost";
-            formatValue = (val) => (val || 0).toLocaleString() + " Codex";
+            formatValue = (val) => (val || 0).toLocaleString();
+            statLabel = "Codex Spent";
+            queryType = "sum";
             break;
           case "nexus":
-            valueKey = "nexus_progress";
-            formatValue = (val) => "+" + (val || 0) + " Levels";
+            valueKey = "nexus_level";
+            formatValue = (val) => "+" + (val || 0);
+            statLabel = "Levels Gained";
+            queryType = "diff";
             break;
           case "study":
-            valueKey = "study_progress";
-            formatValue = (val) => "+" + (val || 0) + " Levels";
+            valueKey = "study_level";
+            formatValue = (val) => "+" + (val || 0);
+            statLabel = "Levels Gained";
+            queryType = "diff";
             break;
         }
 
@@ -1946,63 +1988,127 @@
           return;
         }
 
-        const query = `
-            SELECT guild_name, ${valueKey} FROM (
-                SELECT *, ROW_NUMBER() OVER(PARTITION BY guild_name ORDER BY timestamp DESC) as rn
-                FROM guild_snapshots
-            ) WHERE rn = 1 AND ${valueKey} > 0 ORDER BY ${valueKey} DESC;
-        `;
-        const result = db.exec(query);
-        if (!result || result.length === 0 || result[0].values.length === 0) {
-          contentDiv.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-secondary);">No progress data available for this category today.</p>`;
-        } else {
-          const columns = result[0].columns;
-          const sortedGuilds = result[0].values.map((row) => {
-            let guild = {};
-            columns.forEach((col, i) => (guild[col] = row[i]));
-            return guild;
-          });
+        try {
+          const days = document.querySelector(
+            "#guildLeaderboardControls .guild-timespan-btn.active"
+          ).dataset.days;
+          const startDate = new Date();
+          startDate.setDate(startDate.getDate() - parseInt(days));
+          const startDateString = startDate.toISOString();
 
-          contentDiv.innerHTML = sortedGuilds
-            .map((guild, index) => {
-              const rank = index + 1;
-              let rankClass = "",
-                rankDisplay = `${rank}th`;
-              if (rank === 1) {
-                rankClass = "gold";
-                rankDisplay = "1st";
-              } else if (rank === 2) {
-                rankClass = "silver";
-                rankDisplay = "2nd";
-              } else if (rank === 3) {
-                rankClass = "bronze";
-                rankDisplay = "3rd";
-              }
+          let query = "";
 
-              const guildName = guild.guild_name;
-              return `
-                <div class="leaderboard-item ${
-                  isFavorite(guildName) ? "favorite" : ""
-                }">
-                  <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
-                  <div class="leaderboard-info">
-                    <div class="leaderboard-guild">${
-                      isFavorite(guildName) ? "★ " : ""
-                    }${guildName}</div>
-                    <div class="leaderboard-stat"><span class="leaderboard-value">${formatValue(
-                      guild[valueKey]
-                    )}</span></div>
-                  </div>
-                </div>`;
-            })
-            .join("");
+          if (queryType === "sum") {
+            query = `
+                    SELECT
+                        guild_name,
+                        SUM(${valueKey}) as total_progress
+                    FROM
+                        guild_snapshots
+                    WHERE
+                        timestamp >= :startDate
+                    GROUP BY
+                        guild_name
+                    HAVING
+                        total_progress > 0
+                    ORDER BY
+                        total_progress DESC
+                    LIMIT 100;
+                `;
+          } else {
+            // queryType is 'diff'
+            query = `
+                    WITH RankedSnapshots AS (
+                        SELECT
+                            guild_name,
+                            ${valueKey},
+                            ROW_NUMBER() OVER (PARTITION BY guild_name ORDER BY timestamp ASC) as rn_asc,
+                            ROW_NUMBER() OVER (PARTITION BY guild_name ORDER BY timestamp DESC) as rn_desc
+                        FROM
+                            guild_snapshots
+                        WHERE
+                            timestamp >= :startDate
+                    ),
+                    StartEndLevels AS (
+                        SELECT
+                            guild_name,
+                            MAX(CASE WHEN rn_asc = 1 THEN ${valueKey} ELSE NULL END) as start_level,
+                            MAX(CASE WHEN rn_desc = 1 THEN ${valueKey} ELSE NULL END) as end_level
+                        FROM
+                            RankedSnapshots
+                        GROUP BY
+                            guild_name
+                    )
+                    SELECT
+                        guild_name,
+                        end_level - start_level as total_progress
+                    FROM
+                        StartEndLevels
+                    WHERE
+                        total_progress > 0 AND start_level IS NOT NULL AND end_level IS NOT NULL
+                    ORDER BY
+                        total_progress DESC
+                    LIMIT 100;
+                `;
+          }
+
+          const stmt = db.prepare(query);
+          stmt.bind({ ":startDate": startDateString });
+
+          let results = [];
+          while (stmt.step()) {
+            results.push(stmt.getAsObject());
+          }
+          stmt.free();
+
+          if (results.length === 0) {
+            contentDiv.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-secondary);">No progress data found for the selected period.</p>`;
+          } else {
+            contentDiv.innerHTML = results
+              .map((guild, index) => {
+                const rank = index + 1;
+                let rankClass = "",
+                  rankDisplay = `${rank}th`;
+                if (rank === 1) {
+                  rankClass = "gold";
+                  rankDisplay = "1st";
+                } else if (rank === 2) {
+                  rankClass = "silver";
+                  rankDisplay = "2nd";
+                } else if (rank === 3) {
+                  rankClass = "bronze";
+                  rankDisplay = "3rd";
+                }
+
+                const guildName = guild.guild_name;
+                return `
+                    <div class="leaderboard-item ${
+                      isFavorite(guildName) ? "favorite" : ""
+                    }">
+                      <div class="leaderboard-rank ${rankClass}">${rankDisplay}</div>
+                      <div class="leaderboard-info">
+                        <div class="leaderboard-guild">${
+                          isFavorite(guildName) ? "★ " : ""
+                        }${guildName}</div>
+                        <div class="leaderboard-stat">
+                            <span class="leaderboard-value">${formatValue(
+                              guild.total_progress
+                            )}</span> ${statLabel}
+                        </div>
+                      </div>
+                    </div>`;
+              })
+              .join("");
+          }
+        } catch (e) {
+          console.error(`Error loading ${type} leaderboard:`, e);
+          contentDiv.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--error);">Failed to load ${type} leaderboard data.</p>`;
+        } finally {
+          document.getElementById("leaderboardLoading").style.display = "none";
+          contentDiv.style.display = "grid";
         }
-
-        document.getElementById("leaderboardLoading").style.display = "none";
-        contentDiv.style.display = "grid";
       }
 
-      // --- NEW: Function to load Daily Dust Income leaderboard ---
       async function updateDustLeaderboard() {
         const contentDiv = document.getElementById("leaderboardContent");
         const loadingDiv = document.getElementById("leaderboardLoading");
@@ -2012,8 +2118,9 @@
         contentDiv.innerHTML = ""; // Clear previous results
 
         try {
-          const days = document.querySelector(".dust-timespan-btn.active")
-            .dataset.days;
+          const days = document.querySelector(
+            "#dustLeaderboardControls .dust-timespan-btn.active"
+          ).dataset.days;
           const startDate = new Date();
           startDate.setDate(startDate.getDate() - parseInt(days));
           const startDateString = startDate.toISOString().split("T")[0]; // YYYY-MM-DD
