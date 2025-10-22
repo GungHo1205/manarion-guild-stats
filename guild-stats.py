@@ -412,6 +412,7 @@ class GuildStatsTracker:
 
             codex_exp_boost = base_boosts.get("100", 0)
             total_exp_boost = total_boosts.get("100", 0)
+            spire_boost = base_boosts.get("152", 0)
 
             boost_priority = [30, 31, 32, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
 
@@ -438,7 +439,7 @@ class GuildStatsTracker:
                             infusions_count = infusions if isinstance(infusions, (int, float)) else 0
                         
                         base_boost = equipment_item.get("Boosts", {}).get(boost_id_str, 0)
-                        equip_percent = (base_boost * (1 + 0.05 * infusions_count)) / 50
+                        equip_percent = (base_boost * (1 + 0.05 * infusions_count) * (1 + spire_boost/100)) / 50
                         totalEquipmentBoosts += equip_percent
                         
                     except Exception as e:
